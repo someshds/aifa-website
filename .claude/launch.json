@@ -4,7 +4,7 @@
     {
       "name": "tools-site",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8090", "--directory", "/Users/someshdeswardt/Documents/Claude/aifa/tools-site"],
+      "runtimeArgs": ["-m", "http.server", "8090", "--directory", "/Users/someshdeswardt/Claude/aifa/tools-site"],
       "port": 8090
     }
   ]
