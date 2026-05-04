@@ -141,9 +141,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-s
 .stat-label{font-size:.75rem;color:var(--text-muted);margin-top:.2rem}
 
 /* Pricing */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
-@media(max-width:720px){.pricing-grid{grid-template-columns:1fr}}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2rem}
+@media(max-width:900px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.pricing-grid{grid-template-columns:1fr}}
 .pricing-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;position:relative;display:flex;flex-direction:column}
+.pricing-setup{font-size:.85rem;color:var(--warning);margin-bottom:.75rem}
 .pricing-card.featured{border-color:var(--primary);box-shadow:0 0 40px rgba(124,58,237,.15)}
 .featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-size:.72rem;font-weight:700;padding:.3rem .9rem;border-radius:20px;white-space:nowrap}
 .pricing-name{font-size:.8rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
@@ -415,48 +417,68 @@ footer a{color:var(--primary-light);text-decoration:none}
   <p class="lead">No long-term contracts. Cancel any time. Most clients pay for their subscription in the first month.</p>
   <div class="pricing-grid">
     <div class="pricing-card">
-      <div class="pricing-name">Starter</div>
-      <div class="pricing-price">£297<span>/mo</span></div>
-      <div class="pricing-desc">Perfect for sole traders and micro-businesses wanting to automate the basics.</div>
+      <div class="pricing-name">Tier 0 — AI Quick Win</div>
+      <div class="pricing-price">£497<span>/mo</span></div>
+      <div class="pricing-setup">£500 one-off setup</div>
+      <div class="pricing-desc">Perfect for businesses wanting to automate the basics and see fast results.</div>
       <ul class="pricing-features">
         <li>AI chatbot on your website</li>
         <li>Lead capture &amp; CRM setup</li>
-        <li>Automated booking confirmations</li>
-        <li>Google review requests</li>
+        <li>Automated Google review requests</li>
+        <li>Appointment booking automation</li>
         <li>Monthly performance report</li>
       </ul>
       <a href="https://tools.aifusionautomations.com/#book-a-call" class="btn btn-secondary" style="text-align:center;justify-content:center">Book a Call →</a>
     </div>
     <div class="pricing-card featured">
       <div class="featured-badge">&#128293; Most Popular</div>
-      <div class="pricing-name">Growth</div>
-      <div class="pricing-price">£497<span>/mo</span></div>
-      <div class="pricing-desc">The full AI OS for established businesses ready to scale without hiring.</div>
+      <div class="pricing-name">Tier 1 — AI Starter</div>
+      <div class="pricing-price">£1,000<span>/mo</span></div>
+      <div class="pricing-setup">£2,500 one-off setup</div>
+      <div class="pricing-desc">The full AI starter kit for established businesses ready to scale.</div>
       <ul class="pricing-features">
-        <li>Everything in Starter</li>
-        <li>Multi-channel chatbot (web + social)</li>
-        <li>Full sales follow-up sequences</li>
-        <li>Appointment reminders &amp; no-show recovery</li>
-        <li>GoHighLevel CRM (full access)</li>
+        <li>Everything in Tier 0</li>
+        <li>Voice AI receptionist (24/7 call answering)</li>
+        <li>3 custom automation workflows</li>
+        <li>Full GoHighLevel CRM access</li>
+        <li>Multi-channel follow-up sequences</li>
         <li>Quarterly strategy review</li>
       </ul>
       <a href="https://tools.aifusionautomations.com/#book-a-call" class="btn btn-primary" style="text-align:center;justify-content:center">Book a Call →</a>
     </div>
     <div class="pricing-card">
-      <div class="pricing-name">Enterprise</div>
-      <div class="pricing-price">Custom</div>
-      <div class="pricing-desc">For multi-location businesses or complex workflows requiring bespoke automation.</div>
+      <div class="pricing-name">Tier 2 — AI Professional</div>
+      <div class="pricing-price">£2,000<span>/mo</span></div>
+      <div class="pricing-setup">£8,500 one-off setup</div>
+      <div class="pricing-desc">Advanced AI including document processing and complex multi-step workflows.</div>
       <ul class="pricing-features">
-        <li>Everything in Growth</li>
-        <li>Multi-location setup</li>
+        <li>Everything in Tier 1</li>
+        <li>AI document processing (invoices, POs, forms)</li>
+        <li>10 custom automation workflows</li>
+        <li>Multi-location support</li>
         <li>Custom API integrations</li>
+        <li>Monthly strategy review</li>
+      </ul>
+      <a href="https://tools.aifusionautomations.com/#book-a-call" class="btn btn-secondary" style="text-align:center;justify-content:center">Book a Call →</a>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-name">Tier 3 — AI Operations</div>
+      <div class="pricing-price">£4,000<span>/mo</span></div>
+      <div class="pricing-setup">£18,000 one-off setup</div>
+      <div class="pricing-desc">Full AI Operating System with bespoke integrations and dedicated support.</div>
+      <ul class="pricing-features">
+        <li>Everything in Tier 2</li>
+        <li>Full AI OS — complete business automation</li>
+        <li>Unlimited custom workflows</li>
+        <li>Custom integrations with your existing tools</li>
         <li>Dedicated account manager</li>
         <li>Priority support</li>
-        <li>Custom reporting</li>
+        <li>Weekly optimisation reviews</li>
       </ul>
       <a href="https://tools.aifusionautomations.com/#book-a-call" class="btn btn-secondary" style="text-align:center;justify-content:center">Talk to Us →</a>
     </div>
   </div>
+  <p style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:.95rem">Looking for the AI Receptionist add-on (£297/mo) or full feature comparison? <a href="pricing.html" style="color:var(--accent-light);text-decoration:underline">See full pricing →</a></p>
 </div>
 
 <!-- ── INDUSTRIES ── -->
@@ -563,7 +585,7 @@ footer a{color:var(--primary-light);text-decoration:none}
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">What does it cost?<span class="faq-arrow">▾</span></button>
-      <div class="faq-a"><p>AI Operating Systems start from £297/month. This typically pays for itself in the first month through recovered leads, time saved on admin, and improved review scores. We also offer one-off automation builds from £500 for businesses that want specific workflows without a full subscription.</p></div>
+      <div class="faq-a"><p>AI Operating Systems start from £497/month plus a £500 one-off setup fee (Tier 0 — AI Quick Win). This typically pays for itself in the first month through recovered leads, time saved on admin, and improved review scores. We also offer one-off automation builds from £500 for businesses that want specific workflows without a full subscription. <a href="pricing.html" style="color:var(--accent-light);text-decoration:underline">See full pricing →</a></p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Will it work with my existing software?<span class="faq-arrow">▾</span></button>
