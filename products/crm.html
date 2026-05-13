@@ -104,6 +104,37 @@ footer a{color:var(--primary-light);text-decoration:none}
 .breadcrumb a{color:var(--text-muted);text-decoration:none}
 .breadcrumb a:hover{color:var(--primary-light)}
 .breadcrumb span{margin:0 .35rem}
+
+/* Long-form additions */
+.prose-block{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-top:1.5rem}
+.prose-block p{color:var(--text-muted);font-size:1rem;line-height:1.7;margin-bottom:1rem}
+.prose-block p:last-child{margin-bottom:0}
+.prose-block strong{color:var(--text)}
+.prose-block .highlight{color:var(--accent-light);font-weight:600}
+.usecase-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:1.5rem}
+@media(max-width:700px){.usecase-grid{grid-template-columns:1fr}}
+.usecase-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.75rem}
+.usecase-card .industry{display:inline-block;background:rgba(6,182,212,.15);color:var(--accent-light);font-size:.7rem;font-weight:700;padding:.25rem .7rem;border-radius:14px;margin-bottom:.75rem;letter-spacing:.05em;text-transform:uppercase}
+.usecase-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.6rem}
+.usecase-card p{color:var(--text-muted);font-size:.92rem;line-height:1.6;margin-bottom:.6rem}
+.usecase-card .outcome{color:var(--success);font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:.4rem;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)}
+.faq-list{margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem}
+.faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.faq-item summary{padding:1.1rem 1.5rem;cursor:pointer;font-weight:600;color:var(--text);font-size:1rem;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:1.5rem;color:var(--primary-light);font-weight:300;transition:transform .2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item .faq-body{padding:0 1.5rem 1.25rem;color:var(--text-muted);font-size:.95rem;line-height:1.65}
+.faq-item .faq-body p{margin-bottom:.75rem}
+.faq-item .faq-body p:last-child{margin-bottom:0}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem}
+@media(max-width:700px){.related-grid{grid-template-columns:1fr}}
+.related-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-decoration:none;color:inherit;transition:all .25s;display:block}
+.related-card:hover{border-color:var(--primary);transform:translateY(-3px);box-shadow:0 8px 25px rgba(124,58,237,.12)}
+.related-card .related-icon{font-size:1.75rem;margin-bottom:.75rem}
+.related-card h3{font-size:1rem;font-weight:700;margin-bottom:.4rem;color:var(--text)}
+.related-card p{color:var(--text-muted);font-size:.85rem;line-height:1.5}
+.related-card .arrow{color:var(--primary-light);font-weight:600;font-size:.85rem;margin-top:.75rem;display:inline-block}
 </style>
 <link rel="stylesheet" href="/css/comparison-table.css">
 <meta name="twitter:card" content="summary_large_image">
@@ -144,6 +175,30 @@ footer a{color:var(--primary-light);text-decoration:none}
   <div class="btn-group">
     <a href="https://link.aifusionautomations.com/widget/booking/5MSAczS5HPvcvB5OSZ5f" class="btn btn-primary">Book a Free Demo</a>
     <a href="https://tools.aifusionautomations.com/roi-calculator.html" class="btn btn-secondary">Calculate Your ROI &#8594;</a>
+  </div>
+</div>
+
+
+<!-- ── The Problem ── -->
+<div class="section">
+  <div class="section-tag">The Problem</div>
+  <h2>The lead that fell through the cracks</h2>
+  <div class="prose-block">
+    <p>It's a familiar scene: a customer enquiry comes in by email, gets replied to on someone's phone, the follow-up sits in a Sent folder, the next conversation happens on WhatsApp, and a quote gets sent from a different inbox entirely. Three weeks later, you can't remember whether you ever heard back &mdash; and neither can your team.</p>
+    <p>The result, across the small-business landscape, is brutal: <span class="highlight">around half of all qualified leads never get a second touch</span>. Not because the lead was bad, but because nobody had a single place to look and see &ldquo;here's everyone in the middle of a conversation with us right now.&rdquo;</p>
+    <p>Spreadsheets help for a few weeks, then collapse under their own weight. Sticky notes get binned. The inbox becomes the CRM, and the inbox is a terrible CRM. By the time you're juggling three jobs at once, leads are slipping out faster than you can replace them.</p>
+    <p>A real CRM closes that gap &mdash; not by adding admin, but by <strong>doing the admin for you</strong>. Every call, email, text, form fill, and chat captured automatically against the contact, with a clear view of where every deal sits in your pipeline.</p>
+  </div>
+</div>
+
+<!-- ── What We Build ── -->
+<div class="section">
+  <div class="section-tag">What We Build</div>
+  <h2>A white-label CRM that fits the way you already work</h2>
+  <div class="prose-block">
+    <p>Our CRM is built on the GoHighLevel platform and configured from scratch for your business. We don't drop you into a generic template and wish you luck &mdash; we map your sales process, your custom fields, your tags, and your pipelines around how leads actually move through your business today.</p>
+    <p>Every conversation lands in one place. SMS, email, WhatsApp, Facebook Messenger, Instagram DMs, web chat, missed calls, voicemail transcripts &mdash; all flowing into a single unified inbox tied to the contact. <strong>One screen, every channel, no more app-switching.</strong></p>
+    <p>On top of that sits a visual pipeline that shows exactly where every deal is, what it's worth, what the next step is, and when you last touched it. The CRM nudges you when a deal goes stale, scores leads automatically based on engagement, and surfaces the hottest ones at the top of your list every morning.</p>
   </div>
 </div>
 
@@ -268,6 +323,103 @@ footer a{color:var(--primary-light);text-decoration:none}
   </div>
 </div>
 
+
+<!-- ── Use Cases ── -->
+<div class="section">
+  <div class="section-tag">In the Real World</div>
+  <h2>What this looks like for your industry</h2>
+  <p class="lead">Real-world patterns we've built for UK service businesses. Yours will look similar &mdash; tuned to your operation.</p>
+  <div class="usecase-grid">
+    <div class="usecase-card">
+      <span class="industry">Trades & home services</span>
+      <h3>Plumbers, electricians, chimney sweeps</h3>
+      <p>Every job enquiry &mdash; whether it came in by call, web form, or Facebook message &mdash; lands in one pipeline. You see at a glance who's quoted, who's booked, who needs a follow-up, and which jobs are due to invoice.</p>
+      <div class="outcome">&check; Avg follow-up time down from 3 days to 4 hours</div>
+    </div>
+    <div class="usecase-card">
+      <span class="industry">Health & clinics</span>
+      <h3>Chiropractors, dentists, physios</h3>
+      <p>Patients across every channel in one record. Recall lists generate themselves based on last visit date, and missed appointments trigger a re-book sequence automatically &mdash; no front-desk juggling.</p>
+      <div class="outcome">&check; Reactivation revenue up &pound;4.2k in 60 days</div>
+    </div>
+    <div class="usecase-card">
+      <span class="industry">Professional services</span>
+      <h3>Accountants, solicitors, consultants</h3>
+      <p>Every prospect, lead and active client in one pipeline. Engagement scores show who's reading your emails and who's gone cold, so your team always knows who deserves the next call.</p>
+      <div class="outcome">&check; Discovery-to-close conversion up 18%</div>
+    </div>
+    <div class="usecase-card">
+      <span class="industry">Coaches & creators</span>
+      <h3>Online coaches, course creators, agencies</h3>
+      <p>Funnel opt-ins, course signups, application form submissions, free-call bookings and paid clients all in one record. Smart lists let you re-target by behaviour &mdash; opened email but didn't click, watched 80% of webinar, etc.</p>
+      <div class="outcome">&check; List-to-call booking rate doubled</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FAQ ── -->
+<div class="section">
+  <div class="section-tag">Common Questions</div>
+  <h2>Things people ask before signing up</h2>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Will my existing data move across?</summary>
+      <div class="faq-body"><p>Yes &mdash; we handle the migration. CSV from your old CRM, a Google Sheet, an exported MailChimp list, scraped-together contacts from email signatures, all of it. We deduplicate, map fields properly, and import with tags so you can find what came from where.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Is it really unlimited contacts?</summary>
+      <div class="faq-body"><p>Yes. No per-contact, per-record, or per-seat charges. Most CRMs trap you in a pricing tier that gets more expensive as your list grows; ours doesn't. Bring 5,000 contacts or 50,000 &mdash; same price.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Can my team use it on mobile?</summary>
+      <div class="faq-body"><p>Yes. A native mobile app lets your team manage contacts, pipelines, conversations, and tasks from their phone. We can even white-label the app with your branding for an extra trust signal with customers.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Does it replace my email marketing tool?</summary>
+      <div class="faq-body"><p>Yes, if you want it to. Email broadcasts, drip sequences, segmented campaigns, automation triggers &mdash; all built in. If you'd rather keep Mailchimp/ActiveCampaign/etc., we can integrate instead.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>What about phone calls and SMS?</summary>
+      <div class="faq-body"><p>Inbound and outbound calls are routed through a tracked business number, recorded, transcribed, and logged to the contact timeline. SMS is two-way and threaded with the rest of the conversation history.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Is it UK GDPR-compliant?</summary>
+      <div class="faq-body"><p>Yes. UK/EU data residency, encryption in transit and at rest, proper consent capture, retention controls, and full data subject access request support. Details in our <a href="https://tools.aifusionautomations.com/privacy-policy-aifa.html">privacy policy</a>.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>How long does setup take?</summary>
+      <div class="faq-body"><p>Most clients are fully live within 7&ndash;10 working days, including data migration, pipeline configuration, custom fields, integrations, and team training. Bigger or more complex businesses may take longer.</p></div>
+    </details>
+  </div>
+</div>
+
+<!-- ── Related Products ── -->
+<div class="section">
+  <div class="section-tag">Related</div>
+  <h2>Pairs well with</h2>
+  <p class="lead">Most clients run this alongside one or more of these.</p>
+  <div class="related-grid">
+    <a href="/products/voice-ai.html" class="related-card">
+      <div class="related-icon">&#128222;</div>
+      <h3>AI Voice Receptionist</h3>
+      <p>Answers every call 24/7 and logs the full transcript to the contact in your CRM. Bookings land in your calendar without you lifting a finger.</p>
+      <span class="arrow">Learn more &#8594;</span>
+    </a>
+    <a href="/products/chatbots.html" class="related-card">
+      <div class="related-icon">&#128172;</div>
+      <h3>AI Chatbots</h3>
+      <p>A website chatbot that captures lead details, qualifies enquiries, and drops them into your CRM as fresh contacts &mdash; ready for your team to follow up.</p>
+      <span class="arrow">Learn more &#8594;</span>
+    </a>
+    <a href="/products/automations.html" class="related-card">
+      <div class="related-icon">&#9881;</div>
+      <h3>Workflow Automations</h3>
+      <p>Trigger nurture sequences, follow-ups, review requests, and pipeline movements automatically based on what each contact actually does.</p>
+      <span class="arrow">Learn more &#8594;</span>
+    </a>
+  </div>
+</div>
+
 <!-- CTA -->
 <!-- ═══════════════ COMPARISON TABLE ═══════════════ -->
 <section class="comparison-section">
@@ -324,7 +476,110 @@ footer a{color:var(--primary-light);text-decoration:none}
   <p style="margin-top:.5rem">Customer service: <a href="tel:+447480488817">+44 7480 488817</a> &middot; <a href="tel:+447588711912">+44 7588 711912</a></p>
 </footer>
 
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6839e662-383c-4ea1-b02e-c13e49daboref"></script>
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="668394bfc5fec605b13596ff"></script>
 <script defer src="/js/aifa-analytics.js"></script>
+
+<!-- ── Schema.org structured data ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "CRM & Pipeline Management",
+      "description": "An all-in-one CRM and pipeline management system for UK small businesses \u2014 unlimited contacts, visual sales pipelines, unified inbox, and white-label mobile app.",
+      "brand": {
+        "@type": "Brand",
+        "name": "AI Fusion Automations"
+      },
+      "url": "https://tools.aifusionautomations.com/products/crm.html",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://tools.aifusionautomations.com/pricing.html",
+        "priceCurrency": "GBP",
+        "price": "97",
+        "availability": "https://schema.org/InStock"
+      },
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "AI Fusion Automations",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Heaven Farm, Furner's Green, Danehill",
+          "addressLocality": "Uckfield",
+          "addressRegion": "East Sussex",
+          "postalCode": "TN22 3RG",
+          "addressCountry": "GB"
+        },
+        "telephone": "+44 7480 488817",
+        "email": "grant@aifusionautomations.com",
+        "url": "https://www.aifusionautomations.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will my existing data move across?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes \u2014 we handle the migration. CSV from your old CRM, a Google Sheet, an exported MailChimp list, scraped-together contacts from email signatures, all of it. We deduplicate, map fields properly, and import with tags so you can find what came from where."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it really unlimited contacts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. No per-contact, per-record, or per-seat charges. Most CRMs trap you in a pricing tier that gets more expensive as your list grows; ours doesn't. Bring 5,000 contacts or 50,000 \u2014 same price."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can my team use it on mobile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A native mobile app lets your team manage contacts, pipelines, conversations, and tasks from their phone. We can even white-label the app with your branding for an extra trust signal with customers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it replace my email marketing tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, if you want it to. Email broadcasts, drip sequences, segmented campaigns, automation triggers \u2014 all built in. If you'd rather keep Mailchimp/ActiveCampaign/etc., we can integrate instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What about phone calls and SMS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Inbound and outbound calls are routed through a tracked business number, recorded, transcribed, and logged to the contact timeline. SMS is two-way and threaded with the rest of the conversation history."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it UK GDPR-compliant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. UK/EU data residency, encryption in transit and at rest, proper consent capture, retention controls, and full data subject access request support. Details in our privacy policy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does setup take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most clients are fully live within 7\u201310 working days, including data migration, pipeline configuration, custom fields, integrations, and team training. Bigger or more complex businesses may take longer."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 </body>
 </html>
