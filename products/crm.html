@@ -396,7 +396,8 @@ footer a{color:var(--primary-light);text-decoration:none}
         <p>A no-fluff walk-through of what's included when you set up your CRM with us &mdash; pipeline configuration, integrations, training, and what to expect in the first 30 days.</p>
       </div>
       <form class="lead-magnet-form" data-resource="service-guide" novalidate>
-        <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
+        <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required>
+        <input type="text" name="last_name" placeholder="Last name (optional)" autocomplete="family-name">
         <input type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
         <button type="submit">Send me the guide &#8594;</button>
         <p class="lm-status" role="status" aria-live="polite"></p>
@@ -412,7 +413,8 @@ footer a{color:var(--primary-light);text-decoration:none}
         <p>A real AIFA client's CRM setup, from initial chaos to live pipeline &mdash; with the numbers on what changed for them in the first 90 days.</p>
       </div>
       <form class="lead-magnet-form" data-resource="case-study" novalidate>
-        <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
+        <input type="text" name="first_name" placeholder="First name" autocomplete="given-name" required>
+        <input type="text" name="last_name" placeholder="Last name (optional)" autocomplete="family-name">
         <input type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
         <button type="submit">Send me the case study &#8594;</button>
         <p class="lm-status" role="status" aria-live="polite"></p>
@@ -572,14 +574,17 @@ window.CRM_LEAD_MAGNET_WEBHOOK = window.CRM_LEAD_MAGNET_WEBHOOK ||
 
       var btn = form.querySelector('button[type=submit]');
       var status = form.querySelector('.lm-status');
-      var nameEl = form.querySelector('input[name=name]');
+      var firstNameEl = form.querySelector('input[name=first_name]');
+      var lastNameEl = form.querySelector('input[name=last_name]');
       var emailEl = form.querySelector('input[name=email]');
-      var name = (nameEl.value || '').trim();
+      var firstName = (firstNameEl.value || '').trim();
+      var lastName = (lastNameEl ? (lastNameEl.value || '') : '').trim();
       var email = (emailEl.value || '').trim();
+      var fullName = (firstName + ' ' + lastName).trim();
 
-      if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (!firstName || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         status.className = 'lm-status err';
-        status.textContent = 'Please add a name and a valid email.';
+        status.textContent = 'Please add a first name and a valid email.';
         return;
       }
 
@@ -589,7 +594,9 @@ window.CRM_LEAD_MAGNET_WEBHOOK = window.CRM_LEAD_MAGNET_WEBHOOK ||
       status.textContent = '';
 
       var payload = {
-        name: name,
+        first_name: firstName,
+        last_name: lastName,
+        name: fullName,            // legacy/back-compat — full name as one field
         email: email,
         resource: resource,
         resource_label: labelMap[resource],
@@ -600,7 +607,7 @@ window.CRM_LEAD_MAGNET_WEBHOOK = window.CRM_LEAD_MAGNET_WEBHOOK ||
 
       function deliver() {
         status.className = 'lm-status ok';
-        status.textContent = 'Thanks ' + (name.split(' ')[0] || 'there') + ' — your PDF is opening now.';
+        status.textContent = 'Thanks ' + firstName + ' — your PDF is opening now.';
         btn.textContent = 'Sent ✓';
         window.open(pdfUrl, '_blank', 'noopener');
       }
