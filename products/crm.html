@@ -547,8 +547,11 @@ footer a{color:var(--primary-light);text-decoration:none}
 
 <!-- Lead-magnet form handler -->
 <script>
-// TODO: replace with the real GHL webhook for CRM lead-magnet capture once set up.
-window.CRM_LEAD_MAGNET_WEBHOOK = window.CRM_LEAD_MAGNET_WEBHOOK || '';
+// GHL inbound webhook for CRM lead-magnet capture — fires the
+// "CRM Lead Magnet Delivery" workflow which creates the contact,
+// tags by resource, and emails the matching PDF.
+window.CRM_LEAD_MAGNET_WEBHOOK = window.CRM_LEAD_MAGNET_WEBHOOK ||
+  'https://services.leadconnectorhq.com/hooks/wIZS4RjMCtzdxqUQZunV/webhook-trigger/00940bc8-4d4b-4fef-a9eb-08b64c749f36';
 
 (function () {
   var pdfMap = {
