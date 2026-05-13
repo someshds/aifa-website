@@ -105,6 +105,37 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-s
 /* ─── Footer ─── */
 footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:.82rem}
 footer a{color:var(--primary-light);text-decoration:none}
+
+/* Long-form additions */
+.prose-block{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-top:1.5rem}
+.prose-block p{color:var(--text-muted);font-size:1rem;line-height:1.7;margin-bottom:1rem}
+.prose-block p:last-child{margin-bottom:0}
+.prose-block strong{color:var(--text)}
+.prose-block .highlight{color:var(--accent-light);font-weight:600}
+.usecase-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:1.5rem}
+@media(max-width:700px){.usecase-grid{grid-template-columns:1fr}}
+.usecase-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.75rem}
+.usecase-card .industry{display:inline-block;background:rgba(6,182,212,.15);color:var(--accent-light);font-size:.7rem;font-weight:700;padding:.25rem .7rem;border-radius:14px;margin-bottom:.75rem;letter-spacing:.05em;text-transform:uppercase}
+.usecase-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.6rem}
+.usecase-card p{color:var(--text-muted);font-size:.92rem;line-height:1.6;margin-bottom:.6rem}
+.usecase-card .outcome{color:var(--success);font-size:.85rem;font-weight:600;display:flex;align-items:center;gap:.4rem;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)}
+.faq-list{margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem}
+.faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.faq-item summary{padding:1.1rem 1.5rem;cursor:pointer;font-weight:600;color:var(--text);font-size:1rem;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:1.5rem;color:var(--primary-light);font-weight:300;transition:transform .2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item .faq-body{padding:0 1.5rem 1.25rem;color:var(--text-muted);font-size:.95rem;line-height:1.65}
+.faq-item .faq-body p{margin-bottom:.75rem}
+.faq-item .faq-body p:last-child{margin-bottom:0}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.5rem}
+@media(max-width:700px){.related-grid{grid-template-columns:1fr}}
+.related-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-decoration:none;color:inherit;transition:all .25s;display:block}
+.related-card:hover{border-color:var(--primary);transform:translateY(-3px);box-shadow:0 8px 25px rgba(124,58,237,.12)}
+.related-card .related-icon{font-size:1.75rem;margin-bottom:.75rem}
+.related-card h3{font-size:1rem;font-weight:700;margin-bottom:.4rem;color:var(--text)}
+.related-card p{color:var(--text-muted);font-size:.85rem;line-height:1.5}
+.related-card .arrow{color:var(--primary-light);font-weight:600;font-size:.85rem;margin-top:.75rem;display:inline-block}
 </style>
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -147,6 +178,29 @@ footer a{color:var(--primary-light);text-decoration:none}
 </div>
 
 <!-- Feature Cards -->
+
+<!-- ── The Problem ── -->
+<div class="section">
+  <div class="section-tag">The Problem</div>
+  <h2>The list you've built but never properly used</h2>
+  <div class="prose-block">
+    <p>You've been collecting email addresses for years. Customers from old jobs, leads who didn't convert, newsletter signups, podcast listeners, free-download grabbers. Somewhere on your laptop or in your CRM, there&rsquo;s a list of <strong>thousands of people who at one point raised a hand</strong> &mdash; and you've barely emailed any of them.</p>
+    <p>Why? Because email feels hard. You don&rsquo;t know if your domain is set up to land in the inbox. You don&rsquo;t know what to send. You worry about hitting unsubscribe en masse. You opened Mailchimp once, got confused, and closed it.</p>
+    <p>Meanwhile, every month that list sits dormant is leaked revenue. <span class="highlight">An average past-customer is roughly 7&times; more likely to buy again than a cold prospect</span> &mdash; and they cost you nothing to reach. SMS hits open rates of 95%+. Email still returns &pound;36 for every &pound;1 spent industry-wide. You&rsquo;re sitting on the highest-return marketing asset you own.</p>
+  </div>
+</div>
+
+<!-- ── What We Build ── -->
+<div class="section">
+  <div class="section-tag">What We Build</div>
+  <h2>Email and SMS infrastructure that actually gets used</h2>
+  <div class="prose-block">
+    <p>We set up your sending domain properly: SPF, DKIM, DMARC, dedicated subdomain, warm-up sequence &mdash; so your emails land in the inbox, not the Promotions tab or the Junk folder. Then we plug your CRM into a unified messaging engine that handles broadcasts, drip sequences, transactional emails, and two-way SMS in one place.</p>
+    <p>Segmentation is built-in: send to everyone who booked in the last 90 days, or everyone within a postcode radius, or everyone who hasn't engaged in 6 months. Smart lists update automatically based on contact behaviour &mdash; no manual list rebuilding before every send.</p>
+    <p>And we build you the <strong>5 core campaigns every service business should have</strong>: a welcome sequence, a quote follow-up, a review request flow, a re-engagement campaign, and a seasonal recurring revenue play. Done once, running forever.</p>
+  </div>
+</div>
+
 <div class="section">
   <div class="section-tag">Features</div>
   <h2>Everything you need to market like a team of ten</h2>
@@ -246,6 +300,99 @@ footer a{color:var(--primary-light);text-decoration:none}
   </div>
 </div>
 
+
+<!-- ── Use Cases ── -->
+<div class="section">
+  <div class="section-tag">In the Real World</div>
+  <h2>What this looks like for your industry</h2>
+  <p class="lead">Real-world patterns we've built for UK service businesses. Yours will look similar &mdash; tuned to your operation.</p>
+  <div class="usecase-grid">
+    <div class="usecase-card">
+      <span class="industry">Trades & home services</span>
+      <h3>Past-customer reactivation</h3>
+      <p>Quarterly broadcast to your historic customer base with a seasonal offer &mdash; chimney sweep, boiler service, drain inspection. Lands in inbox because deliverability is right. Books revenue from a list you'd basically forgotten about.</p>
+      <div class="outcome">&check; &pound;3.2k recovered per quarterly send</div>
+    </div>
+    <div class="usecase-card">
+      <span class="industry">Clinics & wellness</span>
+      <h3>Recall and rebook sequences</h3>
+      <p>Triggered SMS 4 weeks after last appointment if no future booking on calendar &mdash; "Time for a check-in?" with a one-tap booking link. Two-way replies handled inside the same inbox.</p>
+      <div class="outcome">&check; Recall booking rate 38%</div>
+    </div>
+    <div class="usecase-card">
+      <span class="industry">Professional services</span>
+      <h3>Long-cycle nurture</h3>
+      <p>Twelve-month nurture sequence for prospects who weren't ready to buy first time. Useful content, occasional case studies, low pressure. When their need comes back, you're top of mind.</p>
+      <div class="outcome">&check; Long-cycle lead-to-client rate up to 12%</div>
+    </div>
+    <div class="usecase-card">
+      <span class="industry">Online businesses</span>
+      <h3>Broadcast + automated drip</h3>
+      <p>Weekly broadcast newsletter PLUS an evergreen drip sequence behind a lead magnet. Same content, double the reach &mdash; new subscribers get the back catalogue, existing subscribers get the latest.</p>
+      <div class="outcome">&check; Open rate 41%, click rate 8.6%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FAQ ── -->
+<div class="section">
+  <div class="section-tag">Common Questions</div>
+  <h2>Things people ask before signing up</h2>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Will my emails land in the inbox?</summary>
+      <div class="faq-body"><p>Yes &mdash; we handle the deliverability set-up properly. Custom sending domain, SPF, DKIM, DMARC alignment, IP reputation management, content scanning. We also do a controlled warm-up so your domain reputation builds correctly instead of cold-blasting and getting marked as spam.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need a separate SMS provider?</summary>
+      <div class="faq-body"><p>No &mdash; SMS is built in. UK shortcode and long-code numbers, two-way conversations, opt-out handling, and reply detection all native. Same dashboard, same contact records, same automation engine.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>How does it handle GDPR consent?</summary>
+      <div class="faq-body"><p>Proper consent capture at every entry point (form, opt-in, double opt-in for sensitive lists). One-click unsubscribe in every email. SMS opt-out by replying STOP. Full audit trail of every consent action against the contact record. You stay compliant.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>What about template design?</summary>
+      <div class="faq-body"><p>Drag-and-drop builder with mobile-first templates. We can also build you a brand-aligned template library so every send looks consistent without you having to design each one. Or, plain-text-style emails (which often perform better) &mdash; just type.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Can I send to specific segments?</summary>
+      <div class="faq-body"><p>Yes. Smart lists auto-update based on contact data and behaviour. Send to anyone who hasn't booked in 90 days, or anyone in a postcode radius, or anyone tagged as a particular service type, or anyone whose last email open was over 30 days ago.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>What's the cost?</summary>
+      <div class="faq-body"><p>Email is unlimited on standard plans. SMS is metered by message because we pay UK carrier rates; current pricing on our <a href="https://tools.aifusionautomations.com/pricing.html">pricing page</a>. We help size the right SMS bundle based on your expected send volume.</p></div>
+    </details>
+  </div>
+</div>
+
+<!-- ── Related Products ── -->
+<div class="section">
+  <div class="section-tag">Related</div>
+  <h2>Pairs well with</h2>
+  <p class="lead">Most clients run this alongside one or more of these.</p>
+  <div class="related-grid">
+    <a href="/products/crm.html" class="related-card">
+      <div class="related-icon">&#128203;</div>
+      <h3>CRM & Pipelines</h3>
+      <p>Where the list lives. Every contact, every send history, every opt-in source &mdash; one searchable record.</p>
+      <span class="arrow">Learn more &#8594;</span>
+    </a>
+    <a href="/products/automations.html" class="related-card">
+      <div class="related-icon">&#9881;</div>
+      <h3>Workflow Automations</h3>
+      <p>Where the drip sequences run. Trigger emails and SMS off any contact behaviour, branch the flow based on responses.</p>
+      <span class="arrow">Learn more &#8594;</span>
+    </a>
+    <a href="/products/funnels.html" class="related-card">
+      <div class="related-icon">&#129534;</div>
+      <h3>Funnels & Landing Pages</h3>
+      <p>Where new email subscribers come from. Build dedicated opt-in funnels for each offer and watch the list grow.</p>
+      <span class="arrow">Learn more &#8594;</span>
+    </a>
+  </div>
+</div>
+
 <!-- CTA -->
 <div class="section" style="padding-top:1rem">
   <div class="cta-box">
@@ -266,7 +413,102 @@ footer a{color:var(--primary-light);text-decoration:none}
 </footer>
 
 <!-- GHL Chat Widget -->
-<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6839e662-383c-4ea1-b02e-c13e49daboref"></script>
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="668394bfc5fec605b13596ff"></script>
 <script defer src="/js/aifa-analytics.js"></script>
+
+<!-- ── Schema.org structured data ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Email & SMS Marketing",
+      "description": "Two-way email and SMS marketing with broadcasts, drip sequences, segmentation, deliverability tools, and full CRM integration \u2014 designed for UK service businesses.",
+      "brand": {
+        "@type": "Brand",
+        "name": "AI Fusion Automations"
+      },
+      "url": "https://tools.aifusionautomations.com/products/email-sms.html",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://tools.aifusionautomations.com/pricing.html",
+        "priceCurrency": "GBP",
+        "price": "97",
+        "availability": "https://schema.org/InStock"
+      },
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "AI Fusion Automations",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Heaven Farm, Furner's Green, Danehill",
+          "addressLocality": "Uckfield",
+          "addressRegion": "East Sussex",
+          "postalCode": "TN22 3RG",
+          "addressCountry": "GB"
+        },
+        "telephone": "+44 7480 488817",
+        "email": "grant@aifusionautomations.com",
+        "url": "https://www.aifusionautomations.com"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will my emails land in the inbox?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes \u2014 we handle the deliverability set-up properly. Custom sending domain, SPF, DKIM, DMARC alignment, IP reputation management, content scanning. We also do a controlled warm-up so your domain reputation builds correctly instead of cold-blasting and getting marked as spam."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a separate SMS provider?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No \u2014 SMS is built in. UK shortcode and long-code numbers, two-way conversations, opt-out handling, and reply detection all native. Same dashboard, same contact records, same automation engine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does it handle GDPR consent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Proper consent capture at every entry point (form, opt-in, double opt-in for sensitive lists). One-click unsubscribe in every email. SMS opt-out by replying STOP. Full audit trail of every consent action against the contact record. You stay compliant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What about template design?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Drag-and-drop builder with mobile-first templates. We can also build you a brand-aligned template library so every send looks consistent without you having to design each one. Or, plain-text-style emails (which often perform better) \u2014 just type."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I send to specific segments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Smart lists auto-update based on contact data and behaviour. Send to anyone who hasn't booked in 90 days, or anyone in a postcode radius, or anyone tagged as a particular service type, or anyone whose last email open was over 30 days ago."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Email is unlimited on standard plans. SMS is metered by message because we pay UK carrier rates; current pricing on our pricing page. We help size the right SMS bundle based on your expected send volume."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 </body>
 </html>
