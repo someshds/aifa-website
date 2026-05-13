@@ -7,6 +7,7 @@
 <meta name="description" content="Your complete CRM — contacts, pipelines, deals, and every customer conversation in one place. Unlimited contacts, visual sales pipelines, and an all-channel inbox. Built for UK small businesses.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://tools.aifusionautomations.com/products/crm.html">
+<meta property="og:image" content="https://tools.aifusionautomations.com/img/product-crm-hero.jpg">
 <meta property="og:title" content="CRM & Pipeline Management | AI Fusion Automations">
 <meta property="og:description" content="Contacts, pipelines, deals, and every conversation in one place. Built for small businesses that want to stop losing leads.">
 <meta property="og:type" content="website">
@@ -105,6 +106,25 @@ footer a{color:var(--primary-light);text-decoration:none}
 .breadcrumb a:hover{color:var(--primary-light)}
 .breadcrumb span{margin:0 .35rem}
 
+/* Lead-magnet section */
+.lead-magnet-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:1.5rem}
+@media(max-width:700px){.lead-magnet-grid{grid-template-columns:1fr}}
+.lead-magnet-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;display:flex;flex-direction:column;gap:1rem}
+.lead-magnet-card .lm-icon{font-size:2rem}
+.lead-magnet-card h3{font-size:1.1rem;font-weight:700;color:var(--text)}
+.lead-magnet-card .lm-meta{display:inline-flex;align-items:center;gap:.5rem;color:var(--accent-light);font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem}
+.lead-magnet-card p{color:var(--text-muted);font-size:.93rem;line-height:1.55;margin:0}
+.lead-magnet-form{display:flex;flex-direction:column;gap:.5rem;margin-top:auto}
+.lead-magnet-form input{background:rgba(15,15,26,.6);border:1px solid var(--border);color:var(--text);padding:.7rem 1rem;border-radius:10px;font-size:.92rem;font-family:inherit;width:100%}
+.lead-magnet-form input:focus{outline:none;border-color:var(--primary)}
+.lead-magnet-form button{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;padding:.75rem 1rem;border-radius:10px;font-size:.92rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+.lead-magnet-form button:hover{transform:translateY(-1px);box-shadow:0 4px 15px rgba(124,58,237,.3)}
+.lead-magnet-form button:disabled{opacity:.55;cursor:wait;transform:none}
+.lead-magnet-form .lm-status{font-size:.82rem;color:var(--text-muted);margin-top:.35rem;min-height:1.1em}
+.lead-magnet-form .lm-status.ok{color:var(--success)}
+.lead-magnet-form .lm-status.err{color:var(--danger,#ef4444)}
+.lead-magnet-form .lm-fine-print{font-size:.72rem;color:var(--text-muted);margin-top:.25rem;line-height:1.45}
+
 /* Long-form additions */
 .prose-block{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-top:1.5rem}
 .prose-block p{color:var(--text-muted);font-size:1rem;line-height:1.7;margin-bottom:1rem}
@@ -189,6 +209,9 @@ footer a{color:var(--primary-light);text-decoration:none}
     <p>Spreadsheets help for a few weeks, then collapse under their own weight. Sticky notes get binned. The inbox becomes the CRM, and the inbox is a terrible CRM. By the time you're juggling three jobs at once, leads are slipping out faster than you can replace them.</p>
     <p>A real CRM closes that gap &mdash; not by adding admin, but by <strong>doing the admin for you</strong>. Every call, email, text, form fill, and chat captured automatically against the contact, with a clear view of where every deal sits in your pipeline.</p>
   </div>
+  <div style="margin-top:1.5rem;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 12px 30px rgba(0,0,0,.35)">
+    <img src="/img/crm-before-after.jpg" alt="Before: a chaotic tangle of separate tools — email, calendar, SMS, spreadsheets, invoicing, forms, analytics. After: a clean unified CRM dashboard showing contacts, pipeline, messages, calendar and insights in one view." loading="lazy" style="display:block;width:100%;height:auto">
+  </div>
 </div>
 
 <!-- ── What We Build ── -->
@@ -260,7 +283,7 @@ footer a{color:var(--primary-light);text-decoration:none}
 </div>
 
 <div style="position:relative;z-index:1;max-width:1100px;margin:1rem auto 3rem;padding:0 1.5rem">
-  <img src="/img/product-crm-hero.png" alt="AIFA CRM — contacts, visual pipeline, and deals in one view" loading="eager" style="width:100%;height:auto;border-radius:20px;box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 0 1px rgba(124,58,237,.2)">
+  <img src="/img/product-crm-hero.jpg" alt="AIFA CRM dashboard — leads captured, opportunities, revenue chart, top sources, recent activity and automation performance all in one view" loading="eager" style="width:100%;height:auto;border-radius:20px;box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 0 1px rgba(124,58,237,.2)">
 </div>
 
 <!-- ── Explainer video (88s) ── -->
@@ -354,6 +377,49 @@ footer a{color:var(--primary-light);text-decoration:none}
       <p>Funnel opt-ins, course signups, application form submissions, free-call bookings and paid clients all in one record. Smart lists let you re-target by behaviour &mdash; opened email but didn't click, watched 80% of webinar, etc.</p>
       <div class="outcome">&check; List-to-call booking rate doubled</div>
     </div>
+  </div>
+</div>
+
+<!-- ── Free Resources / Lead Magnets ── -->
+<div class="section">
+  <div class="section-tag">Free Resources</div>
+  <h2>Two free PDFs to take with you</h2>
+  <p class="lead">No strings attached &mdash; just drop your name and email and we'll send the PDF straight to your inbox.</p>
+
+  <div class="lead-magnet-grid">
+
+    <div class="lead-magnet-card">
+      <div>
+        <div class="lm-icon">&#128221;</div>
+        <span class="lm-meta">3-page PDF &middot; Service guide</span>
+        <h3>The AIFA CRM Service Guide</h3>
+        <p>A no-fluff walk-through of what's included when you set up your CRM with us &mdash; pipeline configuration, integrations, training, and what to expect in the first 30 days.</p>
+      </div>
+      <form class="lead-magnet-form" data-resource="service-guide" novalidate>
+        <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
+        <input type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
+        <button type="submit">Send me the guide &#8594;</button>
+        <p class="lm-status" role="status" aria-live="polite"></p>
+        <p class="lm-fine-print">We'll email it once and only contact you again with relevant CRM tips. Unsubscribe any time.</p>
+      </form>
+    </div>
+
+    <div class="lead-magnet-card">
+      <div>
+        <div class="lm-icon">&#128202;</div>
+        <span class="lm-meta">3-page PDF &middot; Case study</span>
+        <h3>Real CRM case study</h3>
+        <p>A real AIFA client's CRM setup, from initial chaos to live pipeline &mdash; with the numbers on what changed for them in the first 90 days.</p>
+      </div>
+      <form class="lead-magnet-form" data-resource="case-study" novalidate>
+        <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
+        <input type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
+        <button type="submit">Send me the case study &#8594;</button>
+        <p class="lm-status" role="status" aria-live="polite"></p>
+        <p class="lm-fine-print">We'll email it once and only contact you again with relevant CRM tips. Unsubscribe any time.</p>
+      </form>
+    </div>
+
   </div>
 </div>
 
@@ -479,6 +545,80 @@ footer a{color:var(--primary-light);text-decoration:none}
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="668394bfc5fec605b13596ff"></script>
 <script defer src="/js/aifa-analytics.js"></script>
 
+<!-- Lead-magnet form handler -->
+<script>
+// TODO: replace with the real GHL webhook for CRM lead-magnet capture once set up.
+window.CRM_LEAD_MAGNET_WEBHOOK = window.CRM_LEAD_MAGNET_WEBHOOK || '';
+
+(function () {
+  var pdfMap = {
+    'service-guide': '/assets/aifa-crm-service-guide.pdf',
+    'case-study':    '/assets/aifa-crm-case-study.pdf'
+  };
+  var labelMap = {
+    'service-guide': 'CRM Service Guide',
+    'case-study':    'CRM Case Study'
+  };
+
+  document.querySelectorAll('.lead-magnet-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var resource = form.dataset.resource;
+      var pdfUrl = pdfMap[resource];
+      if (!pdfUrl) return;
+
+      var btn = form.querySelector('button[type=submit]');
+      var status = form.querySelector('.lm-status');
+      var nameEl = form.querySelector('input[name=name]');
+      var emailEl = form.querySelector('input[name=email]');
+      var name = (nameEl.value || '').trim();
+      var email = (emailEl.value || '').trim();
+
+      if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        status.className = 'lm-status err';
+        status.textContent = 'Please add a name and a valid email.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.className = 'lm-status';
+      status.textContent = '';
+
+      var payload = {
+        name: name,
+        email: email,
+        resource: resource,
+        resource_label: labelMap[resource],
+        source: 'CRM page lead magnet',
+        page_url: window.location.href,
+        submitted_at: new Date().toISOString()
+      };
+
+      function deliver() {
+        status.className = 'lm-status ok';
+        status.textContent = 'Thanks ' + (name.split(' ')[0] || 'there') + ' — your PDF is opening now.';
+        btn.textContent = 'Sent ✓';
+        window.open(pdfUrl, '_blank', 'noopener');
+      }
+
+      if (window.CRM_LEAD_MAGNET_WEBHOOK) {
+        fetch(window.CRM_LEAD_MAGNET_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true
+        })
+          .catch(function () { /* swallow — don't block PDF delivery on webhook failure */ })
+          .finally(deliver);
+      } else {
+        deliver();
+      }
+    });
+  });
+})();
+</script>
+
 <!-- ── Schema.org structured data ── -->
 <script type="application/ld+json">
 {
@@ -492,6 +632,7 @@ footer a{color:var(--primary-light);text-decoration:none}
         "@type": "Brand",
         "name": "AI Fusion Automations"
       },
+      "image": "https://tools.aifusionautomations.com/img/product-crm-hero.jpg",
       "url": "https://tools.aifusionautomations.com/products/crm.html",
       "offers": {
         "@type": "Offer",
