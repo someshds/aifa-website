@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Watch AIFA Explainers — AI Fusion Automations</title>
-<meta name="description" content="Five short explainer videos on how AI Fusion Automations builds AI Operating Systems, Automation Workflows, Custom Chatbots, White-label CRM platforms, and our own BoxLeague Pro case study.">
+<title>Watch AIFA Explainers & Founder Walkthroughs — AI Fusion Automations</title>
+<meta name="description" content="Watch short AIFA explainers and founder walkthroughs covering AI Operating Systems, CRM audits, workflow automation, RevOps, email migration, AI support, and BoxLeague Pro.">
 <link rel="canonical" href="https://tools.aifusionautomations.com/videos/">
-<meta property="og:title" content="Watch AIFA Explainers — AI Fusion Automations">
-<meta property="og:description" content="Short explainer videos showing exactly what we build and how.">
+<meta property="og:title" content="Watch AIFA Explainers & Founder Walkthroughs — AI Fusion Automations">
+<meta property="og:description" content="Short explainers and founder walkthroughs showing exactly what we build and how we think through real systems.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -63,6 +63,21 @@
   .featured .video-meta { padding: 2rem; }
   .featured .video-title { font-size: 2rem; }
 
+  .walkthrough-section { margin-top: 5rem; padding-top: 4rem; border-top: 1px solid rgba(167,139,250,0.16); scroll-margin-top: 7rem; }
+  .anchor-offset { display: block; position: relative; top: -8.5rem; visibility: hidden; }
+  .section-kicker { color: var(--accent); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.65rem; }
+  .section-heading { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.75rem; }
+  .section-copy { color: rgba(255,255,255,0.72); font-size: 1.05rem; max-width: 760px; margin-bottom: 2rem; }
+  .walkthrough-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+  @media (min-width: 760px) { .walkthrough-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1180px) { .walkthrough-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .walkthrough-card { background: rgba(255,255,255,0.035); border: 1px solid rgba(167,139,250,0.14); border-radius: 18px; overflow: hidden; }
+  .walkthrough-card video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #05020a; object-fit: cover; }
+  .walkthrough-meta { padding: 1.25rem; }
+  .walkthrough-label { color: #c4b5fd; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .walkthrough-title { color: #fff; font-size: 1.08rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 0.4rem; }
+  .walkthrough-desc { color: rgba(255,255,255,0.68); font-size: 0.92rem; }
+
   .cta-section { margin-top: 5rem; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(167,139,250,0.05)); border: 1px solid rgba(167,139,250,0.25); border-radius: 24px; text-align: center; }
   .cta-section h2 { font-size: 2rem; font-weight: 900; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
   .cta-section p { color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; }
@@ -89,9 +104,9 @@
 
 <main>
   <div class="hero-section">
-    <div class="tag"><span>&#9654;</span><span>5 explainers · ~7 minutes total</span></div>
+    <div class="tag"><span>&#9654;</span><span>12 videos · explainers and founder walkthroughs</span></div>
     <h1>Watch what we build</h1>
-    <p class="lead">Five short narrated explainers on our AI services and SaaS products — each one cinematic, narrated, and under 100 seconds.</p>
+    <p class="lead">Short videos on our AI services, SaaS products, and the practical systems thinking behind the work.</p>
   </div>
 
   <div class="video-grid">
@@ -163,9 +178,81 @@
 
   </div>
 
+  <span class="anchor-offset" id="founder-walkthroughs" aria-hidden="true"></span>
+  <section class="walkthrough-section" aria-labelledby="founder-walkthroughs-heading">
+    <div class="section-kicker">Founder Walkthroughs</div>
+    <h2 class="section-heading" id="founder-walkthroughs-heading">See how Grant thinks through real systems</h2>
+    <p class="section-copy">These short, direct walkthroughs show the practical side of AIFA work: auditing CRM pipelines, mapping AI workflows, protecting email migrations, improving support handoffs, and shipping real product builds.</p>
+
+    <div class="walkthrough-grid">
+      <article class="walkthrough-card">
+        <video controls preload="metadata" src="/videos/founder-walkthroughs/ghl-crm-audit.mp4"></video>
+        <div class="walkthrough-meta">
+          <div class="walkthrough-label">CRM Audit · 55s</div>
+          <h3 class="walkthrough-title">GHL / CRM Audit</h3>
+          <p class="walkthrough-desc">How we inspect pipelines, automations, follow-up paths, and lead handoffs before recommending fixes.</p>
+        </div>
+      </article>
+
+      <article class="walkthrough-card">
+        <video controls preload="metadata" src="/videos/founder-walkthroughs/ai-workflow-claude-automation.mp4"></video>
+        <div class="walkthrough-meta">
+          <div class="walkthrough-label">AI Workflow · 51s</div>
+          <h3 class="walkthrough-title">AI Workflow / Claude Automation</h3>
+          <p class="walkthrough-desc">A simple pattern for useful AI systems: narrow input, clear job, approval point, and logged output.</p>
+        </div>
+      </article>
+
+      <article class="walkthrough-card">
+        <video controls preload="metadata" src="/videos/founder-walkthroughs/marketing-systems-revops.mp4"></video>
+        <div class="walkthrough-meta">
+          <div class="walkthrough-label">RevOps · 58s</div>
+          <h3 class="walkthrough-title">Marketing Systems / RevOps</h3>
+          <p class="walkthrough-desc">Where leads come from, where they go, what follow-up happens, and which handoffs leak revenue.</p>
+        </div>
+      </article>
+
+      <article class="walkthrough-card">
+        <video controls preload="metadata" src="/videos/founder-walkthroughs/email-automation-brevo-migration.mp4"></video>
+        <div class="walkthrough-meta">
+          <div class="walkthrough-label">Email Migration · 41s</div>
+          <h3 class="walkthrough-title">Brevo / Email Automation Migration</h3>
+          <p class="walkthrough-desc">A safe migration approach that protects forms, segments, automations, deliverability, and revenue paths.</p>
+        </div>
+      </article>
+
+      <article class="walkthrough-card">
+        <video controls preload="metadata" src="/videos/founder-walkthroughs/ai-support-intercom.mp4"></video>
+        <div class="walkthrough-meta">
+          <div class="walkthrough-label">AI Support · 35s</div>
+          <h3 class="walkthrough-title">Intercom / AI Support Systems</h3>
+          <p class="walkthrough-desc">How we separate knowledge, routing, and human escalation so AI support stays useful and safe.</p>
+        </div>
+      </article>
+
+      <article class="walkthrough-card">
+        <video controls preload="metadata" src="/videos/founder-walkthroughs/boxleague-product-build-proof.mp4"></video>
+        <div class="walkthrough-meta">
+          <div class="walkthrough-label">Product Build · 39s</div>
+          <h3 class="walkthrough-title">BoxLeague Pro Product Build Proof</h3>
+          <p class="walkthrough-desc">A practical example of turning a messy real-world process into a working product that keeps improving.</p>
+        </div>
+      </article>
+
+      <article class="walkthrough-card">
+        <video controls preload="metadata" src="/videos/founder-walkthroughs/operations-command-multi-agent-proof.mp4"></video>
+        <div class="walkthrough-meta">
+          <div class="walkthrough-label">Operations Command · 36s</div>
+          <h3 class="walkthrough-title">Operations Command / Multi-Agent Proof</h3>
+          <p class="walkthrough-desc">How clear context, status reporting, approval gates, and AI-agent handoffs stop work getting lost.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <div class="cta-section">
     <h2>Ready to build yours?</h2>
-    <p>Every video you just watched was designed, written, narrated, and shipped using our own AI workflow. We can do the same for your business.</p>
+    <p>Every system above starts the same way: map the messy workflow, find the highest-leverage fix, prove it works, then scale carefully.</p>
     <a href="/#book-a-call" class="cta-btn">Book a Free Strategy Call &rarr;</a>
   </div>
 </main>
