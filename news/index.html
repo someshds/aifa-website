@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily AI News for Small Business | AI Fusion Automations</title>
+<meta name="description" content="A practical daily AI news brief for small business owners, operators, and teams who want to know what changed and what to do next.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://tools.aifusionautomations.com/news/">
+<meta property="og:title" content="Daily AI News | AI Fusion Automations">
+<meta property="og:description" content="A practical daily AI news brief for small business owners and operators.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.aifusionautomations.com/news/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/aifa-nav.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#7c3aed;--primary-light:#a78bfa;--accent:#06b6d4;--accent-light:#22d3ee;
+  --bg:#080b12;--panel:#101525;--panel-soft:#151b2f;--text:#f8fafc;--muted:#a9b4c7;
+  --border:#29314a;--green:#14b88a;--gold:#f6b84b;--coral:#fb7185;--blue:#38bdf8;
+}
+html{scroll-behavior:smooth}
+body{min-height:100vh;background:radial-gradient(ellipse at 18% 0%,rgba(124,58,237,.16),transparent 42%),radial-gradient(ellipse at 82% 28%,rgba(6,182,212,.12),transparent 42%),linear-gradient(145deg,#080b12 0%,#0d1321 48%,#05070c 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+.page-shell{position:relative;z-index:1}
+.hero{max-width:1120px;margin:0 auto;padding:4.5rem 1.25rem 2.25rem;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.42rem .9rem;border:1px solid rgba(56,189,248,.28);border-radius:999px;background:rgba(56,189,248,.09);color:#bae6fd;font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.15rem}
+.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 16px rgba(20,184,138,.85)}
+h1{font-size:clamp(2.4rem,6vw,4.7rem);line-height:.98;font-weight:950;letter-spacing:0;margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,#d8b4fe 52%,#67e8f9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:760px;margin:0 auto;color:var(--muted);font-size:1.08rem}
+.brief-meta{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap;margin-top:1.5rem;color:#dbeafe;font-size:.86rem}
+.brief-pill{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);border-radius:999px;padding:.36rem .75rem}
+.brief-layout{max-width:1120px;margin:0 auto;padding:0 1.25rem 5rem}
+.top-grid{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:1rem;margin-bottom:1.25rem}
+.panel{background:rgba(16,21,37,.78);border:1px solid rgba(167,139,250,.16);border-radius:8px;box-shadow:0 24px 70px rgba(0,0,0,.28)}
+.market-read{padding:1.2rem}
+.section-label{color:#67e8f9;font-size:.75rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.55rem}
+.market-read h2{font-size:1.35rem;line-height:1.2;margin-bottom:.55rem}
+.market-read p{color:var(--muted);font-size:.94rem}
+.stats{display:grid;gap:.65rem;padding:1rem}
+.stat{padding:.82rem;border-radius:8px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}
+.stat strong{display:block;font-size:1.25rem;line-height:1;color:#fff}
+.stat span{color:var(--muted);font-size:.78rem}
+.toolbar{display:grid;grid-template-columns:minmax(180px,1fr) auto auto;gap:.7rem;align-items:center;margin-bottom:1rem}
+.search{min-height:44px;border:1px solid var(--border);border-radius:8px;background:rgba(4,7,14,.72);color:#fff;padding:0 .9rem;font:inherit}
+.search::placeholder{color:#718096}
+.count{color:#cbd5e1;font-size:.86rem;white-space:nowrap}
+.view-toggle{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:rgba(4,7,14,.72)}
+.view-toggle button{min-height:42px;border:0;background:transparent;color:#b8c4d8;padding:0 .8rem;font:inherit;font-size:.84rem;font-weight:750;cursor:pointer}
+.view-toggle button.active{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff}
+.news-list{display:grid;gap:1rem}
+.news-card{position:relative;display:grid;grid-template-columns:250px minmax(0,1fr);min-height:210px;overflow:hidden;border-radius:8px;background:linear-gradient(135deg,rgba(16,21,37,.92),rgba(8,12,22,.95));border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 50px rgba(0,0,0,.28)}
+.news-card::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:var(--stripe,var(--accent))}
+.thumb{min-height:210px;display:grid;place-items:center;padding:1.25rem;background:radial-gradient(circle at 35% 20%,rgba(255,255,255,.18),transparent 34%),linear-gradient(135deg,var(--thumb-a),var(--thumb-b));color:#fff}
+.thumb-inner{width:138px;aspect-ratio:1;border-radius:24px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.18);box-shadow:inset 0 0 40px rgba(255,255,255,.08);font-size:3.2rem;font-weight:950;letter-spacing:0}
+.article-body{padding:1.45rem 1.55rem 1.25rem}
+.article-meta{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;color:#8ee7ff;font-size:.76rem;font-weight:800;letter-spacing:.03em;margin-bottom:.58rem}
+.article-meta span{color:#8a96aa;font-weight:650}
+.news-card h3{font-size:clamp(1.25rem,2vw,1.75rem);line-height:1.14;margin-bottom:.65rem}
+.summary{color:#bec8d9;font-size:.94rem;margin-bottom:1rem;max-width:740px}
+.operator-note{padding:.8rem .9rem;border-left:3px solid var(--stripe,var(--accent));background:rgba(255,255,255,.045);border-radius:0 8px 8px 0;color:#e2e8f0;font-size:.9rem;margin-bottom:1rem}
+.card-actions{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.read-more{display:inline-flex;align-items:center;gap:.35rem;color:#67e8f9;font-weight:850;text-decoration:none;font-size:.9rem}
+.reaction-row{display:flex;gap:.45rem;flex-wrap:wrap}
+.reaction{border:1px solid rgba(255,255,255,.08);border-radius:8px;background:rgba(255,255,255,.04);color:#cbd5e1;padding:.45rem .65rem;font-size:.78rem;font-weight:750}
+.news-list.compact .news-card{grid-template-columns:1fr;min-height:0}
+.news-list.compact .thumb{display:none}
+.news-list.compact .article-body{padding:1.2rem}
+.source-box{margin-top:1.35rem;padding:1rem;border-radius:8px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);color:#b8c4d8;font-size:.88rem}
+.source-box a{color:#93c5fd;text-decoration:none}
+.cta-band{margin-top:2rem;padding:2rem;border-radius:8px;border:1px solid rgba(56,189,248,.22);background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(20,184,138,.1));display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;align-items:center}
+.cta-band h2{font-size:1.45rem;margin-bottom:.35rem}
+.cta-band p{color:var(--muted)}
+.btn{display:inline-flex;min-height:46px;align-items:center;justify-content:center;padding:0 1.2rem;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;text-decoration:none;font-weight:850;white-space:nowrap}
+footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-top:1px solid rgba(255,255,255,.08);color:#778196;font-size:.82rem}
+.hidden{display:none!important}
+@media(max-width:900px){
+  .top-grid,.toolbar,.cta-band{grid-template-columns:1fr}
+  .toolbar{align-items:stretch}
+  .count{order:-1}
+  .news-card{grid-template-columns:1fr}
+  .thumb{min-height:170px}
+}
+@media(max-width:560px){
+  .hero{padding-top:3rem}
+  .brief-layout{padding-left:1rem;padding-right:1rem}
+  .article-body{padding:1.2rem}
+  .card-actions{align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<div class="page-shell">
+  <section class="hero">
+    <div class="eyebrow"><span class="eyebrow-dot"></span><span>Daily AI Brief</span></div>
+    <h1>AI news, translated for busy operators.</h1>
+    <p class="lead">A daily scan of the AI stories that matter for small businesses: tools, costs, regulation, infrastructure, and practical moves you can make this week.</p>
+    <div class="brief-meta">
+      <span class="brief-pill">Latest brief: 1 June 2026</span>
+      <span class="brief-pill">5 stories</span>
+      <span class="brief-pill">Built for UK small businesses</span>
+    </div>
+  </section>
+
+  <main class="brief-layout">
+    <div class="top-grid">
+      <section class="panel market-read">
+        <div class="section-label">Today's read</div>
+        <h2>AI is moving from novelty to operating cost.</h2>
+        <p>Today's stories point in the same direction: frontier AI companies are racing toward public markets, coding tools are shifting to usage billing, and hardware vendors are trying to push agents onto local machines. For operators, the takeaway is simple: use AI, but measure it like any other business system.</p>
+      </section>
+      <aside class="panel stats" aria-label="Daily brief stats">
+        <div class="stat"><strong>3 min</strong><span>Average skim time</span></div>
+        <div class="stat"><strong>5</strong><span>Curated signals today</span></div>
+        <div class="stat"><strong>1</strong><span>Operator action per story</span></div>
+      </aside>
+    </div>
+
+    <div class="toolbar" aria-label="News controls">
+      <input class="search" id="newsSearch" type="search" placeholder="Search AI news..." autocomplete="off">
+      <div class="count" id="storyCount">5 stories</div>
+      <div class="view-toggle" aria-label="View style">
+        <button type="button" class="active" data-view="cards">Cards</button>
+        <button type="button" data-view="compact">Rows</button>
+      </div>
+    </div>
+
+    <section class="news-list" id="newsList" aria-label="Daily AI news stories">
+      <article class="news-card" style="--stripe:#38bdf8;--thumb-a:#0f766e;--thumb-b:#1d4ed8" data-search="anthropic claude ipo filing valuation markets business">
+        <div class="thumb" aria-hidden="true"><div class="thumb-inner">AI</div></div>
+        <div class="article-body">
+          <div class="article-meta">AP <span>1 Jun 2026</span></div>
+          <h3>Anthropic files confidential IPO paperwork after its valuation surge.</h3>
+          <p class="summary">Anthropic has filed confidentially with the SEC for a proposed IPO, days after reporting a major funding round and a valuation far ahead of most private AI companies.</p>
+          <p class="operator-note"><strong>Operator note:</strong> Expect enterprise AI vendors to professionalise quickly: more procurement controls, more public-market scrutiny, and more pressure to prove ROI.</p>
+          <div class="card-actions">
+            <a class="read-more" href="https://apnews.com/article/572bb6cc12053c7aa95f775285cf4b73" target="_blank" rel="noopener">Read source</a>
+            <div class="reaction-row"><span class="reaction">Impact 9/10</span><span class="reaction">Watch: AI IPOs</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-card" style="--stripe:#14b88a;--thumb-a:#065f46;--thumb-b:#7c3aed" data-search="claude funding anthropic openai revenue valuation">
+        <div class="thumb" aria-hidden="true"><div class="thumb-inner">CL</div></div>
+        <div class="article-body">
+          <div class="article-meta">AP <span>28 May 2026</span></div>
+          <h3>Claude demand pushes Anthropic into the front rank of AI companies.</h3>
+          <p class="summary">Anthropic said it raised $65 billion in private funding, pushing its valuation to $965 billion and highlighting how quickly AI work tools are becoming a mainstream software category.</p>
+          <p class="operator-note"><strong>Operator note:</strong> Client demand is moving toward tools that sit inside everyday work: code, documents, support, sales operations, and internal knowledge.</p>
+          <div class="card-actions">
+            <a class="read-more" href="https://apnews.com/article/86c432fa375548fd4f111f8164d6ffc1" target="_blank" rel="noopener">Read source</a>
+            <div class="reaction-row"><span class="reaction">Impact 8/10</span><span class="reaction">Watch: work AI</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-card" style="--stripe:#f6b84b;--thumb-a:#92400e;--thumb-b:#0f172a" data-search="github copilot usage billing ai credits developer cost microsoft">
+        <div class="thumb" aria-hidden="true"><div class="thumb-inner">$</div></div>
+        <div class="article-body">
+          <div class="article-meta">GitHub <span>1 Jun 2026</span></div>
+          <h3>Copilot's pricing shift makes AI cost control a boardroom issue.</h3>
+          <p class="summary">GitHub's Copilot plans move into usage-based AI credits, with flex allotments and a new high-volume Max plan for sustained agent work.</p>
+          <p class="operator-note"><strong>Operator note:</strong> If staff are using AI tools daily, create a simple usage policy now: approved tools, budgets, what data can be used, and when humans must review output.</p>
+          <div class="card-actions">
+            <a class="read-more" href="https://github.blog/news-insights/company-news/github-copilot-individual-plans-introducing-flex-allotments-in-pro-and-pro-and-a-new-max-plan/" target="_blank" rel="noopener">Read source</a>
+            <div class="reaction-row"><span class="reaction">Impact 8/10</span><span class="reaction">Watch: AI spend</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-card" style="--stripe:#fb7185;--thumb-a:#881337;--thumb-b:#1e293b" data-search="nvidia rtx spark ai pc windows agents local ai hardware">
+        <div class="thumb" aria-hidden="true"><div class="thumb-inner">PC</div></div>
+        <div class="article-body">
+          <div class="article-meta">AP <span>1 Jun 2026</span></div>
+          <h3>Nvidia pushes AI agents onto personal computers.</h3>
+          <p class="summary">Nvidia announced RTX Spark, a chip aimed at AI-focused Windows laptops and desktops, signalling a future where more AI tasks run locally rather than only in the cloud.</p>
+          <p class="operator-note"><strong>Operator note:</strong> Local AI matters for privacy-heavy workflows: customer records, internal documents, quoting data, and trade-specific knowledge bases.</p>
+          <div class="card-actions">
+            <a class="read-more" href="https://apnews.com/article/c807f7333b93b9927b62b1240dcf65a1" target="_blank" rel="noopener">Read source</a>
+            <div class="reaction-row"><span class="reaction">Impact 7/10</span><span class="reaction">Watch: edge AI</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-card" style="--stripe:#a78bfa;--thumb-a:#4c1d95;--thumb-b:#0e7490" data-search="openclaw openai api token costs agents codex automation">
+        <div class="thumb" aria-hidden="true"><div class="thumb-inner">AG</div></div>
+        <div class="article-body">
+          <div class="article-meta">Tom's Hardware <span>17 May 2026</span></div>
+          <h3>A $1.3m token bill shows what agentic AI can cost at scale.</h3>
+          <p class="summary">A high-volume OpenClaw coding-agent setup reportedly ran through more than a million dollars of OpenAI API usage in a month, showing the gap between experiments and production economics.</p>
+          <p class="operator-note"><strong>Operator note:</strong> Automations need limits. Set caps, logs, approval steps, and stop conditions before letting agents run unattended.</p>
+          <div class="card-actions">
+            <a class="read-more" href="https://www.tomshardware.com/tech-industry/artificial-intelligence/openclaw-creator-burns-through-1-3-million-in-openai-api-tokens-in-a-single-month" target="_blank" rel="noopener">Read source</a>
+            <div class="reaction-row"><span class="reaction">Impact 7/10</span><span class="reaction">Watch: guardrails</span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="source-box">
+      Sources checked for this brief include AP, GitHub, ITPro, Tom's Hardware, and the rendered OtterTeams news reference. Summaries are AIFA editorial notes, not copied article text.
+    </div>
+
+    <section class="cta-band">
+      <div>
+        <h2>Want this turned into action for your business?</h2>
+        <p>Book a quick strategy call and we will identify where AI can save time, reduce admin, or tighten follow-up in your current operation.</p>
+      </div>
+      <a class="btn" href="/strategy-call.html">Book a Call</a>
+    </section>
+  </main>
+</div>
+
+<footer>
+  &copy; 2026 AI Fusion Automations. Daily AI news for practical operators.
+</footer>
+
+<script>
+(function(){
+  var search = document.getElementById('newsSearch');
+  var list = document.getElementById('newsList');
+  var count = document.getElementById('storyCount');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.news-card'));
+  var toggles = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
+
+  function updateSearch(){
+    var query = (search.value || '').trim().toLowerCase();
+    var visible = 0;
+    cards.forEach(function(card){
+      var haystack = (card.textContent + ' ' + card.getAttribute('data-search')).toLowerCase();
+      var match = !query || haystack.indexOf(query) !== -1;
+      card.classList.toggle('hidden', !match);
+      if (match) visible += 1;
+    });
+    count.textContent = visible + (visible === 1 ? ' story' : ' stories');
+  }
+
+  search.addEventListener('input', updateSearch);
+
+  toggles.forEach(function(button){
+    button.addEventListener('click', function(){
+      toggles.forEach(function(item){ item.classList.remove('active'); });
+      button.classList.add('active');
+      list.classList.toggle('compact', button.getAttribute('data-view') === 'compact');
+    });
+  });
+})();
+</script>
+<script src="/js/aifa-nav.js" defer></script>
+</body>
+</html>

@@ -57,6 +57,7 @@
     '      </li>',
     '      <li><a class="aifa-nav-link" href="/pricing.html">Pricing</a></li>',
     '      <li><a class="aifa-nav-link" href="/blog/">Blog</a></li>',
+    '      <li><a class="aifa-nav-link" href="/news/">AI News</a></li>',
     '      <li><a class="aifa-nav-link aifa-nav-cta" href="/strategy-call.html">Book a Call</a></li>',
     '    </ul>',
     '  </div>',
