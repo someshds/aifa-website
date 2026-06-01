@@ -1,0 +1,276 @@
+body.aifa-nav-ready {
+  padding-top: 0 !important;
+}
+
+.aifa-global-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  background: rgba(15, 15, 26, 0.94);
+  border-bottom: 1px solid rgba(167, 139, 250, 0.16);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.aifa-global-nav * {
+  box-sizing: border-box;
+}
+
+.aifa-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.72rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.aifa-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 800;
+  min-width: 0;
+}
+
+.aifa-nav-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.aifa-nav-name {
+  font-size: 0.95rem;
+  line-height: 1;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #c4b5fd, #67e8f9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.aifa-nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.22rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aifa-nav-link,
+.aifa-nav-trigger {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  border: 0;
+  border-radius: 7px;
+  padding: 0 0.66rem;
+  background: transparent;
+  color: #cbd5e1;
+  text-decoration: none;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: color 0.18s ease, background-color 0.18s ease;
+}
+
+.aifa-nav-link:hover,
+.aifa-nav-link:focus-visible,
+.aifa-nav-trigger:hover,
+.aifa-nav-trigger:focus-visible {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+  outline: none;
+}
+
+.aifa-nav-trigger::after {
+  content: "";
+  width: 0.44rem;
+  height: 0.44rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-0.12rem) rotate(45deg);
+}
+
+.aifa-nav-item {
+  position: relative;
+}
+
+.aifa-nav-dropdown {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  min-width: 246px;
+  padding: 0.45rem;
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 8px;
+  background: rgba(17, 17, 31, 0.98);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.42);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.25rem);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+}
+
+.aifa-nav-item:last-child .aifa-nav-dropdown,
+.aifa-nav-item:nth-last-child(2) .aifa-nav-dropdown {
+  left: auto;
+  right: 0;
+}
+
+.aifa-nav-item:hover .aifa-nav-dropdown,
+.aifa-nav-item:focus-within .aifa-nav-dropdown,
+.aifa-nav-item.is-open .aifa-nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.aifa-nav-dropdown a {
+  display: block;
+  padding: 0.62rem 0.72rem;
+  border-radius: 7px;
+  color: #dbeafe;
+  text-decoration: none;
+  font-size: 0.87rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.aifa-nav-dropdown a:hover,
+.aifa-nav-dropdown a:focus-visible {
+  color: #fff;
+  background: rgba(124, 58, 237, 0.18);
+  outline: none;
+}
+
+.aifa-nav-cta {
+  min-height: 38px;
+  padding: 0 0.95rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.28);
+}
+
+.aifa-nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+}
+
+.aifa-nav-toggle span,
+.aifa-nav-toggle::before,
+.aifa-nav-toggle::after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 4px auto;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.aifa-global-nav.is-open .aifa-nav-toggle::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.aifa-global-nav.is-open .aifa-nav-toggle span {
+  opacity: 0;
+}
+
+.aifa-global-nav.is-open .aifa-nav-toggle::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 1040px) {
+  .aifa-nav-toggle {
+    display: block;
+    flex: 0 0 auto;
+  }
+
+  .aifa-nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: stretch;
+    max-height: calc(100vh - 62px);
+    overflow: auto;
+    padding: 0.75rem 1rem 1rem;
+    border-bottom: 1px solid rgba(167, 139, 250, 0.16);
+    background: rgba(15, 15, 26, 0.98);
+  }
+
+  .aifa-global-nav.is-open .aifa-nav-menu {
+    display: grid;
+    gap: 0.28rem;
+  }
+
+  .aifa-nav-link,
+  .aifa-nav-trigger {
+    width: 100%;
+    justify-content: space-between;
+    min-height: 44px;
+    padding: 0 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .aifa-nav-cta {
+    justify-content: center;
+    margin-top: 0.35rem;
+  }
+
+  .aifa-nav-dropdown {
+    position: static;
+    display: none;
+    min-width: 0;
+    margin: 0.1rem 0 0.45rem;
+    padding: 0.3rem;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: rgba(255, 255, 255, 0.045);
+  }
+
+  .aifa-nav-item.is-open .aifa-nav-dropdown {
+    display: block;
+  }
+}
+
+@media (max-width: 460px) {
+  .aifa-nav-inner {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .aifa-nav-name {
+    font-size: 0.82rem;
+    white-space: normal;
+  }
+}
