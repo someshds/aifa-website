@@ -64,6 +64,62 @@
     '</nav>'
   ].join('');
 
+  var footerMarkup = [
+    '<footer class="aifa-global-footer" aria-label="Site footer">',
+    '  <div class="aifa-footer-inner">',
+    '    <div class="aifa-footer-main">',
+    '      <div class="aifa-footer-brand-block">',
+    '        <a class="aifa-footer-brand" href="/">',
+    '          <span class="aifa-footer-logo" aria-hidden="true">&#9889;</span>',
+    '          <span>AI Fusion Automations</span>',
+    '        </a>',
+    '        <p>Helping small businesses grow with AI-powered automation, chatbots, and CRM solutions. Based in East Sussex, serving businesses across the UK and worldwide.</p>',
+    '      </div>',
+    '      <div class="aifa-footer-column">',
+    '        <h2>Services</h2>',
+    '        <a href="/ai-operating-systems.html">AI Operating Systems</a>',
+    '        <a href="/products/crm.html">All-in-One Business Software</a>',
+    '        <a href="/products/ai-agents.html">AI Agents</a>',
+    '        <a href="/products/chatbots.html">AI Chatbots</a>',
+    '        <a href="/products/automations.html">CRM &amp; Automation</a>',
+    '        <a href="/products/funnels.html">Sales &amp; Lead Gen</a>',
+    '        <a href="/products/funnels.html">Websites &amp; Funnels</a>',
+    '        <a href="/analyser.html">Data Intelligence</a>',
+    '      </div>',
+    '      <div class="aifa-footer-column">',
+    '        <h2>Free Tools</h2>',
+    '        <a href="/idea-validator.html">Idea Validator</a>',
+    '        <a href="/roi-calculator-v2.0.html">ROI Calculator</a>',
+    '        <a href="/review-booster.html">Review Booster</a>',
+    '        <a href="/analyser.html">Business Analyser</a>',
+    '        <a href="/boxleague-pro-demo.html">BoxLeague Pro Demo</a>',
+    '      </div>',
+    '      <div class="aifa-footer-column">',
+    '        <h2>Company</h2>',
+    '        <a href="/blog/">Blog</a>',
+    '        <a href="/strategy-call.html">Book a Call</a>',
+    '        <a href="/privacy-policy-aifa.html">Privacy Policy</a>',
+    '        <a href="/terms.html">Terms &amp; Conditions</a>',
+    '        <a href="/earnings-disclaimer.html">Earnings Disclaimer</a>',
+    '      </div>',
+    '    </div>',
+    '    <div class="aifa-footer-bottom">',
+    '      <div>',
+    '        <p>&copy; 2026 AI Fusion Automations. All rights reserved.</p>',
+    '        <p><a href="mailto:grant@aifusionautomations.com">grant@aifusionautomations.com</a> <span aria-hidden="true">&middot;</span> Customer service: <a href="tel:+447480488817">+44 7480 488817</a> <span aria-hidden="true">&middot;</span> <a href="tel:+447588711912">+44 7588 711912</a></p>',
+    '        <p>Built with AI</p>',
+    '      </div>',
+    '      <div class="aifa-footer-social" aria-label="Social links">',
+    '        <a href="https://x.com/ai_fusion_auto" aria-label="AI Fusion Automations on X">X</a>',
+    '        <a href="https://www.linkedin.com/company/ai-fusion-automations/" aria-label="AI Fusion Automations on LinkedIn">in</a>',
+    '        <a href="https://www.facebook.com/aifusionautomations" aria-label="AI Fusion Automations on Facebook">f</a>',
+    '        <a href="https://www.youtube.com/@AIFusionAutomations" aria-label="AI Fusion Automations on YouTube">&#9658;</a>',
+    '      </div>',
+    '    </div>',
+    '  </div>',
+    '</footer>'
+  ].join('');
+
   function isLegacyNav(element) {
     if (!element || element.id === 'aifa-nav-mount' || element.classList.contains('aifa-global-nav')) {
       return false;
@@ -84,6 +140,26 @@
   function removeLegacyNav() {
     Array.prototype.slice.call(document.body.children).forEach(function (child) {
       if (isLegacyNav(child)) {
+        child.remove();
+      }
+    });
+  }
+
+  function isLegacyFooter(element) {
+    if (!element || element.id === 'aifa-footer-mount' || element.classList.contains('aifa-global-footer')) {
+      return false;
+    }
+
+    if (element.matches('body > footer, body > .footer, body > .aifa-footer')) {
+      return true;
+    }
+
+    return false;
+  }
+
+  function removeLegacyFooters() {
+    Array.prototype.slice.call(document.body.children).forEach(function (child) {
+      if (isLegacyFooter(child)) {
         child.remove();
       }
     });
@@ -154,6 +230,7 @@
 
     document.body.classList.add('aifa-nav-ready');
     removeLegacyNav();
+    removeLegacyFooters();
 
     var mount = document.getElementById('aifa-nav-mount');
     if (!mount) {
@@ -164,6 +241,15 @@
 
     mount.innerHTML = navMarkup;
     initNav(mount.querySelector('.aifa-global-nav'));
+
+    var footerMount = document.getElementById('aifa-footer-mount');
+    if (!footerMount) {
+      footerMount = document.createElement('div');
+      footerMount.id = 'aifa-footer-mount';
+      document.body.appendChild(footerMount);
+    }
+
+    footerMount.innerHTML = footerMarkup;
   }
 
   if (document.readyState === 'loading') {

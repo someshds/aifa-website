@@ -2,6 +2,10 @@ body.aifa-nav-ready {
   padding-top: 0 !important;
 }
 
+body.aifa-nav-ready #aifa-footer-mount {
+  margin-top: auto;
+}
+
 .aifa-global-nav {
   position: sticky;
   top: 0;
@@ -206,6 +210,152 @@ body.aifa-nav-ready {
   transform: translateY(-6px) rotate(-45deg);
 }
 
+.aifa-global-footer {
+  border-top: 1px solid rgba(167, 139, 250, 0.14);
+  background:
+    radial-gradient(circle at 86% 55%, rgba(6, 182, 212, 0.08), transparent 30rem),
+    linear-gradient(135deg, #10101d 0%, #101421 54%, #0d101a 100%);
+  color: #a8b1c2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.aifa-global-footer * {
+  box-sizing: border-box;
+}
+
+.aifa-footer-inner {
+  width: min(1230px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 4.25rem 0 1.8rem;
+}
+
+.aifa-footer-main {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.45fr) repeat(3, minmax(145px, 1fr));
+  gap: clamp(2rem, 5vw, 4.5rem);
+  padding-bottom: 3.6rem;
+}
+
+.aifa-footer-brand-block {
+  max-width: 315px;
+}
+
+.aifa-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.62rem;
+  margin-bottom: 1.45rem;
+  color: #f8fafc;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.aifa-footer-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.aifa-footer-brand span:last-child {
+  background: linear-gradient(135deg, #c4b5fd, #67e8f9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.aifa-footer-brand-block p,
+.aifa-footer-bottom p {
+  margin: 0;
+  color: #9aa4b5;
+  font-size: 0.91rem;
+  font-weight: 550;
+  line-height: 1.7;
+}
+
+.aifa-footer-column {
+  display: grid;
+  align-content: start;
+  gap: 0.78rem;
+}
+
+.aifa-footer-column h2 {
+  margin: 0 0 0.35rem;
+  color: #eef2f7;
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.aifa-footer-column a,
+.aifa-footer-bottom a {
+  color: #aeb8c8;
+  text-decoration: none;
+  font-size: 0.91rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.aifa-footer-column a:hover,
+.aifa-footer-column a:focus-visible,
+.aifa-footer-bottom a:hover,
+.aifa-footer-bottom a:focus-visible {
+  color: #fff;
+  outline: none;
+}
+
+.aifa-footer-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid rgba(167, 139, 250, 0.16);
+}
+
+.aifa-footer-bottom p + p {
+  margin-top: 0.32rem;
+}
+
+.aifa-footer-social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 0 0 auto;
+}
+
+.aifa-footer-social a {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(167, 139, 250, 0.22);
+  border-radius: 8px;
+  background: rgba(124, 58, 237, 0.08);
+  color: #b8c1d1;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+  transition: border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+}
+
+.aifa-footer-social a:hover,
+.aifa-footer-social a:focus-visible {
+  border-color: rgba(103, 232, 249, 0.45);
+  background: rgba(6, 182, 212, 0.13);
+  color: #fff;
+  outline: none;
+}
+
 @media (max-width: 1040px) {
   .aifa-nav-toggle {
     display: block;
@@ -260,6 +410,44 @@ body.aifa-nav-ready {
 
   .aifa-nav-item.is-open .aifa-nav-dropdown {
     display: block;
+  }
+}
+
+@media (max-width: 880px) {
+  .aifa-footer-inner {
+    padding-top: 3.25rem;
+  }
+
+  .aifa-footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
+  }
+
+  .aifa-footer-brand-block {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .aifa-footer-inner {
+    width: min(100% - 1.5rem, 1230px);
+    padding: 2.75rem 0 1.5rem;
+  }
+
+  .aifa-footer-main {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2.6rem;
+  }
+
+  .aifa-footer-bottom {
+    display: grid;
+    align-items: start;
+    gap: 1.4rem;
+  }
+
+  .aifa-footer-social {
+    justify-content: flex-start;
   }
 }
 
