@@ -57,6 +57,8 @@ h1{font-size:clamp(2.4rem,6vw,4.7rem);line-height:.98;font-weight:950;letter-spa
 .news-card{position:relative;display:grid;grid-template-columns:250px minmax(0,1fr);min-height:210px;overflow:hidden;border-radius:8px;background:linear-gradient(135deg,rgba(16,21,37,.92),rgba(8,12,22,.95));border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 50px rgba(0,0,0,.28)}
 .news-card::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:var(--stripe,var(--accent))}
 .thumb{min-height:210px;display:grid;place-items:center;padding:1.25rem;background:radial-gradient(circle at 35% 20%,rgba(255,255,255,.18),transparent 34%),linear-gradient(135deg,var(--thumb-a),var(--thumb-b));color:#fff}
+.thumb.image-thumb{padding:0;overflow:hidden;background:#05070c}
+.thumb.image-thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .thumb-inner{width:138px;aspect-ratio:1;border-radius:24px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.18);box-shadow:inset 0 0 40px rgba(255,255,255,.08);font-size:3.2rem;font-weight:950;letter-spacing:0}
 .article-body{padding:1.45rem 1.55rem 1.25rem}
 .article-meta{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap;color:#8ee7ff;font-size:.76rem;font-weight:800;letter-spacing:.03em;margin-bottom:.58rem}
@@ -131,16 +133,18 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-
     </div>
 
     <section class="news-list" id="newsList" aria-label="Daily AI news stories">
-      <article class="news-card" style="--stripe:#38bdf8;--thumb-a:#0f766e;--thumb-b:#1d4ed8" data-search="microsoft build ai powered tools platforms developers agents small business">
-        <div class="thumb" aria-hidden="true"><div class="thumb-inner">AI</div></div>
+      <article class="news-card" style="--stripe:#38bdf8;--thumb-a:#0f766e;--thumb-b:#1d4ed8" data-search="ai operating systems microsoft build nvidia local ai github billing provenance small business">
+        <a class="thumb image-thumb" href="/news/2026-06-02-ai-is-moving-from-apps-to-operating-systems.html" aria-label="Read AI is moving from apps to operating systems">
+          <img src="/news/img/2026-06-02-ai-news-brief.png?v=higgsfield-v2" width="1200" height="675" alt="">
+        </a>
         <div class="article-body">
-          <div class="article-meta">Microsoft <span>2 Jun 2026</span></div>
-          <h3>Microsoft Build opens with AI-powered tools and platforms front and centre.</h3>
-          <p class="summary">Microsoft's Build 2026 page points developers to its June 2 live coverage for the latest updates in AI-powered tools and platforms. AIFA's full article explains what that means for small businesses already using Microsoft 365, Teams, Outlook, GitHub, Azure, CRM, and daily follow-up workflows.</p>
-          <p class="operator-note"><strong>Operator note:</strong> If your team already works in Microsoft 365, GitHub, or Azure, start mapping where AI can sit inside existing processes before buying another standalone tool.</p>
+          <div class="article-meta">AIFA Analysis <span>2 Jun 2026</span></div>
+          <h3>AI is moving from apps to operating systems.</h3>
+          <p class="summary">Today's strongest signal is not one isolated product launch. Microsoft Build, NVIDIA local AI, GitHub AI billing, and OpenAI provenance all point in the same direction: AI is becoming part of the operating layer of business software, hardware, spend control, and content trust.</p>
+          <p class="operator-note"><strong>Operator note:</strong> Small businesses should stop treating AI as a pile of disconnected tools and start mapping where it belongs inside CRM, inbox, calendar, documents, reporting, and follow-up workflows.</p>
           <div class="card-actions">
-            <a class="read-more" href="/news/2026-06-02-microsoft-build-ai-platforms-small-business.html">Read full article</a>
-            <div class="reaction-row"><a class="reaction" href="https://news.microsoft.com/build-2026/" target="_blank" rel="noopener">Source: Microsoft</a><span class="reaction">Impact 8/10</span><span class="reaction">Watch: platform AI</span></div>
+            <a class="read-more" href="/news/2026-06-02-ai-is-moving-from-apps-to-operating-systems.html">Read full article</a>
+            <div class="reaction-row"><span class="reaction">Impact 8/10</span><span class="reaction">Watch: AI operating layer</span></div>
           </div>
         </div>
       </article>
