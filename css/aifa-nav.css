@@ -6,6 +6,17 @@ body.aifa-nav-ready #aifa-footer-mount {
   margin-top: auto;
 }
 
+html.aifa-footer-only-root,
+body.aifa-footer-only {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+body.aifa-footer-only .stage {
+  position: relative !important;
+  min-height: 100vh;
+}
+
 .aifa-global-nav {
   position: sticky;
   top: 0;

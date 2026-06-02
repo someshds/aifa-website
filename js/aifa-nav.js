@@ -224,23 +224,33 @@
   }
 
   function render() {
-    if (!document.body || document.querySelector('.aifa-global-nav')) {
+    if (!document.body) {
       return;
     }
 
+    var footerOnly = document.body.hasAttribute('data-aifa-footer-only');
     document.body.classList.add('aifa-nav-ready');
-    removeLegacyNav();
-    removeLegacyFooters();
-
-    var mount = document.getElementById('aifa-nav-mount');
-    if (!mount) {
-      mount = document.createElement('div');
-      mount.id = 'aifa-nav-mount';
-      document.body.insertBefore(mount, document.body.firstChild);
+    if (footerOnly) {
+      document.body.classList.add('aifa-footer-only');
+      document.documentElement.classList.add('aifa-footer-only-root');
     }
 
-    mount.innerHTML = navMarkup;
-    initNav(mount.querySelector('.aifa-global-nav'));
+    if (!footerOnly && !document.querySelector('.aifa-global-nav')) {
+      removeLegacyNav();
+    }
+    removeLegacyFooters();
+
+    if (!footerOnly && !document.querySelector('.aifa-global-nav')) {
+      var mount = document.getElementById('aifa-nav-mount');
+      if (!mount) {
+        mount = document.createElement('div');
+        mount.id = 'aifa-nav-mount';
+        document.body.insertBefore(mount, document.body.firstChild);
+      }
+
+      mount.innerHTML = navMarkup;
+      initNav(mount.querySelector('.aifa-global-nav'));
+    }
 
     var footerMount = document.getElementById('aifa-footer-mount');
     if (!footerMount) {

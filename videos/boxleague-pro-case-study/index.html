@@ -92,8 +92,9 @@
     #play-overlay.hidden { opacity: 0; pointer-events: none; }
     #play-button { padding: 26px 52px; border-radius: 100px; background: linear-gradient(135deg, var(--brand-mid), var(--brand-light)); color: var(--brand-deep); font-size: 28px; font-weight: 800; box-shadow: 0 0 80px rgba(94,234,212,0.7); letter-spacing: 0.5px; }
   </style>
+  <link rel="stylesheet" href="/css/aifa-nav.css">
 </head>
-<body>
+<body data-aifa-footer-only>
 
 <div id="play-overlay"><button id="play-button">▶ Play Case Study — 98s</button></div>
 
@@ -360,5 +361,6 @@
   setSlide(0); updateProgress(0);
 </script>
 
+<script src="/js/aifa-nav.js" defer></script>
 </body>
 </html>
