@@ -39,7 +39,7 @@ h1{font-size:clamp(2.35rem,5.5vw,4.9rem);line-height:.98;font-weight:950;letter-
 .meta-panel span{display:block;color:var(--muted);font-size:.86rem;margin-top:.25rem}
 .meta-grid{display:grid;gap:.75rem}
 .article-image{margin:1.25rem 0 2rem;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.09);background:#05070c}
-.article-image img{display:block;width:100%;height:auto}
+.article-image img{display:block;width:100%;height:auto}.audio-player{margin:-.4rem 0 2rem;padding:1rem;border:1px solid rgba(56,189,248,.22);border-radius:8px;background:rgba(56,189,248,.07)}.audio-player h2{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#67e8f9;margin:0 0 .65rem}.audio-player audio{display:block;width:100%}
 .content-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:1.4rem;align-items:start}
 .article-body{background:rgba(16,21,37,.72);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:2rem}
 .article-body p{color:#d5deec;margin:0 0 1.05rem;font-size:1rem}
@@ -97,7 +97,8 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-
     <img src="/news/img/2026-06-04-ai-news-brief.png" width="1200" height="675" alt="Daily AI Brief: AI is building a support structure around your business">
   </figure>
 
-  <div class="content-grid">
+  <section class="audio-player" aria-label="Listen to this article"><h2>Listen to this article</h2><audio controls preload="metadata" src="/news/audio/2026-06-04-ai-support-structure-for-small-business.mp3"><a href="/news/audio/2026-06-04-ai-support-structure-for-small-business.mp3">Download the audio version</a></audio></section>
+<div class="content-grid">
     <article class="article-body">
       <div class="lead-block">
         <p><strong>The short version:</strong> AI shifted this week from "interesting tools to try" to "a system you can build around." Certified partners, production-ready agents, government infrastructure, and cybersecurity tooling are all arriving at once.</p>
