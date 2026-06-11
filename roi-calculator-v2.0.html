@@ -168,7 +168,7 @@
       <h2><span class="icon" style="background:rgba(245,158,11,.12)">📊</span> Your Business</h2>
       <div class="row">
         <div class="field">
-          <label>Industry</label>
+          <label for="industry">Industry</label>
           <select id="industry">
             <option value="trades">Trades & Home Services</option>
             <option value="professional">Professional Services</option>
@@ -183,7 +183,7 @@
           </select>
         </div>
         <div class="field">
-          <label>Number of Employees</label>
+          <label for="employees">Number of Employees</label>
           <select id="employees">
             <option value="1">Just me (1)</option>
             <option value="3">2–5</option>
@@ -200,15 +200,15 @@
     <div class="calc-section">
       <h2><span class="icon" style="background:rgba(16,185,129,.12)">💷</span> Staff Cost</h2>
       <div class="field">
-        <label>How are your staff paid?</label>
-        <div class="pay-toggle">
-          <button class="active" onclick="setPayMode('hourly')" id="pay-hourly">Hourly Rate</button>
-          <button onclick="setPayMode('salary')" id="pay-salary">Annual Salary</button>
+        <label id="payModeLabel">How are your staff paid?</label>
+        <div class="pay-toggle" role="group" aria-labelledby="payModeLabel">
+          <button type="button" class="active" onclick="setPayMode('hourly')" id="pay-hourly" aria-pressed="true">Hourly Rate</button>
+          <button type="button" onclick="setPayMode('salary')" id="pay-salary" aria-pressed="false">Annual Salary</button>
         </div>
       </div>
       <div id="pay-hourly-fields">
         <div class="field">
-          <label>Hourly rate (£)</label>
+          <label for="hourlyRate">Hourly rate (£)</label>
           <div class="hint">Average cost per hour for staff doing this work</div>
           <input type="number" id="hourlyRate" value="25" min="1" max="500" oninput="updateHourlyCalc()" />
         </div>
@@ -216,12 +216,12 @@
       <div id="pay-salary-fields" style="display:none">
         <div class="row">
           <div class="field">
-            <label>Annual salary (£)</label>
+            <label for="annualSalary">Annual salary (£)</label>
             <div class="hint">Gross annual salary before tax</div>
             <input type="number" id="annualSalary" value="28000" min="1000" max="500000" oninput="updateHourlyCalc()" />
           </div>
           <div class="field">
-            <label>Working hours per day</label>
+            <label for="hoursPerDay">Working hours per day</label>
             <div class="hint">Typical working day length</div>
             <select id="hoursPerDay" onchange="updateHourlyCalc()">
               <option value="7">7 hours</option>
@@ -241,18 +241,18 @@
         <h2><span class="icon" style="background:rgba(6,182,212,.12)">📞</span> Leads & Customers</h2>
         <div class="row">
           <div class="field">
-            <label>New enquiries per month</label>
+            <label for="leads">New enquiries per month</label>
             <div class="hint">Phone calls, emails, web forms, social messages</div>
             <input type="number" id="leads" value="30" min="1" max="10000" />
           </div>
           <div class="field">
-            <label>Average job/sale value (£)</label>
+            <label for="jobValue">Average job/sale value (£)</label>
             <div class="hint">What a typical customer is worth</div>
             <input type="number" id="jobValue" value="250" min="1" max="1000000" />
           </div>
         </div>
         <div class="slider-field">
-          <label>How many enquiries do you think you lose or miss? <span id="lostPctLabel">25%</span></label>
+          <label for="lostPct">How many enquiries do you think you lose or miss? <span id="lostPctLabel">25%</span></label>
           <input type="range" id="lostPct" min="5" max="60" value="25" step="5" oninput="document.getElementById('lostPctLabel').textContent=this.value+'%'" />
         </div>
       </div>
@@ -260,12 +260,12 @@
       <div class="calc-section">
         <h2><span class="icon" style="background:rgba(124,58,237,.12)">⏱️</span> Response & Follow-Up</h2>
         <div class="slider-field">
-          <label>Hours/week on admin, follow-ups, quoting, scheduling <span id="adminHoursLabel">10</span></label>
+          <label for="adminHours">Hours/week on admin, follow-ups, quoting, scheduling <span id="adminHoursLabel">10</span></label>
           <input type="range" id="adminHours" min="2" max="40" value="10" step="1" oninput="document.getElementById('adminHoursLabel').textContent=this.value" />
         </div>
         <div class="row">
           <div class="field">
-            <label>Average response time to new enquiry</label>
+            <label for="responseTime">Average response time to new enquiry</label>
             <select id="responseTime">
               <option value="0.25">Under 15 minutes</option>
               <option value="1">About 1 hour</option>
@@ -275,7 +275,7 @@
             </select>
           </div>
           <div class="field">
-            <label>Do you send follow-up messages?</label>
+            <label for="followUp">Do you send follow-up messages?</label>
             <select id="followUp">
               <option value="always">Always — automated system</option>
               <option value="sometimes" selected>Sometimes — when I remember</option>
@@ -292,7 +292,7 @@
       <div class="calc-section">
         <h2><span class="icon" style="background:rgba(6,182,212,.12)">📋</span> Current Process</h2>
         <div class="field">
-          <label>What type of work are you automating?</label>
+          <label for="boTaskType">What type of work are you automating?</label>
           <select id="boTaskType">
             <option value="data-entry">Data entry / document processing</option>
             <option value="invoicing">Invoicing & accounting</option>
@@ -304,23 +304,23 @@
         </div>
         <div class="row">
           <div class="field">
-            <label>How many tasks/transactions per day?</label>
+            <label for="boTasksPerDay">How many tasks/transactions per day?</label>
             <div class="hint">e.g. orders processed, invoices entered, documents handled</div>
             <input type="number" id="boTasksPerDay" value="5" min="1" max="1000" />
           </div>
           <div class="field">
-            <label>Average time per task (minutes)</label>
+            <label for="boMinutesPerTask">Average time per task (minutes)</label>
             <div class="hint">How long each task currently takes a person</div>
             <input type="number" id="boMinutesPerTask" value="15" min="1" max="480" />
           </div>
         </div>
         <div class="row">
           <div class="field">
-            <label>How many staff do this work?</label>
+            <label for="boStaffCount">How many staff do this work?</label>
             <input type="number" id="boStaffCount" value="2" min="1" max="100" />
           </div>
           <div class="field">
-            <label>Working days per week</label>
+            <label for="boDaysPerWeek">Working days per week</label>
             <select id="boDaysPerWeek">
               <option value="5" selected>5 days</option>
               <option value="5.5">5.5 days</option>
@@ -330,7 +330,7 @@
           </div>
         </div>
         <div class="slider-field">
-          <label>Error/rework rate <span id="boErrorLabel">10%</span></label>
+          <label for="boErrorRate">Error/rework rate <span id="boErrorLabel">10%</span></label>
           <div class="hint" style="margin-bottom:.5rem">How often do tasks need correcting or redoing?</div>
           <input type="range" id="boErrorRate" min="0" max="30" value="10" step="1" oninput="document.getElementById('boErrorLabel').textContent=this.value+'%'" />
         </div>
@@ -343,19 +343,19 @@
         <h2><span class="icon" style="background:rgba(6,182,212,.12)">🤖</span> Customer Interactions</h2>
         <div class="row">
           <div class="field">
-            <label>Customer enquiries per month</label>
+            <label for="cbEnquiries">Customer enquiries per month</label>
             <div class="hint">Phone, email, live chat, social media</div>
             <input type="number" id="cbEnquiries" value="200" min="1" max="100000" />
           </div>
           <div class="field">
-            <label>Average time per enquiry (minutes)</label>
+            <label for="cbMinutesPerEnquiry">Average time per enquiry (minutes)</label>
             <div class="hint">Time a person spends responding</div>
             <input type="number" id="cbMinutesPerEnquiry" value="8" min="1" max="120" />
           </div>
         </div>
         <div class="row">
           <div class="field">
-            <label>What % could an AI chatbot handle?</label>
+            <label for="cbAutoRate">What % could an AI chatbot handle?</label>
             <div class="hint">FAQ, booking, status checks, basic support</div>
             <select id="cbAutoRate">
               <option value="40">~40% — Simple FAQs only</option>
@@ -365,7 +365,7 @@
             </select>
           </div>
           <div class="field">
-            <label>Current support hours</label>
+            <label for="cbSupportHours">Current support hours</label>
             <select id="cbSupportHours">
               <option value="8">Business hours only (8hrs)</option>
               <option value="12" selected>Extended hours (12hrs)</option>
@@ -374,7 +374,7 @@
           </div>
         </div>
         <div class="slider-field">
-          <label>Enquiries that come outside your support hours <span id="cbOohLabel">30%</span></label>
+          <label for="cbOohPct">Enquiries that come outside your support hours <span id="cbOohLabel">30%</span></label>
           <input type="range" id="cbOohPct" min="5" max="60" value="30" step="5" oninput="document.getElementById('cbOohLabel').textContent=this.value+'%'" />
         </div>
       </div>
@@ -385,11 +385,11 @@
       <h2><span class="icon" style="background:rgba(124,58,237,.12)">📧</span> Get Your Report Emailed (Optional)</h2>
       <div class="row">
         <div class="field">
-          <label>Your name</label>
+          <label for="userName">Your name</label>
           <input type="text" id="userName" placeholder="e.g. Sarah" />
         </div>
         <div class="field">
-          <label>Email address</label>
+          <label for="userEmail">Email address</label>
           <input type="email" id="userEmail" placeholder="you@company.com" />
         </div>
       </div>
@@ -474,6 +474,8 @@ function setPayMode(mode) {
   payMode = mode;
   document.getElementById('pay-hourly').classList.toggle('active', mode === 'hourly');
   document.getElementById('pay-salary').classList.toggle('active', mode === 'salary');
+  document.getElementById('pay-hourly').setAttribute('aria-pressed', mode === 'hourly' ? 'true' : 'false');
+  document.getElementById('pay-salary').setAttribute('aria-pressed', mode === 'salary' ? 'true' : 'false');
   document.getElementById('pay-hourly-fields').style.display = mode === 'hourly' ? '' : 'none';
   document.getElementById('pay-salary-fields').style.display = mode === 'salary' ? '' : 'none';
   updateHourlyCalc();
