@@ -42,7 +42,13 @@ h1{font-size:clamp(2.45rem,5vw,4.8rem);font-weight:900;line-height:1.02;letter-s
 .stat b{display:block;font-size:1.1rem;color:#fff}
 .stat span{display:block;color:#bcd0dd;font-size:.82rem;line-height:1.35}
 .page{max-width:1180px;margin:0 auto;padding:2rem 1.25rem 4rem}
-.intro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:-3.1rem;position:relative;z-index:2}
+.instructions{background:#fff;border:1px solid var(--border);border-radius:8px;margin-top:-2rem;position:relative;z-index:2;box-shadow:0 12px 34px rgba(15,23,42,.08);overflow:hidden}
+.instructions summary{cursor:pointer;list-style:none;padding:1rem 1.1rem;font-weight:850;color:var(--navy);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.instructions summary::-webkit-details-marker{display:none}
+.instructions summary::after{content:"+";width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,rgba(24,199,212,.16),rgba(108,59,255,.14));display:grid;place-items:center;color:var(--purple);font-weight:900;flex:0 0 auto}
+.instructions[open] summary{border-bottom:1px solid var(--border)}
+.instructions[open] summary::after{content:"-"}
+.instruction-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding:1rem}
 .benefit{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.1rem;box-shadow:0 12px 34px rgba(15,23,42,.08)}
 .benefit-icon{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,rgba(24,199,212,.16),rgba(108,59,255,.14));display:grid;place-items:center;color:var(--navy);font-weight:900;margin-bottom:.75rem}
 .benefit h2{font-size:1rem;margin-bottom:.35rem;line-height:1.25}
@@ -69,14 +75,14 @@ footer{max-width:1180px;margin:0 auto;padding:1.5rem 1.25rem 2.5rem;color:#75859
 @media(max-width:980px){
   .hero-inner,.form-section{grid-template-columns:1fr}
   .context-panel{position:static}
-  .intro-grid{grid-template-columns:repeat(2,1fr)}
+  .instruction-grid{grid-template-columns:repeat(2,1fr)}
   .form-frame{height:2700px}
 }
 @media(max-width:640px){
   .nav-inner{align-items:flex-start;flex-direction:column}
   .nav-links{font-size:.86rem;flex-wrap:wrap}
   .hero-inner{padding-top:2.5rem}
-  .stats,.intro-grid,.after{grid-template-columns:1fr}
+  .stats,.instruction-grid,.after{grid-template-columns:1fr}
   .page{padding-left:1rem;padding-right:1rem}
   .form-frame{height:3000px}
 }
@@ -115,28 +121,31 @@ footer{max-width:1180px;margin:0 auto;padding:1.5rem 1.25rem 2.5rem;color:#75859
 </header>
 
 <main class="page">
-  <section class="intro-grid" aria-label="Snapshot benefits">
-    <article class="benefit">
-      <div class="benefit-icon">1</div>
-      <h2>Pick one workflow</h2>
-      <p>Choose a real process in your business rather than trying to fix everything at once.</p>
-    </article>
-    <article class="benefit">
-      <div class="benefit-icon">2</div>
-      <h2>Score the current process</h2>
-      <p>Use a simple 0, 1, 2 score to reveal where the system is clear and where it leaks.</p>
-    </article>
-    <article class="benefit">
-      <div class="benefit-icon">3</div>
-      <h2>Find the bottleneck</h2>
-      <p>Show where work gets lost, delayed, repeated, or forgotten between people and tools.</p>
-    </article>
-    <article class="benefit">
-      <div class="benefit-icon">4</div>
-      <h2>Get a next step</h2>
-      <p>Receive a practical recommendation for where AI or automation could help first.</p>
-    </article>
-  </section>
+  <details class="instructions">
+    <summary>How this snapshot works</summary>
+    <section class="instruction-grid" aria-label="Snapshot instructions">
+      <article class="benefit">
+        <div class="benefit-icon">1</div>
+        <h2>Pick one workflow</h2>
+        <p>Choose a real process in your business rather than trying to fix everything at once.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon">2</div>
+        <h2>Score the current process</h2>
+        <p>Use a simple 0, 1, 2 score to reveal where the system is clear and where it leaks.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon">3</div>
+        <h2>Find the bottleneck</h2>
+        <p>Show where work gets lost, delayed, repeated, or forgotten between people and tools.</p>
+      </article>
+      <article class="benefit">
+        <div class="benefit-icon">4</div>
+        <h2>Get a next step</h2>
+        <p>Receive a practical recommendation for where AI or automation could help first.</p>
+      </article>
+    </section>
+  </details>
 
   <section class="form-section">
     <aside class="context-panel">
