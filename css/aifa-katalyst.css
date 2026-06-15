@@ -1,0 +1,242 @@
+/* ─────────────────────────────────────────────────────────────────
+   aifa-katalyst.css
+   Site-wide visual-style refresh inspired by katalyst-crm.com.
+   Loaded AFTER each page's inline <style>, so these rules win.
+   Touches: typography, card hovers, buttons, section headers,
+   step numbers, stat displays, soft gradient atmospherics.
+   No IA / structural / copy changes — visual style only.
+───────────────────────────────────────────────────────────────── */
+
+/* ── Optional refined typeface (Inter) — falls back to system ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Layered design tokens that extend the existing palette */
+  --kx-display-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --kx-shadow-soft: 0 18px 50px rgba(15, 23, 42, .25);
+  --kx-shadow-glow: 0 10px 40px rgba(124, 58, 237, .25);
+  --kx-shadow-deep: 0 30px 70px rgba(15, 23, 42, .45);
+  --kx-radius-card: 18px;
+  --kx-radius-pill: 999px;
+  --kx-grad-primary: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+  --kx-grad-hero: linear-gradient(135deg, #ffffff 0%, #a78bfa 60%, #22d3ee 100%);
+  --kx-grad-step-num: linear-gradient(180deg, rgba(124,58,237,.35), rgba(124,58,237,.05));
+  --kx-ease: cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ── Typography refinement ── */
+body {
+  font-family: var(--kx-display-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, .hero h1, .section h2 {
+  font-family: var(--kx-display-font);
+  letter-spacing: -.02em;
+}
+h1, .hero h1 { font-weight: 900; line-height: 1.05; }
+h2, .section h2 { font-weight: 800; line-height: 1.15; letter-spacing: -.015em; }
+h3 { font-weight: 700; letter-spacing: -.01em; }
+
+/* Hero subhead: a touch lighter and more readable */
+.hero p { font-weight: 400; letter-spacing: .005em; }
+
+/* ── Section header / badge pill refinement ── */
+.section-tag,
+.section-header .eyebrow,
+.section-header .badge,
+[class*="section-header"] [class*="eyebrow"] {
+  letter-spacing: .12em;
+  font-weight: 700;
+  font-size: .72rem;
+  padding: .35rem .85rem;
+  border-radius: var(--kx-radius-pill);
+}
+
+/* ── Buttons — pillier, deeper shadow, smoother motion ── */
+.btn,
+.btn-primary,
+.btn-secondary {
+  border-radius: var(--kx-radius-pill);
+  font-weight: 600;
+  letter-spacing: .01em;
+  transition: transform .25s var(--kx-ease), box-shadow .25s var(--kx-ease), background .25s var(--kx-ease), border-color .25s var(--kx-ease);
+}
+.btn-primary {
+  background: var(--kx-grad-primary);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, .35), inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 38px rgba(124, 58, 237, .5), inset 0 1px 0 rgba(255, 255, 255, .18);
+}
+.btn-secondary {
+  backdrop-filter: blur(8px);
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* ── Cards — softer, glowing hover ── */
+.feature-card,
+.module-card,
+.product-card,
+.step-card,
+.stat-card,
+.related-card,
+.usecase-card {
+  border-radius: var(--kx-radius-card);
+  transition: transform .3s var(--kx-ease), box-shadow .3s var(--kx-ease), border-color .3s var(--kx-ease);
+}
+.feature-card:hover,
+.module-card:hover,
+.product-card:hover,
+.step-card:hover,
+.stat-card:hover,
+.related-card:hover,
+.usecase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--kx-shadow-soft), var(--kx-shadow-glow);
+}
+
+/* ── Step / how-it-works: large translucent step numbers ── */
+.step-card,
+.steps .step,
+.how-it-works .step {
+  position: relative;
+  overflow: hidden;
+}
+.step-card .step-number,
+.steps .step .step-num,
+.how-it-works .step .step-num {
+  position: relative;
+  z-index: 1;
+}
+/* Decorative giant "01" / "02" behind the step card */
+.step-card::before,
+.steps .step::before {
+  content: attr(data-step);
+  position: absolute;
+  top: -.4rem;
+  right: -.2rem;
+  font-family: var(--kx-display-font);
+  font-size: 5.5rem;
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: 1;
+  background: var(--kx-grad-step-num);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: .85;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Stats: bigger, more outcome-led numerals ── */
+.stat-number,
+.stat-value,
+.stat-card .stat-number,
+.results .stat .num,
+.results-grid .stat-number,
+[class*="results"] [class*="number"] {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -.02em;
+  line-height: 1;
+  background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label,
+.stat-card .stat-label {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .76rem;
+  font-weight: 600;
+}
+
+/* ── Section headers: a touch larger and tighter ── */
+.section h2,
+.section-header h2,
+.results h2,
+.services h2,
+.how-it-works h2,
+.tools h2,
+.social-proof h2,
+.blog h2,
+.cta-section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+}
+
+/* ── Hero polish ── */
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+}
+.hero-badge,
+.hero .eyebrow {
+  letter-spacing: .14em;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: .74rem;
+  padding: .4rem 1rem;
+  border-radius: var(--kx-radius-pill);
+  border: 1px solid rgba(124, 58, 237, .35);
+  background: linear-gradient(135deg, rgba(124, 58, 237, .15), rgba(6, 182, 212, .12));
+  color: #a78bfa;
+}
+
+/* ── Atmospheric gradient — slightly richer ── */
+.gradient-bg,
+body::before {
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(124, 58, 237, .18) 0%, transparent 55%),
+    radial-gradient(ellipse at 88% 100%, rgba(6, 182, 212, .12) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 30%, rgba(124, 58, 237, .05) 0%, transparent 60%);
+}
+
+/* ── Nav: a touch tighter ── */
+.site-nav-logo-text { letter-spacing: -.01em; }
+.site-nav-cta {
+  border-radius: var(--kx-radius-pill) !important;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, .3);
+}
+
+/* ── Image framing — deeper shadows on product hero images ── */
+img[loading="eager"][src*="hero"],
+img[loading="eager"][src*="dashboard"] {
+  border-radius: 22px;
+  box-shadow: var(--kx-shadow-deep), 0 0 0 1px rgba(124, 58, 237, .22);
+}
+
+/* ── Footer: cleaner divider ── */
+footer { border-top-color: rgba(255, 255, 255, .06); }
+
+/* ── Accessible focus rings ── */
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ── Reveal-on-scroll friendliness ── */
+[class*="reveal"] {
+  transition: opacity .6s var(--kx-ease), transform .6s var(--kx-ease);
+}
+
+/* ── Reduce motion if user prefers ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
