@@ -2,13 +2,13 @@
 """
 Generate UI mockup images for AI Fusion Automations tools site.
 Design system: dark navy bg, purple/cyan gradients, clean dashboard look.
-Output: 1200x750 PNGs into /Users/someshdeswardt/Claude/aifa/tools-site/img/
+Output: 1200x750 PNGs into /Users/someshdeswardt/Documents/Claude/aifa/tools-site/img/
 """
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import os
 import math
 
-OUT = "/Users/someshdeswardt/Claude/aifa/tools-site/img"
+OUT = "/Users/someshdeswardt/Documents/Claude/aifa/tools-site/img"
 W, H = 1200, 750
 
 # Design system
