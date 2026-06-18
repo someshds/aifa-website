@@ -55,6 +55,8 @@ h1{font-size:clamp(2.4rem,6vw,4.7rem);line-height:.98;font-weight:950;letter-spa
 .view-toggle button{min-height:42px;border:0;background:transparent;color:#b8c4d8;padding:0 .8rem;font:inherit;font-size:.84rem;font-weight:750;cursor:pointer}
 .view-toggle button.active{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff}
 .news-list{display:grid;gap:1rem}
+.date-divider{display:flex;align-items:center;gap:.8rem;margin:1.3rem 0 .2rem;color:#dbeafe;font-size:.78rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+.date-divider::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,rgba(56,189,248,.35),transparent)}
 .news-card{position:relative;display:grid;grid-template-columns:250px minmax(0,1fr);min-height:210px;overflow:hidden;border-radius:8px;background:linear-gradient(135deg,rgba(16,21,37,.92),rgba(8,12,22,.95));border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 50px rgba(0,0,0,.28)}
 .news-card::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:var(--stripe,var(--accent))}
 .thumb{min-height:210px;display:grid;place-items:center;padding:1.25rem;background:radial-gradient(circle at 35% 20%,rgba(255,255,255,.18),transparent 34%),linear-gradient(135deg,var(--thumb-a),var(--thumb-b));color:#fff}
@@ -105,8 +107,8 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-
     <h1>AI news, translated for busy operators.</h1>
     <p class="lead">A daily scan of the AI stories that matter for small businesses: tools, costs, regulation, infrastructure, and practical moves you can make this week.</p>
     <div class="brief-meta">
-      <span class="brief-pill">Latest brief: 14 June 2026</span>
-      <span class="brief-pill">25 stories</span>
+      <span class="brief-pill">Latest published brief: 14 June 2026</span>
+      <span class="brief-pill">25 archive stories</span>
       <span class="brief-pill">Built for UK small businesses</span>
     </div>
   </section>
@@ -114,13 +116,13 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-
   <main class="brief-layout">
     <div class="top-grid">
       <section class="panel market-read">
-        <div class="section-label">Today's read — 14 June 2026</div>
+        <div class="section-label">Featured brief - 14 June 2026</div>
         <h2>The week AI infrastructure arrived: billing changes, IPO filings, platform AI, and EU content rules — four signals for UK operators.</h2>
         <p>Anthropic splits automated billing from 15 June — check your credit allocation today. OpenAI filed confidentially for IPO days after Anthropic, at a $1 trillion target valuation. Apple's WWDC rebuilt Siri with Google Gemini and delivered AI as the default layer of iOS 27. And the EU published its Code of Practice on AI content labelling. Four signals in one week telling the same story: AI is no longer an experiment — it is infrastructure, and the pricing is normalising to match.</p>
       </section>
       <aside class="panel stats" aria-label="Daily brief stats">
         <div class="stat"><strong>3 min</strong><span>Average skim time</span></div>
-        <div class="stat"><strong>5</strong><span>Curated signals today</span></div>
+        <div class="stat"><strong>5</strong><span>Curated signals in latest brief</span></div>
         <div class="stat"><strong>1</strong><span>Operator action per story</span></div>
       </aside>
     </div>
@@ -137,6 +139,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-
     <section class="news-list" id="newsList" aria-label="Daily AI news stories">
 
       <!-- ===== 14 JUNE 2026 ===== -->
+      <div class="date-divider">Published brief - 14 June 2026</div>
 
       <article class="news-card" style="--stripe:#38bdf8;--thumb-a:#0f2c4a;--thumb-b:#1a2f5e" data-search="aifa analysis four signals ai infrastructure billing ipo apple wwdc eu ai act uk operators june 14 2026">
         <a class="thumb image-thumb" href="/news/2026-06-14-ai-pricing-infrastructure-signals-uk-operators-june-2026.html" aria-label="Read The week AI infrastructure arrived: four signals UK operators cannot afford to miss">
@@ -219,6 +222,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-
       </article>
 
       <!-- ===== 12 JUNE 2026 ===== -->
+      <div class="date-divider">Published brief - 12 June 2026</div>
 
       <article class="news-card" style="--stripe:#38bdf8;--thumb-a:#0f4c5c;--thumb-b:#1d4ed8" data-search="london tech week 2026 ai uk government strategy tech nation report mayor 12m sme fund microsoft copilot coach aifa analysis 12 june 2026">
         <a class="thumb image-thumb" href="/news/2026-06-12-london-tech-week-2026-ai-uk-strategy.html" aria-label="Read London Tech Week 2026 closes: five signals that AI is now UK government strategy">
@@ -301,6 +305,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-
       </article>
 
       <!-- ===== 11 JUNE 2026 ===== -->
+      <div class="date-divider">Published brief - 11 June 2026</div>
 
       <article class="news-card" style="--stripe:#38bdf8;--thumb-a:#0f766e;--thumb-b:#1d4ed8" data-search="three ai deadlines july microsoft copilot openai workspace agents apple ios 27 siri uk operators aifa analysis 11 june 2026">
         <a class="thumb image-thumb" href="/news/2026-06-11-three-ai-deadlines-july-2026-uk-operators.html" aria-label="Read Three AI deadlines arriving this July">
@@ -383,6 +388,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-
       </article>
 
       <!-- ===== 6 JUNE 2026 ===== -->
+      <div class="date-divider">Published brief - 6 June 2026</div>
 
       <article class="news-card" style="--stripe:#38bdf8;--thumb-a:#0f766e;--thumb-b:#1d4ed8" data-search="anthropic ipo openai workspace agents uk sme 54 percent bcc ai infrastructure signals experiment operators 6 june 2026 aifa analysis">
         <a class="thumb image-thumb" href="/news/2026-06-06-ai-commercial-maturity-signals-uk-operators.html" aria-label="Read Three signals that prove AI has crossed from experiment to infrastructure">
@@ -465,6 +471,7 @@ footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-
       </article>
 
       <!-- ===== 5 JUNE 2026 ===== -->
+      <div class="date-divider">Published brief - 5 June 2026</div>
 
       <article class="news-card" style="--stripe:#38bdf8;--thumb-a:#0f766e;--thumb-b:#1d4ed8" data-search="ai conductor orchestrator tool anthropic opus 4.8 cma google search microsoft models small business uk operators weekly analysis 5 june 2026">
         <a class="thumb image-thumb" href="/news/2026-06-05-ai-from-tool-to-conductor-uk-operators.html" aria-label="Read From tool to conductor: AI's biggest week yet for UK operators">
