@@ -1,4 +1,11 @@
 (function () {
+  var AIFA_CHAT_WIDGET_ID = '668394bfc5fec605b13596ff';
+  var ALLOWED_NON_AIFA_CHAT_WIDGET_IDS = {
+    '69c2d44d510b6031cc38ed0e': true
+  };
+  var AIFA_CHAT_SCRIPT_SRC = 'https://widgets.leadconnectorhq.com/loader.js';
+  var AIFA_CHAT_RESOURCES_URL = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
+
   var navMarkup = [
     '<nav class="aifa-global-nav" aria-label="Primary">',
     '  <div class="aifa-nav-inner">',
@@ -260,6 +267,58 @@
     }
 
     footerMount.innerHTML = footerMarkup;
+    loadAifaChatWidget();
+  }
+
+  function shouldSkipAifaChatWidget() {
+    var path = window.location.pathname || '';
+    if (document.body.hasAttribute('data-aifa-no-chat-widget')) {
+      return true;
+    }
+
+    return path === '/strategy-call.html' ||
+      path === '/book.html' ||
+      path === '/ai-systems-snapshot.html' ||
+      path === '/ai-workflow-call-request.html';
+  }
+
+  function isAllowedNonAifaWidget(id) {
+    var path = window.location.pathname || '';
+    return Boolean(ALLOWED_NON_AIFA_CHAT_WIDGET_IDS[id]) && /boxleague-pro/.test(path);
+  }
+
+  function loadAifaChatWidget() {
+    if (shouldSkipAifaChatWidget()) {
+      return;
+    }
+
+    var scripts = Array.prototype.slice.call(document.querySelectorAll('script[data-widget-id]'));
+    var hasCanonicalWidget = scripts.some(function (script) {
+      return script.getAttribute('data-widget-id') === AIFA_CHAT_WIDGET_ID;
+    });
+
+    if (hasCanonicalWidget) {
+      return;
+    }
+
+    scripts.forEach(function (script) {
+      var id = script.getAttribute('data-widget-id');
+      if (!isAllowedNonAifaWidget(id)) {
+        script.remove();
+      }
+    });
+
+    if (scripts.some(function (script) {
+      return isAllowedNonAifaWidget(script.getAttribute('data-widget-id'));
+    })) {
+      return;
+    }
+
+    var chatScript = document.createElement('script');
+    chatScript.src = AIFA_CHAT_SCRIPT_SRC;
+    chatScript.setAttribute('data-resources-url', AIFA_CHAT_RESOURCES_URL);
+    chatScript.setAttribute('data-widget-id', AIFA_CHAT_WIDGET_ID);
+    document.body.appendChild(chatScript);
   }
 
   if (document.readyState === 'loading') {
