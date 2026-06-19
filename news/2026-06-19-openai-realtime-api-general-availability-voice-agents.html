@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenAI Realtime API Goes General Availability — AI Voice Agents Are Now Production-Grade | AI Fusion Automations</title>
+<meta name="description" content="OpenAI moved three new real-time audio models from beta to general availability: GPT-Realtime-2, GPT-Realtime-Translate, and GPT-Realtime-Whisper. AI voice agents and real-time transcription are now production-grade — what this means for UK service businesses."><meta name="robots" content="index, follow">
+<link rel="canonical" href="https://tools.aifusionautomations.com/news/2026-06-19-openai-realtime-api-general-availability-voice-agents.html"><meta property="og:title" content="OpenAI Realtime API Goes GA — AI Voice Agents Are Now Production-Grade"><meta property="og:description" content="Three new real-time audio models move from beta to GA: GPT-Realtime-2, GPT-Realtime-Translate, GPT-Realtime-Whisper. AI phone agents for UK service businesses are now stable."><meta property="og:type" content="article"><meta property="og:url" content="https://tools.aifusionautomations.com/news/2026-06-19-openai-realtime-api-general-availability-voice-agents.html"><meta property="og:image" content="https://tools.aifusionautomations.com/news/img/2026-06-19-openai-realtime-api.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://tools.aifusionautomations.com/news/img/2026-06-19-openai-realtime-api.png"><link rel="stylesheet" href="/css/aifa-nav.css?v=footer-v2">
+<link rel="stylesheet" href="/css/aifa-katalyst.css?v=phase-4">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}:root{--primary:#7c3aed;--accent:#06b6d4;--green:#14b88a;--text:#f8fafc;--muted:#a9b4c7;--blue:#38bdf8}body{min-height:100vh;background:radial-gradient(ellipse at 15% 0%,rgba(124,58,237,.17),transparent 42%),radial-gradient(ellipse at 82% 20%,rgba(6,182,212,.12),transparent 45%),linear-gradient(145deg,#080b12 0%,#0d1321 52%,#05070c 100%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.7;overflow-x:hidden}a{color:#7dd3fc;text-decoration:none}a:hover{text-decoration:underline}.article-shell{max-width:1120px;margin:0 auto;padding:4.75rem 1.25rem 5rem}.breadcrumb{display:inline-flex;color:#93c5fd;font-size:.86rem;font-weight:750;margin-bottom:1.4rem}.hero{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:1.35rem;align-items:end;margin-bottom:2rem}.eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.42rem .9rem;border:1px solid rgba(251,113,133,.32);border-radius:999px;background:rgba(251,113,133,.1);color:#fecdd3;font-size:.76rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#fb7185}h1{font-size:clamp(2.25rem,5.3vw,4.7rem);line-height:.98;font-weight:950;margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,#fecdd3 55%,#67e8f9 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.dek{max-width:790px;color:#c8d3e4;font-size:1.13rem}.meta-panel,.article-body,.side-card{border:1px solid rgba(255,255,255,.08);border-radius:8px;background:rgba(16,21,37,.76)}.meta-panel{padding:1rem}.meta-panel strong{display:block;font-size:1.6rem;line-height:1}.meta-panel span{display:block;color:var(--muted);font-size:.86rem;margin-top:.25rem}.meta-grid{display:grid;gap:.75rem}.article-image{margin:1.25rem 0 2rem;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.09);background:#05070c}.article-image img{display:block;width:100%;height:auto}.audio-player{margin:-.4rem 0 2rem;padding:1rem;border:1px solid rgba(167,139,250,.22);border-radius:8px;background:rgba(167,139,250,.07)}.audio-player h2{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#c4b5fd;margin:0 0 .65rem}.audio-player audio{display:block;width:100%}.content-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:1.4rem;align-items:start}.article-body{padding:2rem}.article-body p{color:#d5deec;margin:0 0 1.05rem;font-size:1rem}.article-body h2{font-size:1.55rem;line-height:1.22;margin:2rem 0 .7rem}.article-body ul{margin:0 0 1.15rem 1.25rem;color:#d5deec}.article-body li{margin:.42rem 0}.signal-block{padding:1.2rem;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);margin:1.2rem 0}.signal-block strong{display:block;font-size:1.05rem;color:#fff;margin-bottom:.4rem}.signal-block p{margin:0;color:#c4cfdf;font-size:.94rem}.lead-block{padding:1rem 1.05rem;border-left:4px solid #fb7185;background:rgba(251,113,133,.08);border-radius:0 8px 8px 0;margin-bottom:1.3rem}.lead-block p{margin:0;color:#e8f4ff}.operator-box{padding:1rem 1.05rem;border:1px solid rgba(20,184,138,.25);background:rgba(20,184,138,.08);border-radius:8px;margin:1.3rem 0}.operator-box h2{margin:0 0 .55rem;font-size:1.25rem}.sidebar{display:grid;gap:1rem;position:sticky;top:1rem}.side-card{padding:1rem}.side-card h2{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#c4b5fd;margin-bottom:.7rem}.side-card p,.side-card li{color:#c4cfdf;font-size:.9rem}.side-card ul{margin-left:1.05rem}.source-link{display:block;padding:.7rem;border-radius:8px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.06);font-weight:750;margin-bottom:.65rem}.cta-band{margin-top:1.6rem;padding:1.4rem;border-radius:8px;border:1px solid rgba(167,139,250,.22);background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(20,184,138,.1));display:grid;gap:.8rem}.btn{display:inline-flex;min-height:44px;align-items:center;justify-content:center;padding:0 1rem;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;text-decoration:none;font-weight:850;width:max-content}footer{text-align:center;padding:2rem 1.5rem;border-top:1px solid rgba(255,255,255,.08);color:#778196;font-size:.82rem}@media(max-width:900px){.hero,.content-grid{grid-template-columns:1fr}.sidebar{position:static}}@media(max-width:560px){.article-shell{padding-top:3.25rem}.article-body{padding:1.25rem}.btn{width:100%}}
+</style></head>
+<body><main class="article-shell"><a class="breadcrumb" href="/news/">AI News / Daily Brief</a>
+<section class="hero"><div><div class="eyebrow"><span class="eyebrow-dot"></span><span>OpenAI / Voice AI</span></div><h1>OpenAI's voice AI just left beta — AI phone agents for UK service businesses are now production-grade.</h1><p class="dek">OpenAI moved its Realtime API from beta to general availability, releasing three new models in the process. For UK service businesses running on phone calls — tradespeople, consultants, health practitioners — the path to a reliable AI receptionist that answers calls, books appointments, and transcribes every conversation has just become significantly shorter.</p></div><aside class="meta-panel"><div class="meta-grid"><div><strong>GA</strong><span>Realtime API status</span></div><div><strong>3</strong><span>New audio models</span></div><div><strong>Real-time</strong><span>Live voice + translation</span></div></div></aside></section>
+
+<figure class="article-image"><img src="/news/img/2026-06-19-openai-realtime-api.png" width="1376" height="768" alt="OpenAI Realtime API general availability voice agents transcription UK service businesses 2026"></figure>
+
+<section class="audio-player" aria-label="Listen to this article"><h2>Listen to this article</h2><audio controls preload="none"><source src="/news/audio/2026-06-19-openai-realtime-api-general-availability-voice-agents.mp3" type="audio/mpeg"></audio></section>
+
+<div class="content-grid"><article class="article-body">
+<div class="lead-block"><p><strong>The short version:</strong> OpenAI's Realtime API has moved from beta to general availability with three new audio models: GPT-Realtime-2 for live voice conversations, GPT-Realtime-Translate for real-time language translation across calls, and GPT-Realtime-Whisper for production-grade speech-to-text transcription. Beta means experimental and subject to change. General availability means production-ready and stable. For any business that was waiting for AI voice tools to mature enough to build on, that threshold has now been passed.</p></div>
+
+<h2>What the three new Realtime models do</h2>
+
+<div class="signal-block">
+<strong>GPT-Realtime-2: live voice conversations at production quality.</strong>
+<p>This is the core conversational model — it handles real-time voice input and output with low enough latency to feel natural in a phone call. This is the engine behind AI receptionists, voice agents, and automated phone support. Moving from beta to GA means OpenAI is committing to stability — the API contract, the pricing, and the performance characteristics are now production commitments, not experimental ones.</p>
+</div>
+
+<div class="signal-block">
+<strong>GPT-Realtime-Translate: real-time language translation mid-conversation.</strong>
+<p>This model handles translation in real time during a call — not post-hoc, but live, as the conversation is happening. For UK businesses serving customers who speak other languages, or businesses with international suppliers and clients, this removes a meaningful communication barrier without requiring a human translator or specialist software.</p>
+</div>
+
+<div class="signal-block">
+<strong>GPT-Realtime-Whisper: production-grade speech-to-text transcription.</strong>
+<p>Whisper has been OpenAI's speech-to-text model for some time, but moving it into the Realtime API with a GA commitment is significant. Every call can be transcribed in real time and automatically. For service businesses that currently lose information between a phone call and a CRM entry, real-time transcription with automatic logging is a direct answer to that problem.</p>
+</div>
+
+<h2>What this means for UK service businesses running on phone calls</h2>
+
+<p>A large proportion of UK small service businesses still run primarily on telephone enquiries. A chimney sweep, a plumber, an electrician, a cleaning company, a childminder — the phone call is often the first interaction a potential customer has, and it happens at times the owner cannot always answer: early morning, evening, lunch, or when they are already on a job.</p>
+
+<p>The missed call is one of the most consistent and measurable sources of lost revenue for service businesses. Industry estimates suggest that 40–60% of missed calls do not result in a callback — the customer simply moves on to the next provider. An AI receptionist that picks up every call, takes the enquiry, provides the right information, and books an appointment or sends a follow-up closes that gap. Until now, the reliability of voice AI tools made this feel like a risk rather than a solution.</p>
+
+<div class="signal-block">
+<strong>General availability changes the risk calculation for building on voice AI.</strong>
+<p>Beta software carries a real risk for business-critical applications: the API can change, pricing can shift, performance can degrade between model updates. Developers and agencies building AI receptionists on top of a beta API are building on shifting ground. GA removes that uncertainty. The Realtime API now comes with the stability commitments that make it sensible to build a customer-facing product on top of it.</p>
+</div>
+
+<h2>The AI receptionist is no longer a future product</h2>
+
+<p>AIFA has been planning an AI receptionist offering for UK service businesses for some months — specifically tracking the maturity of voice AI infrastructure. The OpenAI Realtime API reaching GA is a meaningful step in that timeline. The underlying capability is now production-grade. What remains is the configuration: connecting it to a business's booking system, scripting the call flows, setting the escalation rules, and testing it against real enquiry patterns before going live.</p>
+
+<p>For service businesses interested in an AI receptionist, this is the right time to start scoping what it would look like — not to build it tomorrow, but so that the build timeline is realistic and the design is grounded in how the business actually takes calls today.</p>
+
+<div class="operator-box"><h2>What to do with this</h2><p><strong>If you miss calls regularly:</strong> Track it for one week. Count the calls you cannot answer, and estimate how many of those result in a booking. That number is the revenue case for an AI receptionist.<br><strong>If you already have a CRM:</strong> Ask your provider when they are integrating real-time call transcription. If the answer is "not on the roadmap," that is a data quality problem you can solve with an AI layer today.<br><strong>If you are building AI products:</strong> The OpenAI Realtime API is now the production-grade foundation for voice agent development. The beta constraint on building customer-facing voice applications has been removed.</p></div>
+
+</article>
+<aside class="sidebar">
+<section class="side-card"><h2>The three Realtime models</h2><ul>
+<li><strong>GPT-Realtime-2:</strong> live voice conversations</li>
+<li><strong>GPT-Realtime-Translate:</strong> real-time language translation</li>
+<li><strong>GPT-Realtime-Whisper:</strong> speech-to-text transcription</li>
+<li>All three: moved from beta to GA</li>
+</ul></section>
+<section class="side-card"><h2>Who benefits most</h2><ul>
+<li>Service businesses running on phone calls</li>
+<li>Any business that regularly misses calls</li>
+<li>CRM / booking system operators</li>
+<li>Businesses serving multilingual customers</li>
+<li>Developers building voice agent products</li>
+</ul></section>
+<section class="side-card"><h2>Sources</h2>
+<a class="source-link" href="https://platform.openai.com/docs/guides/realtime" target="_blank" rel="noopener">OpenAI Realtime API — OpenAI Platform</a>
+<a class="source-link" href="https://aitoolsrecap.com/Blog/AINewsJune2026.aspx" target="_blank" rel="noopener">AI News June 2026 — AI Tools Recap</a>
+</section>
+<section class="cta-band"><h2>Interested in an AI receptionist for your service business?</h2><p>AIFA is scoping AI receptionist builds for UK service businesses now. Book a call to discuss what it would look like for yours.</p><a class="btn" href="/strategy-call.html">Book a Free Call</a></section></aside></div></main>
+<footer>&copy; 2026 AI Fusion Automations. Daily AI news for practical operators.</footer>
+<script src="/js/aifa-nav.js?v=footer-v2" defer></script>
+</body></html>
