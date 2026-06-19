@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Systems Snapshot | Workflow Diagnostic | AI Fusion Automations</title>
+<meta name="description" content="A practical AI Systems Snapshot for business owners: choose one workflow, score what is happening now, find the bottleneck, and identify where AI or automation could help first.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://tools.aifusionautomations.com/services/ai-systems-snapshot.html">
+<meta property="og:title" content="AI Systems Snapshot | AI Fusion Automations">
+<meta property="og:description" content="Find where work gets lost, delayed, repeated, or forgotten - and where AI or automation could help first.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.aifusionautomations.com/services/ai-systems-snapshot.html">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#061b33;
+  --navy-2:#08243f;
+  --ink:#0f172a;
+  --muted:#5f7085;
+  --soft:#f5f8fb;
+  --panel:#ffffff;
+  --line:#dbe6ef;
+  --cyan:#18c7d4;
+  --purple:#6c3bff;
+  --green:#10b981;
+  --shadow:0 22px 70px rgba(15,23,42,.16);
+}
+body{min-height:100vh;background:var(--soft);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.nav{background:var(--navy);border-bottom:1px solid rgba(255,255,255,.12);color:#f8fafc;padding:1rem 1.25rem}
+.nav-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.65rem;font-weight:850}
+.brand-icon{width:38px;height:38px;border-radius:8px;background:linear-gradient(135deg,var(--purple),var(--cyan));display:grid;place-items:center;color:#fff;font-weight:900}
+.nav-links{display:flex;align-items:center;gap:1rem;color:#c9d6e2;font-size:.92rem}
+.nav-links a:hover{color:#fff}
+.hero{background:linear-gradient(135deg,var(--navy),#020916 78%);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 16% 14%,rgba(24,199,212,.22),transparent 30%),radial-gradient(circle at 86% 22%,rgba(108,59,255,.2),transparent 34%);pointer-events:none}
+.hero-inner{position:relative;max-width:1180px;margin:0 auto;padding:4.5rem 1.25rem 4rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.68fr);gap:2.25rem;align-items:center}
+.breadcrumb{display:inline-flex;color:#b9c9d8;font-size:.9rem;margin-bottom:1.2rem}
+.breadcrumb:hover{color:#fff}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(24,199,212,.12);border:1px solid rgba(24,199,212,.32);color:#9ff4fb;font-size:.76rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;padding:.42rem .85rem;border-radius:999px;margin-bottom:1.2rem}
+.eyebrow span:first-child{width:7px;height:7px;border-radius:50%;background:var(--cyan)}
+h1{font-size:clamp(2.35rem,5vw,4.65rem);line-height:1.02;font-weight:900;letter-spacing:0;max-width:780px;margin-bottom:1.1rem}
+.lead{font-size:clamp(1.05rem,2vw,1.28rem);color:#d8e8f4;max-width:735px;margin-bottom:1.45rem}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;margin-top:1.35rem}
+.button{display:inline-flex;align-items:center;justify-content:center;border-radius:8px;padding:.85rem 1.15rem;font-weight:850;border:1px solid transparent;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.button:hover{transform:translateY(-1px)}
+.button-primary{background:linear-gradient(135deg,var(--purple),var(--cyan));color:#fff;box-shadow:0 14px 30px rgba(24,199,212,.18)}
+.button-secondary{border-color:rgba(255,255,255,.22);color:#e6f3fb;background:rgba(255,255,255,.08)}
+.hero-panel{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:1.25rem;box-shadow:0 18px 50px rgba(0,0,0,.22)}
+.hero-panel h2{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:#9ff4fb;margin-bottom:.75rem}
+.hero-panel p{color:#d8e8f4;font-size:.98rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:1rem}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:.85rem}
+.stat b{display:block;font-size:1.2rem;color:#fff}
+.stat span{display:block;color:#bcd0dd;font-size:.82rem;line-height:1.35}
+.page{max-width:1180px;margin:0 auto;padding:0 1.25rem 4rem}
+.section{padding:3.25rem 0;border-bottom:1px solid var(--line)}
+.section:last-child{border-bottom:0}
+.section-kicker{font-size:.76rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--purple);margin-bottom:.45rem}
+.section h2{font-size:clamp(1.65rem,3vw,2.45rem);line-height:1.12;color:var(--navy);margin-bottom:.8rem}
+.section-lead{font-size:1.05rem;color:var(--muted);max-width:780px;margin-bottom:1.5rem}
+.intro-card{margin-top:-2rem;position:relative;z-index:2;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 16px 42px rgba(15,23,42,.09);padding:1.4rem;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:1.25rem;align-items:center}
+.intro-card h2{font-size:1.45rem;line-height:1.18;color:var(--navy);margin-bottom:.65rem}
+.intro-card p{color:var(--muted)}
+.one-line{background:var(--navy);color:#e8f5fb;border-radius:8px;padding:1rem;border:1px solid rgba(24,199,212,.22);font-weight:850;text-align:center}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1.2rem;box-shadow:0 10px 28px rgba(15,23,42,.06)}
+.card h3{font-size:1.02rem;color:var(--navy);margin-bottom:.45rem;line-height:1.25}
+.card p{color:var(--muted);font-size:.96rem}
+.number{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,rgba(108,59,255,.12),rgba(24,199,212,.14));display:grid;place-items:center;color:var(--navy);font-weight:900;margin-bottom:.75rem}
+.workflow-list{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.workflow-item{background:#fff;border:1px solid var(--line);border-radius:8px;padding:.85rem;font-weight:750;color:var(--navy);font-size:.92rem}
+.score-wrap{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr);gap:1rem;align-items:start}
+.score-panel{background:var(--navy);color:#fff;border-radius:8px;padding:1.25rem;position:sticky;top:1rem}
+.score-panel h3{font-size:1.35rem;line-height:1.15;margin-bottom:.65rem}
+.score-panel p{color:#d8e8f4}
+.score-scale{display:grid;gap:.65rem;margin-top:1rem}
+.score-scale div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:.75rem}
+.question-list{display:grid;gap:.6rem}
+.question{display:flex;gap:.75rem;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:8px;padding:.85rem;color:#263449}
+.question::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--cyan);flex:0 0 auto;margin-top:.48rem}
+.path{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem}
+.path-step{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem;position:relative}
+.path-step h3{font-size:.95rem;color:var(--navy);margin-bottom:.35rem}
+.path-step p{font-size:.9rem;color:var(--muted)}
+.form-zone{display:grid;grid-template-columns:minmax(250px,.6fr) minmax(0,1fr);gap:1.2rem;align-items:start}
+.form-guidance{background:var(--navy);color:#fff;border-radius:8px;padding:1.25rem}
+.form-guidance h2{color:#fff;font-size:1.55rem;margin-bottom:.75rem}
+.form-guidance p{color:#d8e8f4;margin-bottom:1rem}
+.checklist{display:grid;gap:.8rem;margin-top:1rem}
+.check{display:flex;gap:.75rem;align-items:flex-start;color:#e7f3fb;font-size:.95rem}
+.tick{width:1.45rem;height:1.45rem;border-radius:8px;background:rgba(24,199,212,.16);color:#9ff4fb;display:grid;place-items:center;flex:0 0 auto;font-weight:900}
+.form-shell{background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);overflow:hidden}
+.form-head{padding:1rem 1.15rem;border-bottom:1px solid var(--line);background:linear-gradient(135deg,#fff,#f4f8fb)}
+.form-title{font-weight:850;color:var(--navy)}
+.form-note{font-size:.84rem;color:var(--muted)}
+.form-frame{width:100%;height:2750px;border:0;background:#fff;display:block}
+.fallback{padding:1rem;text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+.fallback a{color:var(--purple);font-weight:850}
+.faq{display:grid;gap:.8rem}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.faq summary{cursor:pointer;padding:1rem 1.1rem;font-weight:850;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--purple);font-weight:900}
+.faq details[open] summary{border-bottom:1px solid var(--line)}
+.faq details[open] summary::after{content:"-"}
+.faq p{padding:1rem 1.1rem;color:var(--muted)}
+footer{max-width:1180px;margin:0 auto;padding:1.5rem 1.25rem 2.5rem;color:#75859a;font-size:.85rem}
+@media(max-width:980px){
+  .hero-inner,.intro-card,.score-wrap,.form-zone{grid-template-columns:1fr}
+  .grid-3,.path{grid-template-columns:repeat(2,1fr)}
+  .workflow-list{grid-template-columns:repeat(2,1fr)}
+  .score-panel{position:static}
+  .form-frame{height:2950px}
+}
+@media(max-width:640px){
+  .nav-inner{align-items:flex-start;flex-direction:column}
+  .nav-links{font-size:.86rem;flex-wrap:wrap}
+  .hero-inner{padding-top:2.5rem}
+  .stats,.grid-2,.grid-3,.path,.workflow-list{grid-template-columns:1fr}
+  .page{padding-left:1rem;padding-right:1rem}
+  .section{padding:2.35rem 0}
+  .form-frame{height:3250px}
+}
+</style>
+<link rel="stylesheet" href="/css/aifa-nav.css?v=footer-v2">
+<link rel="stylesheet" href="/css/aifa-katalyst.css?v=phase-4b">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI Systems Snapshot",
+  "provider": {
+    "@type": "Organization",
+    "name": "AI Fusion Automations",
+    "url": "https://tools.aifusionautomations.com"
+  },
+  "serviceType": "AI workflow diagnostic",
+  "areaServed": "United Kingdom",
+  "description": "A practical workflow diagnostic that helps business owners identify where work gets lost, delayed, repeated, or forgotten, and where AI or automation could help first.",
+  "url": "https://tools.aifusionautomations.com/services/ai-systems-snapshot.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the AI Systems Snapshot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The AI Systems Snapshot is a short workflow diagnostic. You choose one real workflow, answer a set of scoring questions, and explain where work gets lost or delayed. AI Fusion Automations then uses that information to identify the most practical first improvement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this a full AI audit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is intentionally narrower than a full audit. The snapshot focuses on one workflow so the first useful improvement is easier to identify."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What workflows can I use it for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common examples include new enquiries, lead capture, sales follow-up, customer onboarding, admin, appointment booking, customer service, reporting, visibility, marketing, and content workflows."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after I submit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI Fusion Automations reviews your answers, looks at where the workflow score drops, and suggests a practical next step. That may be a simple process fix, a CRM improvement, an automation, or a deeper AI opportunity assessment."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand"><span class="brand-icon">&#9889;</span><span>AI Fusion Automations</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/services/">Services</a>
+      <a href="/ai-operating-systems.html">AI Operating Systems</a>
+      <a href="/strategy-call.html">Book a Call</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <section>
+      <a href="/services/" class="breadcrumb">&larr; Services</a>
+      <div class="eyebrow"><span></span><em>Free workflow diagnostic</em></div>
+      <h1>AI Systems Snapshot</h1>
+      <p class="lead">Find where work is getting lost, delayed, repeated, or forgotten - and where AI or automation could help first.</p>
+      <p class="lead">This is the practical first step before trying to buy tools, build automations, or redesign a whole business system.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#snapshot-form">Start your snapshot</a>
+        <a class="button button-secondary" href="#how-it-works">See how it works</a>
+      </div>
+    </section>
+    <aside class="hero-panel" aria-label="Snapshot summary">
+      <h2>What this gives you</h2>
+      <p>Pick one workflow, score what is happening now, and show where the biggest leak is. I use your answers to identify the most practical first step for improving that workflow.</p>
+      <div class="stats">
+        <div class="stat"><b>1</b><span>workflow to review</span></div>
+        <div class="stat"><b>10</b><span>quick scoring questions</span></div>
+        <div class="stat"><b>1</b><span>practical next step</span></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<main class="page">
+  <section class="intro-card" aria-label="Snapshot positioning">
+    <div>
+      <h2>One workflow. One bottleneck. One practical next step.</h2>
+      <p>The snapshot is not an AI tool quiz and it is not a full business transformation audit. It is a focused diagnostic for business owners and professionals who know AI matters, but need a grounded place to start.</p>
+    </div>
+    <div class="one-line">Start with the work that already gets delayed, repeated, forgotten, or lost between people and systems.</div>
+  </section>
+
+  <section class="section" id="how-it-works">
+    <div class="section-kicker">How it works</div>
+    <h2>A short diagnostic built around real work</h2>
+    <p class="section-lead">Instead of asking, "Which AI tool should I use?", the snapshot starts with the better question: "Where is the workflow breaking down?"</p>
+    <div class="grid-3">
+      <article class="card">
+        <div class="number">1</div>
+        <h3>Choose one workflow</h3>
+        <p>Pick a real process in your business rather than trying to fix everything at once. The narrower the workflow, the more useful the answer.</p>
+      </article>
+      <article class="card">
+        <div class="number">2</div>
+        <h3>Score what is happening now</h3>
+        <p>Use a simple 0, 1, 2 score to show where ownership, follow-up, data, visibility, and documentation are clear or unclear.</p>
+      </article>
+      <article class="card">
+        <div class="number">3</div>
+        <h3>Identify the first useful improvement</h3>
+        <p>I review the pattern in your answers and suggest where AI, automation, CRM, or process design could help first.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-kicker">Where to use it</div>
+    <h2>Pick the workflow that is costing attention, speed, or trust</h2>
+    <p class="section-lead">The best snapshot candidate is usually the process people complain about, chase manually, duplicate in spreadsheets, or quietly avoid because it is messy.</p>
+    <div class="workflow-list" aria-label="Example workflows">
+      <div class="workflow-item">New enquiries / lead capture</div>
+      <div class="workflow-item">Sales follow-up</div>
+      <div class="workflow-item">Customer onboarding</div>
+      <div class="workflow-item">Admin / operations</div>
+      <div class="workflow-item">Appointment booking</div>
+      <div class="workflow-item">Customer service</div>
+      <div class="workflow-item">Reporting / visibility</div>
+      <div class="workflow-item">Marketing / content</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-kicker">What we score</div>
+    <h2>The questions reveal the system problem behind the AI opportunity</h2>
+    <p class="section-lead">A workflow rarely needs "more AI" first. It usually needs clearer ownership, better data, visible status, documented steps, or automatic follow-up. The score helps separate the real problem from the shiny-tool distraction.</p>
+    <div class="score-wrap">
+      <aside class="score-panel">
+        <h3>Simple scoring, useful signal</h3>
+        <p>You score each question from 0 to 2. The aim is not to look good. The aim is to show where the system leaks.</p>
+        <div class="score-scale">
+          <div><strong>0</strong> = no / not sure</div>
+          <div><strong>1</strong> = partly</div>
+          <div><strong>2</strong> = yes</div>
+        </div>
+      </aside>
+      <div class="question-list" aria-label="Snapshot scoring questions">
+        <div class="question">Is there a clear owner for this workflow?</div>
+        <div class="question">Is the next step always obvious?</div>
+        <div class="question">Is the information stored in one reliable place?</div>
+        <div class="question">Are reminders or follow-ups automatic?</div>
+        <div class="question">Can someone else see the current status?</div>
+        <div class="question">Are repeated tasks documented?</div>
+        <div class="question">Are errors or missed steps easy to spot?</div>
+        <div class="question">Does the team trust the data?</div>
+        <div class="question">Are repeated replies or steps documented?</div>
+        <div class="question">Do you have a simple view of what happened this week?</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-kicker">What you get back</div>
+    <h2>A practical read on where to start</h2>
+    <p class="section-lead">The snapshot helps turn a vague interest in AI into a specific next move. Sometimes that move is automation. Sometimes it is cleaning up the workflow before automation. That distinction matters.</p>
+    <div class="grid-2">
+      <article class="card">
+        <h3>The strongest first opportunity</h3>
+        <p>Where AI, automation, CRM, or a simple workflow change could produce useful leverage first.</p>
+      </article>
+      <article class="card">
+        <h3>The bottleneck behind the symptoms</h3>
+        <p>Whether the problem is ownership, follow-up, data quality, scattered tools, reporting, handoffs, or unclear process.</p>
+      </article>
+      <article class="card">
+        <h3>What should not be automated yet</h3>
+        <p>Some workflows are not ready for automation until the inputs, approvals, or responsibilities are clearer.</p>
+      </article>
+      <article class="card">
+        <h3>The sensible next step</h3>
+        <p>A practical recommendation, such as a process fix, CRM tidy-up, automation build, AI Opportunity Assessment, or implementation sprint.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-kicker">Where it fits</div>
+    <h2>The bridge between learning about AI and implementing it properly</h2>
+    <p class="section-lead">Webinars and Q&A sessions are great for understanding what is possible. The snapshot turns that interest into a concrete starting point for your own business.</p>
+    <div class="path" aria-label="AI Systems Snapshot pathway">
+      <article class="path-step">
+        <h3>1. Learn</h3>
+        <p>Join a webinar, Q&A session, or conversation about AI, productivity, workflows, and business systems.</p>
+      </article>
+      <article class="path-step">
+        <h3>2. Choose</h3>
+        <p>Pick one workflow where work gets lost, delayed, repeated, or forgotten.</p>
+      </article>
+      <article class="path-step">
+        <h3>3. Snapshot</h3>
+        <p>Score the workflow and explain the bottleneck in plain language.</p>
+      </article>
+      <article class="path-step">
+        <h3>4. Diagnose</h3>
+        <p>Identify the first practical AI, automation, CRM, or workflow opportunity.</p>
+      </article>
+      <article class="path-step">
+        <h3>5. Implement</h3>
+        <p>Move into a deeper assessment, build sprint, automation, or AI operating-system plan if it makes sense.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="snapshot-form">
+    <div class="form-zone">
+      <aside class="form-guidance">
+        <h2>Start your snapshot</h2>
+        <p>Choose one workflow and answer honestly. You do not need perfect answers. The point is to surface what is happening now.</p>
+        <div class="checklist">
+          <div class="check"><span class="tick">&check;</span><span>Reviewed by Grant de Swardt, AI Fusion Automations.</span></div>
+          <div class="check"><span class="tick">&check;</span><span>Useful for CRM, admin, lead follow-up, operations, customer service, and reporting workflows.</span></div>
+          <div class="check"><span class="tick">&check;</span><span>Built for practical implementation, not hype or random tool lists.</span></div>
+        </div>
+      </aside>
+      <section class="form-shell" aria-label="AI Systems Snapshot form">
+        <div class="form-head">
+          <div class="form-title">AI Systems Snapshot Request</div>
+          <div class="form-note">Takes a few minutes. Choose one workflow and answer honestly.</div>
+        </div>
+        <iframe class="form-frame" src="https://link.aifusionautomations.com/widget/form/CtnEh18UddgCtWtGnw5v?notrack=true" title="AI Systems Snapshot Request form" loading="lazy"></iframe>
+        <div class="fallback">Form not loading? <a href="https://link.aifusionautomations.com/widget/form/CtnEh18UddgCtWtGnw5v?notrack=true">Open it directly</a>.</div>
+      </section>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-kicker">Questions</div>
+    <h2>Common questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Is the AI Systems Snapshot really free?</summary>
+        <p>Yes. It is a free starting point designed to help you identify one practical workflow opportunity. If a deeper assessment or implementation sprint makes sense, that can be discussed afterwards.</p>
+      </details>
+      <details>
+        <summary>Do I need to know what AI tool I want to use?</summary>
+        <p>No. In fact, it is better if you start with the workflow problem first. The tool choice should follow the business problem, not the other way around.</p>
+      </details>
+      <details>
+        <summary>What if my workflow is messy?</summary>
+        <p>That is normal. Messy workflows are often the best place to start because they show where time, leads, tasks, and customer experience are leaking.</p>
+      </details>
+      <details>
+        <summary>What happens after I submit?</summary>
+        <p>I review your answers and identify the first useful improvement. That may lead to a recommendation, a follow-up conversation, or a more detailed AI Opportunity Assessment.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2026 AI Fusion Automations. Based in East Sussex, UK.
+</footer>
+<script src="/js/aifa-nav.js?v=footer-v2" defer></script>
+</body>
+</html>

@@ -28,6 +28,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-s
 .industry-icon{font-size:1.6rem}
 .industry-name{font-size:.88rem;font-weight:600;color:var(--text);text-align:center}
 .industry-tag{font-size:.7rem;color:var(--text-muted);background:rgba(124,58,237,.1);border-radius:4px;padding:.15rem .5rem}
+.featured-services{margin-bottom:3rem}
+.featured-services .category-title{color:var(--primary-light)}
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.service-card{display:block;background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(6,182,212,.11));border:1px solid rgba(167,139,250,.35);border-radius:12px;padding:1.25rem;text-decoration:none;transition:all .25s ease}
+.service-card:hover{border-color:var(--accent-light);transform:translateY(-2px);box-shadow:0 4px 24px rgba(6,182,212,.14)}
+.service-kicker{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.65rem}
+.service-card h2{font-size:1.15rem;line-height:1.25;color:#fff;margin-bottom:.45rem}
+.service-card p{color:var(--text-muted);font-size:.92rem;margin-bottom:.9rem}
+.service-arrow{color:var(--accent-light);font-weight:800;font-size:.92rem}
 @media(max-width:480px){.hero h1{font-size:1.6rem}.industry-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
 </style>
 <meta name="twitter:card" content="summary_large_image">
@@ -45,6 +54,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-s
   <div class="hero-badge">49 Industries &amp; Growing</div>
   <h1>AI Automation by Industry</h1>
   <p>Find your industry below to see how AI chatbots, automated follow-up, and CRM automation can transform your business.</p>
+</div>
+
+<!-- Featured Services -->
+<div class="category-section featured-services">
+  <div class="category-title">Start Here</div>
+  <div class="service-grid">
+    <a href="https://tools.aifusionautomations.com/services/ai-systems-snapshot.html" class="service-card">
+      <span class="service-kicker">Free workflow diagnostic</span>
+      <h2>AI Systems Snapshot</h2>
+      <p>Choose one workflow, score what is happening now, and find where AI or automation could help first.</p>
+      <span class="service-arrow">Start your snapshot &rarr;</span>
+    </a>
+    <a href="https://tools.aifusionautomations.com/ai-operating-systems.html" class="service-card">
+      <span class="service-kicker">Implementation roadmap</span>
+      <h2>AI Operating Systems</h2>
+      <p>Turn scattered tools, follow-up gaps, and manual handoffs into practical business systems.</p>
+      <span class="service-arrow">Explore the approach &rarr;</span>
+    </a>
+  </div>
 </div>
 
 <!-- Trades & Construction -->
