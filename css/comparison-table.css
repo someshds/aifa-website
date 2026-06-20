@@ -11,9 +11,9 @@
 .comparison-eyebrow {
   display: inline-block;
   font-size: .85rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
-  color: #c4b5fd;
-  background: rgba(124,58,237,.15);
-  border: 1px solid rgba(124,58,237,.35);
+  color: #f9a8d4;
+  background: rgba(236,72,153,.14);
+  border: 1px solid rgba(236,72,153,.34);
   padding: .4rem 1rem; border-radius: 24px;
   margin-bottom: 1rem;
 }
@@ -25,8 +25,8 @@
 .comparison-sub { color: rgba(255,255,255,.7); font-size: 1.05rem; max-width: 680px; margin: 0 auto; }
 
 .comp-table {
-  background: linear-gradient(180deg, rgba(124,58,237,.06), rgba(91,33,182,.02));
-  border: 1px solid rgba(167,139,250,.2);
+  background: linear-gradient(180deg, rgba(236,72,153,.06), rgba(139,92,246,.03));
+  border: 1px solid rgba(249,168,212,.18);
   border-radius: 18px;
   overflow: hidden;
   backdrop-filter: blur(10px);
@@ -36,14 +36,14 @@
   grid-template-columns: 1.6fr 2fr 1fr .6fr;
   gap: 1rem;
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid rgba(167,139,250,.08);
+  border-bottom: 1px solid rgba(249,168,212,.08);
   align-items: center;
 }
 .comp-row:last-child { border-bottom: 0; }
 .comp-head-row {
-  background: rgba(124,58,237,.18);
+  background: rgba(236,72,153,.16);
   font-size: .8rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
-  color: #c4b5fd;
+  color: #f9a8d4;
   padding: .85rem 1.5rem;
 }
 .c-feat { color: #fff; font-weight: 700; font-size: 1rem; }
@@ -79,10 +79,10 @@
   display: inline-flex; align-items: center; justify-content: center;
   width: 34px; height: 34px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
   color: #fff;
   font-size: 1.05rem; font-weight: 800;
-  box-shadow: 0 0 20px rgba(167,139,250,.45);
+  box-shadow: 0 0 20px rgba(236,72,153,.35);
 }
 .comp-unique { background: rgba(251,191,36,.04); }
 
@@ -93,8 +93,8 @@
   gap: 1.5rem;
   margin-top: 2.5rem;
   padding: 2rem 1.5rem;
-  background: linear-gradient(135deg, rgba(124,58,237,.1), rgba(34,211,238,.06));
-  border: 1px solid rgba(167,139,250,.35);
+  background: linear-gradient(135deg, rgba(236,72,153,.11), rgba(139,92,246,.07));
+  border: 1px solid rgba(249,168,212,.34);
   border-radius: 18px;
 }
 .overall-col { text-align: center; }
@@ -107,7 +107,7 @@
 .overall-total { color: #fca5a5; }
 .overall-total span, .overall-aifa-price span { font-size: 1rem; font-weight: 500; color: rgba(255,255,255,.55); margin-left: .25rem; }
 .overall-aifa-price {
-  background: linear-gradient(180deg, #fff 0%, #d8ceff 55%, #a78bfa 100%);
+  background: linear-gradient(180deg, #fff7fb 0%, #f9a8d4 55%, #ec4899 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .overall-note { font-size: .85rem; color: rgba(255,255,255,.55); margin-top: .5rem; font-style: italic; }
