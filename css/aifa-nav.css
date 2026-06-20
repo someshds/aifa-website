@@ -21,11 +21,9 @@ body.aifa-footer-only .stage {
   position: sticky;
   top: 0;
   z-index: 10000;
-  background: rgba(18, 13, 31, 0.94);
-  border-bottom: 1px solid rgba(249, 168, 212, 0.16);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  color: #f8fafc;
+  background: linear-gradient(180deg, #e60ba0 0%, #ffd6f1 100%);
+  border-bottom: 1px solid rgba(230, 11, 160, 0.18);
+  color: #070811;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
@@ -47,7 +45,7 @@ body.aifa-footer-only .stage {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  color: #f8fafc;
+  color: #070811;
   text-decoration: none;
   font-weight: 800;
   min-width: 0;
@@ -60,7 +58,7 @@ body.aifa-footer-only .stage {
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  background: linear-gradient(135deg, #e60ba0, #c026d3);
   color: #fff;
   font-size: 1rem;
 }
@@ -69,10 +67,8 @@ body.aifa-footer-only .stage {
   font-size: 0.95rem;
   line-height: 1;
   white-space: nowrap;
-  background: linear-gradient(135deg, #f9a8d4, #a78bfa);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background: none;
+  color: #070811;
 }
 
 .aifa-nav-menu {
@@ -96,7 +92,7 @@ body.aifa-footer-only .stage {
   border-radius: 7px;
   padding: 0 0.66rem;
   background: transparent;
-  color: #cbd5e1;
+  color: #070811;
   text-decoration: none;
   font: inherit;
   font-size: 0.85rem;
@@ -110,8 +106,8 @@ body.aifa-footer-only .stage {
 .aifa-nav-link:focus-visible,
 .aifa-nav-trigger:hover,
 .aifa-nav-trigger:focus-visible {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.07);
+  color: #070811;
+  background: rgba(255, 255, 255, 0.32);
   outline: none;
 }
 
@@ -134,10 +130,10 @@ body.aifa-footer-only .stage {
   left: 0;
   min-width: 246px;
   padding: 0.45rem;
-  border: 1px solid rgba(249, 168, 212, 0.2);
+  border: 1px solid rgba(230, 11, 160, 0.14);
   border-radius: 8px;
-  background: rgba(29, 22, 43, 0.98);
-  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.42);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.18);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-0.25rem);
@@ -162,7 +158,7 @@ body.aifa-footer-only .stage {
   display: block;
   padding: 0.62rem 0.72rem;
   border-radius: 7px;
-  color: #dbeafe;
+  color: #0f172a;
   text-decoration: none;
   font-size: 0.87rem;
   font-weight: 600;
@@ -171,8 +167,8 @@ body.aifa-footer-only .stage {
 
 .aifa-nav-dropdown a:hover,
 .aifa-nav-dropdown a:focus-visible {
-  color: #fff;
-  background: rgba(236, 72, 153, 0.18);
+  color: #070811;
+  background: rgba(230, 11, 160, 0.12);
   outline: none;
 }
 
@@ -180,19 +176,19 @@ body.aifa-footer-only .stage {
   min-height: 38px;
   padding: 0 0.95rem;
   border-radius: 8px;
-  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  background: linear-gradient(135deg, #e60ba0, #c026d3);
   color: #fff !important;
-  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.28);
+  box-shadow: 0 8px 24px rgba(230, 11, 160, 0.28);
 }
 
 .aifa-nav-toggle {
   display: none;
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(7, 8, 17, 0.18);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.3);
+  color: #070811;
   cursor: pointer;
 }
 
@@ -222,11 +218,9 @@ body.aifa-footer-only .stage {
 }
 
 .aifa-global-footer {
-  border-top: 1px solid rgba(249, 168, 212, 0.14);
-  background:
-    radial-gradient(circle at 86% 55%, rgba(236, 72, 153, 0.09), transparent 30rem),
-    linear-gradient(135deg, #120d1f 0%, #1d162b 54%, #080611 100%);
-  color: #c9b8c8;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+  background: #0f172a;
+  color: #cbd5e1;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
@@ -269,13 +263,13 @@ body.aifa-footer-only .stage {
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  background: linear-gradient(135deg, #e60ba0, #c026d3);
   color: #fff;
   font-size: 1rem;
 }
 
 .aifa-footer-brand span:last-child {
-  background: linear-gradient(135deg, #f9a8d4, #a78bfa);
+  background: linear-gradient(135deg, #ff7acb, #ffffff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -284,7 +278,7 @@ body.aifa-footer-only .stage {
 .aifa-footer-brand-block p,
 .aifa-footer-bottom p {
   margin: 0;
-  color: #c9b8c8;
+  color: #cbd5e1;
   font-size: 0.91rem;
   font-weight: 550;
   line-height: 1.7;
@@ -298,7 +292,7 @@ body.aifa-footer-only .stage {
 
 .aifa-footer-column h2 {
   margin: 0 0 0.35rem;
-  color: #eef2f7;
+  color: #f8fafc;
   font-size: 0.82rem;
   font-weight: 850;
   letter-spacing: 0.11em;
@@ -308,7 +302,7 @@ body.aifa-footer-only .stage {
 
 .aifa-footer-column a,
 .aifa-footer-bottom a {
-  color: #aeb8c8;
+  color: #cbd5e1;
   text-decoration: none;
   font-size: 0.91rem;
   font-weight: 650;
@@ -329,7 +323,7 @@ body.aifa-footer-only .stage {
   justify-content: space-between;
   gap: 2rem;
   padding-top: 2.25rem;
-  border-top: 1px solid rgba(249, 168, 212, 0.16);
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
 }
 
 .aifa-footer-bottom p + p {
@@ -348,10 +342,10 @@ body.aifa-footer-only .stage {
   height: 34px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(249, 168, 212, 0.22);
+  border: 1px solid rgba(255, 122, 203, 0.24);
   border-radius: 8px;
-  background: rgba(236, 72, 153, 0.08);
-  color: #c9b8c8;
+  background: rgba(230, 11, 160, 0.1);
+  color: #cbd5e1;
   text-decoration: none;
   font-size: 0.82rem;
   font-weight: 800;
@@ -361,8 +355,8 @@ body.aifa-footer-only .stage {
 
 .aifa-footer-social a:hover,
 .aifa-footer-social a:focus-visible {
-  border-color: rgba(249, 168, 212, 0.45);
-  background: rgba(236, 72, 153, 0.13);
+  border-color: rgba(255, 122, 203, 0.48);
+  background: rgba(230, 11, 160, 0.16);
   color: #fff;
   outline: none;
 }
@@ -383,8 +377,8 @@ body.aifa-footer-only .stage {
     max-height: calc(100vh - 62px);
     overflow: auto;
     padding: 0.75rem 1rem 1rem;
-    border-bottom: 1px solid rgba(249, 168, 212, 0.16);
-    background: rgba(18, 13, 31, 0.98);
+    border-bottom: 1px solid rgba(230, 11, 160, 0.18);
+    background: rgba(255, 226, 246, 0.98);
   }
 
   .aifa-global-nav.is-open .aifa-nav-menu {
@@ -416,7 +410,7 @@ body.aifa-footer-only .stage {
     opacity: 1;
     visibility: visible;
     transform: none;
-    background: rgba(255, 255, 255, 0.045);
+    background: rgba(255, 255, 255, 0.62);
   }
 
   .aifa-nav-item.is-open .aifa-nav-dropdown {

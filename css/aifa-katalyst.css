@@ -13,20 +13,20 @@
 :root {
   /* Layered design tokens that extend the existing palette */
   --kx-display-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-  --color-bg: #120d1f;
-  --color-bg-deep: #080611;
-  --color-surface: #1d162b;
-  --color-surface-hover: #2a203a;
-  --color-primary: #ec4899;
-  --color-primary-light: #f9a8d4;
-  --color-secondary: #8b5cf6;
-  --color-accent: #22d3ee;
-  --color-text: #fff7fb;
-  --color-muted: #c9b8c8;
-  --color-border: #3a2a4a;
+  --color-bg: #0f172a;
+  --color-bg-deep: #08111f;
+  --color-surface: #172033;
+  --color-surface-hover: #202b42;
+  --color-primary: #e60ba0;
+  --color-primary-light: #ff7acb;
+  --color-secondary: #c026d3;
+  --color-accent: #06b6d4;
+  --color-text: #f8fafc;
+  --color-muted: #cbd5e1;
+  --color-border: #334155;
   --primary: var(--color-primary);
   --primary-light: var(--color-primary-light);
-  --primary-dark: #be185d;
+  --primary-dark: #a90878;
   --accent: var(--color-secondary);
   --accent-light: var(--color-accent);
   --bg: var(--color-bg);
@@ -39,14 +39,14 @@
   --muted: var(--color-muted);
   --border: var(--color-border);
   --kx-shadow-soft: 0 18px 50px rgba(15, 23, 42, .25);
-  --kx-shadow-glow: 0 10px 40px rgba(236, 72, 153, .24);
+  --kx-shadow-glow: 0 10px 40px rgba(230, 11, 160, .24);
   --kx-shadow-deep: 0 30px 70px rgba(15, 23, 42, .45);
   --kx-radius-card: 18px;
   --kx-radius-pill: 999px;
-  --kx-grad-primary: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
-  --kx-grad-hero: linear-gradient(135deg, #fff7fb 0%, #f9a8d4 46%, #a78bfa 78%, #22d3ee 100%);
-  --kx-grad-step-num: linear-gradient(180deg, rgba(236,72,153,.35), rgba(236,72,153,.05));
-  --kx-grad-panel: linear-gradient(135deg, rgba(236,72,153,.13), rgba(139,92,246,.08));
+  --kx-grad-primary: linear-gradient(135deg, #e60ba0 0%, #c026d3 100%);
+  --kx-grad-hero: linear-gradient(135deg, #ffffff 0%, #f8fafc 54%, #ff7acb 100%);
+  --kx-grad-step-num: linear-gradient(180deg, rgba(230,11,160,.35), rgba(230,11,160,.05));
+  --kx-grad-panel: linear-gradient(135deg, rgba(230,11,160,.14), rgba(6,182,212,.07));
   --kx-grad-ambient: none;
   --kx-ease: cubic-bezier(.4, 0, .2, 1);
 }
@@ -105,11 +105,11 @@ h1,
 }
 .btn-primary {
   background: var(--kx-grad-primary);
-  box-shadow: 0 8px 24px rgba(236, 72, 153, .32), inset 0 1px 0 rgba(255, 255, 255, .12);
+  box-shadow: 0 8px 24px rgba(230, 11, 160, .32), inset 0 1px 0 rgba(255, 255, 255, .12);
 }
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 38px rgba(236, 72, 153, .42), inset 0 1px 0 rgba(255, 255, 255, .18);
+  box-shadow: 0 14px 38px rgba(230, 11, 160, .42), inset 0 1px 0 rgba(255, 255, 255, .18);
 }
 .btn-secondary {
   backdrop-filter: blur(8px);
@@ -140,7 +140,7 @@ h1,
 .brief-pill,
 .reaction {
   background: var(--color-surface);
-  border-color: rgba(249, 168, 212, .16);
+  border-color: rgba(148, 163, 184, .18);
   border-radius: var(--kx-radius-card);
   transition: transform .3s var(--kx-ease), box-shadow .3s var(--kx-ease), border-color .3s var(--kx-ease);
 }
@@ -157,7 +157,7 @@ h1,
 .pricing-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--kx-shadow-soft), var(--kx-shadow-glow);
-  border-color: rgba(249, 168, 212, .34);
+  border-color: rgba(255, 122, 203, .42);
 }
 
 .cta-box,
@@ -166,7 +166,7 @@ h1,
 .addon-card,
 .overall-price {
   background: var(--kx-grad-panel);
-  border-color: rgba(249, 168, 212, .24);
+  border-color: rgba(255, 122, 203, .28);
 }
 
 .section-tag,
@@ -176,8 +176,8 @@ h1,
 .blog-tag,
 .tool-badge,
 .service-price {
-  background: linear-gradient(135deg, rgba(236, 72, 153, .14), rgba(139, 92, 246, .09));
-  border-color: rgba(249, 168, 212, .22);
+  background: rgba(255, 255, 255, .12);
+  border-color: rgba(255, 255, 255, .28);
   color: var(--color-primary-light);
 }
 
@@ -276,8 +276,8 @@ footer a,
   font-size: .74rem;
   padding: .4rem 1rem;
   border-radius: var(--kx-radius-pill);
-  border: 1px solid rgba(249, 168, 212, .28);
-  background: linear-gradient(135deg, rgba(236, 72, 153, .16), rgba(139, 92, 246, .11));
+  border: 1px solid rgba(255, 255, 255, .28);
+  background: rgba(255, 255, 255, .12);
   color: var(--color-primary-light);
 }
 
@@ -305,14 +305,14 @@ body::before {
 .site-nav-logo-text { letter-spacing: -.01em; }
 .site-nav-cta {
   border-radius: var(--kx-radius-pill) !important;
-  box-shadow: 0 4px 12px rgba(236, 72, 153, .3);
+  box-shadow: 0 4px 12px rgba(230, 11, 160, .3);
 }
 
 /* ── Image framing — deeper shadows on product hero images ── */
 img[loading="eager"][src*="hero"],
 img[loading="eager"][src*="dashboard"] {
   border-radius: 22px;
-  box-shadow: var(--kx-shadow-deep), 0 0 0 1px rgba(249, 168, 212, .22);
+  box-shadow: var(--kx-shadow-deep), 0 0 0 1px rgba(255, 122, 203, .22);
 }
 
 /* ── Footer: cleaner divider ── */
@@ -324,7 +324,7 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 summary:focus-visible {
-  outline: 2px solid #f9a8d4;
+  outline: 2px solid #ff7acb;
   outline-offset: 3px;
   border-radius: 8px;
 }
