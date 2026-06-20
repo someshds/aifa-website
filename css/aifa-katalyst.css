@@ -47,10 +47,7 @@
   --kx-grad-hero: linear-gradient(135deg, #fff7fb 0%, #f9a8d4 46%, #a78bfa 78%, #22d3ee 100%);
   --kx-grad-step-num: linear-gradient(180deg, rgba(236,72,153,.35), rgba(236,72,153,.05));
   --kx-grad-panel: linear-gradient(135deg, rgba(236,72,153,.13), rgba(139,92,246,.08));
-  --kx-grad-ambient:
-    radial-gradient(ellipse at 14% 0%, rgba(236, 72, 153, .18) 0%, transparent 52%),
-    radial-gradient(ellipse at 86% 100%, rgba(139, 92, 246, .13) 0%, transparent 54%),
-    radial-gradient(ellipse at 52% 28%, rgba(34, 211, 238, .055) 0%, transparent 58%);
+  --kx-grad-ambient: none;
   --kx-ease: cubic-bezier(.4, 0, .2, 1);
 }
 
@@ -287,7 +284,21 @@ footer a,
 /* ── Atmospheric gradient — slightly richer ── */
 .gradient-bg,
 body::before {
-  background: var(--kx-grad-ambient);
+  background: var(--kx-grad-ambient) !important;
+  opacity: 0 !important;
+}
+
+.orb,
+.orb-1,
+.orb-2 {
+  display: none !important;
+}
+
+.founder-proof,
+.how-it-works,
+.tools,
+.blog {
+  background: transparent !important;
 }
 
 /* ── Nav: a touch tighter ── */
