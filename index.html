@@ -8,6 +8,7 @@
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/favicon-192.png" />
 <link rel="preload" href="/img/brand/fusion-flow-icon-128.webp" as="image" type="image/webp" />
+<link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 <meta name="theme-color" content="#0e0b1f" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Practical AI systems for owner-operators | AI FUSION" />
@@ -22,10 +23,15 @@
 <meta name="description" content="AI FUSION builds practical AI systems for owner-operators so enquiry, CRM, and admin stop falling through the gaps — with a human still in the loop. Start with a free Opportunity Call." />
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <!-- Primary public host is www. DNS tools+apex 301→www is a separate flip. -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
+@font-face{
+  font-family:'Plus Jakarta Sans';
+  font-style:normal;
+  font-weight:400 800;
+  font-display:swap;
+  src:url('/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
 :root{
   --bg:#ffffff;
   --bg-soft:#f7f5ff;
@@ -197,7 +203,7 @@ img.logo-mark{width:32px;height:32px;border-radius:9px;object-fit:cover;box-shad
 <header class="nav">
   <div class="wrap nav-inner">
     <a class="logo" href="#top" aria-label="AI FUSION home">
-      <img class="logo-mark" src="/img/brand/fusion-flow-icon-128.webp" width="32" height="32" alt="" />
+      <img class="logo-mark" src="/img/brand/fusion-flow-icon-128.webp" width="32" height="32" alt="" fetchpriority="high" />
       <span>AI FUSION</span>
     </a>
     <nav class="site-nav">
