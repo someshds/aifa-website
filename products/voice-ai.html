@@ -132,6 +132,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-s
 .related-card p{color:var(--text-muted);font-size:.85rem;line-height:1.5}
 .related-card .arrow{color:var(--primary-light);font-weight:600;font-size:.85rem;margin-top:.75rem;display:inline-block}
 
+.whisper-flow{margin:1.75rem 0 0}
+.whisper-flow-svg{width:100%;height:auto;display:block}
+.whisper-flow-stack{display:none;list-style:none;margin:0;padding:0;gap:.85rem;flex-direction:column}
+.whisper-flow-stack li{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:center;background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1rem 1.1rem}
+.whisper-flow-stack .step-badge{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;letter-spacing:.04em;color:#0f0f1a;background:linear-gradient(135deg,var(--primary),var(--accent));flex-shrink:0}
+.whisper-flow-stack .step-badge.soft{background:var(--bg);color:var(--primary-light);border:1px solid rgba(167,139,250,.45)}
+.whisper-flow-stack strong{display:block;font-size:.98rem;margin-bottom:.15rem}
+.whisper-flow-stack span{color:var(--text-muted);font-size:.86rem;line-height:1.4}
+.whisper-flow .pulse-ring{transform-box:fill-box;transform-origin:center;animation:whisperPulse 2.4s ease-in-out infinite}
+.whisper-flow .flow-dash{stroke-dasharray:8 10;animation:whisperDash 1.4s linear infinite}
+@keyframes whisperPulse{0%,100%{opacity:.3;transform:scale(.9)}50%{opacity:.95;transform:scale(1.12)}}
+@keyframes whisperDash{to{stroke-dashoffset:-36}}
+@media(max-width:700px){
+  .whisper-flow-svg{display:none}
+  .whisper-flow-stack{display:flex}
+}
+@media(prefers-reduced-motion:reduce){
+  .whisper-flow .pulse-ring,.whisper-flow .flow-dash{animation:none}
+}
+
 footer{position:relative;z-index:1;text-align:center;padding:2.5rem 1.5rem 1.5rem;font-size:.82rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:3rem}
 footer a{color:var(--primary-light);text-decoration:none}
 footer a:hover{text-decoration:underline}
@@ -225,6 +245,118 @@ footer .footer-links a{margin:0 .5rem}
     <p>Our AI Voice Receptionist isn&rsquo;t a generic call menu. It&rsquo;s a fully-trained voice agent that sounds like a real person, knows your services, prices, coverage area, opening hours, and the specific qualifying questions that matter for your industry &mdash; and it answers calls in a natural, conversational way.</p>
     <p>It plugs straight into your existing business number (or we give you a new one), and from the moment it picks up, it can <strong>greet by name</strong>, <strong>capture caller details</strong>, <strong>answer common questions</strong>, <strong>check live calendar availability</strong>, <strong>book the appointment</strong>, and either send the caller a confirmation by SMS or transfer the call to your mobile if it&rsquo;s something only a human can handle.</p>
     <p>Every call is recorded, transcribed, and logged to the contact&rsquo;s timeline in your CRM &mdash; so your team picks up the next morning with the full context already there.</p>
+  </div>
+</div>
+
+<!-- ── Whisper Voice-Activation Flow ── -->
+<div class="section">
+  <div class="section-tag">Whisper Voice Activation</div>
+  <h2>How a live call becomes a booked job</h2>
+  <p class="lead">Under the hood, every turn on the call runs a Whisper flow: detect speech, transcribe it, decide what to do, speak back &mdash; then log the transcript so nothing falls through the cracks.</p>
+
+  <div class="whisper-flow" aria-label="Whisper voice-activation pipeline from caller speech to CRM log">
+    <svg class="whisper-flow-svg" viewBox="0 0 1100 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="wf-title wf-desc">
+      <title id="wf-title">Whisper voice-activation flow</title>
+      <desc id="wf-desc">Five-stage pipeline: caller speaks, voice activation detects speech, Whisper converts speech to text, the AI agent acts on calendar and CRM tools, then a natural voice replies while the transcript is logged.</desc>
+      <defs>
+        <linearGradient id="wfPipe" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#7c3aed"/>
+          <stop offset="0.5" stop-color="#a78bfa"/>
+          <stop offset="1" stop-color="#22d3ee"/>
+        </linearGradient>
+        <linearGradient id="wfNode" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#1a1a2e"/>
+          <stop offset="1" stop-color="#0f0f1a"/>
+        </linearGradient>
+        <linearGradient id="wfActive" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#7c3aed"/>
+          <stop offset="1" stop-color="#06b6d4"/>
+        </linearGradient>
+        <filter id="wfGlow" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <text x="40" y="36" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#a78bfa">WHISPER FLOW · VOICE ACTIVATION</text>
+      <text x="1060" y="36" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700" fill="#22d3ee" text-anchor="end">Live turn · &lt;2s feel</text>
+
+      <rect x="50" y="118" width="1000" height="14" rx="7" fill="url(#wfPipe)" opacity="0.3"/>
+      <line class="flow-dash" x1="50" y1="125" x2="1050" y2="125" stroke="url(#wfPipe)" stroke-width="3" opacity="0.9"/>
+
+      <!-- 1 Caller -->
+      <g>
+        <circle cx="120" cy="125" r="34" fill="url(#wfNode)" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="120" y="132" font-size="22" text-anchor="middle">📞</text>
+        <text x="120" y="190" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="middle">1. Caller speaks</text>
+        <text x="120" y="210" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5" text-anchor="middle">Inbound audio</text>
+      </g>
+
+      <!-- 2 Voice activation / VAD -->
+      <g>
+        <circle class="pulse-ring" cx="330" cy="125" r="42" fill="none" stroke="#22d3ee" stroke-width="2" opacity="0.5"/>
+        <circle cx="330" cy="125" r="34" fill="url(#wfActive)" filter="url(#wfGlow)"/>
+        <text x="330" y="122" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="800" letter-spacing="1" fill="#0f0f1a" text-anchor="middle">VAD</text>
+        <text x="330" y="136" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#0f0f1a" text-anchor="middle" opacity="0.85">listen</text>
+        <text x="330" y="190" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="middle">2. Voice activation</text>
+        <text x="330" y="210" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5" text-anchor="middle">Detects speech start</text>
+      </g>
+
+      <!-- 3 Whisper STT -->
+      <g>
+        <circle cx="540" cy="125" r="34" fill="url(#wfNode)" stroke="#a78bfa" stroke-width="1.5"/>
+        <text x="540" y="122" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="800" fill="#a78bfa" text-anchor="middle">W</text>
+        <text x="540" y="136" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#22d3ee" text-anchor="middle">STT</text>
+        <text x="540" y="190" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="middle">3. Whisper</text>
+        <text x="540" y="210" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5" text-anchor="middle">Speech → text</text>
+      </g>
+
+      <!-- 4 Agent + tools -->
+      <g>
+        <circle cx="750" cy="125" r="34" fill="url(#wfNode)" stroke="#22d3ee" stroke-width="1.5"/>
+        <text x="750" y="132" font-size="20" text-anchor="middle">🧠</text>
+        <text x="750" y="190" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="middle">4. AI agent</text>
+        <text x="750" y="210" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5" text-anchor="middle">Calendar · CRM · SMS</text>
+      </g>
+
+      <!-- 5 Reply + log -->
+      <g>
+        <circle cx="960" cy="125" r="34" fill="url(#wfNode)" stroke="#22d3ee" stroke-width="1.5"/>
+        <text x="960" y="132" font-size="20" text-anchor="middle">🔊</text>
+        <text x="960" y="190" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="middle">5. Spoken reply</text>
+        <text x="960" y="210" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5" text-anchor="middle">TTS + transcript log</text>
+      </g>
+
+      <text x="550" y="255" font-family="Inter,system-ui,sans-serif" font-size="12" fill="#b0bec5" text-anchor="middle">Every turn loops until the caller hangs up or a human takes over</text>
+    </svg>
+
+    <ol class="whisper-flow-stack" aria-label="Whisper voice-activation steps">
+      <li>
+        <div class="step-badge soft">1</div>
+        <div><strong>Caller speaks</strong><span>Inbound audio from your business line</span></div>
+      </li>
+      <li>
+        <div class="step-badge">VAD</div>
+        <div><strong>Voice activation</strong><span>Detects when real speech starts and stops</span></div>
+      </li>
+      <li>
+        <div class="step-badge soft">W</div>
+        <div><strong>Whisper speech-to-text</strong><span>Turns the audio into accurate text in real time</span></div>
+      </li>
+      <li>
+        <div class="step-badge soft">4</div>
+        <div><strong>AI agent</strong><span>Checks calendar, CRM, and SMS tools as needed</span></div>
+      </li>
+      <li>
+        <div class="step-badge soft">5</div>
+        <div><strong>Spoken reply</strong><span>Natural voice answer plus transcript logged to CRM</span></div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="prose-block" style="margin-top:1.5rem">
+    <p><strong>Voice activation</strong> is what makes the call feel natural: the system listens for when the caller starts and stops speaking, then kicks Whisper only on real speech &mdash; not on hold music, silence, or background noise.</p>
+    <p><strong>Whisper</strong> turns that audio into accurate text in real time. The agent reads the transcript, checks your calendar or CRM when needed, and replies in a natural voice. The same transcript lands on the contact timeline, so your team always has the full context.</p>
   </div>
 </div>
 
