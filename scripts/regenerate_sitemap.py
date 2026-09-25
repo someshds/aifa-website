@@ -17,7 +17,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-BASE_URL = "https://tools.aifusionautomations.com"
+BASE_URL = "https://www.aifusionautomations.com"
 
 # Exact filenames (relative to repo root) to skip — duplicates, legacy, drafts.
 EXCLUDE_FILES = {
