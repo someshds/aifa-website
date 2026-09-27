@@ -1,0 +1,253 @@
+/* Shared site chrome — homepage sticky nav, scoped so page themes stay intact. */
+.aifa-global-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.86);
+  border-bottom: 1px solid #ece9f7;
+  color: #0e0b1f;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.aifa-global-nav *,
+.aifa-global-nav *::before,
+.aifa-global-nav *::after {
+  box-sizing: border-box;
+}
+
+.aifa-nav-inner {
+  width: min(1120px, calc(100% - 2.5rem));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  gap: 1rem;
+}
+
+.aifa-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: inherit;
+  text-decoration: none;
+}
+
+.aifa-nav-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: block;
+  flex: 0 0 auto;
+  object-fit: cover;
+  background: linear-gradient(135deg, #3b6ef5, #1e4fd8);
+  box-shadow: 0 10px 30px -12px rgba(30, 79, 216, 0.18);
+}
+
+.aifa-nav-name {
+  font-size: 1rem;
+  line-height: 1;
+  white-space: nowrap;
+  background: none;
+  color: inherit;
+  -webkit-text-fill-color: currentColor;
+}
+
+.aifa-nav-cluster {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.aifa-nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.aifa-nav-link {
+  min-height: 0;
+  display: inline;
+  align-items: unset;
+  justify-content: unset;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  color: #3a3654;
+  text-decoration: none;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+.aifa-nav-link:hover,
+.aifa-nav-link:focus-visible {
+  color: #1e4fd8;
+  background: transparent;
+  outline: none;
+}
+
+.aifa-nav-link[aria-current="page"] {
+  color: #1e4fd8;
+  font-weight: 700;
+}
+
+.aifa-nav-cta,
+.aifa-nav-link.aifa-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #fff !important;
+  background: linear-gradient(135deg, #3b6ef5, #1e4fd8);
+  box-shadow: 0 8px 22px -8px rgba(30, 79, 216, 0.55);
+}
+
+.aifa-nav-cta:hover,
+.aifa-nav-link.aifa-nav-cta:hover,
+.aifa-nav-cta:focus-visible,
+.aifa-nav-link.aifa-nav-cta:focus-visible {
+  color: #fff !important;
+  background: linear-gradient(135deg, #3b6ef5, #1e4fd8);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -8px rgba(30, 79, 216, 0.6);
+}
+
+.aifa-nav-toggle {
+  display: none;
+  width: auto;
+  height: auto;
+  min-height: 36px;
+  border: 1px solid #ece9f7;
+  border-radius: 10px;
+  padding: 0.4rem 0.6rem;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.aifa-nav-toggle span,
+.aifa-nav-toggle::before,
+.aifa-nav-toggle::after {
+  content: none;
+  display: none;
+}
+
+.aifa-global-nav.is-open .aifa-nav-toggle::before,
+.aifa-global-nav.is-open .aifa-nav-toggle::after,
+.aifa-global-nav.is-open .aifa-nav-toggle span {
+  transform: none;
+  opacity: 1;
+}
+
+/* Dark pages (news and any [data-theme="dark"] host) */
+.aifa-global-nav[data-theme="dark"] {
+  background: rgba(15, 23, 42, 0.92);
+  border-bottom-color: rgba(148, 163, 184, 0.18);
+  color: #f8fafc;
+}
+
+.aifa-global-nav[data-theme="dark"] .aifa-nav-link {
+  color: #cbd5e1;
+}
+
+.aifa-global-nav[data-theme="dark"] .aifa-nav-link:hover,
+.aifa-global-nav[data-theme="dark"] .aifa-nav-link:focus-visible,
+.aifa-global-nav[data-theme="dark"] .aifa-nav-link[aria-current="page"] {
+  color: #fff;
+}
+
+.aifa-global-nav[data-theme="dark"] .aifa-nav-toggle {
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@media (max-width: 680px) {
+  .aifa-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+
+  .aifa-nav-menu,
+  .aifa-global-nav .aifa-nav-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.55rem);
+    right: 0;
+    left: auto;
+    align-items: stretch;
+    max-height: calc(100vh - 72px);
+    overflow: auto;
+    min-width: 220px;
+    padding: 1rem 1.15rem;
+    border: 1px solid #ece9f7;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 30px 60px -20px rgba(30, 79, 216, 0.25), 0 12px 30px -12px rgba(20, 16, 60, 0.12);
+  }
+
+  .aifa-nav-menu.is-open,
+  .aifa-global-nav.is-open .aifa-nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .aifa-nav-link {
+    width: 100%;
+    display: block;
+    padding: 0.35rem 0;
+    font-size: 0.95rem;
+  }
+
+  .aifa-nav-cta,
+  .aifa-nav-link.aifa-nav-cta {
+    justify-content: center;
+    margin-top: 0.15rem;
+    width: 100%;
+  }
+
+  .aifa-global-nav[data-theme="dark"] .aifa-nav-menu,
+  .aifa-global-nav[data-theme="dark"] .aifa-nav-menu.is-open {
+    background: #172033;
+    border-color: rgba(148, 163, 184, 0.22);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  }
+}
+
+@media (max-width: 460px) {
+  .aifa-nav-inner {
+    width: min(1120px, calc(100% - 1.5rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aifa-nav-cta,
+  .aifa-nav-link.aifa-nav-cta {
+    transition: none;
+  }
+}

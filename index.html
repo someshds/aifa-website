@@ -22,6 +22,7 @@
 
 <meta name="description" content="AI FUSION builds practical AI systems for owner-operators so enquiry, CRM, and admin stop falling through the gaps — with a human still in the loop. Start with a free Opportunity Call." />
 <meta name="robots" content="index,follow,max-image-preview:large" />
+<link rel="stylesheet" href="/css/site-chrome.css?v=site-chrome-v1" />
 <!-- Primary public host is www. DNS tools+apex 301→www is a separate flip. -->
 <style>
 @font-face{
@@ -198,25 +199,26 @@ img.logo-mark{width:32px;height:32px;border-radius:9px;object-fit:cover;box-shad
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.aifusionautomations.com/#organization","name":"AI FUSION","alternateName":["AI Fusion Automations","AIFA"],"url":"https://www.aifusionautomations.com/","logo":"https://www.aifusionautomations.com/img/brand/fusion-flow-icon.png","founder":{"@type":"Person","name":"Grant de Swardt"}},{"@type":"WebSite","@id":"https://www.aifusionautomations.com/#website","url":"https://www.aifusionautomations.com/","name":"AI FUSION","publisher":{"@id":"https://www.aifusionautomations.com/#organization"}},{"@type":"ProfessionalService","@id":"https://www.aifusionautomations.com/#service","name":"AI FUSION","url":"https://www.aifusionautomations.com/","description":"Practical AI systems for owner-operators with real enquiry, CRM, and admin load.","areaServed":{"@type":"Country","name":"United Kingdom"},"provider":{"@id":"https://www.aifusionautomations.com/#organization"}}]}</script>
 </head>
-<body>
+<body data-aifa-keep-footer data-nav-theme="light">
 <a class="skip-link" href="#top">Skip to main content</a>
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a class="logo" href="#top" aria-label="AI FUSION home">
-      <img class="logo-mark" src="/img/brand/fusion-flow-icon-128.webp" width="32" height="32" alt="" fetchpriority="high" />
-      <span>AI FUSION</span>
+<nav class="aifa-global-nav" aria-label="Primary" data-theme="light">
+  <div class="aifa-nav-inner">
+    <a class="aifa-nav-brand" href="/" aria-label="AI FUSION home">
+      <img class="aifa-nav-logo" src="/img/brand/fusion-flow-icon-128.webp" width="32" height="32" alt="" fetchpriority="high" />
+      <span class="aifa-nav-name">AI FUSION</span>
     </a>
-    <nav class="site-nav">
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#how">How it works</a></li>
-        <li><a href="#proof">Proof</a></li>
-        <li><a href="#seats">Platform seats</a></li>
-        <li><a class="btn btn-primary nav-cta" href="https://link.aifusionautomations.com/widget/bookings/aifa-15-min-ai-opportunity-call-live" target="_blank" rel="noopener noreferrer" data-conversion="book-call">Book a call</a></li>
+    <div class="aifa-nav-cluster">
+      <ul class="aifa-nav-menu" id="aifa-nav-links">
+        <li><a class="aifa-nav-link" href="/#how">How it works</a></li>
+        <li><a class="aifa-nav-link" href="/#proof">Proof</a></li>
+        <li><a class="aifa-nav-link" href="/#seats">Platform seats</a></li>
+        <li><a class="aifa-nav-link" href="/news/">News</a></li>
+        <li><a class="aifa-nav-link aifa-nav-cta" href="https://link.aifusionautomations.com/widget/bookings/aifa-15-min-ai-opportunity-call-live" target="_blank" rel="noopener noreferrer" data-conversion="book-call">Book a call</a></li>
       </ul>
-      <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">Menu</button>
-    </nav>
+      <button class="aifa-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="aifa-nav-links">Menu</button>
+    </div>
   </div>
-</header>
+</nav>
 
 <main id="top">
   <section class="hero">
@@ -377,38 +379,17 @@ img.logo-mark{width:32px;height:32px;border-radius:9px;object-fit:cover;box-shad
       grant@aifusionautomations.com
     </div>
     <div class="footer-links">
-      <a href="#how">How it works</a>
-      <a href="#proof">Proof</a>
-      <a href="#seats">Platform seats</a>
+      <a href="/#how">How it works</a>
+      <a href="/#proof">Proof</a>
+      <a href="/#seats">Platform seats</a>
+      <a href="/news/">News</a>
       <a href="/privacy-policy-aifa.html">Privacy</a>
       <a href="/terms.html">Terms</a>
     </div>
   </div>
   <div class="wrap" style="margin-top:1.5rem">© 2026 AI FUSION</div>
 </footer>
-<script>
-(function () {
-  var btn = document.querySelector('.menu-btn');
-  var links = document.getElementById('nav-links');
-  if (!btn || !links) return;
-  btn.addEventListener('click', function () {
-    var open = links.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
-  links.addEventListener('click', function (event) {
-    if (event.target.closest('a')) {
-      links.classList.remove('is-open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-      links.classList.remove('is-open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
-})();
-</script>
+<script src="/js/aifa-nav.js?v=site-chrome-v1" defer></script>
 <script src="/js/aifa-analytics.js?v=quality-os-v1" defer></script>
 <script src="/js/aifa-tracking.js?v=quality-os-v1" defer></script>
 </body>
