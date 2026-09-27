@@ -7,7 +7,7 @@
   var AIFA_CHAT_RESOURCES_URL = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
 
   var BOOK_CALL_URL = 'https://link.aifusionautomations.com/widget/bookings/aifa-15-min-ai-opportunity-call-live';
-  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v1';
+  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v2';
 
   var navMarkup = [
     '<nav class="aifa-global-nav" aria-label="Primary">',
@@ -256,6 +256,7 @@
 
     var footerOnly = document.body.hasAttribute('data-aifa-footer-only');
     var keepFooter = document.body.hasAttribute('data-aifa-keep-footer');
+    document.documentElement.classList.add('aifa-nav-ready');
     document.body.classList.add('aifa-nav-ready');
     if (footerOnly) {
       document.body.classList.add('aifa-footer-only');
@@ -265,14 +266,16 @@
     if (!footerOnly && !document.querySelector('.aifa-global-nav')) {
       removeLegacyNav();
       var mount = document.getElementById('aifa-nav-mount');
-      if (!mount) {
-        mount = document.createElement('div');
-        mount.id = 'aifa-nav-mount';
+      if (mount) {
+        mount.innerHTML = navMarkup;
+        if (mount.parentNode !== document.body) {
+          placeAtBodyStart(mount);
+        }
+      } else {
+        var holder = document.createElement('div');
+        holder.innerHTML = navMarkup;
+        placeAtBodyStart(holder.firstChild);
       }
-      if (mount.parentNode !== document.body) {
-        placeAtBodyStart(mount);
-      }
-      mount.innerHTML = navMarkup;
     }
 
     var nav = document.querySelector('.aifa-global-nav');

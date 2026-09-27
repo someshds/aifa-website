@@ -1,4 +1,16 @@
 /* Shared site chrome — homepage sticky nav, scoped so page themes stay intact. */
+/* clip (not hidden) so page-level overflow-x does not break position:sticky */
+html.aifa-nav-ready,
+body.aifa-nav-ready {
+  overflow-x: clip !important;
+}
+
+#aifa-nav-mount {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+
 .aifa-global-nav {
   position: sticky;
   top: 0;
