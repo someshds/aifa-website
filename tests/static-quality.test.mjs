@@ -30,6 +30,23 @@ test('local internal links resolve to a tracked page or asset', () => {
   assert.deepEqual([...new Set(failures)],[]);
 });
 
+test('public pages load shared site chrome with homepage nav IA', () => {
+  const nav = fs.readFileSync(path.join(root, 'js/aifa-nav.js'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'css/site-chrome.css'), 'utf8');
+  for (const needle of ['/#how', '/#proof', '/#seats', '/news/', 'aifa-15-min-ai-opportunity-call-live', 'AI FUSION', 'aria-expanded', 'site-chrome.css', 'Escape']) {
+    assert.ok(nav.includes(needle), `aifa-nav.js missing ${needle}`);
+  }
+  assert.ok(css.includes('.aifa-global-nav'), 'site-chrome.css missing nav styles');
+  assert.ok(css.includes('[data-theme="dark"]'), 'site-chrome.css missing dark variant');
+  const failures = [];
+  for (const file of pages) {
+    const s = fs.readFileSync(file, 'utf8');
+    const rel = path.relative(root, file);
+    if (!/src=["'][^"']*aifa-nav\.js/.test(s)) failures.push(`${rel}: missing aifa-nav.js`);
+  }
+  assert.deepEqual(failures, []);
+});
+
 test('homepage preserves integrations and canonical conversion path', () => {
   const s=fs.readFileSync(path.join(root,'index.html'),'utf8')+fs.readFileSync(path.join(root,'js/aifa-form-loader.js'),'utf8');for(const needle of ['lS0nKZSRwsBvI4BUU92p','aifa-15-min-ai-opportunity-call-live','aifa-analytics.js','aifa-tracking.js','application/ld+json','privacy-policy-aifa.html'])assert.ok(s.includes(needle),needle);
 });
