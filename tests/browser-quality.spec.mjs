@@ -6,7 +6,7 @@ for(const route of ['/','/services/','/strategy-call.html'])test(`${route} rende
 test('homepage keyboard and accessibility gate',async({page})=>{await page.goto('/');await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document,{rules:{'color-contrast':{enabled:true}}}));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([]);await expect(page.getByRole('link',{name:/Book a free Opportunity Call/i})).toBeVisible()});
 
 test('news hub and nested article share homepage chrome',async({page})=>{
-  for (const route of ['/news/','/news/2026-09-25-openai-agents-australian-medicare-portal-permissions.html']){
+  for (const route of ['/news/','/news/2026-09-28-openai-anthropic-tens-of-thousands-agent-incidents.html','/news/2026-09-25-openai-agents-australian-medicare-portal-permissions.html']){
     await page.goto(route,{waitUntil:'domcontentloaded'});
     await page.waitForSelector('.aifa-global-nav');
     const nav=page.locator('.aifa-global-nav');
