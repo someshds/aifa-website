@@ -11,7 +11,12 @@ test('news hub and nested article share homepage chrome',async({page})=>{
     await page.waitForSelector('.aifa-global-nav');
     const nav=page.locator('.aifa-global-nav');
     await expect(nav).toBeVisible();
-    await expect(nav.getByRole('link',{name:'How it works'})).toHaveAttribute('href','/#how');
+    const how=nav.getByRole('link',{name:'How it works'});
+    if(!(await how.isVisible())){
+      await nav.getByRole('button',{name:/menu/i}).click();
+    }
+    await expect(how).toBeVisible();
+    await expect(how).toHaveAttribute('href','/#how');
     await expect(nav.getByRole('link',{name:'Proof'})).toHaveAttribute('href','/#proof');
     await expect(nav.getByRole('link',{name:'Platform seats'})).toHaveAttribute('href','/#seats');
     await expect(nav.getByRole('link',{name:'News'})).toHaveAttribute('href','/news/');
