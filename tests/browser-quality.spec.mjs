@@ -5,4 +5,23 @@ for(const route of ['/','/services/','/strategy-call.html'])test(`${route} rende
 
 test('homepage keyboard and accessibility gate',async({page})=>{await page.goto('/');await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document,{rules:{'color-contrast':{enabled:true}}}));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([]);await expect(page.getByRole('link',{name:/Book a free Opportunity Call/i})).toBeVisible()});
 
+test('news hub and nested article share homepage chrome',async({page})=>{
+  for (const route of ['/news/','/news/2026-09-25-openai-agents-australian-medicare-portal-permissions.html']){
+    await page.goto(route,{waitUntil:'domcontentloaded'});
+    await page.waitForSelector('.aifa-global-nav');
+    const nav=page.locator('.aifa-global-nav');
+    await expect(nav).toBeVisible();
+    const how=nav.getByRole('link',{name:'How it works'});
+    if(!(await how.isVisible())){
+      await nav.getByRole('button',{name:/menu/i}).click();
+    }
+    await expect(how).toBeVisible();
+    await expect(how).toHaveAttribute('href','/#how');
+    await expect(nav.getByRole('link',{name:'Proof'})).toHaveAttribute('href','/#proof');
+    await expect(nav.getByRole('link',{name:'Platform seats'})).toHaveAttribute('href','/#seats');
+    await expect(nav.getByRole('link',{name:'News'})).toHaveAttribute('href','/news/');
+    await expect(nav.getByRole('link',{name:'Book a call'})).toHaveAttribute('href',/aifa-15-min-ai-opportunity-call-live/);
+  }
+});
+
 test('optional integrations require an explicit choice',async({page})=>{await page.goto('/');expect(await page.locator('script[src*="googletagmanager"]').count()).toBe(0);expect(await page.locator('iframe[src*="widget/form"]').count()).toBe(0);expect(await page.locator('#aifa-form-mount, #aifa-opportunity-form').count()).toBe(0);await page.getByRole('button',{name:'Essential only'}).click();expect(await page.locator('script[src*="googletagmanager"]').count()).toBe(0);await page.evaluate(()=>localStorage.clear());await page.reload();await page.getByRole('button',{name:'Allow analytics'}).click();await expect(page.locator('script[src*="googletagmanager"]')).toHaveCount(1)});

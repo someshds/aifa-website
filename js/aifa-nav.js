@@ -6,52 +6,26 @@
   var AIFA_CHAT_SCRIPT_SRC = 'https://widgets.leadconnectorhq.com/loader.js';
   var AIFA_CHAT_RESOURCES_URL = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
 
+  var BOOK_CALL_URL = 'https://link.aifusionautomations.com/widget/bookings/aifa-15-min-ai-opportunity-call-live';
+  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v2';
+
   var navMarkup = [
     '<nav class="aifa-global-nav" aria-label="Primary">',
     '  <div class="aifa-nav-inner">',
-    '    <a class="aifa-nav-brand" href="/" aria-label="AI Fusion Automations home">',
-    '      <img class="aifa-nav-logo" src="/img/brand/fusion-flow-icon-128.webp" width="34" height="34" alt="">',
-    '      <span class="aifa-nav-name">AI Fusion Automations</span>',
+    '    <a class="aifa-nav-brand" href="/" aria-label="AI FUSION home">',
+    '      <img class="aifa-nav-logo" src="/img/brand/fusion-flow-icon-128.webp" width="32" height="32" alt="">',
+    '      <span class="aifa-nav-name">AI FUSION</span>',
     '    </a>',
-    '    <button class="aifa-nav-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span></button>',
-    '    <ul class="aifa-nav-menu">',
-    '      <li><a class="aifa-nav-link" href="/">Home</a></li>',
-    '      <li class="aifa-nav-item">',
-    '        <button class="aifa-nav-trigger" type="button" aria-expanded="false">What we fix</button>',
-    '        <div class="aifa-nav-dropdown">',
-    '          <a href="/services/ai-systems-snapshot.html">AI Systems Snapshot</a>',
-    '          <a href="/ai-operating-systems.html">AI Operating Systems</a>',
-    '          <a href="/products/ai-agents.html">AI Agents</a>',
-    '          <a href="/products/crm.html">CRM &amp; Automation</a>',
-    '          <a href="/products/voice-ai.html">AI Receptionist / Voice AI</a>',
-    '          <a href="/products/automations.html">Workflow Automations</a>',
-    '          <a href="/products/funnels.html">Website &amp; Funnel Building</a>',
-    '          <a href="/services/">Industry Solutions</a>',
-    '        </div>',
-    '      </li>',
-    '      <li class="aifa-nav-item">',
-    '        <button class="aifa-nav-trigger" type="button" aria-expanded="false">Proof</button>',
-    '        <div class="aifa-nav-dropdown">',
-    '          <a href="/videos/#founder-walkthroughs">Founder Walkthroughs</a>',
-    '          <a href="/case-study-10-international.html">10 International Case Study</a>',
-    '          <a href="/boxleague-pro-demo.html">BoxLeague Pro</a>',
-    '        </div>',
-    '      </li>',
-    '      <li class="aifa-nav-item">',
-    '        <button class="aifa-nav-trigger" type="button" aria-expanded="false">Free Tools</button>',
-    '        <div class="aifa-nav-dropdown">',
-    '          <a href="/tools-index.html">Tools Hub</a>',
-    '          <a href="/idea-validator.html">Idea Validator</a>',
-    '          <a href="/roi-calculator-v2.0.html">ROI Calculator</a>',
-    '          <a href="/review-booster.html">Review Booster</a>',
-    '          <a href="/analyser.html">Business Analyser</a>',
-    '          <a href="/league-scheduler.html">League Scheduler</a>',
-    '        </div>',
-    '      </li>',
-    '      <li><a class="aifa-nav-link" href="/pricing.html">Pricing</a></li>',
-    '      <li><a class="aifa-nav-link" href="/blog/">Insights</a></li>',
-    '      <li><a class="aifa-nav-link aifa-nav-cta" href="/strategy-call.html" data-conversion="book-call">15-min call</a></li>',
-    '    </ul>',
+    '    <div class="aifa-nav-cluster">',
+    '      <ul class="aifa-nav-menu" id="aifa-nav-links">',
+    '        <li><a class="aifa-nav-link" href="/#how">How it works</a></li>',
+    '        <li><a class="aifa-nav-link" href="/#proof">Proof</a></li>',
+    '        <li><a class="aifa-nav-link" href="/#seats">Platform seats</a></li>',
+    '        <li><a class="aifa-nav-link" href="/news/">News</a></li>',
+    '        <li><a class="aifa-nav-link aifa-nav-cta" href="' + BOOK_CALL_URL + '" target="_blank" rel="noopener noreferrer" data-conversion="book-call">Book a call</a></li>',
+    '      </ul>',
+    '      <button class="aifa-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="aifa-nav-links">Menu</button>',
+    '    </div>',
     '  </div>',
     '</nav>'
   ].join('');
@@ -92,6 +66,7 @@
     '        <a href="/about.html">About Grant &amp; AIFA</a>',
     '        <a href="/case-study-10-international.html">Case study</a>',
     '        <a href="/blog/">Blog</a>',
+    '        <a href="/news/">News</a>',
     '        <a href="/#book">Contact</a>',
     '        <a href="/strategy-call.html" data-conversion="book-call">Book a 15-minute call</a>',
     '        <a href="/privacy-policy-aifa.html">Privacy Policy</a>',
@@ -121,13 +96,13 @@
       return false;
     }
 
-    if (element.matches('body > nav.nav, body > nav.site-nav, body > .mobile-menu')) {
+    if (element.matches('body > nav.nav, body > nav.site-nav, body > nav.aifa-site-nav, body > .mobile-menu, body > header.nav, body > header.site-nav')) {
       return true;
     }
 
     if (element.matches('body > header')) {
       var text = element.textContent || '';
-      return Boolean(element.querySelector('nav')) && /Home|Products|Pricing|Book a Call|Free Tools|Services/.test(text);
+      return Boolean(element.querySelector('nav')) && /Home|Products|Pricing|Book a [Cc]all|Free Tools|Services|How it works|Platform seats/.test(text);
     }
 
     return false;
@@ -171,15 +146,77 @@
     });
   }
 
+  function ensureChromeStyles() {
+    if (!document.head || document.querySelector('link[href*="site-chrome.css"]')) {
+      return;
+    }
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = SITE_CHROME_HREF;
+    document.head.appendChild(link);
+  }
+
+  function navTheme() {
+    var explicit = document.body.getAttribute('data-nav-theme');
+    if (explicit === 'dark' || explicit === 'light') {
+      return explicit;
+    }
+    var path = window.location.pathname || '';
+    if (path === '/news' || path.indexOf('/news/') === 0) {
+      return 'dark';
+    }
+    return 'light';
+  }
+
+  function markCurrent(nav) {
+    var path = window.location.pathname || '';
+    var onNews = path === '/news' || path === '/news/' || path.indexOf('/news/') === 0;
+    Array.prototype.slice.call(nav.querySelectorAll('.aifa-nav-link')).forEach(function (link) {
+      var href = link.getAttribute('href') || '';
+      if (href === '/news/' && onNews) {
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  }
+
+  function placeAtBodyStart(el) {
+    var skip = null;
+    Array.prototype.slice.call(document.body.children).forEach(function (child) {
+      if (!skip && child.classList && child.classList.contains('skip-link')) {
+        skip = child;
+      }
+    });
+    if (skip) {
+      document.body.insertBefore(el, skip.nextSibling);
+    } else {
+      document.body.insertBefore(el, document.body.firstChild);
+    }
+  }
+
+  function setMenuOpen(nav, toggle, menu, isOpen) {
+    nav.classList.toggle('is-open', isOpen);
+    menu.classList.toggle('is-open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Menu');
+    if (!isOpen) closeDropdowns(nav);
+  }
+
   function initNav(nav) {
+    if (!nav || nav.getAttribute('data-aifa-nav-inited') === 'true') {
+      return;
+    }
+    nav.setAttribute('data-aifa-nav-inited', 'true');
+    nav.setAttribute('data-theme', navTheme());
+    markCurrent(nav);
+
     var toggle = nav.querySelector('.aifa-nav-toggle');
     var menu = nav.querySelector('.aifa-nav-menu');
+    if (!toggle || !menu) {
+      return;
+    }
 
     toggle.addEventListener('click', function () {
-      var isOpen = nav.classList.toggle('is-open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-      toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-      if (!isOpen) closeDropdowns(nav);
+      setMenuOpen(nav, toggle, menu, !menu.classList.contains('is-open'));
     });
 
     Array.prototype.slice.call(nav.querySelectorAll('.aifa-nav-trigger')).forEach(function (trigger) {
@@ -193,28 +230,19 @@
 
     menu.addEventListener('click', function (event) {
       if (event.target.closest('a')) {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open menu');
-        closeDropdowns(nav);
+        setMenuOpen(nav, toggle, menu, false);
       }
     });
 
     document.addEventListener('click', function (event) {
       if (!nav.contains(event.target)) {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open menu');
-        closeDropdowns(nav);
+        setMenuOpen(nav, toggle, menu, false);
       }
     });
 
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
-        nav.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open menu');
-        closeDropdowns(nav);
+        setMenuOpen(nav, toggle, menu, false);
       }
     });
   }
@@ -224,7 +252,11 @@
       return;
     }
 
+    ensureChromeStyles();
+
     var footerOnly = document.body.hasAttribute('data-aifa-footer-only');
+    var keepFooter = document.body.hasAttribute('data-aifa-keep-footer');
+    document.documentElement.classList.add('aifa-nav-ready');
     document.body.classList.add('aifa-nav-ready');
     if (footerOnly) {
       document.body.classList.add('aifa-footer-only');
@@ -233,30 +265,35 @@
 
     if (!footerOnly && !document.querySelector('.aifa-global-nav')) {
       removeLegacyNav();
-    }
-    removeLegacyFooters();
-
-    if (!footerOnly && !document.querySelector('.aifa-global-nav')) {
       var mount = document.getElementById('aifa-nav-mount');
-      if (!mount) {
-        mount = document.createElement('div');
-        mount.id = 'aifa-nav-mount';
-        var main = document.querySelector('main');
-        document.body.insertBefore(mount, main || document.body.firstChild);
+      if (mount) {
+        mount.innerHTML = navMarkup;
+        if (mount.parentNode !== document.body) {
+          placeAtBodyStart(mount);
+        }
+      } else {
+        var holder = document.createElement('div');
+        holder.innerHTML = navMarkup;
+        placeAtBodyStart(holder.firstChild);
       }
-
-      mount.innerHTML = navMarkup;
-      initNav(mount.querySelector('.aifa-global-nav'));
     }
 
-    var footerMount = document.getElementById('aifa-footer-mount');
-    if (!footerMount) {
-      footerMount = document.createElement('div');
-      footerMount.id = 'aifa-footer-mount';
-      document.body.appendChild(footerMount);
+    var nav = document.querySelector('.aifa-global-nav');
+    if (nav) {
+      initNav(nav);
     }
 
-    footerMount.innerHTML = footerMarkup;
+    if (!keepFooter) {
+      removeLegacyFooters();
+      var footerMount = document.getElementById('aifa-footer-mount');
+      if (!footerMount) {
+        footerMount = document.createElement('div');
+        footerMount.id = 'aifa-footer-mount';
+        document.body.appendChild(footerMount);
+      }
+      footerMount.innerHTML = footerMarkup;
+    }
+
     if (window.localStorage.getItem('aifa_cookie_consent_v1') === 'granted') loadAifaChatWidget();
     window.addEventListener('aifa-consent-granted', loadAifaChatWidget, { once: true });
   }
