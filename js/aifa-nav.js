@@ -7,7 +7,9 @@
   var AIFA_CHAT_RESOURCES_URL = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
 
   var BOOK_CALL_URL = 'https://link.aifusionautomations.com/widget/bookings/aifa-15-min-ai-opportunity-call-live';
-  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v2';
+  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v3';
+  // AIFA-owned background plate. Drop the file at videos/background/aifa-background.mp4.
+  var BG_VIDEO_SRC = '/videos/background/aifa-background.mp4';
 
   var navMarkup = [
     '<nav class="aifa-global-nav" aria-label="Primary">',
@@ -247,12 +249,69 @@
     });
   }
 
+  function mountBackgroundVideo() {
+    if (document.querySelector('.aifa-bg-video-layer')) {
+      return;
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    var layer = document.createElement('div');
+    layer.className = 'aifa-bg-video-layer';
+    layer.setAttribute('aria-hidden', 'true');
+
+    var video = document.createElement('video');
+    video.className = 'aifa-bg-video';
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('autoplay', '');
+    video.setAttribute('loop', '');
+    video.preload = 'metadata';
+
+    var source = document.createElement('source');
+    source.src = BG_VIDEO_SRC;
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    layer.appendChild(video);
+    document.body.insertBefore(layer, document.body.firstChild);
+
+    function reveal() {
+      document.documentElement.classList.add('aifa-bg-video-on');
+      if (navTheme() === 'dark') {
+        document.documentElement.classList.add('aifa-bg-video-dark');
+      }
+      var playAttempt = video.play();
+      if (playAttempt && typeof playAttempt.catch === 'function') {
+        playAttempt.catch(function () {});
+      }
+    }
+
+    function removeLayer() {
+      document.documentElement.classList.remove('aifa-bg-video-on');
+      document.documentElement.classList.remove('aifa-bg-video-dark');
+      if (layer.parentNode) {
+        layer.parentNode.removeChild(layer);
+      }
+    }
+
+    video.addEventListener('loadeddata', reveal);
+    video.addEventListener('error', removeLayer);
+    source.addEventListener('error', removeLayer);
+  }
+
   function render() {
     if (!document.body) {
       return;
     }
 
     ensureChromeStyles();
+    mountBackgroundVideo();
 
     var footerOnly = document.body.hasAttribute('data-aifa-footer-only');
     var keepFooter = document.body.hasAttribute('data-aifa-keep-footer');
