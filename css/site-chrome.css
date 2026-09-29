@@ -263,3 +263,69 @@ body.aifa-nav-ready {
     transition: none;
   }
 }
+
+/* Background video sits behind page content. Hidden until the AIFA file loads. */
+#how,
+#proof,
+#seats,
+#book,
+#book-a-call {
+  scroll-margin-top: 5.25rem;
+}
+
+.aifa-bg-video-layer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+html.aifa-bg-video-on {
+  background: #f7f5ff;
+}
+
+html.aifa-bg-video-on.aifa-bg-video-dark {
+  background: #0f172a;
+}
+
+html.aifa-bg-video-on body {
+  background: transparent !important;
+}
+
+html.aifa-bg-video-on .aifa-bg-video-layer {
+  display: block;
+}
+
+.aifa-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+html.aifa-bg-video-dark .aifa-bg-video {
+  opacity: 0.35;
+}
+
+html.aifa-bg-video-on body[data-nav-theme="light"] > main > section.hero {
+  background:
+    radial-gradient(60% 80% at 70% 20%, rgba(59, 110, 245, 0.22), transparent 60%),
+    radial-gradient(50% 60% at 20% 80%, rgba(138, 77, 255, 0.14), transparent 55%),
+    linear-gradient(160deg, rgba(5, 7, 13, 0.48) 0%, rgba(14, 11, 31, 0.55) 45%, rgba(26, 19, 64, 0.5) 100%) !important;
+}
+
+html.aifa-bg-video-on body[data-nav-theme="light"] > main > section.hero h1,
+html.aifa-bg-video-on body[data-nav-theme="light"] > main > section.hero .lead,
+html.aifa-bg-video-on body[data-nav-theme="light"] > main > section.hero .support {
+  text-shadow: 0 1px 14px rgba(5, 7, 13, 0.55);
+}
+
+html.aifa-bg-video-on body[data-nav-theme="light"] > main > section:not(.hero) {
+  background-color: rgba(255, 255, 255, 0.84);
+}
+
+html.aifa-bg-video-on body[data-nav-theme="light"] .band-soft {
+  background: rgba(247, 245, 255, 0.86) !important;
+}
