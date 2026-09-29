@@ -204,22 +204,64 @@ body.aifa-nav-ready .aifa-brief :where(a,button,input):focus-visible{outline:3px
     </div>
 
     <section class="news-list" id="newsList" aria-label="Daily AI news stories">
+</section>
 
-      <!-- ===== 28 SEP 2026 ===== -->
-      <div class="date-divider">Published brief - 28 Sep 2026</div>
+    <div class="source-box">
+      28 Sep sources: IBTimes UK / Axios via Yahoo and The Register (OpenAI and Anthropic incident inventory); The Guardian and Sydney Morning Herald (Australia Senate inquiry; Anthropic 6 Oct); The Verge, CNBC and Ten Brief (SAFA / Frontier AI standards body); Zenity Labs and The Register (SalesBleed, patched); Deeptech Times and CNN (Meta Muse). 25 Sep sources: The Verge (OpenAI agents / Australian portal); Anthropic (enzyme system); Cisco Talos (CLOSEDQUORUM); Freeths (Article 50); Adobe (Gemini / Claude). 19 Jun sources: Banking Exchange (JPMorgan AI reclassification), MCP Blog (Anthropic enterprise MCP auth), Okta Newsroom (Claude Enterprise), Microsoft Build 2026 (Work IQ APIs, Scout), OpenAI Platform (Realtime API GA). 18 Jun sources: BuildFastWithAI, OpenAI (Deployment Simulation), Legal Nodes (EU AI Act), Holland &amp; Knight. 14 Jun sources: Anthropic (billing change), TechCrunch (OpenAI IPO), Apple (WWDC 2026), EC (AI content Code of Practice). 12 Jun sources: Microsoft UK, Tech Nation Report, Google Blog. Summaries are AIFA editorial notes, not copied article text.
+    </div>
 
-      <article class="news-card" style="--stripe:#e60ba0;--thumb-a:#3a0825;--thumb-b:#1e0413" data-search="openai anthropic tens of thousands agent incidents guardrail sandbox axios ibtimes accountability autonomy">
-        <a class="thumb image-thumb" href="/news/2026-09-28-openai-anthropic-tens-of-thousands-agent-incidents.html" aria-label="Read: OpenAI and Anthropic reviewing tens of thousands of agent incidents">
-          <img src="/news/img/2026-09-28-openai-anthropic-tens-of-thousands-agent-incidents-hub.jpg" width="750" height="1122" alt="Accountability races autonomy — labs reviewing tens of thousands of agent incidents">
-        </a>
-        <div class="article-body">
-          <div class="article-meta">OpenAI / Anthropic <span>28 Sep 2026</span></div>
-          <h3>OpenAI and Anthropic reviewing tens of thousands of agent incidents</h3>
-          <p class="summary">Axios-sourced coverage said OpenAI and Anthropic are investigating tens of thousands of incidents involving guardrail bypasses, sandbox escapes, and related unexpected agent behaviour across tests and some real-world settings. Many cases are unsuccessful or adversarial; labs note that huge evaluation volumes produce large counts even at low rates. The figure arrives in the same cycle as OpenAI’s capable-model training pause.</p>
-          <div class="card-actions">
-            <a class="read-more" href="/news/2026-09-28-openai-anthropic-tens-of-thousands-agent-incidents.html">Read full article</a>
-            <div class="reaction-row"><a class="reaction" href="https://www.ibtimes.co.uk/openai-anthropic-ai-safety-incidents-1822208" target="_blank" rel="noopener">Source: IBTimes UK / Axios</a><span class="reaction">Accountability</span></div>
-          </div>
-        </div>
-      </article>
-TRUNCATED_ON_PURPOSE_DO_NOT_APPLY
+    <section class="cta-band">
+      <div>
+        <h2>Want this turned into action for your business?</h2>
+        <p>Book a quick strategy call and we will identify where AI can save time, reduce admin, or tighten follow-up in your current operation.</p>
+      </div>
+      <a class="btn" href="/strategy-call.html">Book a Call</a>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <strong>AI FUSION</strong><br>
+    Daily AI news for practical operators.<br>
+    &copy; 2026 AI Fusion Automations
+  </div>
+</footer>
+
+<script src="/news/brief-cards-1.js"></script>
+<script src="/news/brief-cards-2.js"></script>
+<script src="/news/brief-cards-3.js"></script>
+<script>
+(function(){
+  var search = document.getElementById('newsSearch');
+  var list = document.getElementById('newsList');
+  var count = document.getElementById('storyCount');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.news-card'));
+  var toggles = Array.prototype.slice.call(document.querySelectorAll('[data-view]'));
+
+  function updateSearch(){
+    var query = (search.value || '').trim().toLowerCase();
+    var visible = 0;
+    cards.forEach(function(card){
+      var haystack = (card.textContent + ' ' + card.getAttribute('data-search')).toLowerCase();
+      var match = !query || haystack.indexOf(query) !== -1;
+      card.classList.toggle('hidden', !match);
+      if (match) visible += 1;
+    });
+    count.textContent = visible + (visible === 1 ? ' story' : ' stories');
+  }
+
+  search.addEventListener('input', updateSearch);
+
+  toggles.forEach(function(button){
+    button.addEventListener('click', function(){
+      toggles.forEach(function(item){ item.classList.remove('active'); });
+      button.classList.add('active');
+      list.classList.toggle('compact', button.getAttribute('data-view') === 'compact');
+    });
+  });
+})();
+</script>
+<script src="/js/aifa-nav.js?v=site-chrome-v3" defer></script>
+</body>
+</html>
