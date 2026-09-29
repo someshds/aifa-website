@@ -13,4 +13,836 @@
 <meta property="og:description" content="A complete AI infrastructure for your business — chatbots, CRM automation, lead follow-up, review generation, and more running 24/7.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.aifusionautomations.com/ai-operating-systems.html">
-PLACEHOLDER_SHOULD_NOT_SEND
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an AI Operating System for a small business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An AI OS is a complete automation infrastructure for your business — combining a 24/7 AI chatbot, automated CRM, lead follow-up sequences, review generation, and appointment handling into one connected system. Think of it as a virtual team member that never sleeps, never calls in sick, and handles all the repetitive admin work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from just getting a chatbot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A chatbot handles conversations on your website. An AI OS is the whole picture: the chatbot, plus automated follow-up sequences, CRM pipelines, appointment booking, Google review requests, invoice reminders, and reporting — all connected and working together."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does setup take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most businesses are fully live within 2–4 weeks. We handle all technical setup, train the AI on your services and brand voice, and connect your existing tools. You don't need to do any technical work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI Operating Systems are priced on request; one-off automation builds are quoted per project. Pricing typically pays for itself in the first month through recovered leads, time saved on admin, and improved review scores. Contact us for a quote based on your needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will it work with my existing software?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In most cases, yes. We integrate with 3,000+ tools including Google Calendar, Calendly, Xero, QuickBooks, Stripe, and most industry-specific CRM and booking systems. We'll check your stack before we start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe and GDPR compliant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All systems are built to UK GDPR standards. Customer data stays within compliant EU/UK data centres, and every communication workflow includes the necessary consent mechanisms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need any technical knowledge?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "None at all. We build and manage everything for you. You get a simple dashboard to see what's happening — no coding, no technical skills required."
+      }
+    }
+  ]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#7c3aed;--primary-light:#a78bfa;--accent:#06b6d4;--accent-light:#22d3ee;
+  --bg:#0f0f1a;--bg-card:#1a1a2e;--text:#f1f5f9;--text-muted:#b0bec5;
+  --border:#2d2d4a;--success:#10b981;--warning:#f59e0b;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;padding-top:4rem}
+.gradient-bg{position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 0%,rgba(124,58,237,.14) 0%,transparent 50%),radial-gradient(ellipse at 80% 100%,rgba(6,182,212,.09) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+/* Nav */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:.7rem 1.5rem;background:rgba(15,15,26,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(45,45,74,.6)}
+.site-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.site-nav-logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.site-nav-logo-icon{width:32px;height:32px;background:linear-gradient(135deg,#7c3aed,#06b6d4);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.site-nav-logo-text{font-size:.9rem;font-weight:700;background:linear-gradient(135deg,#a78bfa,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap}
+.site-nav-links{display:flex;align-items:center;gap:1.25rem;list-style:none}
+.site-nav-links a{color:#b0bec5;text-decoration:none;font-size:.83rem;font-weight:500;transition:color .2s;white-space:nowrap}
+.site-nav-links a:hover{color:#f1f5f9}
+.site-nav-cta{background:linear-gradient(135deg,#7c3aed,#06b6d4)!important;color:#fff!important;padding:.4rem 1rem!important;border-radius:7px!important;font-weight:600!important}
+@media(max-width:680px){.site-nav-links{display:none}}
+
+/* Hero */
+.hero{position:relative;z-index:1;padding:5rem 1.5rem 3rem;text-align:center;max-width:860px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.3);color:var(--primary-light);font-size:.8rem;font-weight:600;padding:.4rem 1rem;border-radius:20px;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,var(--primary-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.1rem;color:var(--text-muted);max-width:640px;margin:0 auto 2rem}
+.hero-stat{display:inline-block;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);color:#34d399;font-size:.9rem;font-weight:600;padding:.6rem 1.25rem;border-radius:12px;margin-bottom:2rem}
+.btn-group{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.8rem 1.75rem;border-radius:10px;font-size:.95rem;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:inherit}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:0 4px 15px rgba(124,58,237,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(124,58,237,.45)}
+.btn-secondary{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:rgba(255,255,255,.1);border-color:var(--primary)}
+
+/* Sections */
+.section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:3rem 1.5rem}
+.section-tag{display:inline-block;background:rgba(124,58,237,.12);color:var(--primary-light);font-size:.75rem;font-weight:700;padding:.3rem .8rem;border-radius:20px;margin-bottom:1rem;letter-spacing:.05em;text-transform:uppercase}
+.section h2{font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;margin-bottom:.75rem}
+.section .lead{color:var(--text-muted);font-size:1rem;margin-bottom:2rem;max-width:640px}
+.section-center{text-align:center}
+.section-center .lead{margin-left:auto;margin-right:auto}
+
+/* Modules grid */
+.modules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+@media(max-width:640px){.modules-grid{grid-template-columns:1fr}}
+.module-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;position:relative;overflow:hidden;transition:border-color .25s}
+.module-card:hover{border-color:var(--primary)}
+.module-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--primary),var(--accent));opacity:0;transition:opacity .3s}
+.module-card:hover::before{opacity:1}
+.module-icon{font-size:1.75rem;margin-bottom:.75rem}
+.module-card h3{font-size:1rem;font-weight:700;margin-bottom:.4rem}
+.module-card p{color:var(--text-muted);font-size:.88rem;margin-bottom:.75rem}
+.module-tag{display:inline-flex;align-items:center;gap:.35rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2);color:#34d399;font-size:.75rem;font-weight:600;padding:.25rem .65rem;border-radius:20px}
+
+/* Stats bar */
+.stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2.5rem 0}
+@media(max-width:560px){.stats-bar{grid-template-columns:1fr}}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center}
+.stat-value{font-size:1.9rem;font-weight:900;background:linear-gradient(135deg,var(--primary-light),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:.75rem;color:var(--text-muted);margin-top:.2rem}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2rem}
+@media(max-width:900px){.pricing-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.pricing-grid{grid-template-columns:1fr}}
+.pricing-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;position:relative;display:flex;flex-direction:column}
+.pricing-setup{font-size:.85rem;color:var(--warning);margin-bottom:.75rem}
+.pricing-card.featured{border-color:var(--primary);box-shadow:0 0 40px rgba(124,58,237,.15)}
+.featured-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-size:.72rem;font-weight:700;padding:.3rem .9rem;border-radius:20px;white-space:nowrap}
+.pricing-name{font-size:.8rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
+.pricing-price{font-size:2rem;font-weight:900;margin-bottom:.25rem}
+.pricing-price span{font-size:.9rem;font-weight:500;color:var(--text-muted)}
+.pricing-desc{color:var(--text-muted);font-size:.88rem;margin-bottom:1.25rem;flex:1}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem;flex:2}
+.pricing-features li{display:flex;align-items:flex-start;gap:.5rem;font-size:.88rem;color:var(--text-muted)}
+.pricing-features li::before{content:"\u2713";color:var(--success);font-weight:700;flex-shrink:0;margin-top:.05rem}
+
+/* Steps */
+.steps{display:flex;flex-direction:column;gap:1.5rem;margin-top:1.5rem}
+.step{display:flex;gap:1.25rem;align-items:flex-start}
+.step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.step-body h3{font-size:1rem;font-weight:700;margin-bottom:.25rem}
+.step-body p{color:var(--text-muted);font-size:.9rem}
+
+/* FAQ */
+.faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;margin-bottom:.75rem;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;color:var(--text);font-size:.95rem;font-weight:600;padding:1.1rem 1.25rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:inherit}
+.faq-arrow{color:var(--primary-light);transition:transform .25s;flex-shrink:0}
+.faq-q.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a p{padding:.25rem 1.25rem 1.1rem;color:var(--text-muted);font-size:.9rem;line-height:1.7}
+
+/* Industries */
+.industry-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem}
+.ind-tag{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:.4rem .9rem;font-size:.82rem;color:var(--text-muted);text-decoration:none;transition:all .2s}
+.ind-tag:hover{border-color:var(--primary);color:var(--primary-light)}
+
+/* CTA box */
+.cta-box{background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(6,182,212,.1));border:1px solid rgba(124,58,237,.3);border-radius:20px;padding:3rem 2rem;text-align:center}
+.cta-box h2{font-size:1.8rem;font-weight:800;margin-bottom:.5rem}
+.cta-box p{color:var(--text-muted);margin-bottom:1.75rem;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* Footer */
+footer{position:relative;z-index:1;text-align:center;padding:2rem 1.5rem;border-top:1px solid var(--border);color:var(--text-muted);font-size:.82rem}
+footer a{color:var(--primary-light);text-decoration:none}
+
+/* Breadcrumb */
+.breadcrumb{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:.75rem 1.5rem;font-size:.8rem;color:var(--text-muted)}
+.breadcrumb a{color:var(--text-muted);text-decoration:none}
+.breadcrumb a:hover{color:var(--primary-light)}
+.breadcrumb span{margin:0 .35rem}
+</style>
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/aifa-nav.css?v=fusion-flow-v1">
+<link rel="stylesheet" href="/css/aifa-katalyst.css?v=phase-2">
+<link rel="stylesheet" href="/css/aifa-privacy-v1.css">
+<script src="/js/aifa-tracking.js" defer></script>
+</head>
+<body>
+<div class="gradient-bg"></div>
+
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="https://www.aifusionautomations.com" class="site-nav-logo">
+      <img class="site-nav-logo-icon" src="/img/brand/fusion-flow-icon.png" width="32" height="32" alt="">
+      <div class="site-nav-logo-text">AI Fusion Automations</div>
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="https://www.aifusionautomations.com">Free Tools</a></li>
+      <li><a href="https://www.aifusionautomations.com/products/">Products</a></li>
+      <li><a href="https://www.aifusionautomations.com/pricing.html">Pricing</a></li>
+      <li><a href="https://www.aifusionautomations.com/blog/">Blog</a></li>
+      <li><a href="https://www.aifusionautomations.com/#book-a-call" class="site-nav-cta">Book a Call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="https://www.aifusionautomations.com">Home</a><span>›</span>
+  <a href="https://www.aifusionautomations.com">Free Tools</a><span>›</span>
+  AI Operating Systems
+</div>
+
+<main>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-badge">&#129302; Complete AI Infrastructure</div>
+  <h1>Your Business, Running on AI</h1>
+  <p>An AI Operating System connects every part of your business — customer support, sales follow-up, bookings, reviews, and admin — into one automated machine that works 24/7.</p>
+  <div class="hero-stat">&#128200; Businesses using AI OS recover an average of 10+ hours per week and increase lead conversion by 30%</div>
+  <div class="btn-group">
+    <a href="https://www.aifusionautomations.com/#book-a-call" class="btn btn-primary">Book a Free Strategy Call</a>
+    <a href="https://www.aifusionautomations.com/roi-calculator-v2.0.html" class="btn btn-secondary">Calculate Your ROI →</a>
+  </div>
+</div>
+
+<div style="position:relative;z-index:1;max-width:1100px;margin:1rem auto 3rem;padding:0 1.5rem">
+  <img src="/img/ai-os-hero.png" alt="AI Operating System — inputs flow through AI agents to outputs 24/7" loading="eager" style="width:100%;height:auto;border-radius:20px;box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 0 1px rgba(124,58,237,.2)">
+</div>
+
+<!-- ── SVG DIAGRAM 1: Before / After ── -->
+<section style="position:relative;z-index:1;max-width:1100px;margin:0 auto 3rem;padding:0 1.5rem" aria-label="Before and after AI Operating System">
+  <svg viewBox="0 0 1100 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ba-title ba-desc" style="width:100%;height:auto;display:block">
+    <title id="ba-title">Before an AI OS: scattered tools. After: one unified system.</title>
+    <desc id="ba-desc">A visual comparison showing 12 disconnected apps on the left versus one AI OS hub on the right.</desc>
+    <defs>
+      <linearGradient id="bgBad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#2d1a2b" stop-opacity="0.85"/>
+        <stop offset="1" stop-color="#1a1a2e" stop-opacity="0.85"/>
+      </linearGradient>
+      <linearGradient id="bgGood" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#7c3aed" stop-opacity="0.28"/>
+        <stop offset="1" stop-color="#06b6d4" stop-opacity="0.22"/>
+      </linearGradient>
+      <linearGradient id="hubGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#a78bfa"/>
+        <stop offset="1" stop-color="#22d3ee"/>
+      </linearGradient>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- BEFORE panel -->
+    <rect x="20" y="20" width="500" height="280" rx="18" fill="url(#bgBad)" stroke="#3b2733" stroke-width="1"/>
+    <text x="40" y="55" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#f97316" opacity="0.9">BEFORE</text>
+    <text x="40" y="80" font-family="Inter,system-ui,sans-serif" font-size="20" font-weight="800" fill="#f1f5f9">12 scattered tools</text>
+    <text x="40" y="102" font-family="Inter,system-ui,sans-serif" font-size="13" fill="#b0bec5">Nothing talks to anything else</text>
+    <!-- Scattered chaotic dots representing disconnected tools -->
+    <g fill="#f1f5f9" opacity="0.85">
+      <circle cx="120" cy="160" r="20"/><text x="120" y="165" font-size="14" text-anchor="middle" fill="#1a1a2e" font-weight="700">📧</text>
+      <circle cx="200" cy="230" r="20"/><text x="200" y="235" font-size="14" text-anchor="middle" fill="#1a1a2e" font-weight="700">📞</text>
+      <circle cx="280" cy="150" r="20"/><text x="280" y="155" font-size="14" text-anchor="middle" fill="#1a1a2e" font-weight="700">📅</text>
+      <circle cx="360" cy="245" r="20"/><text x="360" y="250" font-size="14" text-anchor="middle" fill="#1a1a2e" font-weight="700">💬</text>
+      <circle cx="440" cy="140" r="20"/><text x="440" y="145" font-size="14" text-anchor="middle" fill="#1a1a2e" font-weight="700">📊</text>
+      <circle cx="440" cy="220" r="20"/><text x="440" y="225" font-size="14" text-anchor="middle" fill="#1a1a2e" font-weight="700">⭐</text>
+      <circle cx="150" cy="270" r="15"/><circle cx="230" cy="180" r="15"/><circle cx="320" cy="270" r="15"/><circle cx="380" cy="180" r="15"/><circle cx="90" cy="220" r="15"/>
+    </g>
+    <!-- Broken/dashed connection lines -->
+    <g stroke="#f97316" stroke-width="1.2" stroke-dasharray="4 6" opacity="0.55" fill="none">
+      <path d="M120 160 L200 230"/><path d="M280 150 L360 245"/><path d="M440 140 L440 220"/><path d="M200 230 L280 150"/>
+    </g>
+
+    <!-- Arrow -->
+    <path d="M540 160 L570 160" stroke="#a78bfa" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M562 152 L578 160 L562 168 Z" fill="#a78bfa"/>
+
+    <!-- AFTER panel -->
+    <rect x="580" y="20" width="500" height="280" rx="18" fill="url(#bgGood)" stroke="rgba(124,58,237,.4)" stroke-width="1"/>
+    <text x="600" y="55" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#22d3ee">AFTER</text>
+    <text x="600" y="80" font-family="Inter,system-ui,sans-serif" font-size="20" font-weight="800" fill="#f1f5f9">One AI Operating System</text>
+    <text x="600" y="102" font-family="Inter,system-ui,sans-serif" font-size="13" fill="#c4b5fd">Everything connected. Runs 24/7.</text>
+    <!-- Central hub -->
+    <circle cx="830" cy="195" r="52" fill="url(#hubGrad)" filter="url(#glow)"/>
+    <text x="830" y="192" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#0f0f1a" text-anchor="middle">AI OS</text>
+    <text x="830" y="208" font-family="Inter,system-ui,sans-serif" font-size="9" fill="#0f0f1a" text-anchor="middle" opacity="0.85">Your Business</text>
+    <!-- 6 orbiting module dots connected by clean gradient lines -->
+    <g stroke="url(#hubGrad)" stroke-width="1.8" fill="none" opacity="0.7">
+      <line x1="830" y1="195" x2="720" y2="130"/><line x1="830" y1="195" x2="940" y2="130"/>
+      <line x1="830" y1="195" x2="680" y2="195"/><line x1="830" y1="195" x2="980" y2="195"/>
+      <line x1="830" y1="195" x2="720" y2="260"/><line x1="830" y1="195" x2="940" y2="260"/>
+    </g>
+    <g>
+      <circle cx="720" cy="130" r="20" fill="#1a1a2e" stroke="#a78bfa" stroke-width="1.5"/><text x="720" y="135" font-size="14" text-anchor="middle">💬</text>
+      <circle cx="940" cy="130" r="20" fill="#1a1a2e" stroke="#a78bfa" stroke-width="1.5"/><text x="940" y="135" font-size="14" text-anchor="middle">📈</text>
+      <circle cx="680" cy="195" r="20" fill="#1a1a2e" stroke="#22d3ee" stroke-width="1.5"/><text x="680" y="200" font-size="14" text-anchor="middle">📅</text>
+      <circle cx="980" cy="195" r="20" fill="#1a1a2e" stroke="#22d3ee" stroke-width="1.5"/><text x="980" y="200" font-size="14" text-anchor="middle">⭐</text>
+      <circle cx="720" cy="260" r="20" fill="#1a1a2e" stroke="#a78bfa" stroke-width="1.5"/><text x="720" y="265" font-size="14" text-anchor="middle">📋</text>
+      <circle cx="940" cy="260" r="20" fill="#1a1a2e" stroke="#a78bfa" stroke-width="1.5"/><text x="940" y="265" font-size="14" text-anchor="middle">📊</text>
+    </g>
+  </svg>
+</section>
+
+<!-- ── Explainer video (77s) ── -->
+<section style="position:relative;z-index:1;max-width:1400px;margin:3rem auto;padding:0 1.5rem;text-align:center">
+  <div style="display:inline-flex;align-items:center;gap:.6rem;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.35);color:#c4b5fd;font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.4rem 1rem;border-radius:24px;margin-bottom:1rem">
+    <span>&#9654;</span><span>Watch the 77-second explainer</span>
+  </div>
+  <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;color:#fff;margin:0 0 .5rem;letter-spacing:-1px">See what an AI Operating System looks like</h2>
+  <p style="color:rgba(255,255,255,.7);font-size:1.05rem;margin:0 0 1.75rem">A short walkthrough of how we map, wire, and train AI into your whole business — so it runs 24/7.</p>
+  <div style="position:relative;padding-bottom:56.25%;height:0;border-radius:20px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.5),0 0 0 1px rgba(124,58,237,.3);background:#0a0612">
+    <iframe
+      src="/videos/ai-os/"
+      title="AI Operating Systems — 77s explainer"
+      loading="lazy"
+      allow="autoplay; encrypted-media; fullscreen"
+      allowfullscreen
+      style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe>
+  </div>
+</section>
+
+<!-- ── WHAT IS AN AI OS ── -->
+<div class="section">
+  <div class="section-tag">What is it?</div>
+  <h2>More than a chatbot. A complete AI team.</h2>
+  <p class="lead">Most businesses buy a chatbot and wonder why nothing changed. An AI OS is different — it's the full stack of automation that connects your marketing, sales, operations, and customer service into one working system.</p>
+
+  <!-- ── SVG DIAGRAM 2: Customer Journey Pipeline ── -->
+  <div style="margin:1.75rem 0 2.5rem" aria-label="How a lead flows through your AI Operating System">
+    <svg viewBox="0 0 1100 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cj-title" style="width:100%;height:auto;display:block">
+      <title id="cj-title">Customer journey: from new lead to five-star review, fully automated</title>
+      <defs>
+        <linearGradient id="pipeGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#7c3aed"/>
+          <stop offset="0.5" stop-color="#a78bfa"/>
+          <stop offset="1" stop-color="#22d3ee"/>
+        </linearGradient>
+        <linearGradient id="nodeGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#1a1a2e"/>
+          <stop offset="1" stop-color="#0f0f1a"/>
+        </linearGradient>
+        <filter id="softglow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <!-- Base flowing pipe -->
+      <rect x="60" y="100" width="980" height="16" rx="8" fill="url(#pipeGrad)" opacity="0.35"/>
+      <rect x="60" y="103" width="980" height="10" rx="5" fill="url(#pipeGrad)" filter="url(#softglow)"/>
+
+      <!-- 6 stages: Lead → AI Chat → CRM → Follow-up → Booking → Review -->
+      <!-- Stage 1 -->
+      <g><circle cx="115" cy="108" r="30" fill="url(#nodeGrad)" stroke="#a78bfa" stroke-width="1.5"/><text x="115" y="115" font-size="20" text-anchor="middle">👤</text><text x="115" y="170" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="middle">New Lead</text><text x="115" y="188" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#b0bec5" text-anchor="middle">Website · Call · DM</text></g>
+      <!-- Stage 2 -->
+      <g><circle cx="300" cy="108" r="30" fill="url(#nodeGrad)" stroke="#a78bfa" stroke-width="1.5"/><text x="300" y="115" font-size="20" text-anchor="middle">💬</text><text x="300" y="170" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="middle">AI Chat</text><text x="300" y="188" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#b0bec5" text-anchor="middle">Answers &amp; qualifies</text></g>
+      <!-- Stage 3 -->
+      <g><circle cx="485" cy="108" r="30" fill="url(#nodeGrad)" stroke="#a78bfa" stroke-width="1.5"/><text x="485" y="115" font-size="20" text-anchor="middle">📋</text><text x="485" y="170" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="middle">CRM</text><text x="485" y="188" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#b0bec5" text-anchor="middle">Contact logged</text></g>
+      <!-- Stage 4 -->
+      <g><circle cx="670" cy="108" r="30" fill="url(#nodeGrad)" stroke="#22d3ee" stroke-width="1.5"/><text x="670" y="115" font-size="20" text-anchor="middle">📈</text><text x="670" y="170" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="middle">Follow-up</text><text x="670" y="188" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#b0bec5" text-anchor="middle">Email + SMS drip</text></g>
+      <!-- Stage 5 -->
+      <g><circle cx="855" cy="108" r="30" fill="url(#nodeGrad)" stroke="#22d3ee" stroke-width="1.5"/><text x="855" y="115" font-size="20" text-anchor="middle">📅</text><text x="855" y="170" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="middle">Booking</text><text x="855" y="188" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#b0bec5" text-anchor="middle">Confirmed &amp; reminded</text></g>
+      <!-- Stage 6 -->
+      <g><circle cx="985" cy="108" r="30" fill="url(#nodeGrad)" stroke="#22d3ee" stroke-width="1.5"/><text x="985" y="115" font-size="20" text-anchor="middle">⭐</text><text x="985" y="170" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="700" fill="#f1f5f9" text-anchor="middle">Review</text><text x="985" y="188" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#b0bec5" text-anchor="middle">Auto-requested</text></g>
+
+      <!-- Header labels -->
+      <text x="60" y="55" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#a78bfa">CUSTOMER JOURNEY, FULLY AUTOMATED</text>
+      <text x="1040" y="55" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="700" fill="#22d3ee" text-anchor="end">24/7 · &lt;60s response</text>
+    </svg>
+  </div>
+
+  <div class="modules-grid">
+    <div class="module-card">
+      <div class="module-icon">&#128172;</div>
+      <h3>Customer Support AI</h3>
+      <p>A trained chatbot on your website and social channels that answers FAQs, qualifies leads, and books calls — 24/7, without you.</p>
+      <span class="module-tag">&#10003; Always on</span>
+    </div>
+    <div class="module-card">
+      <div class="module-icon">&#128200;</div>
+      <h3>Sales Follow-Up Engine</h3>
+      <p>Automated email and SMS sequences that nurture new leads, recover cold enquiries, and follow up on quotes until they convert.</p>
+      <span class="module-tag">&#10003; No leads left behind</span>
+    </div>
+    <div class="module-card">
+      <div class="module-icon">&#128197;</div>
+      <h3>Appointment & Booking Automation</h3>
+      <p>Automatic booking confirmations, reminders, rescheduling, and no-show follow-ups — integrated with your existing calendar.</p>
+      <span class="module-tag">&#10003; Fewer no-shows</span>
+    </div>
+    <div class="module-card">
+      <div class="module-icon">&#11088;</div>
+      <h3>Google Review Generation</h3>
+      <p>After each completed job or visit, an automated message requests a Google review at the perfect moment — dramatically improving your online reputation.</p>
+      <span class="module-tag">&#10003; More 5-star reviews</span>
+    </div>
+    <div class="module-card">
+      <div class="module-icon">&#128203;</div>
+      <h3>CRM Pipeline Management</h3>
+      <p>Every lead, enquiry, and customer tracked automatically in your CRM. No more lost contacts in your inbox.</p>
+      <span class="module-tag">&#10003; Nothing falls through</span>
+    </div>
+    <div class="module-card">
+      <div class="module-icon">&#128202;</div>
+      <h3>Reporting Dashboard</h3>
+      <p>A real-time view of every enquiry, booking, and follow-up — so you always know what's happening in your business without digging through emails.</p>
+      <span class="module-tag">&#10003; Full visibility</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── PLATFORM FEATURES ── -->
+<div class="section" style="padding-top:0">
+  <div class="section-tag">What's included</div>
+  <h2>The complete platform, built for you</h2>
+  <p class="lead">Every AI Operating System includes access to our full suite of business tools. We set it all up — you just use it.</p>
+
+  <!-- ── SVG DIAGRAM 3: Platform Stack ── -->
+  <div style="margin:1.75rem 0 2.5rem" aria-label="The 8 platform layers of your AI Operating System">
+    <svg viewBox="0 0 1100 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="stack-title" style="width:100%;height:auto;display:block">
+      <title id="stack-title">Platform architecture — 8 layers working together as one system</title>
+      <defs>
+        <linearGradient id="layer1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c3aed" stop-opacity="0.9"/><stop offset="1" stop-color="#06b6d4" stop-opacity="0.9"/></linearGradient>
+        <linearGradient id="layer2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8b5cf6" stop-opacity="0.75"/><stop offset="1" stop-color="#0ea5e9" stop-opacity="0.75"/></linearGradient>
+        <linearGradient id="layer3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a78bfa" stop-opacity="0.6"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0.6"/></linearGradient>
+        <linearGradient id="layer4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c4b5fd" stop-opacity="0.45"/><stop offset="1" stop-color="#67e8f9" stop-opacity="0.45"/></linearGradient>
+        <filter id="stackglow"><feGaussianBlur stdDeviation="8"/></filter>
+      </defs>
+
+      <!-- Title on left, stack on right -->
+      <text x="30" y="60" font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#a78bfa">ONE UNIFIED PLATFORM</text>
+      <text x="30" y="90" font-family="Inter,system-ui,sans-serif" font-size="22" font-weight="900" fill="#f1f5f9">8 tools.</text>
+      <text x="30" y="118" font-family="Inter,system-ui,sans-serif" font-size="22" font-weight="900" fill="#f1f5f9">Zero duct-tape.</text>
+      <text x="30" y="152" font-family="Inter,system-ui,sans-serif" font-size="13" fill="#b0bec5">All included. All connected.</text>
+      <text x="30" y="170" font-family="Inter,system-ui,sans-serif" font-size="13" fill="#b0bec5">You just log in.</text>
+
+      <!-- Layer 4 (bottom, widest) -->
+      <g><rect x="320" y="240" width="740" height="60" rx="12" fill="url(#layer4)" stroke="rgba(124,58,237,.3)"/><text x="345" y="277" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="700" fill="#f1f5f9">📊 Reporting Dashboard</text><text x="1035" y="277" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#f1f5f9" text-anchor="end" opacity="0.85">Analytics layer</text></g>
+      <!-- Layer 3 -->
+      <g><rect x="360" y="180" width="700" height="55" rx="12" fill="url(#layer3)" stroke="rgba(124,58,237,.35)"/><text x="385" y="215" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="700" fill="#f1f5f9">📋 CRM &amp; Pipelines &nbsp;·&nbsp; 📅 Calendars &amp; Booking</text><text x="1035" y="215" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#f1f5f9" text-anchor="end" opacity="0.9">Data layer</text></g>
+      <!-- Layer 2 -->
+      <g><rect x="400" y="125" width="660" height="50" rx="12" fill="url(#layer2)" stroke="rgba(124,58,237,.4)"/><text x="425" y="157" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="700" fill="#f1f5f9">📧 Email &amp; SMS &nbsp;·&nbsp; ⚡ Automations &nbsp;·&nbsp; 💳 Payments</text><text x="1035" y="157" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#f1f5f9" text-anchor="end" opacity="0.9">Engagement layer</text></g>
+      <!-- Layer 1 (top, narrowest) -->
+      <g><rect x="440" y="75" width="620" height="45" rx="12" fill="url(#layer1)" stroke="rgba(255,255,255,.15)" filter="url(#stackglow)" opacity="0.9"/><rect x="440" y="75" width="620" height="45" rx="12" fill="url(#layer1)" stroke="rgba(255,255,255,.15)"/><text x="465" y="103" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="700" fill="#fff">📞 Voice AI &nbsp;·&nbsp; 💬 Chatbots &nbsp;·&nbsp; 🌐 Funnels &nbsp;·&nbsp; ⭐ Reputation</text><text x="1035" y="103" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#fff" text-anchor="end" opacity="0.95">Customer layer</text></g>
+
+      <!-- Left arrow indicating stack -->
+      <line x1="290" y1="80" x2="290" y2="300" stroke="#a78bfa" stroke-width="2" opacity="0.5"/>
+      <path d="M283 88 L290 74 L297 88 Z" fill="#a78bfa" opacity="0.7"/>
+      <path d="M283 292 L290 306 L297 292 Z" fill="#22d3ee" opacity="0.7"/>
+      <text x="278" y="200" font-family="Inter,system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="2" fill="#a78bfa" transform="rotate(-90 278 200)" text-anchor="middle">STACK</text>
+    </svg>
+  </div>
+
+  <div class="modules-grid">
+    <a href="/products/crm.html" class="module-card" style="text-decoration:none;color:inherit">
+      <div class="module-icon">&#128101;</div>
+      <h3>CRM &amp; Pipeline Management</h3>
+      <p>Unlimited contacts, visual pipelines, lead scoring, and a unified inbox across every channel.</p>
+      <span class="module-tag">&#10003; Explore →</span>
+    </a>
+    <a href="/products/funnels.html" class="module-card" style="text-decoration:none;color:inherit">
+      <div class="module-icon">&#127760;</div>
+      <h3>Funnels, Websites &amp; Landing Pages</h3>
+      <p>Drag-and-drop builder, sales funnels, A/B testing, forms, surveys, and membership areas.</p>
+      <span class="module-tag">&#10003; Explore →</span>
+    </a>
+    <a href="/products/email-sms.html" class="module-card" style="text-decoration:none;color:inherit">
+      <div class="module-icon">&#128231;</div>
+      <h3>Email &amp; SMS Marketing</h3>
+      <p>Broadcast campaigns, newsletters, WhatsApp, AI-written copy, and detailed analytics.</p>
+      <span class="module-tag">&#10003; Explore →</span>
+    </a>
+    <a href="/products/reputation.html" class="module-card" style="text-decoration:none;color:inherit">
+      <div class="module-icon">&#11088;</div>
+      <h3>Reputation &amp; Review Management</h3>
+      <p>Automated review requests, AI replies, monitoring dashboard, and social proof widgets.</p>
+      <span class="module-tag">&#10003; Explore →</span>
+    </a>
+    <a href="/products/voice-ai.html" class="module-card" style="text-decoration:none;color:inherit">
+      <div class="module-icon">&#128222;</div>
+      <h3>AI Voice &amp; Conversation AI</h3>
+      <p>AI receptionist, chatbots, missed call text-back, ringless voicemail, and consolidated inbox.</p>
+      <span class="module-tag">&#10003; Explore →</span>
+    </a>
+    <a href="/products/automations.html" class="module-card" style="text-decoration:none;color:inherit">
+      <div class="module-icon">&#9889;</div>
+      <h3>Workflow Automation</h3>
+      <p>Visual workflow builder, lead nurture sequences, pipeline triggers, and 5,000+ integrations.</p>
+      <span class="module-tag">&#10003; Explore →</span>
+    </a>
+    <a href="/products/calendars.html" class="module-card" style="text-decoration:none;color:inherit">
+      <div class="module-icon">&#128197;</div>
+      <h3>Calendars &amp; Online Booking</h3>
+      <p>Online scheduling, Google Calendar sync, automated reminders, and paid appointments.</p>
+      <span class="module-tag">&#10003; Explore →</span>
+    </a>
+    <a href="/products/payments.html" class="module-card" style="text-decoration:none;color:inherit">
+      <div class="module-icon">&#128179;</div>
+      <h3>Invoicing &amp; Payments</h3>
+      <p>Professional invoices, Text-2-Pay, recurring billing, order forms, and loyalty programmes.</p>
+      <span class="module-tag">&#10003; Explore →</span>
+    </a>
+  </div>
+</div>
+
+<!-- ── STATS ── -->
+<div class="section" style="padding-top:0">
+  <div class="stats-bar">
+    <div class="stat-box">
+      <div class="stat-value">24/7</div>
+      <div class="stat-label">Automated responses, day and night</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">&lt;60s</div>
+      <div class="stat-label">Average AI response time to new leads</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-value">10+</div>
+      <div class="stat-label">Hours saved per week on average</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── HOW IT WORKS ── -->
+<div class="section" style="padding-top:0">
+  <div class="section-tag">How it works</div>
+  <h2>Live in 4 weeks</h2>
+  <p class="lead">We handle every technical step. You just show up to the onboarding call.</p>
+
+  <!-- ── SVG DIAGRAM 4: 4-Week Timeline ── -->
+  <div style="margin:1.75rem 0 2.5rem" aria-label="4-week rollout timeline">
+    <svg viewBox="0 0 1100 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tl-title" style="width:100%;height:auto;display:block">
+      <title id="tl-title">Rollout timeline: Discovery, Build, Test, Go-Live over 4 weeks</title>
+      <defs>
+        <linearGradient id="wk1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient>
+        <linearGradient id="wk2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+        <linearGradient id="wk3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+        <linearGradient id="wk4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+      </defs>
+
+      <!-- Week header row -->
+      <g font-family="Inter,system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#a78bfa" text-anchor="middle">
+        <text x="185" y="30">WEEK 1</text><text x="435" y="30">WEEK 2</text><text x="685" y="30">WEEK 3</text><text x="935" y="30">WEEK 4</text>
+      </g>
+      <!-- Vertical dividers -->
+      <g stroke="#2d2d4a" stroke-width="1" stroke-dasharray="3 5">
+        <line x1="310" y1="10" x2="310" y2="220"/><line x1="560" y1="10" x2="560" y2="220"/><line x1="810" y1="10" x2="810" y2="220"/>
+      </g>
+
+      <!-- Bar 1: Discovery (short, week 1 only) -->
+      <g>
+        <rect x="70" y="55" width="180" height="34" rx="17" fill="url(#wk1)"/>
+        <text x="85" y="77" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#fff">📞 Discovery Call</text>
+        <text x="70" y="108" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5">30 min · workflow map · fastest ROI wins</text>
+      </g>
+
+      <!-- Bar 2: Build (weeks 2-3) -->
+      <g>
+        <rect x="330" y="55" width="480" height="34" rx="17" fill="url(#wk2)"/>
+        <text x="345" y="77" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#fff">⚙️ Build &amp; Configure</text>
+        <text x="330" y="108" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5">Chatbot · CRM · sequences · integrations — zero work from you</text>
+      </g>
+
+      <!-- Bar 3: Test (week 4 first half) -->
+      <g>
+        <rect x="820" y="115" width="130" height="34" rx="17" fill="url(#wk3)"/>
+        <text x="835" y="137" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#fff">🧪 Test</text>
+        <text x="820" y="168" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#b0bec5">End-to-end QA · train on your brand</text>
+      </g>
+
+      <!-- Bar 4: Go Live (end of week 4) -->
+      <g>
+        <rect x="960" y="115" width="110" height="34" rx="17" fill="url(#wk4)"/>
+        <text x="975" y="137" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700" fill="#0f0f1a">🚀 Go Live</text>
+        <text x="960" y="168" font-family="Inter,system-ui,sans-serif" font-size="11" fill="#10b981">Fully automated · 24/7</text>
+      </g>
+
+      <!-- Bottom "hands off" indicator -->
+      <line x1="70" y1="200" x2="1070" y2="200" stroke="url(#wk3)" stroke-width="2" stroke-dasharray="6 6" opacity="0.5"/>
+      <text x="570" y="225" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600" fill="#c4b5fd" text-anchor="middle" letter-spacing="1">↑ You show up once (the Discovery Call). We handle the rest.</text>
+    </svg>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Discovery Call (30 mins)</h3>
+        <p>We map your current workflow, identify the biggest time sinks, and agree on which automations will deliver the fastest ROI for your business.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Build &amp; Configure (1–2 weeks)</h3>
+        <p>We build your AI chatbot, set up your CRM pipelines, create your email/SMS sequences, and connect all your existing tools. No work required from you.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Test &amp; Go Live (1 week)</h3>
+        <p>We test every workflow end-to-end, train the AI on your specific services and brand voice, then flip the switch. You're notified before anything goes live.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Ongoing Optimisation</h3>
+        <p>We monitor performance monthly, adjust messaging based on results, and add new automations as your business grows.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRICING ── -->
+<div class="section" style="padding-top:0">
+  <div class="section-tag">Pricing</div>
+  <h2>Simple, transparent pricing</h2>
+  <p class="lead">No long-term contracts. Cancel any time. Most clients pay for their subscription in the first month.</p>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-name">Tier 0 — AI Quick Win</div>
+      <div class="pricing-price">Contact<span> for pricing</span></div>
+      <div class="pricing-setup">Bespoke setup — quoted per project</div>
+      <div class="pricing-desc">Perfect for businesses wanting to automate the basics and see fast results.</div>
+      <ul class="pricing-features">
+        <li>AI chatbot on your website</li>
+        <li>Lead capture &amp; CRM setup</li>
+        <li>Automated Google review requests</li>
+        <li>Appointment booking automation</li>
+        <li>Monthly performance report</li>
+      </ul>
+      <a href="https://www.aifusionautomations.com/#book-a-call" class="btn btn-secondary" style="text-align:center;justify-content:center">Book a Call →</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="featured-badge">&#128293; Most Popular</div>
+      <div class="pricing-name">Tier 1 — AI Starter</div>
+      <div class="pricing-price">Contact<span> for pricing</span></div>
+      <div class="pricing-setup">Bespoke setup — quoted per project</div>
+      <div class="pricing-desc">The full AI starter kit for established businesses ready to scale.</div>
+      <ul class="pricing-features">
+        <li>Everything in Tier 0</li>
+        <li>Voice AI receptionist (24/7 call answering)</li>
+        <li>3 custom automation workflows</li>
+        <li>Full CRM platform access</li>
+        <li>Multi-channel follow-up sequences</li>
+        <li>Quarterly strategy review</li>
+      </ul>
+      <a href="https://www.aifusionautomations.com/#book-a-call" class="btn btn-primary" style="text-align:center;justify-content:center">Book a Call →</a>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-name">Tier 2 — AI Professional</div>
+      <div class="pricing-price">Contact<span> for pricing</span></div>
+      <div class="pricing-setup">Bespoke setup — quoted per project</div>
+      <div class="pricing-desc">Advanced AI including document processing and complex multi-step workflows.</div>
+      <ul class="pricing-features">
+        <li>Everything in Tier 1</li>
+        <li>AI document processing (invoices, POs, forms)</li>
+        <li>10 custom automation workflows</li>
+        <li>Multi-location support</li>
+        <li>Custom API integrations</li>
+        <li>Monthly strategy review</li>
+      </ul>
+      <a href="https://www.aifusionautomations.com/#book-a-call" class="btn btn-secondary" style="text-align:center;justify-content:center">Book a Call →</a>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-name">Tier 3 — AI Operations</div>
+      <div class="pricing-price">Contact<span> for pricing</span></div>
+      <div class="pricing-setup">Bespoke setup — quoted per project</div>
+      <div class="pricing-desc">Full AI Operating System with bespoke integrations and dedicated support.</div>
+      <ul class="pricing-features">
+        <li>Everything in Tier 2</li>
+        <li>Full AI OS — complete business automation</li>
+        <li>Unlimited custom workflows</li>
+        <li>Custom integrations with your existing tools</li>
+        <li>Dedicated account manager</li>
+        <li>Priority support</li>
+        <li>Weekly optimisation reviews</li>
+      </ul>
+      <a href="https://www.aifusionautomations.com/#book-a-call" class="btn btn-secondary" style="text-align:center;justify-content:center">Talk to Us →</a>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:2rem;color:var(--text-muted);font-size:.95rem">Looking for the AI Receptionist add-on (contact for pricing) or full feature comparison? <a href="pricing.html" style="color:var(--accent-light);text-decoration:underline">See full pricing →</a></p>
+</div>
+
+<!-- ── INDUSTRIES ── -->
+<div class="section" style="padding-top:0">
+  <div class="section-tag">Industries</div>
+  <h2>Built for your industry</h2>
+  <p class="lead">We've built AI Operating Systems for businesses across the UK. Click your industry for specific examples, stats, and use cases.</p>
+  <div class="industry-list">
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-plumbers.html" class="ind-tag">&#128296; Plumbers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-electricians.html" class="ind-tag">&#9889; Electricians</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-dentists.html" class="ind-tag">&#129463; Dentists</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-estate-agents.html" class="ind-tag">&#127968; Estate Agents</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-restaurants.html" class="ind-tag">&#127829; Restaurants</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-solicitors.html" class="ind-tag">&#9878;&#65039; Solicitors</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-accountants.html" class="ind-tag">&#128176; Accountants</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-gyms.html" class="ind-tag">&#127947; Gyms</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-beauty-salons.html" class="ind-tag">&#128136; Beauty Salons</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-mortgage-brokers.html" class="ind-tag">&#127968; Mortgage Brokers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-care-homes.html" class="ind-tag">&#128145; Care Homes</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-personal-trainers.html" class="ind-tag">&#128170; Personal Trainers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-cleaning-companies.html" class="ind-tag">&#129529; Cleaning Companies</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-heating-engineers.html" class="ind-tag">&#128293; Heating Engineers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-physios.html" class="ind-tag">&#129706; Physiotherapists</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-roofers.html" class="ind-tag">&#127968; Roofers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-financial-advisors.html" class="ind-tag">&#128200; Financial Advisors</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-driving-instructors.html" class="ind-tag">&#128663; Driving Instructors</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-vets.html" class="ind-tag">&#128049; Vets</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-tutors.html" class="ind-tag">&#128218; Tutors</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-lawyers.html" class="ind-tag">&#9878;&#65039; Lawyers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-chiropractors.html" class="ind-tag">&#129460; Chiropractors</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-osteopaths.html" class="ind-tag">&#129658; Osteopaths</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-wedding-photographers.html" class="ind-tag">&#128248; Wedding Photographers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-dog-groomers.html" class="ind-tag">&#128021; Dog Groomers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-opticians.html" class="ind-tag">&#128083; Opticians</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-locksmiths.html" class="ind-tag">&#128273; Locksmiths</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-pest-control.html" class="ind-tag">&#128027; Pest Control</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-florists.html" class="ind-tag">&#128144; Florists</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-photographers.html" class="ind-tag">&#128247; Photographers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-builders.html" class="ind-tag">&#127959;&#65039; Builders</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-recruitment-agencies.html" class="ind-tag">&#128101; Recruitment Agencies</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-insurance-brokers.html" class="ind-tag">&#128737;&#65039; Insurance Brokers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-architects.html" class="ind-tag">&#128208; Architects</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-travel-agents.html" class="ind-tag">&#9992;&#65039; Travel Agents</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-mobile-mechanics.html" class="ind-tag">&#128295; Mobile Mechanics</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-gardeners.html" class="ind-tag">&#127807; Gardeners</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-caterers.html" class="ind-tag">&#127869;&#65039; Caterers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-music-teachers.html" class="ind-tag">&#127925; Music Teachers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-physiotherapy-clinics.html" class="ind-tag">&#127973; Physiotherapy Clinics</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-yoga-studios.html" class="ind-tag">&#129496; Yoga Studios</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-removals-companies.html" class="ind-tag">&#128667; Removals Companies</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-nurseries.html" class="ind-tag">&#128118; Nurseries</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-it-support.html" class="ind-tag">&#128187; IT Support</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-web-designers.html" class="ind-tag">&#127912; Web Designers</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-taxis.html" class="ind-tag">&#128661; Taxi Companies</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-event-planners.html" class="ind-tag">&#127914; Event Planners</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-electrician-contractors.html" class="ind-tag">&#128268; Electrical Contractors</a>
+    <a href="https://www.aifusionautomations.com/services/ai-automation-for-bakeries.html" class="ind-tag">&#129473; Bakeries</a>
+  </div>
+</div>
+
+<!-- ── CUSTOM SOFTWARE ── -->
+<div class="section" style="padding-top:0">
+  <div class="section-tag">Beyond Automation</div>
+  <h2>We also build custom software</h2>
+  <p class="lead">Got an idea for an app, a piece of software, or an automation that doesn't fit a standard package? We design, build, and launch custom web apps and business tools — fast. From league management platforms to purchase order systems to wine analysis tools, we turn your idea into working software in 2-4 weeks.</p>
+  <div class="modules-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="module-card">
+      <div class="module-icon">&#127934;</div>
+      <h3>BoxLeague Pro</h3>
+      <p>Free tennis and racquet sports box league management app. Used by clubs across the UK.</p>
+      <a href="boxleague-pro.html" style="font-size:.85rem;font-weight:600;color:#22d3ee;text-decoration:none">See it live →</a>
+    </div>
+    <div class="module-card">
+      <div class="module-icon">&#128220;</div>
+      <h3>Purchase Order System</h3>
+      <p>Automated PO processing with AI extraction, matching, and Excel reporting. Built for 10 International.</p>
+      <a href="case-study-10-international.html" style="font-size:.85rem;font-weight:600;color:#22d3ee;text-decoration:none">Read the case study →</a>
+    </div>
+    <div class="module-card">
+      <div class="module-icon">&#128161;</div>
+      <h3>Your Idea Here</h3>
+      <p>Need help developing an app or a piece of software? Curious how much it would cost? We would love to hear from you.</p>
+      <a href="mailto:grant@aifusionautomations.com?subject=Custom%20Software%20Enquiry" style="font-size:.85rem;font-weight:600;color:#22d3ee;text-decoration:none">Get in touch →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FAQ ── -->
+<div class="section" style="padding-top:0">
+  <div class="section-tag">FAQ</div>
+  <h2>Common questions</h2>
+  <div style="margin-top:1.5rem">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What is an AI Operating System for a small business?<span class="faq-arrow">▾</span></button>
+      <div class="faq-a"><p>An AI OS is a complete automation infrastructure for your business — combining a 24/7 AI chatbot, automated CRM, lead follow-up sequences, review generation, and appointment handling into one connected system. Think of it as a virtual team member that never sleeps, never calls in sick, and handles all the repetitive admin work.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How is this different from just getting a chatbot?<span class="faq-arrow">▾</span></button>
+      <div class="faq-a"><p>A chatbot handles conversations on your website. An AI OS is the whole picture: the chatbot, plus automated follow-up sequences, CRM pipelines, appointment booking, Google review requests, invoice reminders, and reporting — all connected and working together.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How long does setup take?<span class="faq-arrow">▾</span></button>
+      <div class="faq-a"><p>Most businesses are fully live within 2–4 weeks. We handle all technical setup, train the AI on your services and brand voice, and connect your existing tools. You don't need to do any technical work.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What does it cost?<span class="faq-arrow">▾</span></button>
+      <div class="faq-a"><p>AI Operating Systems are priced on request, and one-off automation builds are quoted per project. Pricing typically pays for itself in the first month through recovered leads, time saved on admin, and improved review scores. Contact us for a quote based on your needs. <a href="pricing.html" style="color:var(--accent-light);text-decoration:underline">See full pricing →</a></p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Will it work with my existing software?<span class="faq-arrow">▾</span></button>
+      <div class="faq-a"><p>In most cases, yes. We integrate with 3,000+ tools including Google Calendar, Calendly, Xero, QuickBooks, Stripe, and most industry-specific CRM and booking systems. We'll check your stack before we start.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is my data safe and GDPR compliant?<span class="faq-arrow">▾</span></button>
+      <div class="faq-a"><p>Yes. All systems are built to UK GDPR standards. Customer data stays within compliant EU/UK data centres, and every communication workflow includes the necessary consent mechanisms.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do I need any technical knowledge?<span class="faq-arrow">▾</span></button>
+      <div class="faq-a"><p>None at all. We build and manage everything for you. You get a simple dashboard to see what's happening — no coding, no technical skills required.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="section" style="padding-top:0">
+  <div class="cta-box">
+    <div style="font-size:2rem;margin-bottom:.75rem">&#129302;</div>
+    <h2>Ready to put your business on autopilot?</h2>
+    <p>Book a free 30-minute strategy call. We'll audit your current workflow, identify your biggest automation wins, and show you exactly what's possible — no obligation.</p>
+    <a href="https://www.aifusionautomations.com/#book-a-call" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.25rem">Book Your Free Strategy Call →</a>
+    <p style="margin-top:1rem;font-size:.82rem;color:var(--text-muted)">Free call · No obligation · Based in East Sussex, serving UK businesses</p>
+  </div>
+</div>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2026 <a href="https://www.aifusionautomations.com">AI Fusion Automations</a> · Based in East Sussex, UK · <a href="https://www.aifusionautomations.com/privacy-policy-aifa.html">Privacy Policy</a> · <a href="https://www.aifusionautomations.com/terms.html">Terms</a></p>
+  <p style="margin-top:.5rem">Customer service: <a href="tel:+447480488817">+44 7480 488817</a> · <a href="tel:+447588711912">+44 7588 711912</a></p>
+</footer>
+
+<script>
+function toggleFaq(btn){
+  var a=btn.nextElementSibling;
+  var open=btn.classList.toggle('open');
+  a.style.maxHeight=open?a.scrollHeight+'px':'0';
+}
+</script>
+<script src="/js/aifa-nav.js?v=site-chrome-v3" defer></script>
+</body>
+</html>
