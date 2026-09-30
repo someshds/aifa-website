@@ -33,7 +33,7 @@ test('local internal links resolve to a tracked page or asset', () => {
 test('public pages load shared site chrome with homepage nav IA', () => {
   const nav = fs.readFileSync(path.join(root, 'js/aifa-nav.js'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'css/site-chrome.css'), 'utf8');
-  for (const needle of ['/#how', '/#proof', '/#seats', '/news/', 'aifa-15-min-ai-opportunity-call-live', 'AI FUSION', 'aria-expanded', 'site-chrome.css', 'Escape']) {
+  for (const needle of ['/#how', '/#proof', '/#seats', '/news/', "var BOOK_CALL_URL = '/strategy-call.html';", 'AI FUSION', 'aria-expanded', 'site-chrome.css', 'Escape']) {
     assert.ok(nav.includes(needle), `aifa-nav.js missing ${needle}`);
   }
   assert.ok(css.includes('.aifa-global-nav'), 'site-chrome.css missing nav styles');
