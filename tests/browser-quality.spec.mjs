@@ -3,7 +3,7 @@ import axeSource from 'axe-core';
 
 for(const route of ['/','/services/','/strategy-call.html'])test(`${route} renders cleanly`,async({page})=>{const errors=[];page.on('console',m=>{if(m.type()==='error'&&!m.text().includes('favicon'))errors.push(m.text())});await page.goto(route,{waitUntil:'domcontentloaded'});await page.waitForTimeout(500);await expect(page.locator('h1')).toHaveCount(1);const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);expect(overflow).toBe(false);expect(errors).toEqual([])});
 
-test('homepage keyboard and accessibility gate',async({page})=>{await page.goto('/');await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document,{rules:{'color-contrast':{enabled:true}}}));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([]);await expect(page.getByRole('link',{name:/Book a free Opportunity Call/i})).toBeVisible()});
+test('homepage keyboard and accessibility gate',async({page})=>{await page.goto('/');await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document,{rules:{'color-contrast':{enabled:true}}}));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([]);await expect(page.getByRole('link',{name:/Book a free Opportunity Call/i})).toBeVisible();const nav=page.locator('.aifa-global-nav');const book=nav.getByRole('link',{name:'Book a call'});if(!(await book.isVisible())){await nav.getByRole('button',{name:/menu/i}).click()}await expect(book).toHaveAttribute('href','/strategy-call.html')});
 
 test('news hub and nested article share homepage chrome',async({page})=>{
   for (const route of ['/news/','/news/2026-09-28-openai-anthropic-tens-of-thousands-agent-incidents.html','/news/2026-09-25-openai-agents-australian-medicare-portal-permissions.html']){
@@ -20,7 +20,7 @@ test('news hub and nested article share homepage chrome',async({page})=>{
     await expect(nav.getByRole('link',{name:'Proof'})).toHaveAttribute('href','/#proof');
     await expect(nav.getByRole('link',{name:'Platform seats'})).toHaveAttribute('href','/#seats');
     await expect(nav.getByRole('link',{name:'News'})).toHaveAttribute('href','/news/');
-    await expect(nav.getByRole('link',{name:'Book a call'})).toHaveAttribute('href',/aifa-15-min-ai-opportunity-call-live/);
+    await expect(nav.getByRole('link',{name:'Book a call'})).toHaveAttribute('href','/strategy-call.html');
   }
 });
 

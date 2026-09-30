@@ -6,7 +6,7 @@
   var AIFA_CHAT_SCRIPT_SRC = 'https://widgets.leadconnectorhq.com/loader.js';
   var AIFA_CHAT_RESOURCES_URL = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
 
-  var BOOK_CALL_URL = 'https://link.aifusionautomations.com/widget/bookings/aifa-15-min-ai-opportunity-call-live';
+  var BOOK_CALL_URL = '/strategy-call.html';
   var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v3';
   // AIFA-owned background plate. Drop the file at videos/background/aifa-background.mp4.
   var BG_VIDEO_SRC = '/videos/background/aifa-background.mp4';
