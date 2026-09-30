@@ -63,9 +63,40 @@ footer{max-width:1160px;margin:0 auto;padding:1.5rem 1.25rem 2.5rem;color:rgba(2
 <link rel="stylesheet" href="/css/aifa-nav.css?v=fusion-flow-v1">
 <link rel="stylesheet" href="/css/aifa-katalyst.css?v=phase-4">
 <link rel="stylesheet" href="/css/aifa-privacy-v1.css">
+<style>
+/* This page only. Shared styles paint the headline as a white-to-pink gradient, which disappears on the city video. */
+body.strategy-call .intro{
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(14,11,31,.08);
+  border-radius:18px;
+  padding:1.75rem 1.5rem 1.5rem;
+  box-shadow:0 16px 40px rgba(14,11,31,.1);
+}
+body.strategy-call .intro .eyebrow{
+  color:#1e4fd8;
+  background:#e8effe;
+  border-color:rgba(59,110,245,.22);
+}
+body.strategy-call .intro h1{
+  background:none;
+  background-image:none;
+  -webkit-background-clip:border-box;
+  background-clip:border-box;
+  color:#0e0b1f;
+  -webkit-text-fill-color:#0e0b1f;
+}
+body.strategy-call .intro h1 .accent{
+  color:#3b6ef5;
+  -webkit-text-fill-color:#3b6ef5;
+}
+body.strategy-call .intro .lead,
+body.strategy-call .intro .trust-item{
+  color:#0e0b1f;
+}
+</style>
 <script src="/js/aifa-tracking.js" defer></script>
 </head>
-<body>
+<body class="strategy-call">
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="brand"><img class="brand-icon" src="/img/brand/fusion-flow-icon.png" width="38" height="38" alt=""><span>AI Fusion Automations</span></a>
@@ -80,7 +111,7 @@ footer{max-width:1160px;margin:0 auto;padding:1.5rem 1.25rem 2.5rem;color:rgba(2
 <main class="page">
   <section class="intro">
     <div class="eyebrow"><span class="eyebrow-dot"></span><span>Book with Grant</span></div>
-    <h1>Book a 15-minute AI opportunity call.</h1>
+    <h1>Book a 15-minute AI <span class="accent">opportunity</span> call.</h1>
     <p class="lead">This is a short pre-qualification call, not a full consultation. We clarify the business problem, where work is getting stuck, and whether a deeper 60-minute discovery session makes sense. No hard sell, no generic tool pitch.</p>
     <div class="trust-list">
       <div class="trust-item"><span class="tick">&check;</span><span>We look for a clear business problem, not a random AI use case.</span></div>
