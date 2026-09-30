@@ -363,10 +363,8 @@
       return true;
     }
 
-    return path === '/strategy-call.html' ||
-      path === '/book.html' ||
-      path === '/ai-systems-snapshot.html' ||
-      path === '/ai-workflow-call-request.html';
+    // book.html only redirects to /strategy-call.html and does not render a page.
+    return path === '/book.html';
   }
 
   function isAllowedNonAifaWidget(id) {
