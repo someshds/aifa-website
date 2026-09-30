@@ -36,6 +36,9 @@ test('public pages load shared site chrome with homepage nav IA', () => {
   for (const needle of ['/#how', '/#proof', '/#seats', '/news/', "var BOOK_CALL_URL = '/strategy-call.html';", 'AI FUSION', 'aria-expanded', 'site-chrome.css', 'Escape']) {
     assert.ok(nav.includes(needle), `aifa-nav.js missing ${needle}`);
   }
+  for (const skipped of ["/strategy-call.html", "/ai-systems-snapshot.html", "/ai-workflow-call-request.html"]) {
+    assert.equal(nav.includes(`path === '${skipped}'`), false, `chat widget must load on ${skipped}`);
+  }
   assert.ok(css.includes('.aifa-global-nav'), 'site-chrome.css missing nav styles');
   assert.ok(css.includes('[data-theme="dark"]'), 'site-chrome.css missing dark variant');
   const failures = [];
