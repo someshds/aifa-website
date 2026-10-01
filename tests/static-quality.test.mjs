@@ -41,6 +41,8 @@ test('public pages load shared site chrome with homepage nav IA', () => {
   }
   assert.ok(css.includes('.aifa-global-nav'), 'site-chrome.css missing nav styles');
   assert.ok(css.includes('[data-theme="dark"]'), 'site-chrome.css missing dark variant');
+  assert.ok(css.includes('.aifa-global-footer'), 'site-chrome.css missing footer styles');
+  assert.ok(css.includes('.aifa-footer-main'), 'site-chrome.css missing footer layout');
   const failures = [];
   for (const file of pages) {
     const s = fs.readFileSync(file, 'utf8');
