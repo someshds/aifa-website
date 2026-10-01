@@ -38,23 +38,10 @@ h2{font-size:clamp(1.35rem,2.4vw,1.8rem);font-weight:800;letter-spacing:-.02em;m
 .example p{font-size:.92rem;color:var(--ink-2);margin-top:.4rem}
 .example strong{color:var(--ink)}
 .form-panel{margin-top:1rem;background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.25rem;box-shadow:var(--shadow);max-width:760px}
-form{display:grid;gap:.9rem}
-label{display:grid;gap:.35rem;font-size:.92rem;font-weight:700}
-.hint{font-weight:500;color:var(--muted)}
-input,textarea,select{width:100%;font:inherit;font-weight:500;color:var(--ink);background:#fff;border:1px solid #d9d4ea;border-radius:12px;padding:.75rem .85rem}
-textarea{min-height:7rem;resize:vertical}
-fieldset{border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem}
-legend{font-weight:700;padding:0 .25rem}
-.choices{display:grid;gap:.45rem;margin-top:.45rem}
-.choices label{font-weight:600;display:flex;align-items:center;gap:.55rem}
-.choices input{width:auto}
-button[type=submit]{justify-self:start;border:0;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-deep));color:#fff;font:inherit;font-weight:800;padding:.8rem 1.3rem;cursor:pointer}
-button[type=submit]:disabled{opacity:.7;cursor:wait}
-.form-status{min-height:1.4rem;font-size:.92rem}
-.form-status.is-error{color:#9f1239}
-.form-status.is-ok{color:#166534}
+.ask{margin:.75rem 0 0;padding-left:1.2rem;color:var(--ink-2)}
+.ask li{margin:.35rem 0}
+.form-frame{display:block;width:100%;min-height:720px;border:0;border-radius:12px;background:#fff}
 .secondary{margin-top:1rem;color:var(--ink-2)}
-.noscript{margin-top:1rem;color:var(--ink-2)}
 @media(max-width:800px){.examples{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"AI Fusion workshops","serviceType":"Live working session","url":"https://www.aifusionautomations.com/workshops/","provider":{"@type":"Organization","name":"AI Fusion Automations","url":"https://www.aifusionautomations.com/"},"areaServed":{"@type":"Country","name":"United Kingdom"},"description":"A live working session with a small team on one stuck workflow. The team leaves with one agreed result. Pricing is set after the issue is understood."}</script>
@@ -71,6 +58,7 @@ button[type=submit]:disabled{opacity:.7;cursor:wait}
       <ul class="aifa-nav-menu" id="aifa-nav-links">
         <li><a class="aifa-nav-link" href="/#how">How it works</a></li>
         <li><a class="aifa-nav-link" href="/#proof">Proof</a></li>
+        <li><a class="aifa-nav-link" href="/reviews.html">Reviews</a></li>
         <li><a class="aifa-nav-link" href="/#seats">Platform seats</a></li>
         <li><a class="aifa-nav-link" href="/news/">News</a></li>
         <li><a class="aifa-nav-link aifa-nav-cta" href="/strategy-call.html" target="_blank" rel="noopener noreferrer" data-conversion="book-call">Book a call</a></li>
@@ -120,45 +108,17 @@ button[type=submit]:disabled{opacity:.7;cursor:wait}
 
     <section class="section" aria-labelledby="form-heading">
       <h2 id="form-heading">Tell us what is getting stuck</h2>
-      <p class="lead">This is the way to ask about a workshop. Grant reads it and replies with whether a session fits, and what it would cover.</p>
+      <p class="lead">This is the way to ask about a workshop. The form is the same enquiry form used on this site, so the message reaches Grant. He reads it and replies with whether a session fits, and what it would cover.</p>
+      <p class="lead" style="margin-top:.75rem">The form asks for your name, email, phone, and a message. Phone is required on this form. In the message, write these five things:</p>
+      <ul class="ask">
+        <li>Business name</li>
+        <li>What is getting stuck right now</li>
+        <li>What a good result from the session would be</li>
+        <li>Who needs to be in the room</li>
+        <li>How long the team can give: about 90 minutes, half a day, or a full day</li>
+      </ul>
       <div class="form-panel">
-        <form id="workshop-form" novalidate>
-          <label>Name
-            <input name="name" type="text" autocomplete="name" required maxlength="120" />
-          </label>
-          <label>Business name
-            <input name="business" type="text" autocomplete="organization" required maxlength="160" />
-          </label>
-          <label>Email
-            <input name="email" type="email" autocomplete="email" required maxlength="160" />
-          </label>
-          <label>Phone <span class="hint">optional</span>
-            <input name="phone" type="tel" autocomplete="tel" maxlength="40" />
-          </label>
-          <label>What is getting stuck right now
-            <textarea name="stuck" required maxlength="2000"></textarea>
-          </label>
-          <label>What a good result from the session would be
-            <textarea name="result" required maxlength="2000"></textarea>
-          </label>
-          <label>Who needs to be in the room
-            <textarea name="who" required maxlength="1000"></textarea>
-          </label>
-          <fieldset>
-            <legend>How long the team can give</legend>
-            <div class="choices">
-              <label><input type="radio" name="duration" value="About 90 minutes" required /> About 90 minutes</label>
-              <label><input type="radio" name="duration" value="Half a day" /> Half a day</label>
-              <label><input type="radio" name="duration" value="A full day" /> A full day</label>
-            </div>
-          </fieldset>
-          <button type="submit">Send the workshop enquiry</button>
-          <p id="workshop-status" class="form-status" role="status" aria-live="polite"></p>
-          <div id="workshop-turnstile" hidden></div>
-        </form>
-        <noscript>
-          <p class="noscript">This form needs JavaScript so it can be sent. You can still <a href="https://www.aifusionautomations.com/strategy-call.html">book a 15-minute call</a>.</p>
-        </noscript>
+        <iframe class="form-frame" id="aifa-opportunity-form" title="Workshop enquiry" src="https://link.aifusionautomations.com/widget/form/lS0nKZSRwsBvI4BUU92p"></iframe>
       </div>
       <p class="secondary">Prefer a short call first? <a href="https://www.aifusionautomations.com/strategy-call.html">Book a 15-minute call</a>.</p>
       <p class="secondary">We use your answers to reply about a workshop. <a href="/privacy-policy-aifa.html">Privacy policy</a>.</p>
@@ -167,145 +127,6 @@ button[type=submit]:disabled{opacity:.7;cursor:wait}
 </main>
 <script src="/js/aifa-nav.js?v=site-chrome-v3" defer></script>
 <script src="/js/aifa-tracking.js?v=quality-os-v1" defer></script>
-<script>
-(function () {
-  "use strict";
-  var FORM_ID = "lS0nKZSRwsBvI4BUU92p";
-  var LOCATION_ID = "wIZS4RjMCtzdxqUQZunV";
-  var MESSAGE_FIELD = "TexaI4rd48IR5h43pfEP";
-  var TURNSTILE_SITE_KEY = "0x4AAAAAACCpVlau-4k7cJ33";
-  var SUBMIT_URL = "https://backend.leadconnectorhq.com/forms/submit?formId=" + FORM_ID + "&locationId=" + LOCATION_ID;
-  var form = document.getElementById("workshop-form");
-  var statusEl = document.getElementById("workshop-status");
-  var widgetId = null;
-
-  function setStatus(message, kind) {
-    statusEl.textContent = message;
-    statusEl.className = "form-status" + (kind ? " is-" + kind : "");
-  }
-
-  function field(name) {
-    var el = form.elements[name];
-    return el ? String(el.value || "").trim() : "";
-  }
-
-  function normalisePhone(value) {
-    var phone = value.replace(/[\s()-]/g, "");
-    if (!phone) return "";
-    if (phone.charAt(0) === "0") return "+44" + phone.slice(1);
-    if (phone.charAt(0) !== "+") return "+" + phone;
-    return phone;
-  }
-
-  function loadTurnstile() {
-    return new Promise(function (resolve, reject) {
-      if (window.turnstile) {
-        resolve();
-        return;
-      }
-      var script = document.createElement("script");
-      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-      script.async = true;
-      script.onload = function () { resolve(); };
-      script.onerror = function () { reject(new Error("The check that protects this form did not load.")); };
-      document.head.appendChild(script);
-    });
-  }
-
-  function turnstileToken() {
-    return loadTurnstile().then(function () {
-      return new Promise(function (resolve, reject) {
-        var mount = document.getElementById("workshop-turnstile");
-        var settled = false;
-        function ok(token) {
-          if (settled) return;
-          settled = true;
-          resolve(token);
-        }
-        function fail() {
-          if (settled) return;
-          settled = true;
-          reject(new Error("The form check failed. Please try again."));
-        }
-        if (widgetId !== null) {
-          window.turnstile.remove(widgetId);
-          widgetId = null;
-        }
-        widgetId = window.turnstile.render(mount, {
-          sitekey: TURNSTILE_SITE_KEY,
-          size: "invisible",
-          execution: "execute",
-          callback: ok,
-          "error-callback": fail,
-          "expired-callback": fail
-        });
-        window.turnstile.execute(widgetId);
-      });
-    });
-  }
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    var button = form.querySelector("button[type=submit]");
-    var started = Date.now();
-    button.disabled = true;
-    setStatus("Sending…", "");
-    turnstileToken().then(function (token) {
-      var phone = normalisePhone(field("phone"));
-      var message = [
-        "Workshop enquiry from /workshops/",
-        "Business name: " + field("business"),
-        "What is getting stuck right now: " + field("stuck"),
-        "What a good result from the session would be: " + field("result"),
-        "Who needs to be in the room: " + field("who"),
-        "How long the team can give: " + field("duration")
-      ].join("\n");
-      var payload = {
-        full_name: field("name"),
-        email: field("email"),
-        formId: FORM_ID,
-        location_id: LOCATION_ID,
-        eventData: {},
-        Timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Europe/London"
-      };
-      payload[MESSAGE_FIELD] = message;
-      if (phone) payload.phone = phone;
-      var body = new FormData();
-      body.set("formData", JSON.stringify(payload));
-      body.append("locationId", LOCATION_ID);
-      body.append("formId", FORM_ID);
-      body.append("turnstileNonInteractiveToken", token);
-      return fetch(SUBMIT_URL, {
-        method: "POST",
-        body: body,
-        headers: {
-          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Europe/London",
-          "x-turnstile-submit-delay-ms": String(Date.now() - started),
-          "x-turnstile-non-interactive-wait-ms": "0"
-        }
-      }).then(function (response) {
-        return response.text().then(function (text) {
-          var data = {};
-          try { data = JSON.parse(text); } catch (e) { data = { raw: text }; }
-          if (!response.ok) {
-            var detail = data.message || data.msg || "The form was not accepted.";
-            throw new Error(detail);
-          }
-          if (data.status === false) throw new Error(data.message || "The form was not accepted.");
-          return data;
-        });
-      });
-    }).then(function () {
-      form.reset();
-      setStatus("Sent. Grant will read this and reply about the workshop.", "ok");
-    }).catch(function (error) {
-      setStatus(error && error.message ? error.message : "The form was not sent. Please try again.", "error");
-    }).finally(function () {
-      button.disabled = false;
-    });
-  });
-})();
-</script>
+<script src="https://link.aifusionautomations.com/js/form_embed.js"></script>
 </body>
 </html>
