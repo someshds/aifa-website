@@ -7,7 +7,7 @@
   var AIFA_CHAT_RESOURCES_URL = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
 
   var BOOK_CALL_URL = '/strategy-call.html';
-  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v3';
+  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v4';
   // AIFA-owned background plate. Drop the file at videos/background/aifa-background.mp4.
   var BG_VIDEO_SRC = '/videos/background/aifa-background.mp4';
 
