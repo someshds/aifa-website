@@ -47,6 +47,7 @@
     '        <h2>Services</h2>',
     '        <a href="/services/ai-systems-snapshot.html">AI Systems Snapshot</a>',
     '        <a href="/ai-operating-systems.html">AI Operating Systems</a>',
+    '        <a href="/workshops/">Workshops</a>',
     '        <a href="/products/crm.html">All-in-One Business Software</a>',
     '        <a href="/products/ai-agents.html">AI Agents</a>',
     '        <a href="/products/chatbots.html">AI Chatbots</a>',
