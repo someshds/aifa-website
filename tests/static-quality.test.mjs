@@ -54,6 +54,15 @@ test('homepage preserves integrations and canonical conversion path', () => {
   const s=fs.readFileSync(path.join(root,'index.html'),'utf8')+fs.readFileSync(path.join(root,'js/aifa-form-loader.js'),'utf8');for(const needle of ['lS0nKZSRwsBvI4BUU92p','aifa-15-min-ai-opportunity-call-live','aifa-analytics.js','aifa-tracking.js','application/ld+json','privacy-policy-aifa.html'])assert.ok(s.includes(needle),needle);
 });
 
+test('archived reviews are transparent, attributable and do not claim live Google status', () => {
+  const reviews=fs.readFileSync(path.join(root,'reviews.html'),'utf8');
+  assert.equal((reviews.match(/aria-label="5 out of 5 stars"/g)||[]).length,10);
+  for(const reviewer of ['Beth Wild','Aaron','John Bridges','Fiona Felgate','Windelan Eria','Sam Halter','Bernalyn Perez','A G','Adam Shereston','Joanne Looker'])assert.ok(reviews.includes(reviewer),reviewer);
+  assert.ok(reviews.includes('former Google Business Profile'));
+  assert.ok(reviews.includes('profile is no longer active'));
+  assert.doesNotMatch(reviews,/AggregateRating|aggregateRating|ratingCount/);
+});
+
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
   const xml=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');for(const file of indexed){const rel=path.relative(root,file).replaceAll(path.sep,'/');if(rel==='404.html')continue;const url=rel==='index.html'?'https://www.aifusionautomations.com/':rel.endsWith('/index.html')?`https://www.aifusionautomations.com/${rel.slice(0,-10)}`:`https://www.aifusionautomations.com/${rel}`;assert.ok(xml.includes(`<loc>${url}</loc>`),rel)}
 });
