@@ -8,6 +8,24 @@ const walk = d => fs.readdirSync(d,{withFileTypes:true}).flatMap(e => ['.git','n
 const pages = walk(root).filter(p => !p.includes('/includes/'));
 const indexed = pages.filter(p => !p.endsWith('-v1.0.html') && !['tools-index.html','privacy-policy.html','boxleaguepro-lite.html','roi-calculator.html'].includes(path.basename(p)) && !/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(fs.readFileSync(p,'utf8')));
 
+function imageDimensions(file) {
+  const data = fs.readFileSync(file);
+  if (data.subarray(1, 4).toString() === 'PNG') return [data.readUInt32BE(16), data.readUInt32BE(20)];
+  if (data[0] === 0xff && data[1] === 0xd8) {
+    let offset = 2;
+    while (offset + 9 < data.length) {
+      if (data[offset] !== 0xff) { offset += 1; continue; }
+      const marker = data[offset + 1];
+      const length = data.readUInt16BE(offset + 2);
+      if ([0xc0,0xc1,0xc2,0xc3,0xc5,0xc6,0xc7,0xc9,0xca,0xcb,0xcd,0xce,0xcf].includes(marker)) {
+        return [data.readUInt16BE(offset + 7), data.readUInt16BE(offset + 5)];
+      }
+      offset += 2 + length;
+    }
+  }
+  throw new Error(`Unsupported image: ${file}`);
+}
+
 test('indexed pages have core metadata and one H1', () => {
   const failures=[];
   for(const file of indexed){const s=fs.readFileSync(file,'utf8');const rel=path.relative(root,file);for(const [name,re] of [['title',/<title>[^<]+<\/title>/i],['description',/<meta[^>]+name=["']description["']/i],['canonical',/<link[^>]+rel=["']canonical["']/i],['viewport',/<meta[^>]+name=["']viewport["']/i]])if(!re.test(s))failures.push(`${rel}: ${name}`);if(!rel.startsWith('videos/')&&(s.match(/<h1[\s>]/gi)||[]).length!==1)failures.push(`${rel}: h1`)}
@@ -70,4 +88,41 @@ test('archived reviews are transparent, attributable and do not claim live Googl
 
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
   const xml=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');for(const file of indexed){const rel=path.relative(root,file).replaceAll(path.sep,'/');if(rel==='404.html')continue;const url=rel==='index.html'?'https://www.aifusionautomations.com/':rel.endsWith('/index.html')?`https://www.aifusionautomations.com/${rel.slice(0,-10)}`:`https://www.aifusionautomations.com/${rel}`;assert.ok(xml.includes(`<loc>${url}</loc>`),rel)}
+});
+
+test('news imagery uses the reproducible AI Fusion editorial-card system', () => {
+  const imageDir = path.join(root, 'news/img');
+  const sourceDir = path.join(imageDir, 'editorial-source');
+  const generator = fs.readFileSync(path.join(root, 'scripts/generate_editorial_cards.py'), 'utf8');
+  const imageNames = fs.readdirSync(imageDir).filter(name => /\.(?:png|jpe?g)$/i.test(name));
+  const sourceNames = fs.readdirSync(sourceDir).filter(name => name.endsWith('.png'));
+
+  assert.ok(imageNames.length >= 120, 'expected the complete news-image archive to be present');
+  assert.deepEqual(sourceNames.sort(), ['devices.png','finance.png','government.png','hardware.png','infrastructure.png','research.png','security.png','workplace.png']);
+  for (const needle of ['AI FUSION', 'NEWS + INSIGHT', 'Regenerated', 'metadata_by_image']) {
+    assert.ok(generator.includes(needle), `editorial generator missing ${needle}`);
+  }
+
+  const newsPages = fs.readdirSync(path.join(root, 'news')).filter(name => name.endsWith('.html'));
+  const missing = [];
+  const hubCropReferences = [];
+  for (const name of newsPages) {
+    const source = fs.readFileSync(path.join(root, 'news', name), 'utf8');
+    for (const match of source.matchAll(/\/news\/img\/([^?"']+)/g)) {
+      if (!fs.existsSync(path.join(imageDir, path.basename(match[1])))) missing.push(`${name}: ${match[1]}`);
+    }
+  }
+  for (const name of fs.readdirSync(path.join(root, 'news')).filter(name => /^brief-cards-\d+\.js$/.test(name))) {
+    const source = fs.readFileSync(path.join(root, 'news', name), 'utf8');
+    if (/-hub\.(?:png|jpe?g)/i.test(source)) hubCropReferences.push(name);
+  }
+  assert.deepEqual(missing, []);
+  assert.deepEqual(hubCropReferences, [], 'hub must use full landscape compositions without portrait cropping');
+
+  const badDimensions = imageNames.flatMap(name => {
+    const actual = imageDimensions(path.join(imageDir, name));
+    const expected = name.includes('-hub.') ? [750, 1122] : [1376, 768];
+    return actual[0] === expected[0] && actual[1] === expected[1] ? [] : [`${name}: ${actual.join('x')}`];
+  });
+  assert.deepEqual(badDimensions, [], 'unexpected editorial-card dimensions');
 });
