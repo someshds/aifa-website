@@ -102,6 +102,16 @@ section{padding:4.5rem 0}
 .section-head p{color:var(--muted);font-size:1.02rem}
 .band-soft{background:var(--bg-soft)}
 
+/* Paradigm shift */
+.paradigm-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(320px,.92fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.paradigm-copy h2{font-size:clamp(1.8rem,3.8vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin:.85rem 0 1rem;max-width:680px}
+.paradigm-copy>p{color:var(--ink-2);font-size:1.03rem;max-width:650px}
+.paradigm-question{margin:1.4rem 0;padding:1.15rem 1.25rem;border-left:4px solid var(--brand);background:#fff;color:var(--ink);font-size:clamp(1.08rem,2vw,1.3rem);font-weight:700;box-shadow:var(--shadow)}
+.paradigm-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.paradigm-video{overflow:hidden;background:#090b12;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg)}
+.paradigm-video video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#090b12}
+.paradigm-video figcaption{padding:.75rem 1rem;background:#fff;color:var(--muted);font-size:.8rem}
+
 /* How it works */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;position:relative}
 .steps::before{content:"";position:absolute;top:28px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);z-index:0}
@@ -154,7 +164,7 @@ footer{border-top:1px solid var(--line);padding:2.5rem 0 4.5rem;color:var(--mute
 @media(max-width:900px){
   .steps,.fix{grid-template-columns:1fr 1fr}
   .steps::before{display:none}
-  .about{grid-template-columns:1fr}
+  .about,.paradigm-grid{grid-template-columns:1fr}
   .proof-grid{grid-template-columns:1fr}
 }
 @media(max-width:680px){
@@ -235,6 +245,29 @@ img.logo-mark{width:32px;height:32px;border-radius:9px;object-fit:cover;box-shad
         <a class="btn btn-ghost" href="https://link.aifusionautomations.com/widget/bookings/aifa-15-min-ai-opportunity-call-live" target="_blank" rel="noopener noreferrer" data-conversion="book-call">Book a free Opportunity Call</a>
         <p class="webinar-note">Transforming Your Work · Friday 2 October · 12:30–1:30 PM UK</p>
       </div>
+    </div>
+  </section>
+
+  <section class="band-soft" id="paradigm-shift">
+    <div class="wrap paradigm-grid">
+      <div class="paradigm-copy">
+        <span class="eyebrow"><span class="dot"></span> A workplace paradigm shift</span>
+        <h2>From doing tasks to designing systems that do the work.</h2>
+        <p>For years, productivity meant completing more tasks in less time. AI changes the question. The opportunity is not simply to add a faster tool, but to redesign the work deliberately.</p>
+        <p class="paradigm-question">How should this work be designed, which parts can AI handle, and where is human judgement essential?</p>
+        <p>This is the shift from using AI around the edges to creating structured, safe ways for people and AI to work together.</p>
+        <div class="paradigm-actions">
+          <a class="btn btn-primary" href="/strategy-call.html" target="_blank" rel="noopener noreferrer" data-conversion="book-call">Book a 15-minute discovery call</a>
+          <a class="btn btn-secondary" href="#how">See how we work</a>
+        </div>
+      </div>
+      <figure class="paradigm-video">
+        <video controls playsinline preload="metadata" poster="/img/paradigm-shifts/from-tasks-to-systems-poster-v1.jpg">
+          <source src="/assets/video/from-tasks-to-systems-v1.mp4" type="video/mp4" />
+          Your browser does not support embedded video.
+        </video>
+        <figcaption>Grant De Swardt on designing work for people and AI.</figcaption>
+      </figure>
     </div>
   </section>
 
