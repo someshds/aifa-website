@@ -51,6 +51,7 @@ PRIORITY_RULES = [
     (re.compile(r"^/blog/$"), 0.85, "weekly"),
     (re.compile(r"^/blog/.+\.html$"), 0.7, "monthly"),
     (re.compile(r"^/services/$"), 0.7, "weekly"),
+    (re.compile(r"^/workshops/$"), 0.8, "monthly"),
     (re.compile(r"^/services/.+\.html$"), 0.6, "monthly"),
     (re.compile(r"^/videos/$"), 0.75, "monthly"),
     (re.compile(r"^/videos/.+/$"), 0.65, "monthly"),
