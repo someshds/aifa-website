@@ -137,6 +137,16 @@ section{padding:4.5rem 0}
 .proof-card p{font-size:.9rem;color:var(--ink-2);margin-bottom:.65rem}
 .proof-card .hedge{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.65rem}
 
+/* Reviews */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.review-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.4rem;box-shadow:var(--shadow)}
+.review-stars{color:#b45309;font-size:1rem;letter-spacing:.08em;margin-bottom:.8rem}
+.review-card blockquote{font-size:.94rem;color:var(--ink-2);margin-bottom:1.15rem}
+.review-card footer{border:0;padding:0;margin-top:auto;color:var(--muted);font-size:.8rem}
+.review-card cite{display:block;color:var(--ink);font-style:normal;font-weight:800}
+.review-note{margin-top:1.2rem;color:var(--muted);font-size:.82rem}
+.review-actions{margin-top:1.35rem}
+
 /* Seats strip */
 .seats{background:linear-gradient(135deg,#0e0b1f 0%,#1a1340 100%);color:#f7f8ff;border-radius:var(--radius-lg);padding:2rem 2.25rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem;box-shadow:var(--shadow-lg)}
 .seats h2{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin:.4rem 0 .35rem}
@@ -167,6 +177,7 @@ footer{border-top:1px solid var(--line);padding:2.5rem 0 4.5rem;color:var(--mute
   .steps::before{display:none}
   .about,.paradigm-grid{grid-template-columns:1fr}
   .proof-grid{grid-template-columns:1fr}
+  .review-grid{grid-template-columns:1fr}
 }
 @media(max-width:680px){
   .site-nav{position:relative}
@@ -225,6 +236,7 @@ img.logo-mark{width:32px;height:32px;border-radius:9px;object-fit:cover;box-shad
       <ul class="aifa-nav-menu" id="aifa-nav-links">
         <li><a class="aifa-nav-link" href="/#how">How it works</a></li>
         <li><a class="aifa-nav-link" href="/#proof">Proof</a></li>
+        <li><a class="aifa-nav-link" href="/reviews.html">Reviews</a></li>
         <li><a class="aifa-nav-link" href="/#seats">Platform seats</a></li>
         <li><a class="aifa-nav-link" href="/news/">News</a></li>
         <li><a class="aifa-nav-link aifa-nav-cta" href="/strategy-call.html" target="_blank" rel="noopener noreferrer" data-conversion="book-call">Book a call</a></li>
@@ -368,6 +380,35 @@ img.logo-mark{width:32px;height:32px;border-radius:9px;object-fit:cover;box-shad
     </div>
   </section>
 
+  <section class="band-soft" id="reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow"><span class="dot"></span> Client feedback</span>
+        <h2 id="reviews-title">What clients said about working with us.</h2>
+        <p>Selected five-star feedback originally posted to AI Fusion’s former Google Business Profile.</p>
+      </div>
+      <div class="review-grid">
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>“The team is not only incredibly knowledgeable and skilled in their field, but they are also highly professional and responsive. They took the time to understand my specific needs and goals, and developed a customized automation solution that exceeded all of my expectations.”</blockquote>
+          <footer><cite>Bernalyn Perez</cite><time datetime="2024-05-13">13 May 2024</time> · Archived Google review</footer>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>“I am always completely impressed and so grateful for the patience, kindness and efficiency that I have experienced with AI Fusion. The level of customer care really is 5 star.”</blockquote>
+          <footer><cite>Joanne Looker, Terra De Cura Life Centre</cite><time datetime="2024-03-01">1 March 2024</time> · Archived Google review · Excerpt</footer>
+        </article>
+        <article class="review-card">
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>“Somesh and his business model have completely revolutionised my business by driving customers to my website and applying an operating system that allows me to manage my business from a laptop or through the app on my phone.”</blockquote>
+          <footer><cite>John Bridges</cite><time datetime="2024-05-27">27 May 2024</time> · Archived Google review · Excerpt</footer>
+        </article>
+      </div>
+      <p class="review-note">These reviews were saved before the profile was disconnected. Some refer to Grant De Swardt by the name he used professionally at the time. Wording is preserved, apart from shortening clearly marked excerpts.</p>
+      <div class="review-actions"><a class="btn btn-secondary" href="/reviews.html">Read the archived reviews →</a></div>
+    </div>
+  </section>
+
   <section>
     <div class="wrap">
       <div class="seats" id="seats">
@@ -422,6 +463,7 @@ img.logo-mark{width:32px;height:32px;border-radius:9px;object-fit:cover;box-shad
       <a href="/#how">How it works</a>
       <a href="/workshops/">Workshops</a>
       <a href="/#proof">Proof</a>
+      <a href="/reviews.html">Reviews</a>
       <a href="/#seats">Platform seats</a>
       <a href="/news/">News</a>
       <a href="/privacy-policy-aifa.html">Privacy</a>
