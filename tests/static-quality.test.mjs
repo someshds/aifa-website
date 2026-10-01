@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -70,4 +71,48 @@ test('archived reviews are transparent, attributable and do not claim live Googl
 
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
   const xml=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');for(const file of indexed){const rel=path.relative(root,file).replaceAll(path.sep,'/');if(rel==='404.html')continue;const url=rel==='index.html'?'https://www.aifusionautomations.com/':rel.endsWith('/index.html')?`https://www.aifusionautomations.com/${rel.slice(0,-10)}`:`https://www.aifusionautomations.com/${rel}`;assert.ok(xml.includes(`<loc>${url}</loc>`),rel)}
+});
+
+test('news imagery uses the reproducible AI Fusion editorial-card system', () => {
+  const imageDir = path.join(root, 'news/img');
+  const sourceDir = path.join(imageDir, 'editorial-source');
+  const generator = fs.readFileSync(path.join(root, 'scripts/generate_editorial_cards.py'), 'utf8');
+  const imageNames = fs.readdirSync(imageDir).filter(name => /\.(?:png|jpe?g)$/i.test(name));
+  const sourceNames = fs.readdirSync(sourceDir).filter(name => name.endsWith('.png'));
+
+  assert.ok(imageNames.length >= 120, 'expected the complete news-image archive to be present');
+  assert.deepEqual(sourceNames.sort(), ['devices.png','finance.png','government.png','hardware.png','infrastructure.png','research.png','security.png','workplace.png']);
+  for (const needle of ['AI FUSION', 'NEWS + INSIGHT', 'Regenerated', 'metadata_by_image']) {
+    assert.ok(generator.includes(needle), `editorial generator missing ${needle}`);
+  }
+
+  const newsPages = fs.readdirSync(path.join(root, 'news')).filter(name => name.endsWith('.html'));
+  const missing = [];
+  const hubCropReferences = [];
+  for (const name of newsPages) {
+    const source = fs.readFileSync(path.join(root, 'news', name), 'utf8');
+    for (const match of source.matchAll(/\/news\/img\/([^?"']+)/g)) {
+      if (!fs.existsSync(path.join(imageDir, path.basename(match[1])))) missing.push(`${name}: ${match[1]}`);
+    }
+  }
+  for (const name of fs.readdirSync(path.join(root, 'news')).filter(name => /^brief-cards-\d+\.js$/.test(name))) {
+    const source = fs.readFileSync(path.join(root, 'news', name), 'utf8');
+    if (/-hub\.(?:png|jpe?g)/i.test(source)) hubCropReferences.push(name);
+  }
+  assert.deepEqual(missing, []);
+  assert.deepEqual(hubCropReferences, [], 'hub must use full landscape compositions without portrait cropping');
+
+  const dimensionCheck = execFileSync('python3', ['-c', [
+    'from pathlib import Path',
+    'from PIL import Image',
+    `root=Path(${JSON.stringify(imageDir)})`,
+    'bad=[]',
+    "for p in root.iterdir():",
+    "    if p.is_file() and p.suffix.lower() in {'.png','.jpg','.jpeg'}:",
+    "        expected=(750,1122) if '-hub' in p.stem else (1376,768)",
+    "        size=Image.open(p).size",
+    "        if size != expected: bad.append(f'{p.name}:{size}')",
+    "print('\\n'.join(bad))",
+  ].join('\n')], { encoding: 'utf8' }).trim();
+  assert.equal(dimensionCheck, '', `unexpected editorial-card dimensions:\n${dimensionCheck}`);
 });
