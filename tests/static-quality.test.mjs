@@ -61,6 +61,9 @@ test('archived reviews are transparent, attributable and do not claim live Googl
   assert.ok(reviews.includes('former Google Business Profile'));
   assert.ok(reviews.includes('profile is no longer active'));
   assert.doesNotMatch(reviews,/AggregateRating|aggregateRating|ratingCount/);
+  assert.doesNotMatch(reviews,/Somesh/i);
+  assert.match(reviews,/\[Grant\]/);
+  assert.match(reviews,/Square brackets show where Grant De Swardt's current name replaces/);
 });
 
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
