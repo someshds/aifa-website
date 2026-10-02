@@ -126,3 +126,14 @@ test('news imagery uses the reproducible AI Fusion editorial-card system', () =>
   });
   assert.deepEqual(badDimensions, [], 'unexpected editorial-card dimensions');
 });
+
+test('2 October 2026 webinar replay reserves the edited recording without a player', () => {
+  const page = fs.readFileSync(path.join(root, 'webinars/transforming-your-work-2026-10-02-replay.html'), 'utf8');
+  assert.match(page, /Transforming Your Work: AI Driven Growth for Professionals &amp; Businesses/);
+  assert.match(page, /Friday 2 October 2026, 12:30–1:30pm UK/);
+  assert.match(page, /webinars\/recordings\/transforming-your-work-2026-10-02\.mp4/);
+  assert.match(page, /href="\/strategy-call\.html"/);
+  assert.doesNotMatch(page, /<iframe\b/i);
+  assert.doesNotMatch(page, /<video[\s>]/i);
+  assert.doesNotMatch(page, /zoom\.us|youtube|youtu\.be/i);
+});
