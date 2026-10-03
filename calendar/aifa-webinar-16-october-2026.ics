@@ -5,11 +5,11 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:email-reimagined-2026-10-16@aifusionautomations.com
-DTSTAMP:20261003T121200Z
+DTSTAMP:20261003T122700Z
 DTSTART:20261016T080000Z
 DTEND:20261016T090000Z
 SUMMARY:Email Re-imagined
-DESCRIPTION:Zoom: https://us06web.zoom.us/j/8947670767
+DESCRIPTION:Email Re-imagined\nwith Grant De Swardt\, AI Fusion\n\nI Keep Opening Gmail Because I'm Afraid of What I've Missed\n\nYou keep opening Gmail because you're afraid of what you've missed. Another check still doesn't show what needs action and what can wait.\n\nIn this hour I'll show how a founder priority inbox is meant to work\, on a sanitised mailbox:\n- The few messages that need a decision\, instead of the whole inbox\n- Why each one is in that queue\n- The original email\, before you do anything\n- Which business or subject it belongs to\, when more than one thing is running\n- A draft that stays a draft until you send it\n\nYou leave knowing what that inbox should show you. You don't leave with a finished app. Building it is a different session.\n\nZoom: https://us06web.zoom.us/j/8947670767
 LOCATION:https://us06web.zoom.us/j/8947670767
 URL:https://us06web.zoom.us/j/8947670767
 END:VEVENT
