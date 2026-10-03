@@ -8,7 +8,7 @@ test('review archive is explicit and accessible',async({page})=>{await page.goto
 test('homepage keyboard and accessibility gate',async({page})=>{await page.goto('/');await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document,{rules:{'color-contrast':{enabled:true}}}));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([]);await expect(page.getByRole('link',{name:/Book a free Opportunity Call/i})).toBeVisible();const nav=page.locator('.aifa-global-nav');const book=nav.getByRole('link',{name:'Book a call'});if(!(await book.isVisible())){await nav.getByRole('button',{name:/menu/i}).click()}await expect(book).toHaveAttribute('href','/strategy-call.html')});
 
 test('news hub and nested article share homepage chrome',async({page})=>{
-  for (const route of ['/news/','/news/2026-09-28-openai-anthropic-tens-of-thousands-agent-incidents.html','/news/2026-09-25-openai-agents-australian-medicare-portal-permissions.html']){
+  for (const route of ['/news/','/news/2026-10-02-google-gemini-4-argon-fairwind-restricted.html','/news/2026-09-28-openai-anthropic-tens-of-thousands-agent-incidents.html','/news/2026-09-25-openai-agents-australian-medicare-portal-permissions.html']){
     await page.goto(route,{waitUntil:'domcontentloaded'});
     await page.waitForSelector('.aifa-global-nav');
     const nav=page.locator('.aifa-global-nav');
