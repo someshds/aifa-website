@@ -84,6 +84,7 @@ test('email re-imagined pages use the locked super gold title as the only H1', (
     assert.ok(source.includes(`<h1>${title}</h1>`), `${rel}: locked h1`);
     assert.ok(source.includes(`content="${title}`), `${rel}: meta description`);
     assert.ok(!/Email Re-imaged/i.test(source), `${rel}: renamed app`);
+    assert.doesNotMatch(source, /priority inbox/i, `${rel}: leftover priority inbox`);
   }
 });
 
