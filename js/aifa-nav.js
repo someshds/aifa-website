@@ -7,7 +7,7 @@
   var AIFA_CHAT_RESOURCES_URL = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
 
   var BOOK_CALL_URL = '/strategy-call.html';
-  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v4';
+  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v5';
   // AIFA-owned background plate. Drop the file at videos/background/aifa-background.mp4.
   var BG_VIDEO_SRC = '/videos/background/aifa-background.mp4';
 
@@ -25,6 +25,7 @@
     '        <li><a class="aifa-nav-link" href="/reviews.html">Reviews</a></li>',
     '        <li><a class="aifa-nav-link" href="/#seats">Platform seats</a></li>',
     '        <li><a class="aifa-nav-link" href="/news/">News</a></li>',
+    '        <li><a class="aifa-nav-link" href="/email-reimagined/">Email Re-imagined</a></li>',
     '        <li><a class="aifa-nav-link aifa-nav-cta" href="' + BOOK_CALL_URL + '" target="_blank" rel="noopener noreferrer" data-conversion="book-call">Book a call</a></li>',
     '      </ul>',
     '      <button class="aifa-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="aifa-nav-links">Menu</button>',
@@ -49,6 +50,7 @@
     '        <a href="/services/ai-systems-snapshot.html">AI Systems Snapshot</a>',
     '        <a href="/ai-operating-systems.html">AI Operating Systems</a>',
     '        <a href="/workshops/">Workshops</a>',
+    '        <a href="/email-reimagined/">Email Re-imagined</a>',
     '        <a href="/products/crm.html">All-in-One Business Software</a>',
     '        <a href="/products/ai-agents.html">AI Agents</a>',
     '        <a href="/products/chatbots.html">AI Chatbots</a>',
@@ -176,9 +178,13 @@
   function markCurrent(nav) {
     var path = window.location.pathname || '';
     var onNews = path === '/news' || path === '/news/' || path.indexOf('/news/') === 0;
+    var onEmail = path === '/email-reimagined' || path === '/email-reimagined/' || path.indexOf('/email-reimagined/') === 0;
     Array.prototype.slice.call(nav.querySelectorAll('.aifa-nav-link')).forEach(function (link) {
       var href = link.getAttribute('href') || '';
       if (href === '/news/' && onNews) {
+        link.setAttribute('aria-current', 'page');
+      }
+      if (href === '/email-reimagined/' && onEmail) {
         link.setAttribute('aria-current', 'page');
       }
     });

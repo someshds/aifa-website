@@ -26,4 +26,19 @@ test('news hub and nested article share homepage chrome',async({page})=>{
   }
 });
 
+test('email re-imagined section is in site nav and the three pages render',async({page})=>{
+  for (const route of ['/email-reimagined/','/email-reimagined/webinar.html','/email-reimagined/course.html','/email-reimagined/done-for-you.html']){
+    await page.goto(route,{waitUntil:'domcontentloaded'});
+    await page.waitForSelector('.aifa-global-nav');
+    await expect(page.locator('h1')).toHaveCount(1);
+    const nav=page.locator('.aifa-global-nav');
+    const email=nav.getByRole('link',{name:'Email Re-imagined'});
+    if(!(await email.isVisible())){
+      await nav.getByRole('button',{name:/menu/i}).click();
+    }
+    await expect(email).toBeVisible();
+    await expect(email).toHaveAttribute('href','/email-reimagined/');
+  }
+});
+
 test('optional integrations require an explicit choice',async({page})=>{await page.goto('/');expect(await page.locator('script[src*="googletagmanager"]').count()).toBe(0);expect(await page.locator('iframe[src*="widget/form"]').count()).toBe(0);expect(await page.locator('#aifa-form-mount, #aifa-opportunity-form').count()).toBe(0);await page.getByRole('button',{name:'Essential only'}).click();expect(await page.locator('script[src*="googletagmanager"]').count()).toBe(0);await page.evaluate(()=>localStorage.clear());await page.reload();await page.getByRole('button',{name:'Allow analytics'}).click();await expect(page.locator('script[src*="googletagmanager"]')).toHaveCount(1)});
