@@ -40,6 +40,7 @@ test('email re-imagined section is in site nav and the three pages render',async
     await page.goto(route,{waitUntil:'domcontentloaded'});
     await page.waitForSelector('.aifa-global-nav');
     await expect(page.locator('h1')).toHaveCount(1);
+    await expect(page.locator('h1')).toHaveText('Finally - One clear view of every enquiry, payment warning, and urgent action across all gmail accounts.');
     const nav=page.locator('.aifa-global-nav');
     const email=nav.getByRole('link',{name:'Email Re-imagined'});
     if(!(await email.isVisible())){
