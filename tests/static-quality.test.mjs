@@ -70,6 +70,24 @@ test('public pages load shared site chrome with homepage nav IA', () => {
   assert.deepEqual(failures, []);
 });
 
+test('email re-imagined pages use the locked super gold title as the only H1', () => {
+  const title = 'Finally - One clear view of every enquiry, payment warning, and urgent action across all gmail accounts.';
+  const files = [
+    'email-reimagined/index.html',
+    'email-reimagined/webinar.html',
+    'email-reimagined/course.html',
+    'email-reimagined/done-for-you.html',
+  ];
+  for (const rel of files) {
+    const source = fs.readFileSync(path.join(root, rel), 'utf8');
+    assert.equal((source.match(/<h1[\s>]/gi) || []).length, 1, `${rel}: h1 count`);
+    assert.ok(source.includes(`<h1>${title}</h1>`), `${rel}: locked h1`);
+    assert.ok(source.includes(`content="${title}`), `${rel}: meta description`);
+    assert.ok(!/Email Re-imaged/i.test(source), `${rel}: renamed app`);
+    assert.doesNotMatch(source, /priority inbox/i, `${rel}: leftover priority inbox`);
+  }
+});
+
 test('homepage preserves integrations and canonical conversion path', () => {
   const s=fs.readFileSync(path.join(root,'index.html'),'utf8')+fs.readFileSync(path.join(root,'js/aifa-form-loader.js'),'utf8');for(const needle of ['lS0nKZSRwsBvI4BUU92p','aifa-15-min-ai-opportunity-call-live','aifa-analytics.js','aifa-tracking.js','application/ld+json','privacy-policy-aifa.html'])assert.ok(s.includes(needle),needle);
 });
