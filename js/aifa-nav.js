@@ -331,18 +331,25 @@
       document.documentElement.classList.add('aifa-footer-only-root');
     }
 
-    if (!footerOnly && !document.querySelector('.aifa-global-nav')) {
+    if (!footerOnly) {
       removeLegacyNav();
-      var mount = document.getElementById('aifa-nav-mount');
-      if (mount) {
-        mount.innerHTML = navMarkup;
-        if (mount.parentNode !== document.body) {
-          placeAtBodyStart(mount);
-        }
+      var holder = document.createElement('div');
+      holder.innerHTML = navMarkup;
+      var freshNav = holder.firstChild;
+      var existingNav = document.querySelector('.aifa-global-nav');
+      if (existingNav) {
+        existingNav.parentNode.replaceChild(freshNav, existingNav);
       } else {
-        var holder = document.createElement('div');
-        holder.innerHTML = navMarkup;
-        placeAtBodyStart(holder.firstChild);
+        var mount = document.getElementById('aifa-nav-mount');
+        if (mount) {
+          mount.innerHTML = '';
+          mount.appendChild(freshNav);
+          if (mount.parentNode !== document.body) {
+            placeAtBodyStart(mount);
+          }
+        } else {
+          placeAtBodyStart(freshNav);
+        }
       }
     }
 

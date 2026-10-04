@@ -27,6 +27,15 @@ test('news hub and nested article share homepage chrome',async({page})=>{
 });
 
 test('email re-imagined section is in site nav and the three pages render',async({page})=>{
+  await page.goto('/',{waitUntil:'domcontentloaded'});
+  await page.waitForSelector('.aifa-global-nav');
+  const homeNav=page.locator('.aifa-global-nav');
+  const homeEmail=homeNav.getByRole('link',{name:'Email Re-imagined'});
+  if(!(await homeEmail.isVisible())){
+    await homeNav.getByRole('button',{name:/menu/i}).click();
+  }
+  await expect(homeEmail).toBeVisible();
+  await expect(homeEmail).toHaveAttribute('href','/email-reimagined/');
   for (const route of ['/email-reimagined/','/email-reimagined/webinar.html','/email-reimagined/course.html','/email-reimagined/done-for-you.html']){
     await page.goto(route,{waitUntil:'domcontentloaded'});
     await page.waitForSelector('.aifa-global-nav');
