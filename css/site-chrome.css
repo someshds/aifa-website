@@ -196,7 +196,7 @@ body.aifa-nav-ready {
   background: rgba(255, 255, 255, 0.04);
 }
 
-@media (max-width: 680px) {
+@media (max-width: 900px) {
   .aifa-nav-toggle {
     display: inline-flex;
     align-items: center;
