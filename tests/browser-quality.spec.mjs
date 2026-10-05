@@ -1,7 +1,30 @@
 import {test,expect} from '@playwright/test';
 import axeSource from 'axe-core';
 
-for(const route of ['/','/reviews.html','/services/','/strategy-call.html'])test(`${route} renders cleanly`,async({page})=>{const errors=[];page.on('console',m=>{if(m.type()==='error'&&!m.text().includes('favicon'))errors.push(m.text())});await page.goto(route,{waitUntil:'domcontentloaded'});await page.waitForTimeout(500);await expect(page.locator('h1')).toHaveCount(1);const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);expect(overflow).toBe(false);expect(errors).toEqual([])});
+for(const route of ['/','/reviews.html','/contact.html','/services/','/strategy-call.html'])test(`${route} renders cleanly`,async({page})=>{const errors=[];page.on('console',m=>{if(m.type()!=='error')return;const text=m.text();if(text.includes('favicon')||text.includes('link.aifusionautomations.com'))return;errors.push(text)});await page.goto(route,{waitUntil:'domcontentloaded'});await page.waitForTimeout(500);await expect(page.locator('h1')).toHaveCount(1);const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);expect(overflow).toBe(false);expect(errors).toEqual([])});
+
+test('contact page embeds the enquiry form and keeps email and booking as secondary paths',async({page})=>{
+  await page.goto('/contact.html');
+  await expect(page.getByRole('heading',{name:'Contact us'})).toBeVisible();
+  const form=page.locator('#inline-t4FnzGSw0lcb4l1PFx8q');
+  await expect(form).toBeVisible();
+  await expect(form).toHaveAttribute('src','https://link.aifusionautomations.com/widget/form/t4FnzGSw0lcb4l1PFx8q');
+  await expect(form).toHaveAttribute('title','Contact AI Fusion Team');
+  const email=page.getByRole('link',{name:'grant@aifusionautomations.com'});
+  await expect(email).toBeVisible();
+  await expect(email).toHaveAttribute('href','mailto:grant@aifusionautomations.com');
+  await expect(page.getByText('East Sussex, England')).toBeVisible();
+  await expect(page.getByRole('link',{name:'book a 15-minute call'})).toHaveAttribute('href','/strategy-call.html');
+  await page.waitForSelector('.aifa-global-nav');
+  const nav=page.locator('.aifa-global-nav');
+  const contact=nav.getByRole('link',{name:'Contact'});
+  if(!(await contact.isVisible())){
+    await nav.getByRole('button',{name:/menu/i}).click();
+  }
+  await expect(contact).toHaveAttribute('href','/contact.html');
+  await expect(contact).toHaveAttribute('aria-current','page');
+  await expect(page.locator('.aifa-global-footer').getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html');
+});
 
 test('review archive is explicit and accessible',async({page})=>{await page.goto('/reviews.html');await expect(page.getByRole('heading',{name:'Five-star feedback from people we helped.'})).toBeVisible();await expect(page.locator('.review-card')).toHaveCount(10);await expect(page.getByText('the original profile is no longer active')).toBeVisible();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([])});
 

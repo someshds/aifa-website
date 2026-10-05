@@ -51,7 +51,7 @@ test('local internal links resolve to a tracked page or asset', () => {
 test('public pages load shared site chrome with homepage nav IA', () => {
   const nav = fs.readFileSync(path.join(root, 'js/aifa-nav.js'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'css/site-chrome.css'), 'utf8');
-  for (const needle of ['/#how', '/#proof', '/#seats', '/news/', '/email-reimagined/', "var BOOK_CALL_URL = '/strategy-call.html';", 'AI FUSION', 'aria-expanded', 'site-chrome.css', 'Escape']) {
+  for (const needle of ['/#how', '/#proof', '/#seats', '/news/', '/email-reimagined/', '/contact.html', '/reviews.html', "var BOOK_CALL_URL = '/strategy-call.html';", 'AI FUSION', 'aria-expanded', 'site-chrome.css', 'Escape']) {
     assert.ok(nav.includes(needle), `aifa-nav.js missing ${needle}`);
   }
   for (const skipped of ["/strategy-call.html", "/ai-systems-snapshot.html", "/ai-workflow-call-request.html"]) {
@@ -84,6 +84,28 @@ test('archived reviews are transparent, attributable and do not claim live Googl
   assert.doesNotMatch(reviews,/Somesh/i);
   assert.doesNotMatch(reviews,/\[Grant\]/);
   assert.match(reviews,/Working with Grant has been a game-changer/);
+});
+
+test('contact page embeds the GHL enquiry form with email as fallback', () => {
+  const contact = fs.readFileSync(path.join(root, 'contact.html'), 'utf8');
+  const nav = fs.readFileSync(path.join(root, 'js/aifa-nav.js'), 'utf8');
+  const loader = fs.readFileSync(path.join(root, 'js/aifa-contact-form.js'), 'utf8');
+  assert.match(contact, /<title>Contact us \| AI Fusion<\/title>/);
+  assert.match(contact, /Grant De Swardt/);
+  assert.match(contact, /East Sussex/);
+  assert.match(contact, /enquir/);
+  assert.match(contact, /t4FnzGSw0lcb4l1PFx8q/);
+  assert.match(contact, /Contact AI Fusion Team/);
+  assert.match(contact, /form_embed\.js/);
+  assert.match(contact, /data-cookie-consent="true"/);
+  assert.match(contact, /privacy-policy-aifa\.html/);
+  assert.match(contact, /mailto:grant@aifusionautomations\.com/);
+  assert.doesNotMatch(contact, /support@/);
+  assert.doesNotMatch(contact, /Somesh/i);
+  assert.match(contact, /strategy-call\.html/);
+  assert.match(loader, /t4FnzGSw0lcb4l1PFx8q/);
+  assert.match(nav, /href="\/contact\.html">Contact<\/a>/);
+  assert.doesNotMatch(nav, /href="\/#book">Contact<\/a>/);
 });
 
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
