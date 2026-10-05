@@ -7,6 +7,8 @@
   var AIFA_CHAT_RESOURCES_URL = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
 
   var BOOK_CALL_URL = '/strategy-call.html';
+  var CONTACT_HREF = '/contact.html';
+  var CONTACT_LABEL = 'Contact';
   var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v5';
   // AIFA-owned background plate. Drop the file at videos/background/aifa-background.mp4.
   var BG_VIDEO_SRC = '/videos/background/aifa-background.mp4';
@@ -176,6 +178,104 @@
     return 'light';
   }
 
+  function contactHref(href) {
+    if (!href) return false;
+    var path = href.split(/[?#]/)[0];
+    return path === CONTACT_HREF || path === 'contact.html';
+  }
+
+  function linkText(el) {
+    return String(el && el.textContent ? el.textContent : '').replace(/\s+/g, ' ').trim();
+  }
+
+  function hasContactLink(root) {
+    if (!root) return false;
+    return Array.prototype.some.call(root.querySelectorAll('a[href]'), function (link) {
+      return contactHref(link.getAttribute('href')) && linkText(link) === CONTACT_LABEL;
+    });
+  }
+
+  function createContactAnchor(className) {
+    var link = document.createElement('a');
+    if (className) link.className = className;
+    link.setAttribute('href', CONTACT_HREF);
+    link.textContent = CONTACT_LABEL;
+    return link;
+  }
+
+  function findMenuItem(menu, test) {
+    var links = menu.querySelectorAll('a');
+    for (var i = 0; i < links.length; i++) {
+      if (test(links[i], linkText(links[i]), links[i].getAttribute('href') || '')) {
+        return links[i].closest('li') || links[i];
+      }
+    }
+    return null;
+  }
+
+  function ensureContactInNav(nav) {
+    if (!nav) return;
+    var menu = nav.querySelector('.aifa-nav-menu') || nav.querySelector('ul');
+    if (!menu || hasContactLink(menu)) return;
+
+    var item = document.createElement('li');
+    item.appendChild(createContactAnchor('aifa-nav-link'));
+
+    var reviews = findMenuItem(menu, function (link, text, href) {
+      return text === 'Reviews' || href.indexOf('reviews.html') !== -1;
+    });
+    var seats = findMenuItem(menu, function (link, text, href) {
+      return text === 'Platform seats' || href.indexOf('#seats') !== -1;
+    });
+    var news = findMenuItem(menu, function (link, text) {
+      return text === 'News' || (link.getAttribute('href') || '') === '/news/' || (link.getAttribute('href') || '') === '/news';
+    });
+    var book = findMenuItem(menu, function (link) {
+      return link.classList.contains('aifa-nav-cta');
+    });
+
+    if (reviews && reviews.parentNode === menu) {
+      menu.insertBefore(item, reviews.nextSibling);
+    } else if (seats && seats.parentNode === menu) {
+      menu.insertBefore(item, seats);
+    } else if (news && news.parentNode === menu) {
+      menu.insertBefore(item, news);
+    } else if (book && book.parentNode === menu) {
+      menu.insertBefore(item, book);
+    } else {
+      menu.appendChild(item);
+    }
+  }
+
+  function ensureContactInFooter(footer) {
+    if (!footer || hasContactLink(footer)) return;
+
+    var link = createContactAnchor();
+    var company = null;
+    Array.prototype.slice.call(footer.querySelectorAll('.aifa-footer-column')).forEach(function (col) {
+      var heading = col.querySelector('h2');
+      if (heading && linkText(heading) === 'Company') company = col;
+    });
+
+    var host = company || footer.querySelector('.footer-links') || footer.querySelector('.wrap') || footer;
+    var before = null;
+    Array.prototype.slice.call(host.querySelectorAll('a')).some(function (existing) {
+      var text = linkText(existing);
+      var href = existing.getAttribute('href') || '';
+      if (text.indexOf('Book') === 0 || href.indexOf('strategy-call') !== -1 || text === 'Privacy' || href.indexOf('privacy') !== -1 || text === 'Platform seats' || href.indexOf('#seats') !== -1) {
+        before = existing;
+        return true;
+      }
+      return false;
+    });
+
+    if (before) {
+      before.parentNode.insertBefore(link, before);
+    } else {
+      host.appendChild(link);
+    }
+  }
+
   function markCurrent(nav) {
     var path = window.location.pathname || '';
     var onNews = path === '/news' || path === '/news/' || path.indexOf('/news/') === 0;
@@ -342,13 +442,13 @@
 
     if (!footerOnly) {
       removeLegacyNav();
-      var holder = document.createElement('div');
-      holder.innerHTML = navMarkup;
-      var freshNav = holder.firstChild;
       var existingNav = document.querySelector('.aifa-global-nav');
       if (existingNav) {
-        existingNav.parentNode.replaceChild(freshNav, existingNav);
+        ensureContactInNav(existingNav);
       } else {
+        var holder = document.createElement('div');
+        holder.innerHTML = navMarkup;
+        var freshNav = holder.firstChild;
         var mount = document.getElementById('aifa-nav-mount');
         if (mount) {
           mount.innerHTML = '';
@@ -364,6 +464,7 @@
 
     var nav = document.querySelector('.aifa-global-nav');
     if (nav) {
+      ensureContactInNav(nav);
       initNav(nav);
     }
 
@@ -377,6 +478,12 @@
       }
       footerMount.innerHTML = footerMarkup;
     }
+
+    var siteFooters = [];
+    Array.prototype.slice.call(document.querySelectorAll('body > footer, .aifa-global-footer')).forEach(function (el) {
+      if (siteFooters.indexOf(el) === -1) siteFooters.push(el);
+    });
+    siteFooters.forEach(ensureContactInFooter);
 
     if (window.localStorage.getItem('aifa_cookie_consent_v1') === 'granted') loadAifaChatWidget();
     window.addEventListener('aifa-consent-granted', loadAifaChatWidget, { once: true });
