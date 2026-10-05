@@ -138,6 +138,22 @@ a { color: var(--brand-deep); }
   margin-top: 1.5rem;
 }
 
+.hero-note {
+  margin-top: 0.75rem;
+  max-width: 48ch;
+  color: #c5cae0;
+  font-size: 0.95rem;
+}
+
+.hero .list { color: #c5cae0; }
+
+.offer-price {
+  margin: 0.35rem 0 0.85rem;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
 .section-nav-wrap {
   background: #fff;
   border-bottom: 1px solid var(--line);
