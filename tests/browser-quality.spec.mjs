@@ -10,11 +10,11 @@ test('contact page embeds the enquiry form and keeps email and booking as second
   await expect(form).toBeVisible();
   await expect(form).toHaveAttribute('src','https://link.aifusionautomations.com/widget/form/t4FnzGSw0lcb4l1PFx8q');
   await expect(form).toHaveAttribute('title','Contact AI Fusion Team');
-  const email=page.getByRole('link',{name:'grant@aifusionautomations.com'});
+  const email=page.locator('#main').getByRole('link',{name:'grant@aifusionautomations.com'});
   await expect(email).toBeVisible();
   await expect(email).toHaveAttribute('href','mailto:grant@aifusionautomations.com');
   await expect(page.getByText('East Sussex, England')).toBeVisible();
-  await expect(page.getByRole('link',{name:'book a 15-minute call'})).toHaveAttribute('href','/strategy-call.html');
+  await expect(page.locator('#main').getByRole('link',{name:'book a 15-minute call'})).toHaveAttribute('href','/strategy-call.html');
   await page.waitForSelector('.aifa-global-nav');
   const nav=page.locator('.aifa-global-nav');
   const contact=nav.getByRole('link',{name:'Contact'});
