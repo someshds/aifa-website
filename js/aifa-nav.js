@@ -23,6 +23,7 @@
     '        <li><a class="aifa-nav-link" href="/#how">How it works</a></li>',
     '        <li><a class="aifa-nav-link" href="/#proof">Proof</a></li>',
     '        <li><a class="aifa-nav-link" href="/reviews.html">Reviews</a></li>',
+    '        <li><a class="aifa-nav-link" href="/contact.html">Contact</a></li>',
     '        <li><a class="aifa-nav-link" href="/#seats">Platform seats</a></li>',
     '        <li><a class="aifa-nav-link" href="/news/">News</a></li>',
     '        <li><a class="aifa-nav-link" href="/email-reimagined/">Email Re-imagined</a></li>',
@@ -74,7 +75,7 @@
     '        <a href="/reviews.html">Client reviews</a>',
     '        <a href="/blog/">Blog</a>',
     '        <a href="/news/">News</a>',
-    '        <a href="/#book">Contact</a>',
+    '        <a href="/contact.html">Contact</a>',
     '        <a href="/strategy-call.html" data-conversion="book-call">Book a 15-minute call</a>',
     '        <a href="/privacy-policy-aifa.html">Privacy Policy</a>',
     '        <a href="/terms.html">Terms &amp; Conditions</a>',
@@ -179,12 +180,20 @@
     var path = window.location.pathname || '';
     var onNews = path === '/news' || path === '/news/' || path.indexOf('/news/') === 0;
     var onEmail = path === '/email-reimagined' || path === '/email-reimagined/' || path.indexOf('/email-reimagined/') === 0;
+    var onReviews = path === '/reviews.html';
+    var onContact = path === '/contact.html';
     Array.prototype.slice.call(nav.querySelectorAll('.aifa-nav-link')).forEach(function (link) {
       var href = link.getAttribute('href') || '';
       if (href === '/news/' && onNews) {
         link.setAttribute('aria-current', 'page');
       }
       if (href === '/email-reimagined/' && onEmail) {
+        link.setAttribute('aria-current', 'page');
+      }
+      if (href === '/reviews.html' && onReviews) {
+        link.setAttribute('aria-current', 'page');
+      }
+      if (href === '/contact.html' && onContact) {
         link.setAttribute('aria-current', 'page');
       }
     });
