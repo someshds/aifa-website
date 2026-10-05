@@ -28,7 +28,23 @@ test('contact page embeds the enquiry form and keeps email and booking as second
 
 test('review archive is explicit and accessible',async({page})=>{await page.goto('/reviews.html');await expect(page.getByRole('heading',{name:'Five-star feedback from people we helped.'})).toBeVisible();await expect(page.locator('.review-card')).toHaveCount(10);await expect(page.getByText('the original profile is no longer active')).toBeVisible();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([])});
 
-test('homepage keyboard and accessibility gate',async({page})=>{await page.goto('/');await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document,{rules:{'color-contrast':{enabled:true}}}));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([]);await expect(page.getByRole('link',{name:/Book a free Opportunity Call/i})).toBeVisible();const nav=page.locator('.aifa-global-nav');const book=nav.getByRole('link',{name:'Book a call'});if(!(await book.isVisible())){await nav.getByRole('button',{name:/menu/i}).click()}await expect(book).toHaveAttribute('href','/strategy-call.html')});
+test('homepage keyboard and accessibility gate',async({page})=>{await page.goto('/');await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document,{rules:{'color-contrast':{enabled:true}}}));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([]);await expect(page.getByRole('link',{name:/Book a free Opportunity Call/i})).toBeVisible();const nav=page.locator('.aifa-global-nav');const book=nav.getByRole('link',{name:'Book a call'});if(!(await book.isVisible())){await nav.getByRole('button',{name:/menu/i}).click()}await expect(book).toHaveAttribute('href','/strategy-call.html');const contact=nav.getByRole('link',{name:'Contact'});await expect(contact).toHaveAttribute('href','/contact.html');await expect(page.locator('footer').getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html')});
+
+test('homepage and workshops expose Contact in primary nav and footer',async({page})=>{
+  for (const route of ['/','/workshops/']){
+    await page.goto(route,{waitUntil:'domcontentloaded'});
+    await page.waitForSelector('.aifa-global-nav');
+    const nav=page.locator('.aifa-global-nav');
+    const contact=nav.getByRole('link',{name:'Contact'});
+    if(!(await contact.isVisible())){
+      await nav.getByRole('button',{name:/menu/i}).click();
+    }
+    await expect(contact).toBeVisible();
+    await expect(contact).toHaveAttribute('href','/contact.html');
+    await expect(nav.getByRole('link',{name:'Book a call'})).toHaveAttribute('href','/strategy-call.html');
+    await expect(page.locator('footer').getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html');
+  }
+});
 
 test('news hub and nested article share homepage chrome',async({page})=>{
   for (const route of ['/news/','/news/2026-10-02-google-gemini-4-argon-fairwind-restricted.html','/news/2026-09-28-openai-anthropic-tens-of-thousands-agent-incidents.html','/news/2026-09-25-openai-agents-australian-medicare-portal-permissions.html']){
@@ -45,7 +61,9 @@ test('news hub and nested article share homepage chrome',async({page})=>{
     await expect(nav.getByRole('link',{name:'Proof'})).toHaveAttribute('href','/#proof');
     await expect(nav.getByRole('link',{name:'Platform seats'})).toHaveAttribute('href','/#seats');
     await expect(nav.getByRole('link',{name:'News'})).toHaveAttribute('href','/news/');
+    await expect(nav.getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html');
     await expect(nav.getByRole('link',{name:'Book a call'})).toHaveAttribute('href','/strategy-call.html');
+    await expect(page.locator('body > footer, .aifa-global-footer').getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html');
   }
 });
 

@@ -106,6 +106,40 @@ test('contact page embeds the GHL enquiry form with email as fallback', () => {
   assert.match(loader, /t4FnzGSw0lcb4l1PFx8q/);
   assert.match(nav, /href="\/contact\.html">Contact<\/a>/);
   assert.doesNotMatch(nav, /href="\/#book">Contact<\/a>/);
+  assert.match(nav, /function ensureContactInNav/);
+  assert.match(nav, /function ensureContactInFooter/);
+  assert.match(nav, /CONTACT_HREF = '\/contact\.html'/);
+});
+
+test('hardcoded site chrome keeps Contact on pages that retain their own nav or footer', () => {
+  const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const workshops = fs.readFileSync(path.join(root, 'workshops/index.html'), 'utf8');
+  const newsHub = fs.readFileSync(path.join(root, 'news/index.html'), 'utf8');
+
+  assert.match(homepage, /class="aifa-nav-link" href="\/contact\.html">Contact<\/a>/);
+  assert.match(homepage, /<footer[\s>]/);
+  assert.match(homepage, /href="\/contact\.html">Contact<\/a>/);
+  assert.match(homepage, /data-aifa-keep-footer/);
+  assert.match(homepage, /href="\/strategy-call\.html"[^>]*>Book a call<\/a>/);
+
+  assert.match(workshops, /class="aifa-nav-link" href="\/contact\.html">Contact<\/a>/);
+  assert.match(workshops, /href="\/strategy-call\.html"[^>]*>Book a call<\/a>/);
+
+  assert.match(newsHub, /data-aifa-keep-footer/);
+  assert.match(newsHub, /href="\/contact\.html">Contact<\/a>/);
+
+  const failures = [];
+  for (const file of pages) {
+    const s = fs.readFileSync(file, 'utf8');
+    const rel = path.relative(root, file);
+    if (/class=["']aifa-global-nav["']/.test(s) && !/href=["']\/contact\.html["'][^>]*>Contact</.test(s)) {
+      failures.push(`${rel}: hardcoded nav missing Contact`);
+    }
+    if (/data-aifa-keep-footer/.test(s) && !/href=["']\/contact\.html["'][^>]*>Contact</.test(s)) {
+      failures.push(`${rel}: kept footer missing Contact`);
+    }
+  }
+  assert.deepEqual(failures, []);
 });
 
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
