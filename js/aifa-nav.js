@@ -9,7 +9,7 @@
   var BOOK_CALL_URL = '/strategy-call.html';
   var CONTACT_HREF = '/contact.html';
   var CONTACT_LABEL = 'Contact';
-  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v5';
+  var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v6';
   // AIFA-owned background plate. Drop the file at videos/background/aifa-background.mp4.
   var BG_VIDEO_SRC = '/videos/background/aifa-background.mp4';
 
