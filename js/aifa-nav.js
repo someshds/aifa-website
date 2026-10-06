@@ -6,7 +6,7 @@
   var AIFA_CHAT_SCRIPT_SRC = 'https://widgets.leadconnectorhq.com/loader.js';
   var AIFA_CHAT_RESOURCES_URL = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
 
-  var BOOK_CALL_URL = '/strategy-call.html';
+  var BOOK_CALL_URL = 'https://email-reimagined.com/founder-priority-inbox-demo';
   var CONTACT_HREF = '/contact.html';
   var CONTACT_LABEL = 'Contact';
   var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v6';
@@ -78,7 +78,7 @@
     '        <a href="/blog/">Blog</a>',
     '        <a href="/news/">News</a>',
     '        <a href="/contact.html">Contact</a>',
-    '        <a href="/strategy-call.html" data-conversion="book-call">Book a demo</a>',
+    '        <a href="' + BOOK_CALL_URL + '" data-conversion="book-call">Book a demo</a>',
     '        <a href="/privacy-policy-aifa.html">Privacy Policy</a>',
     '        <a href="/terms.html">Terms &amp; Conditions</a>',
     '        <a href="/earnings-disclaimer.html">Earnings Disclaimer</a>',
@@ -495,7 +495,7 @@
       return true;
     }
 
-    // book.html only redirects to /strategy-call.html and does not render a page.
+    // book.html immediately hops to the external demo funnel and does not render a page.
     return path === '/book.html';
   }
 
