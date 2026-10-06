@@ -146,20 +146,21 @@ body.strategy-call .intro .trust-item{
       DEMO CALENDAR URL — one place to update.
       Grant: replace AIFA_DEMO_CALENDAR_URL below with the new GHL demo calendar.
       The iframe src and the "open it directly" fallback both use that value.
+      The placeholder slug is not loaded, so the page does not request a 404.
     -->
     <script>
     window.AIFA_DEMO_CALENDAR_URL = 'https://link.aifusionautomations.com/widget/bookings/PLACEHOLDER-NEW-DEMO-CALENDAR';
     </script>
-    <iframe class="calendar-frame" src="https://link.aifusionautomations.com/widget/bookings/PLACEHOLDER-NEW-DEMO-CALENDAR" title="Book a free 15-minute demo with AI FUSION" loading="lazy"></iframe>
-    <div class="fallback">Calendar not loading? <a href="https://link.aifusionautomations.com/widget/bookings/PLACEHOLDER-NEW-DEMO-CALENDAR">Open it directly</a>.</div>
+    <iframe class="calendar-frame" src="about:blank" title="Book a free 15-minute demo with AI FUSION" loading="lazy"></iframe>
+    <div class="fallback">Calendar not loading? <a href="#demo-calendar" data-demo-calendar-fallback>Open it directly</a>.</div>
     <script>
     (function () {
       var url = window.AIFA_DEMO_CALENDAR_URL;
-      if (!url) return;
+      var ready = url && url.indexOf('PLACEHOLDER') === -1;
       var shell = document.getElementById('demo-calendar');
-      if (!shell) return;
+      if (!shell || !ready) return;
       var frame = shell.querySelector('.calendar-frame');
-      var fallback = shell.querySelector('.fallback a');
+      var fallback = shell.querySelector('[data-demo-calendar-fallback]');
       if (frame) frame.src = url;
       if (fallback) fallback.href = url;
     })();
