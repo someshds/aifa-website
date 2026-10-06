@@ -6,7 +6,7 @@
   var AIFA_CHAT_SCRIPT_SRC = 'https://widgets.leadconnectorhq.com/loader.js';
   var AIFA_CHAT_RESOURCES_URL = 'https://widgets.leadconnectorhq.com/chat-widget/loader.js';
 
-  var BOOK_CALL_URL = '/strategy-call.html';
+  var BOOK_CALL_URL = 'https://email-reimagined.com/founder-priority-inbox-demo';
   var CONTACT_HREF = '/contact.html';
   var CONTACT_LABEL = 'Contact';
   var SITE_CHROME_HREF = '/css/site-chrome.css?v=site-chrome-v6';
@@ -29,7 +29,7 @@
     '        <li><a class="aifa-nav-link" href="/#seats">Platform seats</a></li>',
     '        <li><a class="aifa-nav-link" href="/news/">News</a></li>',
     '        <li><a class="aifa-nav-link" href="/email-reimagined/">Email Re-imagined</a></li>',
-    '        <li><a class="aifa-nav-link aifa-nav-cta" href="' + BOOK_CALL_URL + '" target="_blank" rel="noopener noreferrer" data-conversion="book-call">Book a call</a></li>',
+    '        <li><a class="aifa-nav-link aifa-nav-cta" href="' + BOOK_CALL_URL + '" data-conversion="book-call">Book a demo</a></li>',
     '      </ul>',
     '      <button class="aifa-nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="aifa-nav-links">Menu</button>',
     '    </div>',
@@ -78,7 +78,7 @@
     '        <a href="/blog/">Blog</a>',
     '        <a href="/news/">News</a>',
     '        <a href="/contact.html">Contact</a>',
-    '        <a href="/strategy-call.html" data-conversion="book-call">Book a 15-minute call</a>',
+    '        <a href="' + BOOK_CALL_URL + '" data-conversion="book-call">Book a demo</a>',
     '        <a href="/privacy-policy-aifa.html">Privacy Policy</a>',
     '        <a href="/terms.html">Terms &amp; Conditions</a>',
     '        <a href="/earnings-disclaimer.html">Earnings Disclaimer</a>',
@@ -112,7 +112,7 @@
 
     if (element.matches('body > header')) {
       var text = element.textContent || '';
-      return Boolean(element.querySelector('nav')) && /Home|Products|Pricing|Book a [Cc]all|Free Tools|Services|How it works|Platform seats/.test(text);
+      return Boolean(element.querySelector('nav')) && /Home|Products|Pricing|Book a [Cc]all|Book a demo|Free Tools|Services|How it works|Platform seats/.test(text);
     }
 
     return false;
@@ -495,7 +495,7 @@
       return true;
     }
 
-    // book.html only redirects to /strategy-call.html and does not render a page.
+    // book.html immediately hops to the external demo funnel and does not render a page.
     return path === '/book.html';
   }
 

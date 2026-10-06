@@ -51,7 +51,7 @@ test('local internal links resolve to a tracked page or asset', () => {
 test('public pages load shared site chrome with homepage nav IA', () => {
   const nav = fs.readFileSync(path.join(root, 'js/aifa-nav.js'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'css/site-chrome.css'), 'utf8');
-  for (const needle of ['/#how', '/#proof', '/#seats', '/news/', '/email-reimagined/', '/contact.html', '/reviews.html', "var BOOK_CALL_URL = '/strategy-call.html';", 'AI FUSION', 'aria-expanded', 'site-chrome.css', 'Escape']) {
+  for (const needle of ['/#how', '/#proof', '/#seats', '/news/', '/email-reimagined/', '/contact.html', '/reviews.html', "var BOOK_CALL_URL = 'https://email-reimagined.com/founder-priority-inbox-demo';", 'AI FUSION', 'aria-expanded', 'site-chrome.css', 'Escape']) {
     assert.ok(nav.includes(needle), `aifa-nav.js missing ${needle}`);
   }
   for (const skipped of ["/strategy-call.html", "/ai-systems-snapshot.html", "/ai-workflow-call-request.html"]) {
@@ -71,7 +71,7 @@ test('public pages load shared site chrome with homepage nav IA', () => {
 });
 
 test('homepage preserves integrations and canonical conversion path', () => {
-  const s=fs.readFileSync(path.join(root,'index.html'),'utf8')+fs.readFileSync(path.join(root,'js/aifa-form-loader.js'),'utf8');for(const needle of ['lS0nKZSRwsBvI4BUU92p','aifa-15-min-ai-opportunity-call-live','aifa-analytics.js','aifa-tracking.js','application/ld+json','privacy-policy-aifa.html'])assert.ok(s.includes(needle),needle);
+  const s=fs.readFileSync(path.join(root,'index.html'),'utf8')+fs.readFileSync(path.join(root,'js/aifa-form-loader.js'),'utf8');for(const needle of ['lS0nKZSRwsBvI4BUU92p','founder-priority-inbox-demo','Book a free demo','aifa-analytics.js','aifa-tracking.js','application/ld+json','privacy-policy-aifa.html'])assert.ok(s.includes(needle),needle);
 });
 
 test('archived reviews are transparent, attributable and do not claim live Google status', () => {
@@ -102,7 +102,7 @@ test('contact page embeds the GHL enquiry form with email as fallback', () => {
   assert.match(contact, /mailto:grant@aifusionautomations\.com/);
   assert.doesNotMatch(contact, /support@/);
   assert.doesNotMatch(contact, /Somesh/i);
-  assert.match(contact, /strategy-call\.html/);
+  assert.match(contact, /founder-priority-inbox-demo/);
   assert.match(loader, /t4FnzGSw0lcb4l1PFx8q/);
   assert.match(nav, /href="\/contact\.html">Contact<\/a>/);
   assert.doesNotMatch(nav, /href="\/#book">Contact<\/a>/);
@@ -120,10 +120,10 @@ test('hardcoded site chrome keeps Contact on pages that retain their own nav or 
   assert.match(homepage, /<footer[\s>]/);
   assert.match(homepage, /href="\/contact\.html">Contact<\/a>/);
   assert.match(homepage, /data-aifa-keep-footer/);
-  assert.match(homepage, /href="\/strategy-call\.html"[^>]*>Book a call<\/a>/);
+  assert.match(homepage, /href="https:\/\/email-reimagined\.com\/founder-priority-inbox-demo"[^>]*>Book a demo<\/a>/);
 
   assert.match(workshops, /class="aifa-nav-link" href="\/contact\.html">Contact<\/a>/);
-  assert.match(workshops, /href="\/strategy-call\.html"[^>]*>Book a call<\/a>/);
+  assert.match(workshops, /href="https:\/\/email-reimagined\.com\/founder-priority-inbox-demo"[^>]*>Book a demo<\/a>/);
 
   assert.match(newsHub, /data-aifa-keep-footer/);
   assert.match(newsHub, /href="\/contact\.html">Contact<\/a>/);
@@ -140,6 +140,45 @@ test('hardcoded site chrome keeps Contact on pages that retain their own nav or 
     }
   }
   assert.deepEqual(failures, []);
+});
+
+test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
+  const demo = 'https://email-reimagined.com/founder-priority-inbox-demo';
+  const webinar = 'https://email-reimagined.com/founder-priority-inbox-16th-october';
+  const hop = fs.readFileSync(path.join(root, 'strategy-call.html'), 'utf8');
+  const book = fs.readFileSync(path.join(root, 'book.html'), 'utf8');
+  const nav = fs.readFileSync(path.join(root, 'js/aifa-nav.js'), 'utf8');
+
+  assert.match(nav, new RegExp(`var BOOK_CALL_URL = '${demo.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}';`));
+  assert.doesNotMatch(nav, /PLACEHOLDER|AIFA_DEMO_CALENDAR_URL|aifa-15-min-ai-opportunity-call/);
+  assert.match(hop, /<h1>Book a free 15-minute demo<\/h1>/);
+  assert.equal((hop.match(/<h1[\s>]/gi) || []).length, 1);
+  assert.match(hop, /http-equiv="refresh"[^>]+url=https:\/\/email-reimagined\.com\/founder-priority-inbox-demo/);
+  assert.match(hop, /location\.replace\('https:\/\/email-reimagined\.com\/founder-priority-inbox-demo'\)/);
+  assert.match(hop, /href="https:\/\/email-reimagined\.com\/founder-priority-inbox-demo"/);
+  assert.doesNotMatch(hop, /PLACEHOLDER|calendar-embed|aifa-15-min-ai-opportunity-call|go\.aifusionautomations\.com\/founder-priority-inbox/);
+  assert.match(book, /http-equiv="refresh"[^>]+url=https:\/\/email-reimagined\.com\/founder-priority-inbox-demo/);
+  assert.match(book, /location\.replace\('https:\/\/email-reimagined\.com\/founder-priority-inbox-demo'\)/);
+
+  const failures = [];
+  for (const file of pages) {
+    const s = fs.readFileSync(file, 'utf8');
+    const rel = path.relative(root, file);
+    if (s.includes('PLACEHOLDER') && /AIFA_DEMO|calendar/i.test(s)) failures.push(`${rel}: leftover calendar placeholder`);
+    if (s.includes('go.aifusionautomations.com/founder-priority-inbox')) failures.push(`${rel}: leftover go.aifusion webinar URL`);
+    if (s.includes('api.leadconnectorhq.com/widget/booking/aifa-15-min-ai-opportunity-call')) failures.push(`${rel}: leftover opportunity-call widget`);
+    if (/href=["'][^"']*\/strategy-call\.html["']/.test(s) && !['strategy-call.html', 'book.html'].includes(path.basename(file))) {
+      failures.push(`${rel}: Book a demo still points at /strategy-call.html`);
+    }
+  }
+  assert.deepEqual(failures, []);
+
+  const webinarPage = fs.readFileSync(path.join(root, 'email-reimagined/webinar.html'), 'utf8');
+  const course = fs.readFileSync(path.join(root, 'email-reimagined/course.html'), 'utf8');
+  assert.equal((webinarPage.match(new RegExp(webinar.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length, 2);
+  assert.equal((course.match(new RegExp(webinar.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length, 2);
+  assert.match(webinarPage, /Save My Seat/);
+  assert.match(course, /Save My Seat/);
 });
 
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
