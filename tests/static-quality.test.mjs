@@ -71,7 +71,7 @@ test('public pages load shared site chrome with homepage nav IA', () => {
 });
 
 test('homepage preserves integrations and canonical conversion path', () => {
-  const s=fs.readFileSync(path.join(root,'index.html'),'utf8')+fs.readFileSync(path.join(root,'js/aifa-form-loader.js'),'utf8');for(const needle of ['lS0nKZSRwsBvI4BUU92p','aifa-15-min-ai-opportunity-call-live','aifa-analytics.js','aifa-tracking.js','application/ld+json','privacy-policy-aifa.html'])assert.ok(s.includes(needle),needle);
+  const s=fs.readFileSync(path.join(root,'index.html'),'utf8')+fs.readFileSync(path.join(root,'js/aifa-form-loader.js'),'utf8');for(const needle of ['lS0nKZSRwsBvI4BUU92p','strategy-call.html','Book a free demo','aifa-analytics.js','aifa-tracking.js','application/ld+json','privacy-policy-aifa.html'])assert.ok(s.includes(needle),needle);
 });
 
 test('archived reviews are transparent, attributable and do not claim live Google status', () => {
@@ -120,10 +120,10 @@ test('hardcoded site chrome keeps Contact on pages that retain their own nav or 
   assert.match(homepage, /<footer[\s>]/);
   assert.match(homepage, /href="\/contact\.html">Contact<\/a>/);
   assert.match(homepage, /data-aifa-keep-footer/);
-  assert.match(homepage, /href="\/strategy-call\.html"[^>]*>Book a call<\/a>/);
+  assert.match(homepage, /href="\/strategy-call\.html"[^>]*>Book a demo<\/a>/);
 
   assert.match(workshops, /class="aifa-nav-link" href="\/contact\.html">Contact<\/a>/);
-  assert.match(workshops, /href="\/strategy-call\.html"[^>]*>Book a call<\/a>/);
+  assert.match(workshops, /href="\/strategy-call\.html"[^>]*>Book a demo<\/a>/);
 
   assert.match(newsHub, /data-aifa-keep-footer/);
   assert.match(newsHub, /href="\/contact\.html">Contact<\/a>/);

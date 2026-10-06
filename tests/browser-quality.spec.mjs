@@ -14,7 +14,7 @@ test('contact page embeds the enquiry form and keeps email and booking as second
   await expect(email).toBeVisible();
   await expect(email).toHaveAttribute('href','mailto:grant@aifusionautomations.com');
   await expect(page.getByText('East Sussex, England')).toBeVisible();
-  await expect(page.locator('#main').getByRole('link',{name:'book a 15-minute call'})).toHaveAttribute('href','/strategy-call.html');
+  await expect(page.locator('#main').getByRole('link',{name:'book a demo'})).toHaveAttribute('href','/strategy-call.html');
   await page.waitForSelector('.aifa-global-nav');
   const nav=page.locator('.aifa-global-nav');
   const contact=nav.getByRole('link',{name:'Contact'});
@@ -28,7 +28,7 @@ test('contact page embeds the enquiry form and keeps email and booking as second
 
 test('review archive is explicit and accessible',async({page})=>{await page.goto('/reviews.html');await expect(page.getByRole('heading',{name:'Five-star feedback from people we helped.'})).toBeVisible();await expect(page.locator('.review-card')).toHaveCount(10);await expect(page.getByText('the original profile is no longer active')).toBeVisible();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([])});
 
-test('homepage keyboard and accessibility gate',async({page})=>{await page.goto('/');await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document,{rules:{'color-contrast':{enabled:true}}}));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([]);await expect(page.getByRole('link',{name:/Book a free Opportunity Call/i})).toBeVisible();const nav=page.locator('.aifa-global-nav');const book=nav.getByRole('link',{name:'Book a call'});if(!(await book.isVisible())){await nav.getByRole('button',{name:/menu/i}).click()}await expect(book).toHaveAttribute('href','/strategy-call.html');const contact=nav.getByRole('link',{name:'Contact'});await expect(contact).toHaveAttribute('href','/contact.html');await expect(page.locator('footer').getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html')});
+test('homepage keyboard and accessibility gate',async({page})=>{await page.goto('/');await page.keyboard.press('Tab');await expect(page.locator('.skip-link')).toBeFocused();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document,{rules:{'color-contrast':{enabled:true}}}));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([]);await expect(page.getByRole('link',{name:/Book a free demo/i})).toBeVisible();const nav=page.locator('.aifa-global-nav');const book=nav.getByRole('link',{name:'Book a demo'});if(!(await book.isVisible())){await nav.getByRole('button',{name:/menu/i}).click()}await expect(book).toHaveAttribute('href','/strategy-call.html');const contact=nav.getByRole('link',{name:'Contact'});await expect(contact).toHaveAttribute('href','/contact.html');await expect(page.locator('footer').getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html')});
 
 test('homepage and workshops expose Contact in primary nav and footer',async({page})=>{
   for (const route of ['/','/workshops/']){
@@ -41,7 +41,7 @@ test('homepage and workshops expose Contact in primary nav and footer',async({pa
     }
     await expect(contact).toBeVisible();
     await expect(contact).toHaveAttribute('href','/contact.html');
-    await expect(nav.getByRole('link',{name:'Book a call'})).toHaveAttribute('href','/strategy-call.html');
+    await expect(nav.getByRole('link',{name:'Book a demo'})).toHaveAttribute('href','/strategy-call.html');
     await expect(page.locator('footer').getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html');
   }
 });
@@ -62,7 +62,7 @@ test('news hub and nested article share homepage chrome',async({page})=>{
     await expect(nav.getByRole('link',{name:'Platform seats'})).toHaveAttribute('href','/#seats');
     await expect(nav.getByRole('link',{name:'News'})).toHaveAttribute('href','/news/');
     await expect(nav.getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html');
-    await expect(nav.getByRole('link',{name:'Book a call'})).toHaveAttribute('href','/strategy-call.html');
+    await expect(nav.getByRole('link',{name:'Book a demo'})).toHaveAttribute('href','/strategy-call.html');
     await expect(page.locator('body > footer, .aifa-global-footer').getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html');
   }
 });
