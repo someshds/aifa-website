@@ -175,10 +175,23 @@ test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
 
   const webinarPage = fs.readFileSync(path.join(root, 'email-reimagined/webinar.html'), 'utf8');
   const course = fs.readFileSync(path.join(root, 'email-reimagined/course.html'), 'utf8');
+  const doneForYou = fs.readFileSync(path.join(root, 'email-reimagined/done-for-you.html'), 'utf8');
+  const webinarHome = 'https://email-reimagined.com/home';
+  const datedCopy = /Save My Seat|16 October|October 16|19 October|9:00|\[SHOP LINK\]/;
   assert.equal((webinarPage.match(new RegExp(webinar.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length, 2);
-  assert.equal((course.match(new RegExp(webinar.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length, 2);
   assert.match(webinarPage, /Save My Seat/);
-  assert.match(course, /Save My Seat/);
+  assert.equal((course.match(new RegExp(webinarHome.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length, 3);
+  assert.match(course, /See it on the free webinar/);
+  assert.match(course, /£119 \/ \$149, paid once/);
+  assert.match(course, /£19 \/ \$27/);
+  assert.doesNotMatch(course, datedCopy);
+  assert.doesNotMatch(course, />Buy</);
+  assert.match(doneForYou, /href="https:\/\/email-reimagined\.com\/home"/);
+  assert.match(doneForYou, /£599 \/ \$799/);
+  assert.match(doneForYou, /£119 \/ \$149, paid once/);
+  assert.match(doneForYou, /£19 \/ \$27/);
+  assert.doesNotMatch(doneForYou, datedCopy);
+  assert.doesNotMatch(doneForYou, />Buy</);
 });
 
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
