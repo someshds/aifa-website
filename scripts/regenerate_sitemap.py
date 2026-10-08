@@ -90,6 +90,15 @@ def priority_for(url: str) -> tuple[float, str]:
 
 
 def git_lastmod(rel: str) -> str:
+    dirty = subprocess.run(
+        ["git", "status", "--porcelain", "--", rel],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if dirty.stdout.strip():
+        return datetime.now(timezone.utc).strftime("%Y-%m-%d")
     result = subprocess.run(
         ["git", "log", "-1", "--format=%cs", "--", rel],
         cwd=REPO_ROOT,
