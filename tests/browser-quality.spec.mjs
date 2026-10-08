@@ -90,8 +90,23 @@ test('email re-imagined section is in site nav and the three pages render',async
     }
     await expect(email).toBeVisible();
     await expect(email).toHaveAttribute('href','/email-reimagined/');
-    if (route.endsWith('webinar.html') || route.endsWith('course.html')) {
+    if (route.endsWith('webinar.html')) {
       await expect(page.getByRole('link',{name:/Save My Seat/}).first()).toHaveAttribute('href','https://email-reimagined.com/founder-priority-inbox-16th-october');
+    }
+    if (route.endsWith('course.html')) {
+      await expect(page.getByRole('link',{name:/See it on the free webinar/}).first()).toHaveAttribute('href','https://email-reimagined.com/home');
+      await expect(page.locator('.offer-price')).toHaveText('£119 / $149, paid once.');
+      await expect(page.getByText('£19 / $27').first()).toBeVisible();
+      await expect(page.locator('body')).not.toContainText(/Save My Seat|16 October|October 16|19 October/);
+      await expect(page.getByRole('link',{name:/^Buy$/})).toHaveCount(0);
+    }
+    if (route.endsWith('done-for-you.html')) {
+      await expect(page.getByRole('link',{name:/See the webinar first/})).toHaveAttribute('href','https://email-reimagined.com/home');
+      await expect(page.getByText('From £599 / $799').first()).toBeVisible();
+      await expect(page.getByText('£19 / $27').first()).toBeVisible();
+      await expect(page.getByText('£119 / $149').first()).toBeVisible();
+      await expect(page.locator('body')).not.toContainText(/Save My Seat|16 October|October 16|19 October/);
+      await expect(page.getByRole('link',{name:/^Buy$/})).toHaveCount(0);
     }
   }
 });
