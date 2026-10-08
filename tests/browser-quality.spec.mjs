@@ -49,7 +49,7 @@ test('homepage and workshops expose Contact in primary nav and footer',async({pa
 });
 
 test('news hub and nested article share homepage chrome',async({page})=>{
-  for (const route of ['/news/','/news/2026-10-02-google-gemini-4-argon-fairwind-restricted.html','/news/2026-09-28-openai-anthropic-tens-of-thousands-agent-incidents.html','/news/2026-09-25-openai-agents-australian-medicare-portal-permissions.html']){
+  for (const route of ['/news/','/news/2026-10-08-gpt-6-chatgpt-intelligent-ui.html','/news/2026-10-02-google-gemini-4-argon-fairwind-restricted.html','/news/2026-09-28-openai-anthropic-tens-of-thousands-agent-incidents.html','/news/2026-09-25-openai-agents-australian-medicare-portal-permissions.html']){
     await page.goto(route,{waitUntil:'domcontentloaded'});
     await page.waitForSelector('.aifa-global-nav');
     const nav=page.locator('.aifa-global-nav');
