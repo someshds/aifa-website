@@ -21,8 +21,8 @@
       --emerald: #10b981;
       --red: #ef4444;
     }
-    html, body { margin: 0; padding: 0; background: #000; font-family: 'Inter', system-ui, sans-serif; color: #fff; overflow: hidden; }
-    .stage { position: fixed; inset: 0; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+    html, body { margin: 0; padding: 0; background: #000; font-family: 'Inter', system-ui, sans-serif; color: #fff; overflow-x: hidden; overflow-y: auto; }
+    .stage { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
     .canvas { position: relative; width: 1920px; height: 1080px; background: var(--aifa-canvas); transform-origin: center; transform: scale(var(--scale, 1)); overflow: hidden; }
 
     /* ─── Slide container ─────────────────────────────── */
@@ -235,7 +235,7 @@
 
     /* Play overlay */
     #play-overlay {
-      position: fixed; inset: 0; background: rgba(10,6,18,0.95);
+      position: absolute; inset: 0; background: rgba(10,6,18,0.95);
       display: flex; align-items: center; justify-content: center;
       z-index: 100; cursor: pointer;
       transition: opacity 0.4s;
@@ -253,6 +253,16 @@
     .dot { display: inline-block; width: 52px; height: 52px; border-radius: 50%; }
     .dot-sun  { background: radial-gradient(circle, #fef3c7, var(--gold)); box-shadow: 0 0 40px rgba(251,191,36,0.85); }
     .dot-moon { background: radial-gradient(circle at 70% 40%, #f5f3ff, var(--aifa-light)); box-shadow: 0 0 40px rgba(167,139,250,0.8); }
+
+    .player-shell { position: relative; width: 100%; height: 100vh; min-height: 480px; overflow: hidden; background: #000; }
+    .video-page-heading { position: absolute; top: 0; left: 0; right: 0; z-index: 110; padding: 1.1rem 1.25rem 2.4rem; background: linear-gradient(180deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.35) 62%, transparent 100%); pointer-events: none; }
+    .video-page-heading .video-kicker { margin: 0 0 .35rem; font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.72); }
+    .video-page-heading h1 { margin: 0; font-size: clamp(1.15rem, 3.2vw, 1.85rem); font-weight: 800; line-height: 1.2; color: #fff; letter-spacing: -0.02em; max-width: 46rem; }
+    .video-summary { position: relative; z-index: 2; max-width: 52rem; margin: 0 auto; padding: 3rem 1.25rem 5.5rem; color: #f5f3ff; }
+    .video-summary h2 { margin: 0 0 .55rem; font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; }
+    .video-summary p { margin: 0 0 1.5rem; color: rgba(255,255,255,.78); font-size: 1rem; line-height: 1.6; max-width: 40rem; }
+    .video-summary a { color: #c4b5fd; font-weight: 650; text-underline-offset: 3px; }
+    .video-summary a:hover { color: #fff; }
   </style>
   <link rel="stylesheet" href="/css/aifa-nav.css?v=fusion-flow-v1">
 <link rel="stylesheet" href="/css/aifa-privacy-v1.css">
@@ -260,10 +270,14 @@
 </head>
 <body data-aifa-footer-only>
 
+<div class="player-shell">
+<div class="video-page-heading">
+  <p class="video-kicker">AI Operating Systems</p>
+  <h1>How an AI operating system connects your business</h1>
+</div>
 <div id="play-overlay">
   <button id="play-button">▶ Play AIFA promo — 77s</button>
 </div>
-
 <div class="stage">
   <div class="canvas" id="canvas">
 
@@ -590,6 +604,18 @@
 
   </div>
 </div>
+</div>
+
+<section class="video-summary" aria-label="About this video">
+    <h2>What this solves</h2>
+    <p>Most small businesses do not need another isolated tool. They need the systems they already use — enquiries, bookings, follow-up and reviews — to stay connected so work does not slip through the cracks.</p>
+    <h2>How it works</h2>
+    <p>The film walks through the build: map every enquiry and handoff, wire in voice, lead scoring, workflows, review replies and bookings, then train the system on how the business actually works.</p>
+    <h2>Who it is for</h2>
+    <p>Owner-operators who are tired of work living in separate apps, and who want one operating layer with clear human oversight.</p>
+    <h2>Next step</h2>
+    <p>See the <a href="/ai-operating-systems.html">AI Operating Systems</a> service, or <a href="https://email-reimagined.com/founder-priority-inbox-demo">book a demo</a> to talk through one workflow.</p>
+</section>
 
 <div id="controls">
   <button id="play-pause" class="ctrl-btn" aria-label="Pause">&#9208;</button>
@@ -635,8 +661,9 @@
   const timeDisplay = document.getElementById('time-display');
 
   function fitStage() {
-    const sx = window.innerWidth / 1920;
-    const sy = window.innerHeight / 1080;
+    const shell = document.querySelector('.player-shell');
+    const sx = (shell ? shell.clientWidth : window.innerWidth) / 1920;
+    const sy = (shell ? shell.clientHeight : window.innerHeight) / 1080;
     canvas.style.setProperty('--scale', Math.min(sx, sy));
   }
   window.addEventListener('resize', fitStage);
