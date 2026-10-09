@@ -131,6 +131,15 @@ a { color: var(--brand-deep); }
   background: #0b1020;
 }
 
+.hero-wide .hero-art-wide {
+  margin-top: 2rem;
+  max-width: none;
+}
+
+.hero-art-wide img {
+  background: #fff8f0;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -400,6 +409,61 @@ h2 {
   color: var(--ink-2);
 }
 
+.product-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  min-height: 100%;
+}
+
+.product-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff8f0;
+}
+
+.product-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.25rem 1.3rem 1.4rem;
+  flex: 1;
+}
+
+.product-price {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.35rem;
+}
+
+.dfy-strip {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+}
+
+.dfy-strip .dfy-copy {
+  flex: 1 1 28rem;
+  min-width: 0;
+}
+
+.dfy-strip .dfy-copy p {
+  margin-top: 0.35rem;
+}
+
 :focus-visible { outline: 3px solid #22d3ee; outline-offset: 2px; }
 
 @media (max-width: 900px) {
@@ -418,7 +482,9 @@ h2 {
   .grid-3,
   .grid-2 { grid-template-columns: 1fr; }
   .hero-actions .btn,
-  .cta .btn { width: 100%; }
+  .cta .btn,
+  .product-actions .btn,
+  .dfy-strip .btn { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

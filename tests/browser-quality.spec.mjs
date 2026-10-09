@@ -79,7 +79,7 @@ test('email re-imagined section is in site nav and the three pages render',async
   }
   await expect(homeEmail).toBeVisible();
   await expect(homeEmail).toHaveAttribute('href','/email-reimagined/');
-  for (const route of ['/email-reimagined/','/email-reimagined/webinar.html','/email-reimagined/course.html','/email-reimagined/done-for-you.html']){
+  for (const route of ['/email-reimagined/','/email-reimagined/webinar.html','/email-reimagined/course.html','/email-reimagined/shop.html','/email-reimagined/done-for-you.html']){
     await page.goto(route,{waitUntil:'domcontentloaded'});
     await page.waitForSelector('.aifa-global-nav');
     await expect(page.locator('h1')).toHaveCount(1);
@@ -98,6 +98,17 @@ test('email re-imagined section is in site nav and the three pages render',async
       await expect(page.locator('.offer-price')).toHaveText('£119 / $149, paid once.');
       await expect(page.getByText('£19 / $27').first()).toBeVisible();
       await expect(page.locator('body')).not.toContainText(/Save My Seat|16 October|October 16|19 October/);
+      await expect(page.getByRole('link',{name:/^Buy$/})).toHaveCount(0);
+    }
+    if (route.endsWith('shop.html')) {
+      await expect(page.getByRole('link',{name:'Buy in the UK, £19'})).toHaveAttribute('href','https://link.aifusionautomations.com/payment-link/6ac909cdc0e70c7fefb738e5');
+      await expect(page.getByRole('link',{name:'Buy in the US, $27'})).toHaveAttribute('href','https://link.aifusionautomations.com/payment-link/6ac8c98bc0e70c7fefb73839');
+      await expect(page.getByRole('link',{name:'Buy in the UK, £119'})).toHaveAttribute('href','https://link.aifusionautomations.com/payment-link/6ac90a13075ea22a20cdd6df');
+      await expect(page.getByRole('link',{name:'Buy in the US, $149'})).toHaveAttribute('href','https://link.aifusionautomations.com/payment-link/6ac8cc7c075ea22a20cdd622');
+      await expect(page.getByRole('link',{name:"See what's in the course"})).toHaveAttribute('href','/email-reimagined/course.html');
+      await expect(page.getByRole('link',{name:'Book a call'})).toHaveAttribute('href','/email-reimagined/done-for-you.html');
+      await expect(page.getByRole('link',{name:'Not sure yet? Book a free demo'}).first()).toHaveAttribute('href',DEMO_URL);
+      await expect(page.locator('body')).not.toContainText(/Save My Seat|16 October|October 16|19 October|#UK_PROMPTS_LINK|#UK_COURSE_LINK/);
       await expect(page.getByRole('link',{name:/^Buy$/})).toHaveCount(0);
     }
     if (route.endsWith('done-for-you.html')) {
