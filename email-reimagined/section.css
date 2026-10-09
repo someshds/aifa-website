@@ -131,15 +131,6 @@ a { color: var(--brand-deep); }
   background: #0b1020;
 }
 
-.hero-wide .hero-art-wide {
-  margin-top: 2rem;
-  max-width: none;
-}
-
-.hero-art-wide img {
-  background: #fff8f0;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
