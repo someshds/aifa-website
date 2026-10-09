@@ -176,6 +176,7 @@ test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
   const webinarPage = fs.readFileSync(path.join(root, 'email-reimagined/webinar.html'), 'utf8');
   const course = fs.readFileSync(path.join(root, 'email-reimagined/course.html'), 'utf8');
   const doneForYou = fs.readFileSync(path.join(root, 'email-reimagined/done-for-you.html'), 'utf8');
+  const shop = fs.readFileSync(path.join(root, 'email-reimagined/shop.html'), 'utf8');
   // Decision 06: course and done-for-you use the undated webinar home CTA and £/$ prices.
   const webinarHome = 'https://email-reimagined.com/home';
   const datedCopy = /Save My Seat|16 October|October 16|19 October|9:00|\[SHOP LINK\]/;
@@ -193,6 +194,21 @@ test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
   assert.match(doneForYou, /£19 \/ \$27/);
   assert.doesNotMatch(doneForYou, datedCopy);
   assert.doesNotMatch(doneForYou, />Buy</);
+  assert.match(shop, /href="https:\/\/link\.aifusionautomations\.com\/payment-link\/6ac909cdc0e70c7fefb738e5"/);
+  assert.match(shop, /href="https:\/\/link\.aifusionautomations\.com\/payment-link\/6ac8c98bc0e70c7fefb73839"/);
+  assert.match(shop, /href="https:\/\/link\.aifusionautomations\.com\/payment-link\/6ac90a13075ea22a20cdd6df"/);
+  assert.match(shop, /href="https:\/\/link\.aifusionautomations\.com\/payment-link\/6ac8cc7c075ea22a20cdd622"/);
+  assert.match(shop, /Buy in the UK, £19/);
+  assert.match(shop, /Buy in the US, \$27/);
+  assert.match(shop, /Buy in the UK, £119/);
+  assert.match(shop, /Buy in the US, \$149/);
+  assert.match(shop, /from £599 \/ \$799/);
+  assert.match(shop, /Grant De Swardt/);
+  assert.match(shop, /See what's in the course/);
+  assert.match(shop, /Not sure yet\? Book a free demo/);
+  assert.doesNotMatch(shop, datedCopy);
+  assert.doesNotMatch(shop, /#UK_PROMPTS_LINK|#UK_COURSE_LINK/);
+  assert.doesNotMatch(shop, />Buy</);
 });
 
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
