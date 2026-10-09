@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Changelog | Email Re-imagined</title>
+<meta name="description" content="Owner-visible changes in Email Re-imagined, newest first. Sidebar 1.0.2 is dated 4 October 2026. The automatic version counter reached 1.1.307 on 9 October 2026." />
+<link rel="canonical" href="https://www.aifusionautomations.com/email-reimagined/changelog/" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/favicon-192.png" />
+<meta name="robots" content="index,follow" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Changelog | Email Re-imagined" />
+<meta property="og:description" content="Owner-visible changes in Email Re-imagined, newest first." />
+<meta property="og:url" content="https://www.aifusionautomations.com/email-reimagined/changelog/" />
+<link rel="stylesheet" href="/css/site-chrome.css?v=site-chrome-v6" />
+<link rel="stylesheet" href="/email-reimagined/section.css" />
+<style>
+.release{border:1px solid var(--line);border-radius:16px;padding:1.15rem 1.25rem;margin:0 0 .9rem;background:#fff}
+.release h3{font-size:1.05rem;letter-spacing:-.02em;margin-bottom:.2rem}
+.release .meta{color:var(--muted);font-size:.8rem;font-weight:700;margin-bottom:.55rem}
+.release ul{margin:.2rem 0 0;padding-left:1.15rem;color:var(--ink-2)}
+.release li{margin:.28rem 0}
+.month{margin-top:2.1rem}
+.month>h2{font-size:1.35rem;letter-spacing:-.03em;margin-bottom:.8rem}
+.note{color:var(--muted);font-size:.92rem;max-width:68ch}
+</style>
+</head>
+<body data-nav-theme="light">
+<a class="skip-link" href="#top">Skip to main content</a>
+<main id="top">
+  <section class="hero hero-wide">
+    <div class="wrap">
+      <span class="eyebrow"><span class="dot"></span> Email Re-imagined</span>
+      <h1>Changelog</h1>
+      <p class="lead">What an owner would notice, newest first. The Mac app sidebar shows 1.0.2, updated 4 October 2026. A second counter, on the copy in daily use since June, reached 1.1.307 on 9 October 2026. Each entry says which counter it belongs to.</p>
+    </div>
+  </section>
+
+  <div class="section-nav-wrap">
+    <div class="wrap">
+      <nav class="section-nav" aria-label="Email Re-imagined">
+        <a href="/email-reimagined/">Overview</a>
+        <a href="/email-reimagined/webinar.html">Webinar</a>
+        <a href="/email-reimagined/course.html">Course</a>
+        <a href="/email-reimagined/done-for-you.html">Done for you</a>
+        <a href="/email-reimagined/changelog/" aria-current="page">Changelog</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="content-band">
+    <div class="wrap">
+      <p class="note">Dates come from the version file, the app’s change notes, git history, or the 3–4 October 2026 build record. A change with a date and no version number is listed on that date and marked.</p>
+
+      <section class="month" aria-labelledby="oct-2026">
+        <h2 id="oct-2026">October 2026</h2>
+
+        <article class="release">
+          <h3>1.1.306 and 1.1.307</h3>
+          <p class="meta">Automatic version · 9 October 2026</p>
+          <ul>
+            <li>The version file reads 1.1.307. No separate owner-facing note was written for 1.1.306 or 1.1.307.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.305 — The last verified inbox stays up during a Gmail cooldown</h3>
+          <p class="meta">Automatic version · 9 October 2026 · The matching work note is dated this day. The heading in the app’s change file had no date of its own.</p>
+          <ul>
+            <li>A Gmail quota error keeps the last verified inbox on screen, with a warning and the retry delay.</li>
+            <li>The saved inbox is reused for 30 minutes. A full refresh runs hourly.</li>
+            <li>A second manual Refresh within five minutes reuses that saved inbox.</li>
+            <li>On startup, the saved inbox stays visible while a due Gmail check runs in the background.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.303 — Priority Inbox lists every qualifying message it has loaded</h3>
+          <p class="meta">Automatic version · 9 October 2026</p>
+          <ul>
+            <li>The inbox load asks for up to 600 current messages.</li>
+            <li>Priority Inbox lists every loaded message that scores 34 or higher and has not been set aside, ranked by score.</li>
+            <li>New mail, including mail first labelled as marketing, goes through the deeper scoring pass.</li>
+            <li>During a temporary Google limit, the previous verified snapshot can stay on screen while the wider load retries.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.294 — Reconnect Gmail from the app</h3>
+          <p class="meta">Automatic version · 7 October 2026</p>
+          <ul>
+            <li>When Gmail says its authorisation has expired or been revoked, the banner shows Re-authorise Gmail.</li>
+            <li>That opens the Google consent flow in the browser. Check connection then refreshes the inbox.</li>
+            <li>Other temporary Gmail failures still show Retry.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.287 — Reply suggestions follow the email</h3>
+          <p class="meta">Automatic version · 7 October 2026</p>
+          <ul>
+            <li>Suggest replies reads the full email before drafting.</li>
+            <li>You get three distinct options: a sensible yes, one useful question, and a polite decline or not-now.</li>
+            <li>Choosing an option places it in the editable draft. Confirm send is the step that sends.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.283 — A short Google failure keeps the inbox on screen</h3>
+          <p class="meta">Automatic version · 6 October 2026</p>
+          <ul>
+            <li>A short-lived Google precondition error is retried once.</li>
+            <li>If that still fails, the app shows the last verified inbox for up to seven days and labels it Showing last verified inbox.</li>
+            <li>A failed refresh leaves the inbox you already have on screen and explains the failure.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.280 — Archive finishes in the connected inbox first</h3>
+          <p class="meta">Automatic version · 6 October 2026</p>
+          <ul>
+            <li>Archive completes in the connected Gmail inbox first.</li>
+            <li>If a matching copy still needs tidying, that tidy-up is queued, saved locally, and retried. The app says when it is still pending.</li>
+            <li>Archive, spam, and completion can be undone where Gmail supports it.</li>
+            <li>A timeout checks Gmail before the app offers another try.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.274 — Clearer recovery after a Gmail timeout</h3>
+          <p class="meta">Automatic version · 5 October 2026</p>
+          <ul>
+            <li>After a Gmail action times out, the app checks Gmail before another action is allowed. If the live result cannot be confirmed, actions pause.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.0.2 — Refresh and Load older</h3>
+          <p class="meta">Sidebar version · 4 October 2026 · Updated 4 Oct 2026</p>
+          <ul>
+            <li>Refresh loads inbox mail from the last 90 days, up to 250 messages.</li>
+            <li>Load older loads inbox mail from the last year, up to 600 messages.</li>
+            <li>New rows are scored. Rows already scored are left as they are.</li>
+            <li>On this sidebar release, Priority Inbox is still the top 10 messages scored 34 or higher.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.0.1 — Version on the sidebar</h3>
+          <p class="meta">Sidebar version · 4 October 2026</p>
+          <ul>
+            <li>The sidebar shows the version and the updated date. Later edits bump the patch and set that date to the day of the change.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>Drafts, Trash, and Schedule</h3>
+          <p class="meta">4 October 2026 · No version number was recorded. These were in place before sidebar 1.0.1 was shown.</p>
+          <ul>
+            <li>The window title is Email Re-imagined.</li>
+            <li>Draft reply can start from a yes, a request for details, or not right now. Suggest replies and Improve draft stay inside facts already in the email or the draft.</li>
+            <li>Send draft asks you to confirm. Confirm send is the step that sends immediately.</li>
+            <li>Unsubscribe &amp; delete moves the message to Trash. Undo can restore it from Trash.</li>
+            <li>Schedule asks for a date and time, stores the draft, and sends it then. Cancel removes that draft before the time.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.272 — OpenAI mail stays high priority</h3>
+          <p class="meta">Automatic version · 3 October 2026</p>
+          <ul>
+            <li>Mail whose sender is OpenAI, including its subdomains, stays in the high-priority list.</li>
+            <li>Lookalike sender domains stay out. A priority you set for a sender yourself still wins.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>Inbox, Priority, Archive, Snooze, and the Mac window</h3>
+          <p class="meta">3 October 2026 · No version number was recorded. Sidebar numbering started the next day at 1.0.1.</p>
+          <ul>
+            <li>The inbox lists recent messages, with a sidebar, top bar, summary chips, message list, reading pane, and side panel.</li>
+            <li>Priority Inbox shows the top 10 messages scored 34 or higher.</li>
+            <li>Archive and Complete &amp; remove take the message out of the inbox. Undo can put it back.</li>
+            <li>Open original opens that thread in the browser.</li>
+            <li>Snooze takes the message out of the inbox and adds a Snoozed label. It stays there until you undo it.</li>
+            <li>The list can load up to 100 messages.</li>
+            <li>A Mac app window opens the same screen.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="month" aria-labelledby="sep-2026">
+        <h2 id="sep-2026">September 2026</h2>
+
+        <article class="release">
+          <h3>1.1.248 — Not a priority on every Priority Inbox row</h3>
+          <p class="meta">Automatic version · 19 September 2026</p>
+          <ul>
+            <li>Not a priority works for every email shown in Priority Inbox, including mail raised by the score.</li>
+            <li>A sender priority you set stays in effect after refresh.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.245 — A stuck archive can be checked</h3>
+          <p class="meta">Automatic version · 18 September 2026</p>
+          <ul>
+            <li>Gmail commands and queued actions have firm time limits.</li>
+            <li>If an archive result is uncertain, the app refreshes Gmail and checks whether the email is still in the inbox before it offers a retry.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.239 — Send asks you to review the recipient</h3>
+          <p class="meta">Automatic version · 16–17 September 2026</p>
+          <ul>
+            <li>Sending a draft uses an in-app review that shows the recipient and the sending mailbox before you confirm.</li>
+            <li>The app blocks a reply that would go back to one of your own addresses.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.229 — A saved inbox during a Google cooldown</h3>
+          <p class="meta">Automatic version · 13 September 2026</p>
+          <ul>
+            <li>The latest successful inbox snapshot is saved and can be shown for up to seven days when Google is rate-limiting requests.</li>
+            <li>The scheduled background report reads that saved snapshot.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>Gmail requests queue, and the reading pane shows its state</h3>
+          <p class="meta">4–5 September 2026 · No version number was recorded.</p>
+          <ul>
+            <li>Gmail requests run through one queue: your action first, ordinary reads next, and background analysis last.</li>
+            <li>The reading pane shows loading, retrying, error, and complete. A preview is labelled as a preview while the full email is still loading.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.202 — A Google limit shows a wait message</h3>
+          <p class="meta">Automatic version · 3 September 2026</p>
+          <ul>
+            <li>When Google rate-limits the app, the screen asks you to wait, and the server holds further Gmail commands for a short backoff.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="month" aria-labelledby="aug-2026">
+        <h2 id="aug-2026">August 2026</h2>
+
+        <article class="release">
+          <h3>The reply count matches Priority Inbox</h3>
+          <p class="meta">27 August 2026 · No version number was recorded.</p>
+          <ul>
+            <li>The “needs reply” count includes only mail that still qualifies for Priority Inbox.</li>
+            <li>When Priority Inbox is empty after a successful refresh, the app opens the first folder that has mail, in this order: Customers, Money, Service warnings.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>Reply choices, and high customer replies stay selectable</h3>
+          <p class="meta">26 August 2026 · No version number was recorded.</p>
+          <ul>
+            <li>The reply panel offers three starting points: a yes, ask for details, and not right now. Choosing one fills the draft.</li>
+            <li>Suggest replies returns three choices for that email. Improve errors show in the reply panel.</li>
+            <li>A customer reply the app already marks high stays visible in Priority Inbox while scores load. A sender you marked Low stays low.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>Improve rewrites the draft you typed</h3>
+          <p class="meta">21 August 2026 · No version number was recorded.</p>
+          <ul>
+            <li>Improve sends the current draft and the selected email for a rewrite, then puts the rewrite in the draft box. It does not send the email.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>Undo, and copy the email</h3>
+          <p class="meta">19 August 2026 · No version number was recorded.</p>
+          <ul>
+            <li>Undo reverses the last Archive, Complete &amp; remove, Snooze, Mark spam, Unsubscribe &amp; delete, Find all &amp; delete, or Remove from app only.</li>
+            <li>Sent replies are left as sent.</li>
+            <li>Copy email copies the sender, date, subject, and the loaded body.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>A failed refresh is shown as a failure</h3>
+          <p class="meta">10 August 2026 · No version number was recorded.</p>
+          <ul>
+            <li>If Gmail refresh fails, the app says Gmail refresh failed.</li>
+            <li>The sidebar counts loaded emails. An empty screen says when Gmail is unavailable.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="month" aria-labelledby="jul-2026">
+        <h2 id="jul-2026">July 2026</h2>
+
+        <article class="release">
+          <h3>1.1.136 — Normal priority stays saved</h3>
+          <p class="meta">Automatic version · 20 July 2026</p>
+          <ul>
+            <li>Setting a sender to Normal is saved. High scores 90, Normal scores 50, and Low scores 8, and that choice survives refresh.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>Subject filing, and appointment confirmations</h3>
+          <p class="meta">19 July 2026 · No version number was recorded.</p>
+          <ul>
+            <li>Filing a sender under a subject moves that mail into the subject’s folder, including out of Customers when the subject is not a customer folder.</li>
+            <li>Appointment confirmations stay out of Priority Inbox. They remain in their own folder.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>New subject, and a Warmup folder</h3>
+          <p class="meta">15 July 2026 · No version number was recorded.</p>
+          <ul>
+            <li>New subject is an in-app form in the sidebar and in the reading pane.</li>
+            <li>Warmup mail is filed in its own folder and kept low priority.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>Search can fetch mail outside the loaded window</h3>
+          <p class="meta">14 July 2026 · No version number was recorded.</p>
+          <ul>
+            <li>A search of four or more characters can ask Gmail for matching inbox mail that the current load did not include.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.102 — Mac app window</h3>
+          <p class="meta">Automatic version · 3 July 2026 · The desktop window was checked at 1.1.102.</p>
+          <ul>
+            <li>Email Re-imagined opens in a Mac window.</li>
+            <li>Open original, CRM links, and other outside links open in the default browser.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>Shorter default load, Load older, and per-sender priority</h3>
+          <p class="meta">1 July 2026 · No version number was recorded. Git records the load change and the High / Normal / Low selector on this day.</p>
+          <ul>
+            <li>The default load is the last 90 days, up to 250 messages, with a short cache and Load older.</li>
+            <li>You can set a sender to High, Normal, or Low, and that rule is kept.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="month" aria-labelledby="jun-2026">
+        <h2 id="jun-2026">June 2026</h2>
+
+        <article class="release">
+          <h3>Login start, and a deeper look at low-looking mail</h3>
+          <p class="meta">30 June 2026 · No version number was recorded.</p>
+          <ul>
+            <li>The app can start when you log in to the Mac.</li>
+            <li>The CRM check can use the person named in the subject when the visible sender is a notification.</li>
+            <li>A deeper scoring pass can raise mail that the first pass had treated as low value.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>Add to calendar</h3>
+          <p class="meta">24 June 2026 · No version number was recorded.</p>
+          <ul>
+            <li>Signed-deal notifications are treated as important.</li>
+            <li>The reading pane can add the related event to the calendar.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.70 — Scores, and Add to CRM</h3>
+          <p class="meta">Automatic version · 23 June 2026 · Named in the first git commit.</p>
+          <ul>
+            <li>Each message can show a score from 1 to 100 and a red, amber, or green mark. Priority Inbox uses that score, with a floor of 34.</li>
+            <li>Add to CRM can save the sender as a contact.</li>
+            <li>Complete &amp; remove archives the message. It is a separate action from Unsubscribe &amp; delete.</li>
+          </ul>
+        </article>
+
+        <article class="release">
+          <h3>1.1.0 — A live inbox</h3>
+          <p class="meta">Automatic version · 22 June 2026</p>
+          <ul>
+            <li>The app loads the connected Gmail inbox.</li>
+            <li>Search, the full email body, Archive, Snooze, and a threaded draft reply are on the screen.</li>
+            <li>Open original opens the exact message in Gmail.</li>
+            <li>You can file a sender under a subject, and Not a priority drops that message out of Priority Inbox. Both survive refresh.</li>
+            <li>Payment, booking, and account links in the email are shown as buttons, with the destination domain visible.</li>
+            <li>Gmail actions are written to a local action record.</li>
+            <li>On this date, Priority Inbox was the top 10 by priority.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="month" aria-labelledby="left-out">
+        <h2 id="left-out">What this page leaves out</h2>
+        <p class="note">Rules written for one named sender were left in the working notes. Reconnection repairs that only restored a login, with no change to the screen, were left out too. The sidebar copy has dates for 1.0.1 and 1.0.2 in its version file. The 3 October and early 4 October items above have dates and no version number.</p>
+      </section>
+    </div>
+  </section>
+</main>
+<script src="/js/aifa-nav.js?v=site-chrome-v6" defer></script>
+<script src="/js/aifa-tracking.js?v=quality-os-v1" defer></script>
+</body>
+</html>
