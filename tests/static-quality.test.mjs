@@ -173,10 +173,40 @@ test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
   }
   assert.deepEqual(failures, []);
 
-  const webinarPage = fs.readFileSync(path.join(root, 'email-reimagined/webinar.html'), 'utf8');
-  const course = fs.readFileSync(path.join(root, 'email-reimagined/course.html'), 'utf8');
-  const doneForYou = fs.readFileSync(path.join(root, 'email-reimagined/done-for-you.html'), 'utf8');
-  const shop = fs.readFileSync(path.join(root, 'email-reimagined/shop.html'), 'utf8');
+  const erPages = [
+    'email-reimagined/index.html',
+    'email-reimagined/webinar.html',
+    'email-reimagined/course.html',
+    'email-reimagined/shop.html',
+    'email-reimagined/done-for-you.html',
+    'email-reimagined/changelog/index.html'
+  ];
+  const erNavStart = /<body[^>]*>\s*<style>\s*\.er-nav\{/;
+  const erNavMarkup = /<nav class="er-nav" aria-label="Email Re-imagined">/;
+  const erNavLinks = [
+    'https://email-reimagined.com/home',
+    'https://email-reimagined.com/home#free-guide',
+    'https://email-reimagined.com/founder-priority-inbox-16th-october',
+    'https://www.aifusionautomations.com/email-reimagined/shop.html',
+    'https://www.aifusionautomations.com/email-reimagined/course.html',
+    'https://www.aifusionautomations.com/email-reimagined/done-for-you.html',
+    'https://email-reimagined.com/founder-priority-inbox-demo'
+  ];
+  function stripErNav(html, rel) {
+    assert.match(html, erNavStart, `${rel} is missing the Email Re-imagined menu as the first body element`);
+    assert.match(html, erNavMarkup, `${rel} is missing the Email Re-imagined nav`);
+    for (const href of erNavLinks) {
+      assert.equal((html.match(new RegExp(href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length >= 2, true, `${rel} is missing nav link ${href}`);
+    }
+    return html.replace(/<style>\s*\.er-nav[\s\S]*?<\/nav>\s*/, '');
+  }
+  const webinarPage = stripErNav(fs.readFileSync(path.join(root, 'email-reimagined/webinar.html'), 'utf8'), 'email-reimagined/webinar.html');
+  const course = stripErNav(fs.readFileSync(path.join(root, 'email-reimagined/course.html'), 'utf8'), 'email-reimagined/course.html');
+  const doneForYou = stripErNav(fs.readFileSync(path.join(root, 'email-reimagined/done-for-you.html'), 'utf8'), 'email-reimagined/done-for-you.html');
+  const shop = stripErNav(fs.readFileSync(path.join(root, 'email-reimagined/shop.html'), 'utf8'), 'email-reimagined/shop.html');
+  for (const rel of erPages) {
+    stripErNav(fs.readFileSync(path.join(root, rel), 'utf8'), rel);
+  }
   // Decision 06: course and done-for-you use the undated webinar home CTA and £/$ prices.
   const webinarHome = 'https://email-reimagined.com/home';
   const datedCopy = /Save My Seat|16 October|October 16|19 October|9:00|\[SHOP LINK\]/;
