@@ -1,0 +1,10 @@
+/* Register the AI FUSION service worker. No install banner. */
+(function () {
+  "use strict";
+  if (!("serviceWorker" in navigator)) return;
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch(function () {
+      return undefined;
+    });
+  });
+})();
