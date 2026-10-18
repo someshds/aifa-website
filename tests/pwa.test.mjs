@@ -150,9 +150,10 @@ test('every public HTML page links the manifest and registers the worker once', 
     if (!html.includes('href="/manifest.json"')) failures.push(`${rel}: /manifest.json`);
     if ((html.match(/name=["']theme-color["']/g) || []).length !== 1) failures.push(`${rel}: theme-color`);
     if ((html.match(/name=["']application-name["']/g) || []).length !== 1) failures.push(`${rel}: application-name`);
-    if (!html.includes('name="application-name" content="AI FUSION"')) failures.push(`${rel}: application-name value`);
     if ((html.match(/name=["']apple-mobile-web-app-title["']/g) || []).length !== 1) failures.push(`${rel}: apple title`);
-    if (!html.includes('name="apple-mobile-web-app-title" content="AI FUSION"')) failures.push(`${rel}: apple title value`);
+    const appTitle = rel === 'boxleague-pro.html' ? 'BoxLeague Pro' : 'AI FUSION';
+    if (!html.includes(`name="application-name" content="${appTitle}"`)) failures.push(`${rel}: application-name value`);
+    if (!html.includes(`name="apple-mobile-web-app-title" content="${appTitle}"`)) failures.push(`${rel}: apple title value`);
     if ((html.match(/src=["']\/js\/pwa\.js/g) || []).length !== 1) failures.push(`${rel}: pwa.js`);
     if (html.includes('beforeinstallprompt')) failures.push(`${rel}: install banner`);
   }
