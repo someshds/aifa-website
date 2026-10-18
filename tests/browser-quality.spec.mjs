@@ -3,7 +3,7 @@ import axeSource from 'axe-core';
 
 const DEMO_URL='https://email-reimagined.com/founder-priority-inbox-demo';
 
-for(const route of ['/','/reviews.html','/contact.html','/services/'])test(`${route} renders cleanly`,async({page})=>{const errors=[];page.on('console',m=>{if(m.type()!=='error')return;const text=m.text();if(text.includes('favicon')||text.includes('link.aifusionautomations.com'))return;errors.push(text)});await page.goto(route,{waitUntil:'domcontentloaded'});await page.waitForTimeout(500);await expect(page.locator('h1')).toHaveCount(1);const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);expect(overflow).toBe(false);expect(errors).toEqual([])});
+for(const route of ['/','/reviews.html','/contact.html','/services/','/add-to-your-phone.html'])test(`${route} renders cleanly`,async({page})=>{const errors=[];page.on('console',m=>{if(m.type()!=='error')return;const text=m.text();if(text.includes('favicon')||text.includes('link.aifusionautomations.com'))return;errors.push(text)});await page.goto(route,{waitUntil:'domcontentloaded'});await page.waitForTimeout(500);await expect(page.locator('h1')).toHaveCount(1);const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);expect(overflow).toBe(false);expect(errors).toEqual([])});
 
 test('contact page embeds the enquiry form and keeps email and booking as secondary paths',async({page})=>{
   await page.goto('/contact.html');
@@ -123,3 +123,30 @@ test('email re-imagined section is in site nav and the three pages render',async
 });
 
 test('optional integrations require an explicit choice',async({page})=>{await page.goto('/');expect(await page.locator('script[src*="googletagmanager"]').count()).toBe(0);expect(await page.locator('iframe[src*="widget/form"]').count()).toBe(0);expect(await page.locator('#aifa-form-mount, #aifa-opportunity-form').count()).toBe(0);await page.getByRole('button',{name:'Essential only'}).click();expect(await page.locator('script[src*="googletagmanager"]').count()).toBe(0);await page.evaluate(()=>localStorage.clear());await page.reload();await page.getByRole('button',{name:'Allow analytics'}).click();await expect(page.locator('script[src*="googletagmanager"]')).toHaveCount(1)});
+
+test('installable PWA registers at /sw.js and the footer links home-screen instructions',async({page})=>{
+  const manifest=await page.goto('/manifest.json');
+  expect(manifest.ok()).toBeTruthy();
+  const body=await manifest.json();
+  expect(body.name).toBe('AI FUSION');
+  expect(body.short_name).toBe('AI FUSION');
+  const sw=await page.goto('/sw.js');
+  expect(sw.ok()).toBeTruthy();
+  expect(await sw.text()).toContain('aifa-pwa-v1');
+  await page.goto('/',{waitUntil:'load'});
+  const info=await page.evaluate(async()=>{
+    if(!('serviceWorker' in navigator))return null;
+    const reg=await navigator.serviceWorker.ready;
+    return {scope:reg.scope,scriptURL:reg.active&&reg.active.scriptURL};
+  });
+  expect(info).not.toBeNull();
+  expect(info.scriptURL).toMatch(/\/sw\.js$/);
+  expect(new URL(info.scope).pathname).toBe('/');
+  await expect(page.locator('footer').getByRole('link',{name:'Add AI FUSION to your phone'})).toHaveAttribute('href','/add-to-your-phone.html');
+  await page.goto('/add-to-your-phone.html',{waitUntil:'domcontentloaded'});
+  await expect(page.getByRole('heading',{level:1,name:'Add AI FUSION to your phone'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'iPhone, Safari'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'iPhone, Chrome'})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Android, Chrome'})).toBeVisible();
+  await expect(page.locator('#main')).not.toContainText(/Grant/i);
+});

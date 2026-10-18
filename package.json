@@ -1,1 +1,18 @@
-{"name":"aifa-website-quality-os","private":true,"version":"1.0.0","type":"module","scripts":{"sitemap":"python3 scripts/regenerate_sitemap.py","test:static":"node --test tests/static-quality.test.mjs","test:browser":"playwright test","test:lighthouse":"node tests/lighthouse-gate.mjs","test":"npm run test:static && npm run test:browser"},"devDependencies":{"@playwright/test":"^1.55.0","axe-core":"^4.10.3","lighthouse":"^13.0.0"}}
+{
+  "name": "aifa-website-quality-os",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "sitemap": "python3 scripts/regenerate_sitemap.py",
+    "test:static": "node --test tests/static-quality.test.mjs tests/pwa.test.mjs",
+    "test:browser": "playwright test",
+    "test:lighthouse": "node tests/lighthouse-gate.mjs",
+    "test": "npm run test:static && npm run test:browser"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "axe-core": "^4.10.3",
+    "lighthouse": "^13.0.0"
+  }
+}

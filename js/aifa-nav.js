@@ -82,6 +82,7 @@
     '        <a href="/videos/">Videos</a>',
     '        <a href="/news/">News</a>',
     '        <a href="/contact.html">Contact</a>',
+    '        <a href="/add-to-your-phone.html">Add AI FUSION to your phone</a>',
     '        <a href="' + BOOK_CALL_URL + '" data-conversion="book-call">Book a demo</a>',
     '        <a href="/privacy-policy-aifa.html">Privacy Policy</a>',
     '        <a href="/terms.html">Terms &amp; Conditions</a>',
