@@ -3,7 +3,7 @@ import axeSource from 'axe-core';
 
 const DEMO_URL='https://email-reimagined.com/founder-priority-inbox-demo';
 
-for(const route of ['/','/reviews.html','/contact.html','/services/','/add-to-your-phone.html'])test(`${route} renders cleanly`,async({page})=>{const errors=[];page.on('console',m=>{if(m.type()!=='error')return;const text=m.text();if(text.includes('favicon')||text.includes('link.aifusionautomations.com'))return;errors.push(text)});await page.goto(route,{waitUntil:'domcontentloaded'});await page.waitForTimeout(500);await expect(page.locator('h1')).toHaveCount(1);const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);expect(overflow).toBe(false);expect(errors).toEqual([])});
+for(const route of ['/','/reviews.html','/contact.html','/book-a-call.html','/services/','/add-to-your-phone.html'])test(`${route} renders cleanly`,async({page})=>{const errors=[];page.on('console',m=>{if(m.type()!=='error')return;const text=m.text();if(text.includes('favicon')||text.includes('link.aifusionautomations.com')||text.includes('link.msgsndr.com'))return;errors.push(text)});await page.goto(route,{waitUntil:'domcontentloaded'});await page.waitForTimeout(500);await expect(page.locator('h1')).toHaveCount(1);const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>document.documentElement.clientWidth);expect(overflow).toBe(false);expect(errors).toEqual([])});
 
 test('contact page embeds the enquiry form and keeps email and booking as secondary paths',async({page})=>{
   await page.goto('/contact.html');
@@ -16,6 +16,7 @@ test('contact page embeds the enquiry form and keeps email and booking as second
   await expect(email).toBeVisible();
   await expect(email).toHaveAttribute('href','mailto:grant@aifusionautomations.com');
   await expect(page.getByText('East Sussex, England')).toBeVisible();
+  await expect(page.locator('#main').getByRole('link',{name:'Book a call'})).toHaveAttribute('href','/book-a-call.html');
   await expect(page.locator('#main').getByRole('link',{name:'book a demo'})).toHaveAttribute('href',DEMO_URL);
   await page.waitForSelector('.aifa-global-nav');
   const nav=page.locator('.aifa-global-nav');
@@ -26,6 +27,19 @@ test('contact page embeds the enquiry form and keeps email and booking as second
   await expect(contact).toHaveAttribute('href','/contact.html');
   await expect(contact).toHaveAttribute('aria-current','page');
   await expect(page.locator('.aifa-global-footer').getByRole('link',{name:'Contact'})).toHaveAttribute('href','/contact.html');
+});
+
+test('book-a-call page embeds the 15-minute calendar and email fallback',async({page})=>{
+  await page.goto('/book-a-call.html');
+  await expect(page.getByRole('heading',{name:'Book a free 15-minute call'})).toBeVisible();
+  const calendar=page.locator('#ZYqocoHxZrNriUJgAEjg_1');
+  await expect(calendar).toBeVisible();
+  await expect(calendar).toHaveAttribute('src','https://link.aifusionautomations.com/widget/booking/ZYqocoHxZrNriUJgAEjg');
+  const email=page.locator('#main').getByRole('link',{name:'grant@aifusionautomations.com'});
+  await expect(email).toBeVisible();
+  await expect(email).toHaveAttribute('href','mailto:grant@aifusionautomations.com');
+  await expect(page.locator('#main')).not.toContainText(/Grant De Swardt/);
+  await expect.poll(()=>Boolean(page.frame({url:/widget\/booking\/ZYqocoHxZrNriUJgAEjg/})),{timeout:15000}).toBeTruthy();
 });
 
 test('review archive is explicit and accessible',async({page})=>{await page.goto('/reviews.html');await expect(page.getByRole('heading',{name:'Five-star feedback from people we helped.'})).toBeVisible();await expect(page.locator('.review-card')).toHaveCount(10);await expect(page.getByText('the original profile is no longer active')).toBeVisible();await page.addScriptTag({content:axeSource.source});const result=await page.evaluate(()=>axe.run(document));expect(result.violations.filter(v=>v.impact==='critical'||v.impact==='serious')).toEqual([])});

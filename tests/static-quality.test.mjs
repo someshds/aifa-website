@@ -86,6 +86,33 @@ test('archived reviews are transparent, attributable and do not claim live Googl
   assert.match(reviews,/Working with Grant has been a game-changer/);
 });
 
+test('book-a-call page embeds the GHL calendar with email as fallback', () => {
+  const page = fs.readFileSync(path.join(root, 'book-a-call.html'), 'utf8');
+  const copy = page
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  assert.match(page, /<title>Book a free 15-minute call \| AI Fusion<\/title>/);
+  assert.match(page, /<h1>Book a free 15-minute call<\/h1>/);
+  assert.equal((page.match(/<h1[\s>]/gi) || []).length, 1);
+  assert.match(page, /website, security or AI questions/);
+  assert.match(page, /no obligation/i);
+  assert.match(page, /ZYqocoHxZrNriUJgAEjg/);
+  assert.match(page, /link\.aifusionautomations\.com\/widget\/booking\/ZYqocoHxZrNriUJgAEjg/);
+  assert.match(page, /id="ZYqocoHxZrNriUJgAEjg_1"/);
+  assert.match(page, /link\.msgsndr\.com\/js\/form_embed\.js/);
+  assert.match(page, /Prefer email\?/);
+  assert.match(page, /mailto:grant@aifusionautomations\.com/);
+  assert.match(page, /href="\/book-a-call\.html"|canonical" href="https:\/\/www\.aifusionautomations\.com\/book-a-call\.html"/);
+  assert.doesNotMatch(page, /Grant De Swardt/);
+  assert.doesNotMatch(copy.replace(/grant@aifusionautomations\.com/gi, ''), /Grant/i);
+  assert.equal(/\*/.test(copy), false, 'book-a-call copy must not use asterisks');
+  const contact = fs.readFileSync(path.join(root, 'contact.html'), 'utf8');
+  assert.match(contact, /href="\/book-a-call\.html">Book a call<\/a>/);
+});
+
 test('contact page embeds the GHL enquiry form with email as fallback', () => {
   const contact = fs.readFileSync(path.join(root, 'contact.html'), 'utf8');
   const nav = fs.readFileSync(path.join(root, 'js/aifa-nav.js'), 'utf8');
@@ -103,6 +130,7 @@ test('contact page embeds the GHL enquiry form with email as fallback', () => {
   assert.doesNotMatch(contact, /support@/);
   assert.doesNotMatch(contact, /Somesh/i);
   assert.match(contact, /founder-priority-inbox-demo/);
+  assert.match(contact, /href="\/book-a-call\.html">Book a call<\/a>/);
   assert.match(loader, /t4FnzGSw0lcb4l1PFx8q/);
   assert.match(nav, /href="\/contact\.html">Contact<\/a>/);
   assert.doesNotMatch(nav, /href="\/#book">Contact<\/a>/);
