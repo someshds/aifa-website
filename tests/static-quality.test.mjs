@@ -241,6 +241,24 @@ test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
   assert.doesNotMatch(shop, />Buy</);
 });
 
+test('PHP2Shell standalone article is the newest hub card and keeps source links', () => {
+  const article = fs.readFileSync(path.join(root, 'news/2026-10-22-php2shell-small-business-websites.html'), 'utf8');
+  const cards = fs.readFileSync(path.join(root, 'news/brief-cards-1.js'), 'utf8');
+  const hub = fs.readFileSync(path.join(root, 'news/index.html'), 'utf8');
+  assert.match(article, /<h1>PHP2Shell: what the web's biggest security scramble means for your small business website<\/h1>/);
+  assert.match(article, /https:\/\/www\.cnbc\.com\/2026\/10\/21\/government-websites-go-dark-as-software-flaw-sparks-security-scramble\.html/);
+  assert.match(article, /https:\/\/www\.techtarget\.com\/cybersecurity\/news\/366652444\/PHP2Shell-22M-exposed-servers-at-risk-as-emergency-patches-released/);
+  assert.match(article, /https:\/\/www\.bbc\.com\/news\/articles\/cmly0lg3w5x2o/);
+  assert.match(article, /https:\/\/www\.rootshellsecurity\.net\/exploitcenter\/velmas-kev-report-october-2026\//);
+  assert.match(article, /og:image" content="https:\/\/www\.aifusionautomations\.com\/news\/img\/2026-10-13-longer-running-agents\.jpg"/);
+  const body = article.split('<article class="article-body">')[1].split('</article>')[0];
+  assert.doesNotMatch(body, /\*/);
+  assert.match(cards, /2026-10-22-php2shell-small-business-websites\.html/);
+  assert.ok(cards.indexOf('2026-10-22-php2shell-small-business-websites.html') < cards.indexOf('2026-10-20-hacker-ai-agents-100-websites-cairn.html'));
+  assert.match(hub, /136 archive stories/);
+  assert.match(hub, /Latest published brief: 22 Oct 2026/);
+});
+
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
   const xml=fs.readFileSync(path.join(root,'sitemap.xml'),'utf8');for(const file of indexed){const rel=path.relative(root,file).replaceAll(path.sep,'/');if(rel==='404.html')continue;const url=rel==='index.html'?'https://www.aifusionautomations.com/':rel.endsWith('/index.html')?`https://www.aifusionautomations.com/${rel.slice(0,-10)}`:`https://www.aifusionautomations.com/${rel}`;assert.ok(xml.includes(`<loc>${url}</loc>`),rel)}
 });
