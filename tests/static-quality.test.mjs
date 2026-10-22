@@ -269,10 +269,33 @@ test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
   assert.doesNotMatch(shop, />Buy</);
 });
 
-test('PHP2Shell standalone article is the newest hub card and keeps source links', () => {
-  const article = fs.readFileSync(path.join(root, 'news/2026-10-22-php2shell-small-business-websites.html'), 'utf8');
+test('22 Oct daily brief is the newest hub block and keeps pack copy', () => {
+  const gemini = fs.readFileSync(path.join(root, 'news/2026-10-22-gemini-small-business-hub.html'), 'utf8');
   const cards = fs.readFileSync(path.join(root, 'news/brief-cards-1.js'), 'utf8');
   const hub = fs.readFileSync(path.join(root, 'news/index.html'), 'utf8');
+  assert.match(gemini, /<h1>Google launches a Gemini hub for small business owners<\/h1>/);
+  assert.match(gemini, /https:\/\/blog\.google\/innovation-and-ai\/products\/gemini-app\/new-tools-small-business-owners\//);
+  assert.match(gemini, /og:image" content="https:\/\/www\.aifusionautomations\.com\/news\/img\/2026-10-13-longer-running-agents\.jpg"/);
+  assert.match(gemini, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
+  const body = gemini.split('<article class="article-body">')[1].split('</article>')[0];
+  assert.doesNotMatch(body, /\*/);
+  assert.doesNotMatch(body.replace(/grant@aifusionautomations\.com/gi, ''), /Grant/i);
+  assert.match(cards, /2026-10-22-gemini-small-business-hub\.html/);
+  assert.match(cards, /2026-10-22-mistral-voxtral-3-voice-agents\.html/);
+  assert.match(cards, /2026-10-22-openai-google-cloud-model-garden\.html/);
+  assert.match(cards, /2026-10-22-ai-fraud-warning-home-office-abta\.html/);
+  assert.match(cards, /2026-10-22-sail-taskforce-datacentre-compact\.html/);
+  assert.ok(cards.indexOf('2026-10-22-gemini-small-business-hub.html') < cards.indexOf('2026-10-22-php2shell-small-business-websites.html'));
+  assert.ok(cards.indexOf('2026-10-22-php2shell-small-business-websites.html') < cards.indexOf('2026-10-20-hacker-ai-agents-100-websites-cairn.html'));
+  assert.match(hub, /141 archive stories/);
+  assert.match(hub, /Latest published brief: 22 Oct 2026/);
+  assert.match(hub, /Gemini gets a small-business hub, as Mistral launches voice agents that take calls/);
+  assert.match(hub, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
+});
+
+test('PHP2Shell standalone article stays on the 22 Oct hub and keeps source links', () => {
+  const article = fs.readFileSync(path.join(root, 'news/2026-10-22-php2shell-small-business-websites.html'), 'utf8');
+  const cards = fs.readFileSync(path.join(root, 'news/brief-cards-1.js'), 'utf8');
   assert.match(article, /<h1>PHP2Shell: what the web's biggest security scramble means for your small business website<\/h1>/);
   assert.match(article, /https:\/\/www\.cnbc\.com\/2026\/10\/21\/government-websites-go-dark-as-software-flaw-sparks-security-scramble\.html/);
   assert.match(article, /https:\/\/www\.techtarget\.com\/cybersecurity\/news\/366652444\/PHP2Shell-22M-exposed-servers-at-risk-as-emergency-patches-released/);
@@ -282,9 +305,6 @@ test('PHP2Shell standalone article is the newest hub card and keeps source links
   const body = article.split('<article class="article-body">')[1].split('</article>')[0];
   assert.doesNotMatch(body, /\*/);
   assert.match(cards, /2026-10-22-php2shell-small-business-websites\.html/);
-  assert.ok(cards.indexOf('2026-10-22-php2shell-small-business-websites.html') < cards.indexOf('2026-10-20-hacker-ai-agents-100-websites-cairn.html'));
-  assert.match(hub, /136 archive stories/);
-  assert.match(hub, /Latest published brief: 22 Oct 2026/);
 });
 
 test('sitemap contains every indexed canonical URL and no noindex URL', () => {
