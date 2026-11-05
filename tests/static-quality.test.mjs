@@ -269,27 +269,59 @@ test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
   assert.doesNotMatch(shop, />Buy</);
 });
 
-test('22 Oct daily brief is the newest hub block and keeps pack copy', () => {
+test('5 Nov daily brief is the newest hub block and keeps pack copy', () => {
+  const bcc = fs.readFileSync(path.join(root, 'news/2026-11-05-bcc-ai-adoption-gdp-modelling.html'), 'utf8');
+  const fireworks = fs.readFileSync(path.join(root, 'news/2026-11-05-fireworks-era4-chesterfield-uk-open-models.html'), 'utf8');
+  const openwork = fs.readFileSync(path.join(root, 'news/2026-11-05-openwork-advisoryai-adviser-ai.html'), 'utf8');
+  const images = fs.readFileSync(path.join(root, 'news/2026-11-05-openai-images-2-6-gifs-chatgpt.html'), 'utf8');
+  const wired = fs.readFileSync(path.join(root, 'news/2026-11-05-wired-uk-ai-400bn-google-commissioned-figure.html'), 'utf8');
+  const cards = fs.readFileSync(path.join(root, 'news/brief-cards-1.js'), 'utf8');
+  const hub = fs.readFileSync(path.join(root, 'news/index.html'), 'utf8');
+  assert.match(bcc, /<h1>BCC: wider AI adoption could push UK GDP more than 10% higher by 2031<\/h1>/);
+  assert.match(bcc, /https:\/\/www\.britishchambers\.org\.uk\/news\/2026\/11\/wider-ai-adoption-could-boost-gdp-by-10\//);
+  assert.match(bcc, /og:image" content="https:\/\/www\.aifusionautomations\.com\/news\/img\/2026-10-13-longer-running-agents\.jpg"/);
+  assert.match(bcc, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
+  assert.match(fireworks, /<h1>Fireworks contracts Era4's 5MW Chesterfield site for UK-hosted open models<\/h1>/);
+  assert.match(openwork, /<h1>Openwork expands AI tools for advisers with AdvisoryAI<\/h1>/);
+  assert.match(images, /<h1>OpenAI launches Images 2\.6 with animated GIFs in ChatGPT<\/h1>/);
+  assert.match(wired, /<h1>WIRED: UK's £400bn AI boost figure mainly came from a Google-commissioned report<\/h1>/);
+  for (const article of [bcc, fireworks, openwork, images, wired]) {
+    const body = article.split('<article class="article-body">')[1].split('</article>')[0];
+    assert.doesNotMatch(body, /\*/);
+    assert.doesNotMatch(body.replace(/grant@aifusionautomations\.com/gi, ''), /Grant/i);
+    assert.doesNotMatch(body, /<strong>/);
+  }
+  assert.match(cards, /2026-11-05-bcc-ai-adoption-gdp-modelling\.html/);
+  assert.match(cards, /2026-11-05-fireworks-era4-chesterfield-uk-open-models\.html/);
+  assert.match(cards, /2026-11-05-openwork-advisoryai-adviser-ai\.html/);
+  assert.match(cards, /2026-11-05-openai-images-2-6-gifs-chatgpt\.html/);
+  assert.match(cards, /2026-11-05-wired-uk-ai-400bn-google-commissioned-figure\.html/);
+  assert.match(cards, /BCC modelling: wider AI adoption could lift UK GDP &gt;10% by 2031 \(4 Nov\)\./);
+  assert.match(cards, /treat GDP forecasts as scenarios; pick useful tools and keep a person approving|Scenarios not promises/);
+  assert.ok(cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html') < cards.indexOf('2026-10-22-gemini-small-business-hub.html'));
+  assert.ok(cards.indexOf('2026-10-22-gemini-small-business-hub.html') < cards.indexOf('2026-10-22-php2shell-small-business-websites.html'));
+  assert.doesNotMatch(cards, /2026-11-04-/);
+  assert.match(hub, /146 archive stories/);
+  assert.match(hub, /Latest published brief: 5 Nov 2026/);
+  assert.match(hub, /Adoption is the prize: GDP scenarios, adviser tools, GIFs and UK-hosted models/);
+  assert.match(hub, /UK AI talk is swinging from big GDP numbers to how firms actually adopt/);
+  assert.match(hub, /treat headline forecasts as scenarios not promises/);
+  assert.match(hub, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
+  assert.match(hub, /mailto:grant@aifusionautomations\.com/);
+});
+
+test('22 Oct daily brief stays in the hub archive', () => {
   const gemini = fs.readFileSync(path.join(root, 'news/2026-10-22-gemini-small-business-hub.html'), 'utf8');
   const cards = fs.readFileSync(path.join(root, 'news/brief-cards-1.js'), 'utf8');
   const hub = fs.readFileSync(path.join(root, 'news/index.html'), 'utf8');
   assert.match(gemini, /<h1>Google launches a Gemini hub for small business owners<\/h1>/);
   assert.match(gemini, /https:\/\/blog\.google\/innovation-and-ai\/products\/gemini-app\/new-tools-small-business-owners\//);
-  assert.match(gemini, /og:image" content="https:\/\/www\.aifusionautomations\.com\/news\/img\/2026-10-13-longer-running-agents\.jpg"/);
-  assert.match(gemini, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
-  const body = gemini.split('<article class="article-body">')[1].split('</article>')[0];
-  assert.doesNotMatch(body, /\*/);
-  assert.doesNotMatch(body.replace(/grant@aifusionautomations\.com/gi, ''), /Grant/i);
   assert.match(cards, /2026-10-22-gemini-small-business-hub\.html/);
   assert.match(cards, /2026-10-22-mistral-voxtral-3-voice-agents\.html/);
   assert.match(cards, /2026-10-22-openai-google-cloud-model-garden\.html/);
   assert.match(cards, /2026-10-22-ai-fraud-warning-home-office-abta\.html/);
   assert.match(cards, /2026-10-22-sail-taskforce-datacentre-compact\.html/);
-  assert.ok(cards.indexOf('2026-10-22-gemini-small-business-hub.html') < cards.indexOf('2026-10-22-php2shell-small-business-websites.html'));
-  assert.ok(cards.indexOf('2026-10-22-php2shell-small-business-websites.html') < cards.indexOf('2026-10-20-hacker-ai-agents-100-websites-cairn.html'));
-  assert.match(hub, /141 archive stories/);
-  assert.match(hub, /Latest published brief: 22 Oct 2026/);
-  assert.match(hub, /Gemini gets a small-business hub, as Mistral launches voice agents that take calls/);
+  assert.match(hub, /22 Oct sources: Google \(Gemini small-business hub\)/);
   assert.match(hub, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
 });
 
