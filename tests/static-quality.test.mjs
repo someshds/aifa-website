@@ -269,7 +269,58 @@ test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
   assert.doesNotMatch(shop, />Buy</);
 });
 
-test('5 Nov daily brief is the newest hub block and keeps pack copy', () => {
+test('6 Nov daily brief is the newest hub block and keeps pack copy', () => {
+  const openai = fs.readFileSync(path.join(root, 'news/2026-11-06-openai-gpt-6-cyber.html'), 'utf8');
+  const palo = fs.readFileSync(path.join(root, 'news/2026-11-06-palo-alto-clutch-agent-security-talks.html'), 'utf8');
+  const dropbox = fs.readFileSync(path.join(root, 'news/2026-11-06-dropbox-tigris-dbx-agent-cloud.html'), 'utf8');
+  const perplexity = fs.readFileSync(path.join(root, 'news/2026-11-06-perplexity-teammates-launch.html'), 'utf8');
+  const mistral = fs.readFileSync(path.join(root, 'news/2026-11-06-mistral-studio-managed-agents-apps.html'), 'utf8');
+  const cards = fs.readFileSync(path.join(root, 'news/brief-cards-1.js'), 'utf8');
+  const hub = fs.readFileSync(path.join(root, 'news/index.html'), 'utf8');
+  assert.match(openai, /<h1>OpenAI launches GPT-6 Cyber for authorised vulnerability research<\/h1>/);
+  assert.match(openai, /https:\/\/openai\.com\/index\/introducing-gpt-6-cyber/);
+  assert.match(openai, /og:image" content="https:\/\/www\.aifusionautomations\.com\/news\/img\/2026-10-13-longer-running-agents\.jpg"/);
+  assert.match(openai, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
+  assert.match(palo, /<h1>Palo Alto Networks in talks to buy Clutch Security for about \$500m<\/h1>/);
+  assert.match(palo, /https:\/\/techcrunch\.com\/2026\/11\/05\/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m\//);
+  assert.match(dropbox, /<h1>Dropbox plans to acquire Tigris Data for about \$350m to back DBX Agent Cloud<\/h1>/);
+  assert.match(dropbox, /https:\/\/blog\.dropbox\.com\/topics\/company\/dropboxs-next-chapter/);
+  assert.match(dropbox, /https:\/\/techcrunch\.com\/2026\/11\/05\/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure\//);
+  assert.match(perplexity, /<h1>Perplexity launches Teammates — always-on agents for ongoing work<\/h1>/);
+  assert.match(perplexity, /https:\/\/www\.perplexity\.ai\/hub\/blog\/teammates-are-agents-for-complex-ongoing-work/);
+  assert.match(mistral, /<h1>Mistral expands Studio with managed agents and enterprise apps<\/h1>/);
+  assert.match(mistral, /https:\/\/mistral\.ai\/news\/build-with-studio\//);
+  for (const article of [openai, palo, dropbox, perplexity, mistral]) {
+    const body = article.split('<article class="article-body">')[1].split('</article>')[0];
+    assert.doesNotMatch(body, /\*/);
+    assert.doesNotMatch(body.replace(/grant@aifusionautomations\.com/gi, ''), /Grant/i);
+    assert.doesNotMatch(body, /<strong>/);
+  }
+  assert.match(cards, /2026-11-06-openai-gpt-6-cyber\.html/);
+  assert.match(cards, /2026-11-06-palo-alto-clutch-agent-security-talks\.html/);
+  assert.match(cards, /2026-11-06-dropbox-tigris-dbx-agent-cloud\.html/);
+  assert.match(cards, /2026-11-06-perplexity-teammates-launch\.html/);
+  assert.match(cards, /2026-11-06-mistral-studio-managed-agents-apps\.html/);
+  assert.match(cards, /OpenAI GPT-6 Cyber for authorised scoped vulnerability research \(5 Nov\)\./);
+  assert.match(cards, /Palo Alto Networks in talks to buy Clutch Security ~\$500m \(5 Nov\)\./);
+  assert.match(cards, /Dropbox plans to acquire Tigris Data ~\$350m for DBX Agent Cloud \(5 Nov\)\./);
+  assert.match(cards, /Perplexity Teammates always-on work agents \(4–5 Nov\)\./);
+  assert.match(cards, /Mistral Studio managed agents and enterprise apps \(5 Nov\)\./);
+  assert.match(cards, /agents are useful with limited access, logged actions, and a person approving live sends/);
+  assert.ok(cards.indexOf('2026-11-06-openai-gpt-6-cyber.html') < cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html'));
+  assert.ok(cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html') < cards.indexOf('2026-10-22-gemini-small-business-hub.html'));
+  assert.doesNotMatch(cards, /2026-11-04-/);
+  assert.doesNotMatch(cards, /2026-11-03-/);
+  assert.match(hub, /151 archive stories/);
+  assert.match(hub, /Latest published brief: 6 Nov 2026/);
+  assert.match(hub, /Always-on agents need access controls: cyber tools, M&amp;A talks, storage plans and Studio/);
+  assert.match(hub, /Always-on agents are moving into real business systems: files, security gates, and long-running work/);
+  assert.match(hub, /who approves access, what stays read-only/);
+  assert.match(hub, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
+  assert.match(hub, /mailto:grant@aifusionautomations\.com/);
+});
+
+test('5 Nov daily brief stays in the hub archive', () => {
   const bcc = fs.readFileSync(path.join(root, 'news/2026-11-05-bcc-ai-adoption-gdp-modelling.html'), 'utf8');
   const fireworks = fs.readFileSync(path.join(root, 'news/2026-11-05-fireworks-era4-chesterfield-uk-open-models.html'), 'utf8');
   const openwork = fs.readFileSync(path.join(root, 'news/2026-11-05-openwork-advisoryai-adviser-ai.html'), 'utf8');
@@ -297,17 +348,8 @@ test('5 Nov daily brief is the newest hub block and keeps pack copy', () => {
   assert.match(cards, /2026-11-05-openai-images-2-6-gifs-chatgpt\.html/);
   assert.match(cards, /2026-11-05-wired-uk-ai-400bn-google-commissioned-figure\.html/);
   assert.match(cards, /BCC modelling: wider AI adoption could lift UK GDP &gt;10% by 2031 \(4 Nov\)\./);
-  assert.match(cards, /treat GDP forecasts as scenarios; pick useful tools and keep a person approving|Scenarios not promises/);
-  assert.ok(cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html') < cards.indexOf('2026-10-22-gemini-small-business-hub.html'));
-  assert.ok(cards.indexOf('2026-10-22-gemini-small-business-hub.html') < cards.indexOf('2026-10-22-php2shell-small-business-websites.html'));
-  assert.doesNotMatch(cards, /2026-11-04-/);
-  assert.match(hub, /146 archive stories/);
-  assert.match(hub, /Latest published brief: 5 Nov 2026/);
-  assert.match(hub, /Adoption is the prize: GDP scenarios, adviser tools, GIFs and UK-hosted models/);
-  assert.match(hub, /UK AI talk is swinging from big GDP numbers to how firms actually adopt/);
-  assert.match(hub, /treat headline forecasts as scenarios not promises/);
+  assert.match(hub, /5 Nov sources: British Chambers of Commerce \(AI adoption GDP modelling\)/);
   assert.match(hub, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
-  assert.match(hub, /mailto:grant@aifusionautomations\.com/);
 });
 
 test('22 Oct daily brief stays in the hub archive', () => {
