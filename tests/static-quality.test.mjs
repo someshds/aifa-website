@@ -269,7 +269,65 @@ test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
   assert.doesNotMatch(shop, />Buy</);
 });
 
-test('6 Nov daily brief is the newest hub block and keeps pack copy', () => {
+test('10 Nov daily brief is the newest hub block and keeps pack copy', () => {
+  const fable = fs.readFileSync(path.join(root, 'news/2026-11-10-anthropic-claude-fable-mythos-5-2.html'), 'utf8');
+  const ember = fs.readFileSync(path.join(root, 'news/2026-11-10-meta-muse-ember.html'), 'utf8');
+  const otter = fs.readFileSync(path.join(root, 'news/2026-11-10-otter-ai-27-languages.html'), 'utf8');
+  const wyndham = fs.readFileSync(path.join(root, 'news/2026-11-10-wyndham-app-password.html'), 'utf8');
+  const policy = fs.readFileSync(path.join(root, 'news/2026-11-10-anthropic-usage-policy-update.html'), 'utf8');
+  const cards = fs.readFileSync(path.join(root, 'news/brief-cards-1.js'), 'utf8');
+  const hub = fs.readFileSync(path.join(root, 'news/index.html'), 'utf8');
+  assert.match(fable, /<h1>Anthropic releases Claude Fable 5\.2 and Claude Mythos 5\.2<\/h1>/);
+  assert.match(fable, /https:\/\/www\.anthropic\.com\/claude-fable-and-mythos-5-2/);
+  assert.match(fable, /https:\/\/www\.cnbc\.com\/2026\/11\/09\/anthropic-claude-fable-5-2-mythos-5-2\.html/);
+  assert.match(fable, /og:image" content="https:\/\/www\.aifusionautomations\.com\/news\/img\/2026-10-13-longer-running-agents\.jpg"/);
+  assert.match(fable, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
+  assert.match(fable, /CNBC reports this is 20% less than 5\.1/);
+  assert.match(ember, /<h1>Meta launches Muse Ember, a low-cost model for repeat agent work<\/h1>/);
+  assert.match(ember, /https:\/\/research\.meta\.ai\/blog\/muse-ember/);
+  assert.match(ember, /these are Meta's own comparisons/);
+  assert.match(otter, /<h1>Otter\.ai adds 27 languages, with language-switching transcription coming soon<\/h1>/);
+  assert.match(otter, /13 new languages are available now/);
+  assert.match(otter, /14 are coming soon/);
+  assert.match(wyndham, /<h1>Wyndham app password exposed customer database, TechCrunch reports<\/h1>/);
+  assert.match(wyndham, /no evidence of any unauthorised access/);
+  assert.match(policy, /<h1>Anthropic's updated Usage Policy takes effect on Thursday 12 November<\/h1>/);
+  assert.match(policy, /https:\/\/www\.anthropic\.com\/news\/2026-usage-policy-update/);
+  assert.match(policy, /takes effect on 12 November/);
+  for (const article of [fable, ember, otter, wyndham, policy]) {
+    const body = article.split('<article class="article-body">')[1].split('</article>')[0];
+    assert.doesNotMatch(body, /\*/);
+    assert.doesNotMatch(body.replace(/grant@aifusionautomations\.com/gi, ''), /Grant/i);
+    assert.doesNotMatch(body, /<strong>/);
+  }
+  assert.match(cards, /2026-11-10-anthropic-claude-fable-mythos-5-2\.html/);
+  assert.match(cards, /2026-11-10-meta-muse-ember\.html/);
+  assert.match(cards, /2026-11-10-otter-ai-27-languages\.html/);
+  assert.match(cards, /2026-11-10-wyndham-app-password\.html/);
+  assert.match(cards, /2026-11-10-anthropic-usage-policy-update\.html/);
+  assert.match(cards, /Anthropic releases Claude Fable 5\.2 and Claude Mythos 5\.2/);
+  assert.match(cards, /Meta launches Muse Ember, a low-cost model for repeat agent work/);
+  assert.match(cards, /Otter\.ai adds 27 languages, with language-switching transcription coming soon/);
+  assert.match(cards, /Wyndham app password exposed customer database, TechCrunch reports/);
+  assert.match(cards, /Anthropic's updated Usage Policy takes effect on Thursday 12 November/);
+  assert.match(cards, /Big models for hard problems, cheap models for repeat work, and the same basics either way/);
+  assert.ok(cards.indexOf('2026-11-10-anthropic-claude-fable-mythos-5-2.html') < cards.indexOf('2026-11-06-openai-gpt-6-cyber.html'));
+  assert.ok(cards.indexOf('2026-11-06-openai-gpt-6-cyber.html') < cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html'));
+  assert.ok(cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html') < cards.indexOf('2026-10-22-gemini-small-business-hub.html'));
+  assert.doesNotMatch(cards, /2026-11-09-/);
+  assert.doesNotMatch(cards, /2026-11-07-/);
+  assert.doesNotMatch(cards, /2026-11-04-/);
+  assert.doesNotMatch(cards, /2026-11-03-/);
+  assert.match(hub, /156 archive stories/);
+  assert.match(hub, /Latest published brief: 10 Nov 2026/);
+  assert.match(hub, /Right tool, clear rules: Fable 5\.2, Muse Ember, Otter languages, a hardcoded password and Anthropic's policy update/);
+  assert.match(hub, /The big new models are for hard problems, the cheap ones are for the repeat work/);
+  assert.match(hub, /10 Nov sources: Anthropic and CNBC \(Fable \/ Mythos 5\.2\)/);
+  assert.match(hub, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
+  assert.match(hub, /mailto:grant@aifusionautomations\.com/);
+});
+
+test('6 Nov daily brief stays in the hub archive', () => {
   const openai = fs.readFileSync(path.join(root, 'news/2026-11-06-openai-gpt-6-cyber.html'), 'utf8');
   const palo = fs.readFileSync(path.join(root, 'news/2026-11-06-palo-alto-clutch-agent-security-talks.html'), 'utf8');
   const dropbox = fs.readFileSync(path.join(root, 'news/2026-11-06-dropbox-tigris-dbx-agent-cloud.html'), 'utf8');
@@ -306,18 +364,8 @@ test('6 Nov daily brief is the newest hub block and keeps pack copy', () => {
   assert.match(cards, /Dropbox plans to acquire Tigris Data ~\$350m for DBX Agent Cloud \(5 Nov\)\./);
   assert.match(cards, /Perplexity Teammates always-on work agents \(4–5 Nov\)\./);
   assert.match(cards, /Mistral Studio managed agents and enterprise apps \(5 Nov\)\./);
-  assert.match(cards, /agents are useful with limited access, logged actions, and a person approving live sends/);
-  assert.ok(cards.indexOf('2026-11-06-openai-gpt-6-cyber.html') < cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html'));
-  assert.ok(cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html') < cards.indexOf('2026-10-22-gemini-small-business-hub.html'));
-  assert.doesNotMatch(cards, /2026-11-04-/);
-  assert.doesNotMatch(cards, /2026-11-03-/);
-  assert.match(hub, /151 archive stories/);
-  assert.match(hub, /Latest published brief: 6 Nov 2026/);
-  assert.match(hub, /Always-on agents need access controls: cyber tools, M&amp;A talks, storage plans and Studio/);
-  assert.match(hub, /Always-on agents are moving into real business systems: files, security gates, and long-running work/);
-  assert.match(hub, /who approves access, what stays read-only/);
+  assert.match(hub, /6 Nov sources: OpenAI \(GPT-6 Cyber\)/);
   assert.match(hub, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
-  assert.match(hub, /mailto:grant@aifusionautomations\.com/);
 });
 
 test('5 Nov daily brief stays in the hub archive', () => {
