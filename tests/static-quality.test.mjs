@@ -269,7 +269,74 @@ test('demo and webinar CTAs use the live Email Re-imagined funnel URLs', () => {
   assert.doesNotMatch(shop, />Buy</);
 });
 
-test('10 Nov daily brief is the newest hub block and keeps pack copy', () => {
+test('12 Nov daily brief is the newest hub block and keeps pack copy', () => {
+  const ico = fs.readFileSync(path.join(root, 'news/2026-11-12-ico-ai-assisted-sars.html'), 'utf8');
+  const claude = fs.readFileSync(path.join(root, 'news/2026-11-12-claude-interactive-connectors.html'), 'utf8');
+  const voice = fs.readFileSync(path.join(root, 'news/2026-11-12-chatgpt-voice-retirement.html'), 'utf8');
+  const vapi = fs.readFileSync(path.join(root, 'news/2026-11-12-vapi-agent-loop.html'), 'utf8');
+  const nod = fs.readFileSync(path.join(root, 'news/2026-11-12-n8n-nod.html'), 'utf8');
+  const cards = fs.readFileSync(path.join(root, 'news/brief-cards-1.js'), 'utf8');
+  const hub = fs.readFileSync(path.join(root, 'news/index.html'), 'utf8');
+  assert.match(ico, /<h1>ICO publishes guidance on AI-assisted subject access requests<\/h1>/);
+  assert.match(ico, /https:\/\/ico\.org\.uk\/for-organisations\/uk-gdpr-guidance-and-resources\/subject-access-requests\/subject-access-requests-generated-by-artificial-intelligence\//);
+  assert.match(ico, /og:image" content="https:\/\/www\.aifusionautomations\.com\/news\/img\/2026-10-13-longer-running-agents\.jpg"/);
+  assert.match(ico, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
+  assert.match(ico, /isn't invalid just because someone used AI to draft it/);
+  assert.match(claude, /<h1>Claude can now open your apps beside the chat and work in them<\/h1>/);
+  assert.match(claude, /https:\/\/claude\.com\/resources\/articles\/interactive-connectors-full-tool/);
+  assert.match(claude, /Anthropic announcement, 10 November 2026 \("Starting today"\)/);
+  assert.match(claude, /Rolling out on the web and Claude desktop app on all plans/);
+  assert.match(voice, /<h1>OpenAI is retiring ChatGPT's Advanced and Standard voice on 11 December<\/h1>/);
+  assert.match(voice, /https:\/\/help\.openai\.com\/en\/articles\/20001638-retiring-advanced-and-standard-voice-in-chatgpt/);
+  assert.match(voice, /https:\/\/help\.openai\.com\/en\/articles\/6825453-chatgpt-release-notes/);
+  assert.match(voice, /anyone who selected them will default to Live voice/);
+  assert.match(vapi, /<h1>Vapi opens early access to Agent Loop for self-improving voice agents<\/h1>/);
+  assert.match(vapi, /https:\/\/vapi\.ai\/blog\/agent-loop-launch/);
+  assert.match(vapi, /Agent Loop is in early access, with general availability planned for early 2027/);
+  assert.match(nod, /<h1>n8n Labs releases Nod, an open-source personal agent<\/h1>/);
+  assert.match(nod, /https:\/\/blog\.n8n\.io\/meet-nod\//);
+  assert.match(nod, /https:\/\/github\.com\/n8n-io\/nod/);
+  assert.match(nod, /some early testers found tasks cost more than expected/);
+  assert.match(nod, /the approval check is itself a model and can make mistakes/);
+  for (const article of [ico, claude, voice, vapi, nod]) {
+    const body = article.split('<article class="article-body">')[1].split('</article>')[0];
+    assert.doesNotMatch(body, /\*/);
+    assert.doesNotMatch(body.replace(/grant@aifusionautomations\.com/gi, ''), /Grant/i);
+    assert.doesNotMatch(body, /<strong>/);
+  }
+  assert.match(cards, /2026-11-12-ico-ai-assisted-sars\.html/);
+  assert.match(cards, /2026-11-12-claude-interactive-connectors\.html/);
+  assert.match(cards, /2026-11-12-chatgpt-voice-retirement\.html/);
+  assert.match(cards, /2026-11-12-vapi-agent-loop\.html/);
+  assert.match(cards, /2026-11-12-n8n-nod\.html/);
+  assert.match(cards, /ICO publishes guidance on AI-assisted subject access requests/);
+  assert.match(cards, /Claude can now open your apps beside the chat and work in them/);
+  assert.match(cards, /OpenAI is retiring ChatGPT's Advanced and Standard voice on 11 December/);
+  assert.match(cards, /Vapi opens early access to Agent Loop for self-improving voice agents/);
+  assert.match(cards, /n8n Labs releases Nod, an open-source personal agent/);
+  assert.match(cards, /Keep things simple and clear, and keep a person approving anything that matters/);
+  assert.match(cards, /anyone who selected them will default to Live voice/);
+  assert.match(cards, /Agent Loop is in early access/);
+  assert.match(cards, /Starting today/);
+  assert.ok(cards.indexOf('2026-11-12-ico-ai-assisted-sars.html') < cards.indexOf('2026-11-10-anthropic-claude-fable-mythos-5-2.html'));
+  assert.ok(cards.indexOf('2026-11-10-anthropic-claude-fable-mythos-5-2.html') < cards.indexOf('2026-11-06-openai-gpt-6-cyber.html'));
+  assert.ok(cards.indexOf('2026-11-06-openai-gpt-6-cyber.html') < cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html'));
+  assert.ok(cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html') < cards.indexOf('2026-10-22-gemini-small-business-hub.html'));
+  assert.doesNotMatch(cards, /2026-11-11-/);
+  assert.doesNotMatch(cards, /2026-11-09-/);
+  assert.doesNotMatch(cards, /2026-11-07-/);
+  assert.doesNotMatch(cards, /2026-11-04-/);
+  assert.doesNotMatch(cards, /2026-11-03-/);
+  assert.match(hub, /161 archive stories/);
+  assert.match(hub, /Latest published brief: 12 Nov 2026/);
+  assert.match(hub, /AI is doing the asking and the doing: ICO on AI-written SARs, Claude inside your apps, ChatGPT voice changes, Vapi Agent Loop and n8n Nod/);
+  assert.match(hub, /AI is now doing the asking and the doing\. Customers use AI to write formal requests to you/);
+  assert.match(hub, /12 Nov sources: ICO; Anthropic; OpenAI Help Center; Vapi; n8n/);
+  assert.match(hub, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
+  assert.match(hub, /mailto:grant@aifusionautomations\.com/);
+});
+
+test('10 Nov daily brief stays in the hub archive', () => {
   const fable = fs.readFileSync(path.join(root, 'news/2026-11-10-anthropic-claude-fable-mythos-5-2.html'), 'utf8');
   const ember = fs.readFileSync(path.join(root, 'news/2026-11-10-meta-muse-ember.html'), 'utf8');
   const otter = fs.readFileSync(path.join(root, 'news/2026-11-10-otter-ai-27-languages.html'), 'utf8');
@@ -310,21 +377,8 @@ test('10 Nov daily brief is the newest hub block and keeps pack copy', () => {
   assert.match(cards, /Otter\.ai adds 27 languages, with language-switching transcription coming soon/);
   assert.match(cards, /Wyndham app password exposed customer database, TechCrunch reports/);
   assert.match(cards, /Anthropic's updated Usage Policy takes effect on Thursday 12 November/);
-  assert.match(cards, /Big models for hard problems, cheap models for repeat work, and the same basics either way/);
-  assert.ok(cards.indexOf('2026-11-10-anthropic-claude-fable-mythos-5-2.html') < cards.indexOf('2026-11-06-openai-gpt-6-cyber.html'));
-  assert.ok(cards.indexOf('2026-11-06-openai-gpt-6-cyber.html') < cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html'));
-  assert.ok(cards.indexOf('2026-11-05-bcc-ai-adoption-gdp-modelling.html') < cards.indexOf('2026-10-22-gemini-small-business-hub.html'));
-  assert.doesNotMatch(cards, /2026-11-09-/);
-  assert.doesNotMatch(cards, /2026-11-07-/);
-  assert.doesNotMatch(cards, /2026-11-04-/);
-  assert.doesNotMatch(cards, /2026-11-03-/);
-  assert.match(hub, /156 archive stories/);
-  assert.match(hub, /Latest published brief: 10 Nov 2026/);
-  assert.match(hub, /Right tool, clear rules: Fable 5\.2, Muse Ember, Otter languages, a hardcoded password and Anthropic's policy update/);
-  assert.match(hub, /The big new models are for hard problems, the cheap ones are for the repeat work/);
   assert.match(hub, /10 Nov sources: Anthropic and CNBC \(Fable \/ Mythos 5\.2\)/);
   assert.match(hub, /https:\/\/www\.aifusionautomations\.com\/book-a-call\.html/);
-  assert.match(hub, /mailto:grant@aifusionautomations\.com/);
 });
 
 test('6 Nov daily brief stays in the hub archive', () => {
