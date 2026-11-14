@@ -104,6 +104,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-s
 .hero{position:relative;z-index:1;padding:5rem 1.5rem 3rem;text-align:center;max-width:860px;margin:0 auto}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.3);color:var(--primary-light);font-size:.8rem;font-weight:600;padding:.4rem 1rem;border-radius:20px;margin-bottom:1.5rem}
 .hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,var(--primary-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero h1.hero-h1 .hero-badge{display:flex;width:fit-content;max-width:100%;margin-inline:auto;line-height:1.6;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.14em;-webkit-text-fill-color:currentColor}
+.hero-h1-main{display:block}
 .hero p{font-size:1.1rem;color:var(--text-muted);max-width:640px;margin:0 auto 2rem}
 .hero-stat{display:inline-block;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);color:#34d399;font-size:.9rem;font-weight:600;padding:.6rem 1.25rem;border-radius:12px;margin-bottom:2rem}
 .btn-group{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
@@ -231,8 +233,10 @@ footer a{color:var(--primary-light);text-decoration:none}
 
 <!-- ── HERO ── -->
 <div class="hero">
-  <div class="hero-badge">&#129302; Organisational intelligence infrastructure</div>
-  <h1>Build the capability before you choose the tools</h1>
+  <h1 class="hero-h1">
+    <span class="hero-badge">&#129302; AI operating system for small business</span>
+    <span class="hero-h1-main">Build the capability before you choose the tools</span>
+  </h1>
   <p>An AI Operating System adds a deliberate layer of intelligence across your strategy, workflows, data, systems and people—with training and governance built in.</p>
   <div class="hero-stat">Capability first · Tool second · People brought along</div>
   <div class="btn-group">
