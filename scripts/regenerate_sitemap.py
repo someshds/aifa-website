@@ -46,6 +46,7 @@ PRIORITY_RULES = [
     (re.compile(r"^/products/$"), 0.9, "monthly"),
     (re.compile(r"^/products/.+\.html$"), 0.8, "monthly"),
     (re.compile(r"^/case-study-.+\.html$"), 0.85, "monthly"),
+    (re.compile(r"^/ai-consultant-east-grinstead/$"), 0.8, "monthly"),
     (re.compile(r"^/about\.html$"), 0.7, "monthly"),
     (re.compile(r"^/contact\.html$"), 0.7, "monthly"),
     (re.compile(r"^/book-a-call\.html$"), 0.7, "monthly"),
