@@ -76,6 +76,7 @@
     '      <div class="aifa-footer-column">',
     '        <h2>Company</h2>',
     '        <a href="/about.html">About Grant &amp; AIFA</a>',
+    '        <a href="/ai-consultant-east-grinstead/">AI consultant in East Grinstead</a>',
     '        <a href="/case-study-10-international.html">Case study</a>',
     '        <a href="/reviews.html">Client reviews</a>',
     '        <a href="/blog/">Blog</a>',
