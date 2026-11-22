@@ -38,6 +38,18 @@
   .section p:last-child{margin-bottom:0}
   .highlight{color:var(--text);font-weight:600}
 
+  /* Credentials */
+  .credentials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.25rem}
+  .credential-card{display:flex;flex-direction:column;background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:1.25rem}
+  .credential-card h3{font-size:.95rem;line-height:1.4;margin-bottom:.5rem}
+  .credential-card p{font-size:.78rem;line-height:1.5;margin-bottom:.9rem}
+  .credential-card a{font-size:.8rem;font-weight:700;margin-top:auto}
+  .credential-proof{margin-top:1rem;font-size:.78rem!important}
+  .credential-visual{margin:1.25rem 0 0}
+  .credential-visual img{width:100%;border-radius:16px;border:1px solid var(--border)}
+  .credential-visual figcaption{color:var(--text-muted);font-size:.72rem;margin-top:.5rem;text-align:center}
+  @media(max-width:700px){.credentials-grid{grid-template-columns:1fr}}
+
   /* Card */
   .card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;margin-bottom:1.5rem}
 
@@ -79,21 +91,16 @@
 <link rel="stylesheet" href="/css/aifa-katalyst.css?v=phase-4">
 <link rel="stylesheet" href="/css/aifa-privacy-v1.css">
 <script src="/js/aifa-tracking.js" defer></script>
-<link rel="manifest" href="/manifest.json" />
-<meta name="theme-color" content="#0e0b1f" />
-<meta name="application-name" content="AI FUSION" />
-<meta name="apple-mobile-web-app-title" content="AI FUSION" />
-<script src="/js/pwa.js" defer></script>
 </head>
 <body>
 <div class="gradient-bg"></div>
 
 <nav class="nav" aria-label="Primary">
-  <a href="/" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <div class="nav-logo-icon">⚡</div>
     <div class="nav-logo-text">AI Fusion</div>
   </a>
-  <a href="/" class="nav-back">&larr; Back to Home</a>
+  <a href="index.html" class="nav-back">&larr; Back to Home</a>
 </nav>
 
 <div class="container">
@@ -108,6 +115,34 @@
     <h2><span class="icon" style="background:rgba(124,58,237,.12)">👋</span> Who we are</h2>
     <p>AI Fusion was founded by <span class="highlight">Grant De Swardt</span>, based in East Sussex, England. Grant works with business owners and teams to identify where intelligence can create value, what to build first and how to make the change stick.</p>
     <p>The work starts with the business—not a platform. Grant assesses the workflows, systems, data, team, risks and opportunities before recommending technology. If better data, training, ordinary automation or a simpler process is the answer, he will say so.</p>
+  </section>
+
+  <!-- Verified credentials -->
+  <section class="section" id="credentials">
+    <h2><span class="icon" style="background:rgba(16,185,129,.12)">✓</span> Verified credentials</h2>
+    <p>On 20 November 2026, Grant completed three credentials in the AI Assisted Consultant Certification programme. They add structured consulting, implementation and data practice to the operating experience behind AI Fusion.</p>
+    <figure class="credential-visual">
+      <img src="/img/campaigns/ai-fusion-certification-announcement-square-v1.png" alt="Grant De Swardt's AI Consultant, AI Implementor Level 1 and Data Specialist credentials" width="1024" height="1024" loading="lazy">
+      <figcaption>Three independently verifiable credentials, issued 20 November 2026.</figcaption>
+    </figure>
+    <div class="credentials-grid">
+      <article class="credential-card">
+        <h3>AI Consultant</h3>
+        <p>AI Assisted Consultant Certification</p>
+        <a href="https://certified.industryrockstar.com/6953316c-cb43-4920-b209-8b661b1fa7b8" target="_blank" rel="noopener noreferrer">Verify credential →</a>
+      </article>
+      <article class="credential-card">
+        <h3>AI Implementor — Level 1</h3>
+        <p>AI Assisted Consultant Certification</p>
+        <a href="https://certified.industryrockstar.com/66428127-89a4-466f-8f81-138ee6d2f5f6" target="_blank" rel="noopener noreferrer">Verify credential →</a>
+      </article>
+      <article class="credential-card">
+        <h3>Data Specialist</h3>
+        <p>AI Assisted Consultant Certification</p>
+        <a href="https://certified.industryrockstar.com/ff5ecbfe-0bc6-410b-9740-9f347fdcbfff" target="_blank" rel="noopener noreferrer">Verify credential →</a>
+      </article>
+    </div>
+    <p class="credential-proof">Credentials are independently hosted and verifiable through Accredible. They support—but do not replace—the practical, evidence-led assessment AI Fusion applies to every engagement.</p>
   </section>
 
   <!-- What we do -->
@@ -172,7 +207,7 @@
     </div>
     <div class="card">
       <p><strong style="color:var(--text)">Free Tools — Used by Businesses Across the UK</strong></p>
-      <p>Our suite of free business tools — including the <a href="/roi-calculator-v2.0.html">ROI Calculator</a>, <a href="review-booster.html">Google Review Booster</a>, <a href="analyser.html">Business Analyser</a>, and <a href="boxleague-pro.html">BoxLeague Pro</a> — demonstrates our commitment to helping businesses before asking for anything in return.</p>
+      <p>Our suite of free business tools — including the <a href="roi-calculator.html">ROI Calculator</a>, <a href="review-booster.html">Google Review Booster</a>, <a href="analyser.html">Business Analyser</a>, and <a href="boxleague-pro.html">BoxLeague Pro</a> — demonstrates our commitment to helping businesses before asking for anything in return.</p>
     </div>
   </section>
 
@@ -180,18 +215,18 @@
   <div class="cta-box">
     <h2>Find the right first move for your business.</h2>
     <p>Book a short AI strategy call. We’ll identify the single highest-value place AI or automation could help first and map a safe next step.</p>
-    <a href="https://email-reimagined.com/founder-priority-inbox-demo" class="btn btn-primary">Book a demo</a>
+    <a href="strategy-call.html" class="btn btn-primary">Book Your AI Strategy Call →</a>
   </div>
 
   <!-- Footer -->
   <div class="footer">
-    <p style="margin-bottom:.5rem"><a href="/">AI Fusion</a> · East Sussex, UK</p>
+    <p style="margin-bottom:.5rem"><a href="index.html">AI Fusion</a> · East Sussex, UK</p>
     <p><a href="privacy-policy-aifa.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="earnings-disclaimer.html">Earnings Disclaimer</a></p>
     <p style="margin-top:.75rem;font-size:.75rem">© 2026 AI Fusion. All rights reserved.</p>
   </div>
 
 </div>
 
-<script src="/js/aifa-nav.js?v=demo-funnel-v1" defer></script>
+<script src="/js/aifa-nav.js?v=site-chrome-v3" defer></script>
 </body>
 </html>
